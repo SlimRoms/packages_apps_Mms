@@ -41,4 +41,13 @@
     <item msgid="8479809115158836070">"Ухмылка"</item>
     <item msgid="638612939305162424">"Невозмутимость"</item>
   </string-array>
+
+  <string-array name="pref_mms_notification_vibrate_pattern_entries">
+    <item>Нормальный</item>
+    <item>Средняя вибрация</item>
+    <item>Длинная вибрация</item>
+    <item>Несколько коротких</item>
+    <item>Несколько длинных</item>
+    <item>@string/pref_title_mms_notification_vibrate_custom</item>
+  </string-array>
 </resources>

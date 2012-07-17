@@ -343,4 +343,51 @@
     <string name="attachment_picture" msgid="3709286281567284296">"Картинка"</string>
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
+
+    <string name="pref_title_sms_split_counter">Счётчик фрагментов</string>
+    <string name="pref_summary_sms_split_counter">Добавляет к сообщению счётчик (напр. 1/2)</string>
+
+    <!-- Sms templates -->
+    <string name="prefs_templates_settings">SMS шаблоны</string>
+    <string name="pref_title_templates_manage">Шаблоны</string>
+    <string name="pref_summary_templates_manage">Управление шаблонами SMS</string>
+    <string name="pref_title_templates_show_gesture">Жесты</string>
+    <string name="pref_summary_templates_show_gesture">Показывать след жеста</string>
+    <string name="pref_title_template_gestures_sensitivity">Чувствительность жеста</string>
+    <string name="template_save">Сохранить</string>
+    <string name="template_insert_hint">Введите сюда текст шаблона</string>
+    <string name="template_empty_text">Текстовое поле не может быть пустым</string>
+    <string name="template_explanation">Введите или измените текст шаблона и нарисуйте жест, чтобы связать их</string>
+    <string name="template_edit">Изменить</string>
+    <string name="template_delete">Удалить</string>
+    <string name="template_ctx_menu_title">Действия</string>
+    <string name="template_list_title">Шаблоны</string>
+    <string name="template_new_title">Новый шаблон</string>
+    <string name="template_insert">Ввести шаблон</string>
+    <string name="template_gesture_draw">Нарисуйте жест в области ниже</string>
+    <string name="template_not_present_error">Вы не определили шаблон</string>
+    <string name="template_not_present_error_title">Ошибка</string>
+    <string name="template_select">Выберите шаблон</string>
+    <string name="template_cancel_confirm_title">Внимание</string>
+    <string name="template_cancel_confirm_text">Желаете отменить?</string>
+    <string name="gestures_already_present">Внимание: подобный жест связан с другим шаблоном!</string>
+
+    <!-- Change Vibrate pattern/method for message notification -->
+    <string name="pref_title_mms_notification_vibrate_settings">Настройки вибрации</string>
+    <string name="pref_title_mms_notification_vibrate_pattern">Режим вибрации</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Изменение режима вибрации</string>
+    <string name="pref_title_mms_notification_vibrate_call">Вибрация при разговоре</string>
+    <string name="pref_summary_mms_notification_vibrate_call">Разрешить вибрацию при разговоре</string>
+    <string name="pref_title_mms_notification_vibrate_custom">Пользоват. режим вибрации</string>
+    <string name="pref_text_mms_notification_vibrate_custom">Формат выкл/вкл в миллисекундах: выкл, вкл, выкл, вкл</string>
+
+    <!-- Extra Settings: -->
+    <string name="pref_extra_settings">Дополнительные настройки</string>
+
+    <!-- Full timestamps -->
+    <string name="pref_title_mms_full_timestamp">Полная метка времени</string>
+    <string name="pref_summary_mms_full_timestamp">Включение отображения полной даты и времени в сообщениях</string>
+    <!-- Which timestamps -->
+    <string name="pref_title_mms_use_sent_timestamp">Исходная метка времени</string>
+    <string name="pref_summary_mms_use_sent_timestamp">Отображение и сохранение даты отправки, а не даты приёма</string>
 </resources>
