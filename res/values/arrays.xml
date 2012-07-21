@@ -69,4 +69,52 @@
         <item>Smirk</item>                   <!-- 19: :-/ -->
         <item>Poker face</item>              <!-- 20: :-I -->
     </string-array>
+
+    <string-array name="pref_templates_gestures_sensitivity_entries">
+      <item>1 (broadest)</item>
+      <item>2</item>
+      <item>3</item>
+      <item>4</item>
+      <item>5</item>
+      <item>6</item>
+      <item>7</item>
+      <item>8</item>
+      <item>9</item>
+      <item>10</item>
+      <item>11</item>
+      <item>12 (strictest)</item>
+    </string-array>
+
+    <string-array name="pref_templates_gestures_sensitivity_values" translatable="false">
+      <item>1</item>
+      <item>2</item>
+      <item>3</item>
+      <item>4</item>
+      <item>5</item>
+      <item>6</item>
+      <item>7</item>
+      <item>8</item>
+      <item>9</item>
+      <item>10</item>
+      <item>11</item>
+      <item>12</item>
+    </string-array>
+
+    <string-array name="pref_mms_notification_vibrate_pattern_entries">
+        <item>Normal</item>
+        <item>Medium Vibrate</item>
+        <item>Long Vibrate</item>
+        <item>Multiple Short</item>
+        <item>Multiple Long</item>
+        <item>@string/pref_title_mms_notification_vibrate_custom</item>
+    </string-array>
+
+    <string-array name="pref_mms_notification_vibrate_pattern_values">
+        <item></item>
+        <item>0,1200</item>
+        <item>0,2500</item>
+        <item>0,300,100,300,100,300,100,300,100,300</item>
+        <item>0,800,200,800,200,800</item>
+        <item>custom</item>
+    </string-array>
 </resources>

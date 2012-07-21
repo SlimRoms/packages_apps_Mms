@@ -321,6 +321,17 @@
                  android:permission="android.permission.BIND_REMOTEVIEWS"
                  android:exported="false" />
 
-
-    </application>
+        <activity
+            android:name=".templates.TemplatesListActivity"
+            android:theme="@style/MmsHoloTheme"
+            android:label="@string/template_list_title" >
+        </activity>
+        <activity android:name=".templates.TemplateEditor"
+            android:theme="@style/MmsHoloTheme"
+            android:label="@string/template_new_title">
+        </activity>
+        <provider
+            android:name=".templates.TemplatesProvider"
+            android:authorities="com.android.cm.mms" />
+        </application>
 </manifest>
