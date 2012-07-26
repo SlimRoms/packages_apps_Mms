@@ -343,4 +343,41 @@
     <string name="attachment_picture" msgid="3709286281567284296">"Imagem"</string>
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
+    <string name="pref_title_sms_split_counter">Contador de separação</string>
+    <string name="pref_summary_sms_split_counter">Adiciona contador à mensagem. ex: (1/2)</string>
+    <string name="prefs_templates_settings">Modelos de sms</string>
+    <string name="pref_title_templates_manage">Modelos</string>
+    <string name="pref_summary_templates_manage">Gerenciar seus modelos de sms</string>
+    <string name="pref_title_templates_show_gesture">Gesto</string>
+    <string name="pref_summary_templates_show_gesture">Mostra o traçado do gesto</string>
+    <string name="pref_title_template_gestures_sensitivity">Sensitividade do gesto</string>
+    <string name="template_save">Salvar</string>
+    <string name="template_insert_hint">Inserir aqui o texto modelo</string>
+    <string name="template_empty_text">O campo de texto não pode estar vazio</string>
+    <string name="template_explanation">Inserir ou modificar o modelo de texto e opcionalmente traçar um gesto para associar a ele</string>
+    <string name="template_edit">Editar</string>
+    <string name="template_delete">Excluir</string>
+    <string name="template_ctx_menu_title">Ações</string>
+    <string name="template_list_title">Modelos</string>
+    <string name="template_new_title">Novo modelo</string>
+    <string name="template_insert">Inserir modelo</string>
+    <string name="template_gesture_draw">Traçar um gesto no espaço abaixo</string>
+    <string name="template_not_present_error">Não tem modelos definidos</string>
+    <string name="template_not_present_error_title">Erro</string>
+    <string name="template_select">Selecione um modelo</string>
+    <string name="template_cancel_confirm_title">Aviso</string>
+    <string name="template_cancel_confirm_text">O modelo vai ser apagado. Prosseguir?</string>
+    <string name="gestures_already_present">Aviso: Um gesto similar está associado a outro modelo!</string>
+    <string name="pref_title_mms_notification_vibrate_settings">Preferências de vibração</string>
+    <string name="pref_title_mms_notification_vibrate_pattern">Padrão de vibração</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Trocar o padrão de vibração</string>
+    <string name="pref_title_mms_notification_vibrate_call">Vibrar quando Chamar</string>
+    <string name="pref_summary_mms_notification_vibrate_call">Permitir vibração enquanto chamada está ativa</string>
+    <string name="pref_title_mms_notification_vibrate_custom">Personalizar padrão de vibração</string>
+    <string name="pref_text_mms_notification_vibrate_custom">Formato desligado/ligado em milissegundos: desligado, ligado, desligado, ...</string>
+    <string name="pref_extra_settings">Preferências extras</string>
+    <string name="pref_title_mms_full_timestamp">Data completa</string>
+    <string name="pref_summary_mms_full_timestamp">Exibe tanto data quanto hora</string>
+    <string name="pref_title_mms_use_sent_timestamp">Data/hora original</string>
+    <string name="pref_summary_mms_use_sent_timestamp">Exibe data de envio em vez de data de recebimento</string>
 </resources>
