@@ -343,4 +343,54 @@
     <string name="attachment_picture" msgid="3709286281567284296">"Kép"</string>
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
+
+    <!-- Settings item for boolean option for SMS Split Counter -->
+    <string name="pref_title_sms_split_counter">Darabszám</string>
+    <!-- Settings item description for boolean SMS Split 160 characters setting -->
+    <string name="pref_summary_sms_split_counter">Számláló megjelenítése pl. (1/2)</string>
+
+    <!-- Sms templates -->
+    <string name="prefs_templates_settings">SMS Sablonok</string>
+    <string name="pref_title_templates_manage">Kézmozdulat</string>
+    <string name="pref_summary_templates_manage">SMS sablonok kezelése</string>
+    <string name="pref_title_templates_show_gesture">Kézmozdulat</string>
+    <string name="pref_summary_templates_show_gesture">Kézmozdulat útvonalának megjelenítése</string>
+    <string name="pref_title_template_gestures_sensitivity">Kézmozdulat érzékenysége</string>
+    <string name="template_save">Mentés</string>
+    <string name="template_insert_hint">Írja be a sablon szövegét</string>
+    <string name="template_empty_text">A mező nem lehet üres.</string>
+    <string name="template_explanation">Írja be, vagy módosítsa a sablon szövegét és opcionálisan társíthat hozzá kézmozdulatot is.</string>
+    <string name="template_edit">Szerkesztés</string>
+    <string name="template_delete">Törlés</string>
+    <string name="template_ctx_menu_title">Műveletek</string>
+    <string name="template_list_title">Sablonok</string>
+    <string name="template_new_title">Új sablon</string>
+    <string name="template_insert">Sablon beszúrása</string>
+    <string name="template_gesture_draw">Rajzolja le a társítani kívánt kézmozdulatot az alábbi felületre.</string>
+    <string name="template_not_present_error">Még nincs definiált sablon.</string>
+    <string name="template_not_present_error_title">Hiba</string>
+    <string name="template_select">Válasszon sablont</string>
+    <string name="template_cancel_confirm_title">Figyelem</string>
+    <string name="template_cancel_confirm_text">Biztosan törölni szeretné?</string>
+    <string name="gestures_already_present">Figyelem: Egy hasonló kézmozdulat már társítva van egy másik sablonhoz!</string>
+
+    <!-- Change Vibrate pattern/method for message notification -->
+    <string name="pref_title_mms_notification_vibrate_settings">Rezgés beállítások</string>
+    <string name="pref_title_mms_notification_vibrate_pattern">Rezgés típusa</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Rezgés mintájának beállítása</string>
+    <string name="pref_title_mms_notification_vibrate_call">Rezgés hívás közben</string>
+    <string name="pref_summary_mms_notification_vibrate_call">Rezgés engedélyezése hívás közben</string>
+    <string name="pref_title_mms_notification_vibrate_custom">Egyedi rezgés minta</string>
+    <string name="pref_text_mms_notification_vibrate_custom">Formátum: ki/be milliszekundumban: ki, be, ki, be, ...</string>
+
+    <!-- Extra Settings: -->
+    <string name="pref_extra_settings">Extra beállítások</string>
+
+    <!-- Full timestamps -->
+    <string name="pref_title_mms_full_timestamp">Teljes időbélyeg</string>
+    <string name="pref_summary_mms_full_timestamp">Mindkét dátum/idő megjelenítése</string>
+    <!-- Which timestamps -->
+    <string name="pref_title_mms_use_sent_timestamp">Eredeti dátum</string>
+    <string name="pref_summary_mms_use_sent_timestamp">Küldés dátumának megjelenítése a fogadás dátuma helyett</string>
+
 </resources>
