@@ -343,4 +343,52 @@
     <string name="attachment_picture" msgid="3709286281567284296">"Billede"</string>
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
+    <!-- Settings item for boolean option for SMS Split Counter -->
+    <string name="pref_title_sms_split_counter">Delingstæller</string>
+    <!-- Settings item description for boolean SMS Split 160 characters setting -->
+    <string name="pref_summary_sms_split_counter">Tilføjer tæller til besked fx (1/2)</string>
+
+    <!-- Sms templates -->
+    <string name="prefs_templates_settings">SMS-skabeloner</string>
+    <string name="pref_title_templates_manage">Skabeloner</string>
+    <string name="pref_summary_templates_manage">Administrér dine SMS-skabeloner</string>
+    <string name="pref_title_templates_show_gesture">Bevægelse</string>
+    <string name="pref_summary_templates_show_gesture">Vis spor ved bevægelse</string>
+    <string name="pref_title_template_gestures_sensitivity">Følsomhed for bevægelse</string>
+    <string name="template_save">Gem</string>
+    <string name="template_insert_hint">Indsæt skabelon-teksten her</string>
+    <string name="template_empty_text">Tekstfeltet kan ikke være tomt</string>
+    <string name="template_explanation">Indsæt eller ret skabelonteksten og tegn evt. en bevægelse for at tilknytte den</string>
+    <string name="template_edit">Redigér</string>
+    <string name="template_delete">Slet</string>
+    <string name="template_ctx_menu_title">Handlinger</string>
+    <string name="template_list_title">Skabeloner</string>
+    <string name="template_new_title">Ny skabelon</string>
+    <string name="template_insert">Indsæt skabelon</string>
+    <string name="template_gesture_draw">Tegn bevægelsen i pladsen herunder</string>
+    <string name="template_not_present_error">Du har ikke defineret nogen skabelon</string>
+    <string name="template_not_present_error_title">Fejl</string>
+    <string name="template_select">Vælg en skabelon</string>
+    <string name="template_cancel_confirm_title">Advarsel</string>
+    <string name="template_cancel_confirm_text">Vil du annullere?</string>
+    <string name="gestures_already_present">Advarsel: En lign. bevægelse er tilknyttet en anden skabelon!</string>
+
+    <!-- Change Vibrate pattern/method for message notification -->
+    <string name="pref_title_mms_notification_vibrate_settings">Vibrationsindstillinger</string>
+    <string name="pref_title_mms_notification_vibrate_pattern">Vibrationsmønster</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Skift vibrationsmønster</string>
+    <string name="pref_title_mms_notification_vibrate_call">Vibrér ved opkald</string>
+    <string name="pref_summary_mms_notification_vibrate_call">Tillad vibrering under opkald</string>
+    <string name="pref_title_mms_notification_vibrate_custom">Brugerdefineret vibreringsmønster</string>
+    <string name="pref_text_mms_notification_vibrate_custom">Formatér fra/til i millisekunder: fra, til, fra, til, ...</string>
+
+    <!-- Extra Settings: -->
+    <string name="pref_extra_settings">Ekstra indstillinger</string>
+
+    <!-- Full timestamps -->
+    <string name="pref_title_mms_full_timestamp">Fulde tidsstempler</string>
+    <string name="pref_summary_mms_full_timestamp">Vis både dato og tid i tidsstempler</string>
+    <!-- Which timestamps -->
+    <string name="pref_title_mms_use_sent_timestamp">Originale tidsstempler</string>
+    <string name="pref_summary_mms_use_sent_timestamp">Vis sendt dato i stedet for modtaget dato i tidsstempler</string>
 </resources>
