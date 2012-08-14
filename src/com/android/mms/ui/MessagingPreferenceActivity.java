@@ -72,6 +72,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String NOTIFICATION_VIBRATE_PATTERN = "pref_key_mms_notification_vibrate_pattern";
     public static final String NOTIFICATION_VIBRATE_PATTERN_CUSTOM = "pref_key_mms_notification_vibrate_pattern_custom";
     public static final String NOTIFICATION_VIBRATE_CALL ="pre_key_mms_notification_vibrate_call";
+    public static final String STRIP_UNICODE            = "pref_key_strip_unicode";
     public static final String FULL_TIMESTAMP            = "pref_key_mms_full_timestamp";
     public static final String SENT_TIMESTAMP            = "pref_key_mms_use_sent_timestamp";
     // Menu entries
