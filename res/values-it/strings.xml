@@ -362,11 +362,11 @@
     <string name="template_new_title">Nuovo modello</string>
     <string name="template_insert">Inserisci modello</string>
     <string name="template_gesture_draw">Disegna la gesture nello spazio sottostante</string>
-    <string name="template_not_present_error">Non hai ancora definito alcun modello</string>
+    <string name="template_not_present_error">Non sono stati definiti dei modelli</string>
     <string name="template_not_present_error_title">Errore</string>
     <string name="template_select">Seleziona un modello</string>
     <string name="template_cancel_confirm_title">Attenzione</string>
-    <string name="template_cancel_confirm_text">Vuoi davvero cancellare questo modello?</string>
+    <string name="template_cancel_confirm_text">Il modello verrà cancellato. Continuare?</string>
     <string name="gestures_already_present">Attenzione! Una gesture simile è associata ad un altro template</string>
     <string name="pref_title_mms_notification_vibrate_settings">Impostazioni vibrazione</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Schema vibrazione</string>
