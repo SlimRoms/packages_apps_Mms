@@ -89,7 +89,6 @@
     <string name="failed_to_resize_image" msgid="5608354151631833669">"رەسىم چوڭلۇقى تەڭشەلمىدى."</string>
     <string name="resize_image_error_information" msgid="3783200130776554475">"چوڭلۇقىنى تەڭشىگەندىن كېيىن، بۇ رەسىم يەنىلا چوڭ شۇڭا يوللىيالمايدۇ."</string>
     <string name="forward_prefix" msgid="276280492803486464">"Fwd: "</string>
-    <string name="discard_message" msgid="6078326880056142781">"تاشلىۋەت"</string>
     <string name="discard_message_reason" msgid="2667664943003796133">"ئۇچۇرىڭىز تاشلىۋېتىلىدۇ چۈنكى ئۇنى قوبۇل قىلىدىغان ئىناۋەتلىك قوبۇللىغۇچى يوق."</string>
     <string name="has_invalid_recipient" msgid="1485388396900997383">"ئىناۋەتسىز قوبۇللىغۇچى: &lt;<xliff:g id="NAME">%1$s</xliff:g>&gt;"</string>
     <string name="invalid_destination" msgid="4573835601024786416">"ئىناۋەتسىز نىشان ئادرېس."</string>
