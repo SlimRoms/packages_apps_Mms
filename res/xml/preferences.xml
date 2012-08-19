@@ -130,6 +130,10 @@
             android:title="@string/pref_title_template_gestures_sensitivity" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_extra_settings">
+    <CheckBoxPreference android:key="pref_key_strip_unicode"
+        android:title="@string/pref_title_strip_unicode"
+        android:summary="@string/pref_summary_strip_unicode"
+        android:defaultValue="false" />
     <CheckBoxPreference android:key="pref_key_mms_full_timestamp"
         android:title="@string/pref_title_mms_full_timestamp"
         android:summary="@string/pref_summary_mms_full_timestamp"
