@@ -378,12 +378,21 @@
     <string name="pref_title_mms_notification_vibrate_pattern">Vibrationsmønster</string>
     <string name="pref_summary_mms_notification_vibrate_pattern">Skift vibrationsmønster</string>
     <string name="pref_title_mms_notification_vibrate_call">Vibrér ved opkald</string>
-    <string name="pref_summary_mms_notification_vibrate_call">Tillad vibrering under opkald</string>
-    <string name="pref_title_mms_notification_vibrate_custom">Brugerdefineret vibreringsmønster</string>
+    <string name="pref_summary_mms_notification_vibrate_call">Tillad vibration under opkald</string>
+    <string name="pref_title_mms_notification_vibrate_custom">Brugerdefineret vibrationsmønster</string>
     <string name="pref_text_mms_notification_vibrate_custom">Formatér fra/til i millisekunder: fra, til, fra, til, ...</string>
 
     <!-- Extra Settings: -->
     <string name="pref_extra_settings">Ekstra indstillinger</string>
+
+    <!-- Strip unicode -->
+    <string name="pref_title_strip_unicode">Fjern Unicode</string>
+    <string name="pref_summary_strip_unicode">Erstat gængse tegn, som ikke understøttes i 160-tegns SMS-beskeder</string>
+
+    <!-- Enable emojis -->
+    <string name="menu_insert_emoji">Indsæt emojis</string>
+    <string name="pref_title_enable_emojis">Emoji-understøttelse</string>
+    <string name="pref_summary_enable_emojis">Slå understøttelse af Unicode-emojis til, et sæt af 471 flotte smileys</string>
 
     <!-- Full timestamps -->
     <string name="pref_title_mms_full_timestamp">Fulde tidsstempler</string>
