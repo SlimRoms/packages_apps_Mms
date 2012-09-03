@@ -857,6 +857,7 @@
     <!-- QM Dialog box buttons -->
     <string name="button_close">Close</string>
     <string name="button_view">View</string>
+    <string name="button_templates">Templates</string>
 
     <!-- Hint text in message body field when keyboard is exposed -->
     <string name="type_to_reply_text_enter_to_send">Type to reply</string>
