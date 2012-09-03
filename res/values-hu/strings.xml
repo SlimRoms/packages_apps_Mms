@@ -423,4 +423,7 @@
     <!-- QM Toast -->
     <string name="toast_sending_message">Üzenet küldése</string>
 
+    <!-- QM - Quick reply -->
+    <string name="qm_quick_reply">Válasz</string>
+
 </resources>
