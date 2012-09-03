@@ -992,14 +992,6 @@ public class MessagingNotification {
         final Notification notification;
 
         if (messageCount == 1 || uniqueThreadCount == 1) {
-            // Add the Call action
-            CharSequence callText = context.getText(R.string.menu_call);
-            Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(mostRecentNotification.mSender.getPhoneUri());
-            PendingIntent mCallPendingIntent = PendingIntent.getActivity(context, 0, callIntent,
-                    PendingIntent.FLAG_UPDATE_CURRENT);
-            noti.addAction(R.drawable.ic_menu_call, callText, mCallPendingIntent);
-
             // Add the QuickMessage action only if the pop-up won't be shown already
             if (!qmPopupEnabled && qmIntent != null) {
                 CharSequence qmText = context.getText(R.string.qm_quick_reply);
@@ -1007,6 +999,14 @@ public class MessagingNotification {
                         PendingIntent.FLAG_UPDATE_CURRENT);
                 noti.addAction(R.drawable.ic_reply, qmText, qmPendingIntent);
             }
+
+            // Add the Call action
+            CharSequence callText = context.getText(R.string.menu_call);
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(mostRecentNotification.mSender.getPhoneUri());
+            PendingIntent mCallPendingIntent = PendingIntent.getActivity(context, 0, callIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
+            noti.addAction(R.drawable.ic_menu_call, callText, mCallPendingIntent);
         }
 
         if (messageCount == 1) {
