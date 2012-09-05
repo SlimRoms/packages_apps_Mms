@@ -17,12 +17,19 @@
 package com.android.mms.quickmessage;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.KeyguardManager;
+import android.app.LoaderManager;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.CursorLoader;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -32,21 +39,22 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.QuickContactBadge;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
@@ -54,6 +62,7 @@ import android.widget.Toast;
 import com.android.mms.R;
 import com.android.mms.data.Contact;
 import com.android.mms.data.Conversation;
+import com.android.mms.templates.TemplatesProvider.Template;
 import com.android.mms.transaction.MessagingNotification.NotificationInfo;
 import com.android.mms.transaction.SmsMessageSender;
 import com.android.mms.ui.MessagingPreferenceActivity;
@@ -66,9 +75,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class QuickMessage extends Activity {
+public class QuickMessage extends Activity implements
+    LoaderManager.LoaderCallbacks<Cursor> {
     private static final String LOG_TAG = "QuickMessage";
 
+    // Intent bungle fields
     public static final String SMS_FROM_NAME_EXTRA =
             "com.android.mms.SMS_FROM_NAME";
     public static final String SMS_FROM_NUMBER_EXTRA =
@@ -77,6 +88,11 @@ public class QuickMessage extends Activity {
             "com.android.mms.NOTIFICATION_ID";
     public static final String SMS_NOTIFICATION_OBJECT_EXTRA =
             "com.android.mms.NOTIFICATION_OBJECT";
+
+    // Templates support
+    private static final int DIALOG_TEMPLATE_SELECT        = 1;
+    private static final int DIALOG_TEMPLATE_NOT_AVAILABLE = 2;
+    private SimpleCursorAdapter mTemplatesCursorAdapter;
 
     // View items
     private ImageView mQmPagerArrow;
@@ -221,6 +237,7 @@ public class QuickMessage extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+
         // Unlock the screen if needed
         unlockScreen();
     }
@@ -391,6 +408,64 @@ public class QuickMessage extends Activity {
         return buf;
     }
 
+    // Templates support
+    private void selectTemplate() {
+        getLoaderManager().restartLoader(0, null, this);
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        return new CursorLoader(this, Template.CONTENT_URI, null, null, null, null);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        if(data != null && data.getCount() > 0){
+            showDialog(DIALOG_TEMPLATE_SELECT);
+            mTemplatesCursorAdapter.swapCursor(data);
+        } else {
+            showDialog(DIALOG_TEMPLATE_NOT_AVAILABLE);
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id, Bundle args) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        switch (id) {
+            case DIALOG_TEMPLATE_NOT_AVAILABLE:
+                builder.setTitle(R.string.template_not_present_error_title);
+                builder.setMessage(R.string.template_not_present_error);
+                return builder.create();
+
+            case DIALOG_TEMPLATE_SELECT:
+                builder = new AlertDialog.Builder(this);
+                builder.setTitle(R.string.template_select);
+                mTemplatesCursorAdapter  = new SimpleCursorAdapter(this,
+                        android.R.layout.simple_list_item_1, null, new String[] {
+                        Template.TEXT
+                    }, new int[] {
+                        android.R.id.text1
+                    }, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+                builder.setAdapter(mTemplatesCursorAdapter, new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       Cursor c = (Cursor) mTemplatesCursorAdapter.getItem(which);
+                       String text = c.getString(c.getColumnIndex(Template.TEXT));
+                       if (mCurrentQm == null) {
+                           mCurrentQm = mMessageList.get(mCurrentQmIndex);
+                       }
+                       mCurrentQm.getEditText().append(text);
+                    }
+                });
+                return builder.create();
+        }
+        return super.onCreateDialog(id, args);
+    }
+
     /**
      * Supporting Classes
      */
@@ -493,6 +568,7 @@ public class QuickMessage extends Activity {
             EditText qmReplyText = (EditText) layout.findViewById(R.id.embedded_text_editor);
             TextView qmTextCounter = (TextView) layout.findViewById(R.id.text_counter);
             ImageButton qmSendButton = (ImageButton) layout.findViewById(R.id.send_button_sms);
+            ImageButton qmTemplatesButton = (ImageButton) layout.findViewById(R.id.templates_button);
             TextView qmMessageText = (TextView) layout.findViewById(R.id.messageTextView);
             TextView qmFromName = (TextView) layout.findViewById(R.id.fromTextView);
             TextView qmTimestamp = (TextView) layout.findViewById(R.id.timestampTextView);
@@ -547,6 +623,14 @@ public class QuickMessage extends Activity {
 
                 // Store the EditText object for future use
                 qm.setEditText(qmReplyText);
+
+                // Templates button
+                qmTemplatesButton.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        selectTemplate();
+                    }
+                });
 
                 // Send button
                 qmSendButton.setOnClickListener(new OnClickListener() {
