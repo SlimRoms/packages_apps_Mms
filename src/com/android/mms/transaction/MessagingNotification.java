@@ -981,7 +981,7 @@ public class MessagingNotification {
             qmIntent = new Intent();
             qmIntent.setClass(context, QuickMessage.class);
             qmIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP |
-                    Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             qmIntent.putExtra(QuickMessage.SMS_FROM_NAME_EXTRA, mostRecentNotification.mSender.getName());
             qmIntent.putExtra(QuickMessage.SMS_FROM_NUMBER_EXTRA, mostRecentNotification.mSender.getNumber());
             qmIntent.putExtra(QuickMessage.SMS_NOTIFICATION_OBJECT_EXTRA, mostRecentNotification);
