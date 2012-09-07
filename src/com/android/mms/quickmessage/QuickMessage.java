@@ -93,6 +93,7 @@ public class QuickMessage extends Activity implements
     private static final int DIALOG_TEMPLATE_SELECT        = 1;
     private static final int DIALOG_TEMPLATE_NOT_AVAILABLE = 2;
     private SimpleCursorAdapter mTemplatesCursorAdapter;
+    private int mNumTemplates = 0;
 
     // View items
     private ImageView mQmPagerArrow;
@@ -130,6 +131,7 @@ public class QuickMessage extends Activity implements
         mDefaultContactImage = getResources().getDrawable(R.drawable.ic_contact_picture);
         mCloseClosesAll = MessagingPreferenceActivity.getQmCloseAllEnabled(mContext);
         mWakeAndUnlock = MessagingPreferenceActivity.getQmLockscreenEnabled(mContext);
+        mNumTemplates = getTemplatesCount();
 
         // Set the window features and layout
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -409,6 +411,19 @@ public class QuickMessage extends Activity implements
     }
 
     // Templates support
+    private int getTemplatesCount() {
+        // We need to query the database to get the number of templates once in onCreate()
+        // This is probably not the most elegant solution as this query is not an AsyncTask
+        // but we have to get the response immediately so it can be used in the subsequent
+        // calls to the viewpager when the pages are created.  If it is done as an AsyncTask
+        // the viewpager pages sometimes get drawn before the data task returns the templates
+        // count, resulting in the button not showing when it should.
+        Cursor cur = getContentResolver().query(Template.CONTENT_URI, null, null, null, null);
+        int numColumns = cur.getCount();
+        cur.close();
+        return numColumns;
+    }
+
     private void selectTemplate() {
         getLoaderManager().restartLoader(0, null, this);
     }
@@ -590,7 +605,8 @@ public class QuickMessage extends Activity implements
                 // Set the remaining values
                 qmReplyText.setText(qm.getReplyText());
                 qmReplyText.setSelection(qm.getReplyText().length());
-                qmReplyText.addTextChangedListener(new QmTextWatcher(mContext, qmTextCounter, qmSendButton));
+                qmReplyText.addTextChangedListener(new QmTextWatcher(mContext, qmTextCounter, qmSendButton,
+                        qmTemplatesButton, mNumTemplates));
                 qmReplyText.setOnEditorActionListener(new OnEditorActionListener() {
                     @Override
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -619,7 +635,7 @@ public class QuickMessage extends Activity implements
                 });
 
                 QmTextWatcher.getQuickReplyCounterText(qmReplyText.getText().toString(),
-                        qmTextCounter, qmSendButton);
+                        qmTextCounter, qmSendButton, qmTemplatesButton, mNumTemplates);
 
                 // Store the EditText object for future use
                 qm.setEditText(qmReplyText);

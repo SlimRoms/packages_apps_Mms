@@ -28,16 +28,23 @@ import android.widget.TextView;
 public class QmTextWatcher implements TextWatcher {
     private TextView mTextView;
     private ImageButton mSendButton;
+    private ImageButton mTemplateButton;
+    private int mTemplateCount;
     private static final int CHARS_REMAINING_BEFORE_COUNTER_SHOWN = 30;
 
-    public QmTextWatcher(Context context, TextView updateTextView, ImageButton sendButton) {
+    public QmTextWatcher(Context context, TextView updateTextView, ImageButton sendButton,
+            ImageButton templateButton, int templateCount) {
         mTextView = updateTextView;
         mSendButton = sendButton;
+        mTemplateButton = templateButton;
+        mTemplateCount = templateCount;
     }
 
     public QmTextWatcher(Context context, TextView updateTextView) {
         mTextView = updateTextView;
         mSendButton = null;
+        mTemplateButton = null;
+        mTemplateCount = 0;
     }
 
     @Override
@@ -48,21 +55,25 @@ public class QmTextWatcher implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        getQuickReplyCounterText(s, mTextView, mSendButton);
+        getQuickReplyCounterText(s, mTextView, mSendButton, mTemplateButton, mTemplateCount);
     }
 
-    public static void getQuickReplyCounterText(CharSequence s, TextView mTextView,
-            ImageButton mSendButton) {
-        if (mSendButton != null) {
+    public static void getQuickReplyCounterText(CharSequence s, TextView textView,
+            ImageButton sendButton, ImageButton templateButton, int templateCount) {
+        if (sendButton != null && templateButton != null) {
             if (s.length() > 0) {
-                mSendButton.setEnabled(true);
+                sendButton.setEnabled(true);
+                templateButton.setVisibility(View.GONE);
             } else {
-                mSendButton.setEnabled(false);
+                sendButton.setEnabled(false);
+                if (templateCount > 0) {
+                    templateButton.setVisibility(View.VISIBLE);
+                }
             }
         }
 
         if (s.length() < (80 - CHARS_REMAINING_BEFORE_COUNTER_SHOWN)) {
-            mTextView.setVisibility(View.GONE);
+            textView.setVisibility(View.GONE);
             return;
         }
 
@@ -77,10 +88,10 @@ public class QmTextWatcher implements TextWatcher {
         int remainingInCurrentMessage = params[2];
 
         if (msgCount > 1 || remainingInCurrentMessage <= CHARS_REMAINING_BEFORE_COUNTER_SHOWN) {
-            mTextView.setText(remainingInCurrentMessage + " / " + msgCount);
-            mTextView.setVisibility(View.VISIBLE);
+            textView.setText(remainingInCurrentMessage + " / " + msgCount);
+            textView.setVisibility(View.VISIBLE);
         } else {
-            mTextView.setVisibility(View.GONE);
+            textView.setVisibility(View.GONE);
         }
     }
 }
