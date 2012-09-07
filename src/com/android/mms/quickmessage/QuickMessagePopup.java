@@ -29,6 +29,7 @@ import android.content.Intent;
 import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -195,10 +196,11 @@ public class QuickMessagePopup extends Activity implements
         mViewButton = (Button) findViewById(R.id.button_view);
 
         // Set the theme color on the pager arrow
+        Resources res = getResources();
         if (mDarkTheme) {
-            mQmPagerArrow.setBackgroundColor(0xff1e1e1e); // dark theme
+            mQmPagerArrow.setBackgroundColor(res.getColor(R.color.quickmessage_body_dark_bg));
         } else {
-            mQmPagerArrow.setBackgroundColor(0xfff3f3f3); // light theme
+            mQmPagerArrow.setBackgroundColor(res.getColor(R.color.quickmessage_body_light_bg));
         }
 
         // ViewPager Support
