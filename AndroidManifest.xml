@@ -345,7 +345,7 @@
              to the foreground.We exclude from recent apps since this is accessible
              through a notification when appropriate. -->
          <activity
-            android:name=".quickmessage.QuickMessage"
+            android:name=".quickmessage.QuickMessagePopup"
             android:theme="@android:style/Theme.Holo.Dialog"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTop"
