@@ -3,6 +3,7 @@
 /*
  * Copyright (C) 2007-2008 Esmertec AG.
  * Copyright (C) 2007-2008 The Android Open Source Project
+ * QuickMessage: Copyright (C) 2012 The CyanogenMod Project (DvTonder)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -852,6 +853,8 @@
     <string name="pref_wake_unlock_summary">Wake and unlock device on incoming message (insecure lock screens only)</string>
     <string name="pref_close_all_title">Close all</string>
     <string name="pref_close_all_summary">Close button closes all messages</string>
+    <string name="pref_dark_theme_title">Use dark theme</string>
+    <string name="pref_dark_theme_summary">If not selected, the default \'light\' theme will be used</string>
     <string name="message_counter_separator">of</string>
 
     <!-- QM Dialog box buttons -->
