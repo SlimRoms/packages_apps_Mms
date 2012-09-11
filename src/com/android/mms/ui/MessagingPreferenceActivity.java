@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2007-2008 Esmertec AG.
  * Copyright (C) 2007-2008 The Android Open Source Project
+ * QuickMessage: Copyright (C) 2012 The CyanogenMod Project (DvTonder)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -81,6 +82,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String QUICKMESSAGE_ENABLED      = "pref_key_quickmessage";
     public static final String QM_LOCKSCREEN_ENABLED     = "pref_key_qm_lockscreen";
     public static final String QM_CLOSE_ALL_ENABLED      = "pref_key_close_all";
+    public static final String QM_DARK_THEME_ENABLED     = "pref_dark_theme";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
@@ -107,6 +109,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private CheckBoxPreference mEnableQuickMessagePref;
     private CheckBoxPreference mEnableQmLockscreenPref;
     private CheckBoxPreference mEnableQmCloseAllPref;
+    private CheckBoxPreference mEnableQmDarkThemePref;
 
     @Override
     protected void onCreate(Bundle icicle) {
@@ -148,6 +151,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mEnableQuickMessagePref = (CheckBoxPreference) findPreference(QUICKMESSAGE_ENABLED);
         mEnableQmLockscreenPref = (CheckBoxPreference) findPreference(QM_LOCKSCREEN_ENABLED);
         mEnableQmCloseAllPref = (CheckBoxPreference) findPreference(QM_CLOSE_ALL_ENABLED);
+        mEnableQmDarkThemePref = (CheckBoxPreference) findPreference(QM_DARK_THEME_ENABLED);
 
         mVibrateEntries = getResources().getTextArray(R.array.prefEntries_vibrateWhen);
         mVibrateValues = getResources().getTextArray(R.array.prefValues_vibrateWhen);
@@ -221,6 +225,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         setEnabledQuickMessagePref();
         setEnabledQmLockscreenPref();
         setEnabledQmCloseAllPref();
+        setEnabledQmDarkThemePref();
 
         // If needed, migrate vibration setting from a previous version
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -289,6 +294,12 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         // The "enable close all" setting is really stored in our own prefs. Read the
         // current value and set the checkbox to match.
         mEnableQmCloseAllPref.setChecked(getQmCloseAllEnabled(this));
+    }
+
+    private void setEnabledQmDarkThemePref() {
+        // The "Use dark theme" setting is really stored in our own prefs. Read the
+        // current value and set the checkbox to match.
+        mEnableQmDarkThemePref.setChecked(getQmDarkThemeEnabled(this));
     }
 
     private void setSmsDisplayLimit() {
@@ -367,6 +378,10 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         } else if (preference == mEnableQmCloseAllPref) {
             // Update the actual "enable close all" value that is stored in secure settings.
             enableQmCloseAll(mEnableQmCloseAllPref.isChecked(), this);
+
+        } else if (preference == mEnableQmDarkThemePref) {
+            // Update the actual "enable dark theme" value that is stored in secure settings.
+            enableQmDarkTheme(mEnableQmDarkThemePref.isChecked(), this);
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -471,6 +486,20 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             PreferenceManager.getDefaultSharedPreferences(context).edit();
         editor.putBoolean(MessagingPreferenceActivity.QM_CLOSE_ALL_ENABLED, enabled);
         editor.apply();
+    }
+
+    public static void enableQmDarkTheme(boolean enabled, Context context) {
+        SharedPreferences.Editor editor =
+            PreferenceManager.getDefaultSharedPreferences(context).edit();
+        editor.putBoolean(MessagingPreferenceActivity.QM_DARK_THEME_ENABLED, enabled);
+        editor.apply();
+    }
+
+    public static boolean getQmDarkThemeEnabled(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean qmDarkThemeEnabled =
+            prefs.getBoolean(MessagingPreferenceActivity.QM_DARK_THEME_ENABLED, false);
+        return qmDarkThemeEnabled;
     }
 
     private void registerListeners() {

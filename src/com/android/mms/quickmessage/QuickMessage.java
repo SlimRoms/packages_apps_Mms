@@ -21,16 +21,12 @@ import android.widget.EditText;
 
 import com.android.mms.transaction.MessagingNotification.NotificationInfo;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 public class QuickMessage {
     private String mFromName;
     private String[] mFromNumber;
     private NotificationInfo mContent;
     private String mReplyText;
-    private String mTimestamp;
+    private long mTimestamp;
     private EditText mEditText = null;
 
     public QuickMessage(String fromName, String fromNumber, NotificationInfo nInfo) {
@@ -39,7 +35,7 @@ public class QuickMessage {
         mFromNumber[0] = fromNumber;
         mContent = nInfo;
         mReplyText = "";
-        makeTimestamp();
+        mTimestamp = nInfo.mTimeMillis;
     }
 
     public void setEditText(EditText object) {
@@ -76,7 +72,7 @@ public class QuickMessage {
         }
     }
 
-    public String getTimestamp() {
+    public long getTimestamp() {
         return mTimestamp;
     }
 
@@ -86,12 +82,5 @@ public class QuickMessage {
 
     public long getThreadId() {
         return mContent.mThreadId;
-    }
-
-    private void makeTimestamp() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(mContent.mTimeMillis);
-        DateFormat formatter = new SimpleDateFormat("MMM dd, HH:mm:ss zzz");
-        mTimestamp = formatter.format(calendar.getTime());
     }
 }
