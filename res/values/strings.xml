@@ -49,7 +49,7 @@
     <!-- Context menu item on an individual conversation for viewing that conversation -->
     <string name="menu_view">View thread</string>
     <!-- Menu item for debugging - do not localize -->
-    <string name="menu_debug_dump">DEBUG DUMP</string>
+    <string name="menu_debug_dump" translatable="false">DEBUG DUMP</string>
     <!-- Message that appears on screen while SIM card messages are retrieved -->
     <string name="refreshing">Refreshing\u2026</string>
 
@@ -365,14 +365,14 @@
     </string-array>
 
     <!-- The default vibrateWhen value, when none is set -->
-    <string translatable="false" name="prefDefault_vibrateWhen">never</string>
+    <string name="prefDefault_vibrateWhen" translatable="false">never</string>
     <!-- The value to use when migrating from old versions for a true vibrate setting -->
-    <string translatable="false" name="prefDefault_vibrate_true">always</string>
+    <string name="prefDefault_vibrate_true" translatable="false">always</string>
     <!-- The value to use when migrating from old versions for a false vibrate setting -->
-    <string translatable="false" name="prefDefault_vibrate_false">never</string>
+    <string name="prefDefault_vibrate_false" translatable="false">never</string>
 
     <!-- The vibrateWhen values -->
-    <string-array translatable="false" name="prefValues_vibrateWhen">
+    <string-array name="prefValues_vibrateWhen" translatable="false">
         <item>always</item>
         <item>silent</item>
         <item>never</item>

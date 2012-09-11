@@ -109,7 +109,7 @@
         <item>@string/pref_title_mms_notification_vibrate_custom</item>
     </string-array>
 
-    <string-array name="pref_mms_notification_vibrate_pattern_values">
+    <string-array name="pref_mms_notification_vibrate_pattern_values" translatable="false">
         <item></item>
         <item>0,1200</item>
         <item>0,2500</item>
