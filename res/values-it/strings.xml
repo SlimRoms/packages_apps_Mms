@@ -395,7 +395,9 @@
     <string name="message_counter_separator">di</string>
     <string name="button_close">Chiudi</string>
     <string name="button_view">Visualizza</string>
+    <string name="button_templates">Modelli</string>
     <string name="type_to_reply_text_enter_to_send">Digita per rispondere</string>
     <string name="toast_sending_message">Invio messaggio</string>
+    <string name="qm_quick_reply">Risposta rapida</string>
 </resources>
 
