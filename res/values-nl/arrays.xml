@@ -1,44 +1,85 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
- * Copyright (C) 2008 Esmertec AG.
- * Copyright (C) 2008 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
-  -->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 Esmertec AG.
+     Copyright (C) 2008 The Android Open Source Project
+     Copyright (C) 2012 The CyanogenMod Project
 
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string-array name="default_smiley_names">
-    <item msgid="1831934949361041701">"Blij"</item>
-    <item msgid="1601611480575517120">"Bedroefd"</item>
-    <item msgid="1531181614218625881">"Knipoog"</item>
-    <item msgid="3858808057949077894">"Tong uitsteken"</item>
-    <item msgid="7835238297967185651">"Verrast"</item>
-    <item msgid="1756223535005296033">"Kussend"</item>
-    <item msgid="1093906245140165107">"Schreeuwend"</item>
-    <item msgid="888834839864150170">"Gaaf"</item>
-    <item msgid="6320683740534773967">"Geldzoeker"</item>
-    <item msgid="6610111212478853990">"Mond vol tanden"</item>
-    <item msgid="1706035208563940251">"Beschaamd"</item>
-    <item msgid="9079275787422313427">"Engel"</item>
-    <item msgid="4630490399784004880">"Twijfelend"</item>
-    <item msgid="7002574538342357456">"Huilend"</item>
-    <item msgid="850324578089267455">"Lippen op elkaar"</item>
-    <item msgid="6334637439528489607">"Lachend"</item>
-    <item msgid="7602915122893958066">"Verward"</item>
-    <item msgid="3939233701582771068">"Hart"</item>
-    <item msgid="1414759480575851587">"Boos"</item>
-    <item msgid="8479809115158836070">"Grijns"</item>
-    <item msgid="638612939305162424">"Pokergezicht"</item>
-  </string-array>
+    <string-array name="default_smiley_names">
+        <item msgid="1831934949361041701">"Blij"</item>
+        <item msgid="1601611480575517120">"Bedroefd"</item>
+        <item msgid="1531181614218625881">"Knipoog"</item>
+        <item msgid="3858808057949077894">"Tong uitsteken"</item>
+        <item msgid="7835238297967185651">"Verrast"</item>
+        <item msgid="1756223535005296033">"Kussend"</item>
+        <item msgid="1093906245140165107">"Schreeuwend"</item>
+        <item msgid="888834839864150170">"Gaaf"</item>
+        <item msgid="6320683740534773967">"Geldzoeker"</item>
+        <item msgid="6610111212478853990">"Mond vol tanden"</item>
+        <item msgid="1706035208563940251">"Beschaamd"</item>
+        <item msgid="9079275787422313427">"Engel"</item>
+        <item msgid="4630490399784004880">"Twijfelend"</item>
+        <item msgid="7002574538342357456">"Huilend"</item>
+        <item msgid="850324578089267455">"Lippen op elkaar"</item>
+        <item msgid="6334637439528489607">"Lachend"</item>
+        <item msgid="7602915122893958066">"Verward"</item>
+        <item msgid="3939233701582771068">"Hart"</item>
+        <item msgid="1414759480575851587">"Boos"</item>
+        <item msgid="8479809115158836070">"Grijns"</item>
+        <item msgid="638612939305162424">"Pokergezicht"</item>
+    </string-array>
+    <string-array name="select_dialog_items">
+        <item msgid="4840183714016984112">"1 seconde"</item>
+        <item msgid="3734955613666864447">"2 seconden"</item>
+        <item msgid="6032232473048379828">"3 seconden"</item>
+        <item msgid="5978471781525927827">"4 seconden"</item>
+        <item msgid="4888440297621208402">"5 seconden"</item>
+        <item msgid="6047246213264166841">"6 seconden"</item>
+        <item msgid="2327501250056533797">"7 seconden"</item>
+        <item msgid="3400770414689795703">"8 seconden"</item>
+        <item msgid="4358760614161107970">"9 seconden"</item>
+        <item msgid="2618179407176906471">"10 seconden"</item>
+        <item msgid="7786079681602275449">"Overig"</item>
+    </string-array>
+    <string-array name="prefEntries_vibrateWhen">
+        <item msgid="2520871831815631409">"Altijd"</item>
+        <item msgid="6069709696037750627">"Alleen indien stil"</item>
+        <item msgid="7486145357487111435">"Nooit"</item>
+    </string-array>
+
+    <!-- CYANOGENMOD EDITS -->
+    <string-array name="pref_templates_gestures_sensitivity_entries">
+        <item>1 (minst strikt)</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12 (meest strikt)</item>
+    </string-array>
+    <string-array name="pref_mms_notification_vibrate_pattern_entries">
+        <item>Normaal</item>
+        <item>Gemiddeld</item>
+        <item>Lang</item>
+        <item>Meerdere keren kort</item>
+        <item>Meerdere keren lang</item>
+        <item>@string/pref_title_mms_notification_vibrate_custom</item>
+    </string-array>
 </resources>
