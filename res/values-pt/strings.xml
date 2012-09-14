@@ -399,4 +399,6 @@
     <string name="toast_sending_message">Enviando mensagem</string>
     <string name="qm_quick_reply">Resposta rápida</string>
     <string name="button_templates">Modelos</string>
+    <string name="pref_dark_theme_title">Usar tema escuro</string>
+    <string name="pref_dark_theme_summary">Se não estiver selecionado, será utilizado o tema \'claro\' padrão</string>
 </resources>
