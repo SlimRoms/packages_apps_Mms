@@ -343,4 +343,39 @@
     <string name="attachment_picture" msgid="3709286281567284296">"Kuva"</string>
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
+    <string name="prefs_templates_settings">Viestipohjat</string>
+    <string name="pref_title_templates_manage">Pohjat</string>
+    <string name="pref_summary_templates_manage">Hallitse viestipohjia</string>
+    <string name="pref_title_templates_show_gesture">Ele</string>
+    <string name="pref_summary_templates_show_gesture">Näytä eleen jälki</string>
+    <string name="pref_title_template_gestures_sensitivity">Eleen tarkkuus</string>
+    <string name="template_save">Tallenna</string>
+    <string name="template_insert_hint">Aseta pohjan teksti tähän</string>
+    <string name="template_empty_text">Tekstikenttä ei voi olla tyhjä</string>
+    <string name="template_explanation">Aseta tai muokkaa viestipohjaa ja halutessasi piirrä ele jolla se lisätään</string>
+    <string name="template_edit">Muokkaa</string>
+    <string name="template_delete">Poista</string>
+    <string name="template_ctx_menu_title">Tehtävät</string>
+    <string name="template_list_title">Viestipohjat</string>
+    <string name="template_new_title">Uusi viestipohja</string>
+    <string name="template_insert">Lisää viestipohja</string>
+    <string name="template_gesture_draw">Piirrä ele alla olevaan tilaan</string>
+    <string name="template_not_present_error">Määritettyä pohjaa ei löydy</string>
+    <string name="template_not_present_error_title">Virhe</string>
+    <string name="template_select">Valitse viestipohja</string>
+    <string name="template_cancel_confirm_title">Varoitus</string>
+    <string name="template_cancel_confirm_text">Viestipohja poistetaan. Haluatko jatkaa?</string>
+    <string name="gestures_already_present">Varoitus: Samankaltainen ele on liitetty toiseen pohjaan!</string>
+    <string name="pref_title_mms_notification_vibrate_settings">Värinäasetukset</string>
+    <string name="pref_title_mms_notification_vibrate_pattern">Värinän kaava</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Muuta värinän kaavaa</string>
+    <string name="pref_title_mms_notification_vibrate_call">Värinä puhelussa</string>
+    <string name="pref_summary_mms_notification_vibrate_call">Ota värinä käyttöön puhelun aikana</string>
+    <string name="pref_title_mms_notification_vibrate_custom">Kustomoitu</string>
+    <string name="pref_text_mms_notification_vibrate_custom">Muotoile päälle/pois millisekunneissa: päälle, pois, päälle, pois...</string>
+    <string name="pref_extra_settings">Lisäasetukset</string>
+    <string name="pref_title_mms_full_timestamp">Näytä aikaleimat</string>
+    <string name="pref_summary_mms_full_timestamp">Näytä aika ja päivä aikaleimassa</string>
+    <string name="pref_title_mms_use_sent_timestamp">Alkuperäinen aikaleima</string>
+    <string name="pref_summary_mms_use_sent_timestamp">Näytä lähetyspäivä vastaanottopäivän sijaan</string>
 </resources>
