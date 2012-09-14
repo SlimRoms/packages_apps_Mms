@@ -3,7 +3,8 @@
 /*
  * Copyright (C) 2007-2008 Esmertec AG.
  * Copyright (C) 2007-2008 The Android Open Source Project
- *
+ * QuickMessage: Copyright (C) 2012 The CyanogenMod Project (DvTonder)
+
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -408,6 +409,8 @@
     <string name="pref_wake_unlock_summary">Пробуждать и разблокировать устройство при входящем сообщении (только для небезопасной блокировки экрана)</string>
     <string name="pref_close_all_title">Закрыть всё</string>
     <string name="pref_close_all_summary">Кнопка \"Закрыть\" закрывает все сообщения</string>
+    <string name="pref_dark_theme_title">Тёмная тема</string>
+    <string name="pref_dark_theme_summary">Если не выбрано, будет использована светлая тема</string>
     <string name="message_counter_separator">из</string>
 
     <!-- QM Dialog box buttons -->
