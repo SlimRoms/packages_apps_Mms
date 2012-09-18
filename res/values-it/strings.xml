@@ -334,6 +334,8 @@
   </plurals>
     <string name="error_state" msgid="5177386717626893507">"Stato non coerente"</string>
     <string name="error_state_text" msgid="7918866106335387710">"Lo stato dei thread e dei destinatari non è coerente. Crea un rapporto bug e segnalalo su http://go/droidanizer."</string>
+    <string name="label_mms_push">Invio MMS</string>
+    <string name="desc_mms_push">Forza invio MMS da cartella outbox</string>
   <plurals name="recipient_count">
     <item quantity="other" msgid="7338580381574463136">"<xliff:g id="NUMBER">%1$s</xliff:g> persone"</item>
   </plurals>
