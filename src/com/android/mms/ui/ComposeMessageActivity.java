@@ -355,7 +355,7 @@ public class ComposeMessageActivity extends Activity
     /**
      * Whether this activity is currently running (i.e. not paused)
      */
-    private boolean mIsRunning;
+    public static boolean mIsRunning;
 
     @SuppressWarnings("unused")
     public static void log(String logMsg) {

@@ -100,6 +100,8 @@ public class ConversationList extends ListActivity implements DraftCache.OnDraft
     public static final int MENU_VIEW_CONTACT         = 2;
     public static final int MENU_ADD_TO_CONTACTS      = 3;
 
+    public static boolean mIsRunning;
+
     private ThreadListQueryHandler mQueryHandler;
     private ConversationListAdapter mListAdapter;
     private SharedPreferences mPrefs;
@@ -272,6 +274,18 @@ public class ConversationList extends ListActivity implements DraftCache.OnDraft
         if (!Conversation.loadingThreads()) {
             Contact.invalidateCache();
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mIsRunning = false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mIsRunning = true;
     }
 
     @Override
