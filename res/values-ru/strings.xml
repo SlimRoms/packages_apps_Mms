@@ -334,6 +334,8 @@
   </plurals>
     <string name="error_state" msgid="5177386717626893507">"Данные были изменены"</string>
     <string name="error_state_text" msgid="7918866106335387710">"Цепочки не соответствуют получателям. Сделайте снимок экрана и отправьте сообщение об ошибке через веб-сайт http://go/droidanizer"</string>
+    <string name="label_mms_push">Передача MMS</string>
+    <string name="desc_mms_push">Передавать MMS из исходящих в сеть</string>
   <plurals name="recipient_count">
     <item quantity="other" msgid="7338580381574463136">"<xliff:g id="NUMBER">%1$s</xliff:g> чел."</item>
   </plurals>
