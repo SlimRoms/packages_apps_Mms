@@ -333,6 +333,10 @@
   </plurals>
     <string name="error_state" msgid="5177386717626893507">"Inkonzisztens állapot"</string>
     <string name="error_state_text" msgid="7918866106335387710">"A láncok és a címzettek állapota nem konzisztens. Kérjük, rögzítse a hibajelentést, és jelentse a http://go/droidanizer oldalon keresztül"</string>
+
+    <string name="label_mms_push">Push üzenetek</string>
+    <string name="desc_mms_push">Push üzenetek fogadása a hálózatról</string>
+
   <plurals name="recipient_count">
     <item quantity="other" msgid="7338580381574463136">"<xliff:g id="NUMBER">%1$s</xliff:g> személy"</item>
   </plurals>
