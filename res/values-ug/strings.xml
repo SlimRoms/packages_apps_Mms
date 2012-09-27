@@ -29,7 +29,6 @@
     <string name="menu_delete_all" msgid="808729454898114735">"ھەممە سۆزلىشىشنى ئۆچۈر"</string>
     <string name="menu_delete" msgid="1851666911396479006">"سۆزلىشىش ئۆچۈر"</string>
     <string name="menu_view" msgid="7448852683948080108">"سۆزلىشىش كۆرسەت"</string>
-    <string name="menu_debug_dump" msgid="6855869130206549643">"DEBUG DUMP"</string>
     <string name="refreshing" msgid="987335057871404222">"يېڭىلاۋاتىدۇ…"</string>
     <string name="has_draft" msgid="2487465595514636160">"دەسلەپكى نۇسخا"</string>
     <string name="no_subject_view" msgid="7795086723069563537">"(ماۋزۇسىز)"</string>
