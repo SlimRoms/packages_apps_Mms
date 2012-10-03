@@ -41,4 +41,13 @@
     <item msgid="8479809115158836070">"Grinsen"</item>
     <item msgid="638612939305162424">"Pokergesicht"</item>
   </string-array>
+
+  <string-array name="pref_mms_notification_vibrate_pattern_entries">
+      <item>Normal</item>
+      <item>Mittel</item>
+      <item>Lang</item>
+      <item>Mehrmals kurz</item>
+      <item>Mehrmals lang</item>
+      <item>@string/pref_title_mms_notification_vibrate_custom</item>
+  </string-array>
 </resources>
