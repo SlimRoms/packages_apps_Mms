@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?>
+<!--
 /*
  * Copyright (C) 2007-2008 Esmertec AG.
  * Copyright (C) 2007-2008 The Android Open Source Project
+ * QuickMessage: Copyright (C) 2012 The CyanogenMod Project (DvTonder)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- -->
+-->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -173,6 +174,8 @@
     <string name="pref_summary_notification_vibrateWhen" msgid="669655090822561447">"Vibrer également à la réception d\'une notification"</string>
     <string name="pref_title_notification_ringtone" msgid="5467265237106229952">"Sélectionner une sonnerie"</string>
     <string name="pref_messages_to_save" msgid="3202539743892934926">"Définir le nombre de messages à enregistrer"</string>
+    <string name="pref_title_input_type">Option du clavier virtuel</string>
+    <string name="pref_summary_input_type">Selectionner le type de clavier virtuel à utiliser lors de la composition des messages</string>
   <string-array name="prefEntries_vibrateWhen">
     <item msgid="2520871831815631409">"Toujours"</item>
     <item msgid="6069709696037750627">"En mode silencieux"</item>
@@ -331,6 +334,8 @@
   </plurals>
     <string name="error_state" msgid="5177386717626893507">"État incohérent"</string>
     <string name="error_state_text" msgid="7918866106335387710">"L\'état des fils de discussion et des destinataires ne correspond pas. Veuillez générer un rapport d\'erreur, puis l\'envoyer sur la page http://go/droidanizer."</string>
+    <string name="label_mms_push">MMS Push</string>
+    <string name="desc_mms_push">Pousse les MMS de la boîte d\'envoi sur le réseau</string>
   <plurals name="recipient_count">
     <item quantity="other" msgid="7338580381574463136">"<xliff:g id="NUMBER">%1$s</xliff:g> personnes"</item>
   </plurals>
@@ -386,4 +391,24 @@
     <string name="pref_summary_mms_full_timestamp">Afficher la date et l\'heure des messages</string>
     <string name="pref_title_mms_use_sent_timestamp">Date originale</string>
     <string name="pref_summary_mms_use_sent_timestamp">Afficher la date d\'envoi au lieu de la date de récéption</string>
+    <string name="pref_keyboard_emoji">Emoji</string>
+    <string name="pref_keyboard_send">Entrer pour envoyer</string>
+    <string name="pref_keyboard_new_line">Entrer pour aller à la ligne</string>
+    <!-- QuickMessage -->
+    <string name="pref_quickmessage">QuickMessage</string>
+    <string name="pref_quickmessage_title">Activer QuickMessage</string>
+    <string name="pref_quickmessage_summary">Afficher la pop-up QuickMessage</string>
+    <string name="pref_wake_unlock_title">Réveiller et déverrouiller</string>
+    <string name="pref_wake_unlock_summary">Réveiller et déverrouiller l\'appareil à l\'arrivée de messages (écran de verrouillage non sécurisé seulement)</string>
+    <string name="pref_close_all_title">Tout fermer</string>
+    <string name="pref_close_all_summary">Le bonton Fermer ferme tous les messages</string>
+    <string name="pref_dark_theme_title">Utiliser le thème noir</string>
+    <string name="pref_dark_theme_summary">Si non sélectionné, le thème \'clair\' par défaut sera utilisé</string>
+    <string name="message_counter_separator">de</string>
+    <string name="button_close">Fermer</string>
+    <string name="button_view">Afficher</string>
+    <string name="button_templates">Modèles</string>
+    <string name="type_to_reply_text_enter_to_send">Entrer pour répondre</string>
+    <string name="toast_sending_message">Envoi du message</string>
+    <string name="qm_quick_reply">Réponse rapide</string>
 </resources>
