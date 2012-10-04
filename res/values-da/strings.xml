@@ -395,9 +395,9 @@
     <string name="pref_summary_strip_unicode">Erstat gængse tegn, som ikke understøttes i 160-tegns SMS-beskeder</string>
 
     <!-- Enable emojis -->
-    <string name="menu_insert_emoji">Indsæt emojis</string>
-    <string name="pref_title_enable_emojis">Emoji-understøttelse</string>
-    <string name="pref_summary_enable_emojis">Slå understøttelse af Unicode-emojis til, et sæt af 471 flotte smileys</string>
+    <string name="menu_insert_emoji">Indsæt smileys</string>
+    <string name="pref_title_enable_emojis">Smiley-understøttelse</string>
+    <string name="pref_summary_enable_emojis">Slå understøttelse af Unicode-smileys til, et sæt af 471 flotte smileys</string>
 
     <!-- Full timestamps -->
     <string name="pref_title_mms_full_timestamp">Fulde tidsstempler</string>
@@ -429,8 +429,20 @@
     <string name="type_to_reply_text_enter_to_send">Skriv for at svare</string>
 
     <!-- QM Toast -->
-    <string name="toast_sending_message">Sender besked</string>
+    <string name="toast_sending_message">Sender besked...</string>
 
     <!-- QM - Quick reply -->
     <string name="qm_quick_reply">Hurtigt svar</string>
+
+    <!-- Settings item for the soft keyboard picker -->
+    <string name="pref_title_input_type">Type af softwaretastatur</string>
+    <string name="pref_summary_input_type">Vælg det softwaretastatur, som skal bruges til at skrive beskeder</string>
+
+    <!-- Soft Keyboard Type -->
+    <string name="pref_keyboard_emoji">Smiley</string>
+    <string name="pref_keyboard_send">Send med Enter</string>
+    <string name="pref_keyboard_new_line">Ny linje med Enter</string>
+
+    <string name="label_mms_push">MMS-push</string>
+    <string name="desc_mms_push">Sender MMS fra udbakken til netværket</string>
 </resources>
