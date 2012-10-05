@@ -139,6 +139,7 @@
             android:minHeight="@dimen/input_text_height"
             android:textColor="?android:attr/textColorPrimaryInverse"
             android:textColorHint="?android:attr/textColorTertiary"
+            android:textCursorDrawable = "@null"
             android:maxLines="3"
             android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
             android:imeOptions="actionSend|flagNoEnterAction"
