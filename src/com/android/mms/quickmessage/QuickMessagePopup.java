@@ -38,11 +38,11 @@ import android.provider.ContactsContract.Profile;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.InputFilter;
+import android.text.InputFilter.LengthFilter;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.InputFilter.LengthFilter;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -56,6 +56,8 @@ import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.EditText;
@@ -67,8 +69,6 @@ import android.widget.QuickContactBadge;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
@@ -146,9 +146,9 @@ public class QuickMessagePopup extends Activity implements
     private MessagePagerAdapter mPagerAdapter;
 
     // Options menu items
-    private static final int MENU_INSERT_SMILEY         = 1;
-    private static final int MENU_INSERT_EMOJI          = 3;
-    private static final int MENU_ADD_TEMPLATE          = 2;
+    private static final int MENU_INSERT_SMILEY = 1;
+    private static final int MENU_INSERT_EMOJI = 3;
+    private static final int MENU_ADD_TEMPLATE = 2;
 
     // Smiley and Emoji support
     private AlertDialog mSmileyDialog;
@@ -236,6 +236,16 @@ public class QuickMessagePopup extends Activity implements
         mViewButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // Override the re-lock if the screen was unlocked
+                if (mScreenUnlocked) {
+                    // Cancel the receiver that will clear the wake locks
+                    ClearAllReceiver.removeCancel(getApplicationContext());
+                    ClearAllReceiver.clearAll(false);
+                    mScreenUnlocked = false;
+                }
+
+                // Trigger the view intent
                 mCurrentQm = mMessageList.get(mCurrentPage);
                 Intent vi = mCurrentQm.getViewIntent();
                 if (vi != null) {
@@ -312,7 +322,7 @@ public class QuickMessagePopup extends Activity implements
         if (mScreenUnlocked) {
             // Cancel the receiver that will clear the wake locks
             ClearAllReceiver.removeCancel(getApplicationContext());
-            ClearAllReceiver.clearAll(mScreenUnlocked);
+            ClearAllReceiver.clearAll(true);
         }
     }
 
@@ -1182,4 +1192,6 @@ public class QuickMessagePopup extends Activity implements
         @Override
         public void onPageScrolled(int arg0, float arg1, int arg2) {}
    }
+
+
 }
