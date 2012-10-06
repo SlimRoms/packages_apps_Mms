@@ -356,6 +356,10 @@
     <!-- Settings item for the soft keyboard picker -->
     <string name="pref_title_input_type">Soft keyboard type</string>
     <string name="pref_summary_input_type">Select the soft keyboard to use when composing messages</string>
+	<!-- Settings item for boolean option for group MMS sending/receiving -->
+    <string name="pref_title_mms_group_mms">Group messaging</string>
+    <!-- Settings item description for boolean group MMS sending/receiving -->
+    <string name="pref_summary_mms_group_mms">Enable group MMS sending and receiving</string>
 
     <!-- The vibrate notification modes -->
     <string-array name="prefEntries_vibrateWhen">
