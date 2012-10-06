@@ -30,10 +30,12 @@ public class QmTextWatcher implements TextWatcher {
     private ImageButton mSendButton;
     private ImageButton mTemplateButton;
     private int mTemplateCount;
+    private Context mContext;
     private static final int CHARS_REMAINING_BEFORE_COUNTER_SHOWN = 30;
 
     public QmTextWatcher(Context context, TextView updateTextView, ImageButton sendButton,
             ImageButton templateButton, int templateCount) {
+        mContext = context;
         mTextView = updateTextView;
         mSendButton = sendButton;
         mTemplateButton = templateButton;
@@ -41,6 +43,7 @@ public class QmTextWatcher implements TextWatcher {
     }
 
     public QmTextWatcher(Context context, TextView updateTextView) {
+        mContext = context;
         mTextView = updateTextView;
         mSendButton = null;
         mTemplateButton = null;
@@ -56,6 +59,9 @@ public class QmTextWatcher implements TextWatcher {
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
         getQuickReplyCounterText(s, mTextView, mSendButton, mTemplateButton, mTemplateCount);
+
+        // Poke the wakelock. If there is no active wakelock this will not do anything
+        ManageWakeLock.pokeWakeLock(mContext);
     }
 
     public static void getQuickReplyCounterText(CharSequence s, TextView textView,
