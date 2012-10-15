@@ -251,6 +251,9 @@ public class QuickMessagePopup extends Activity implements
                 mCurrentQm = mMessageList.get(mCurrentPage);
                 Intent vi = mCurrentQm.getViewIntent();
                 if (vi != null) {
+                    mCurrentQm.saveReplyText();
+                    vi.putExtra("sms_body", mCurrentQm.getReplyText());
+
                     startActivity(vi);
                 }
                 clearNotification(false);
