@@ -426,4 +426,11 @@
 
     <!-- QM - Quick reply -->
     <string name="qm_quick_reply">Быстрый ответ</string>
+
+    <!-- Settings item for the soft keyboard picker -->
+    <string name="pref_title_input_type">Тип клавиатуры</string>
+    <string name="pref_summary_input_type">Выберите тип клавиатуры при написании сообщения</string>
+
+    <!-- Add menu for 'Add SMS to calendar remind' -->
+    <string name="menu_add_to_calendar">Добавить в календарь</string>
 </resources>
