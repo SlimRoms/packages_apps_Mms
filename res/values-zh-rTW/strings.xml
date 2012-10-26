@@ -342,4 +342,7 @@
     <string name="attachment_picture" msgid="3709286281567284296">"圖片"</string>
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">"、 "</string>
+
+    <!-- Add menu for 'Add SMS to calendar remind' -->
+    <string name="menu_add_to_calendar">添加日曆提醒</string>
 </resources>

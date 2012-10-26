@@ -888,4 +888,6 @@
     <!-- QM - Quick reply -->
     <string name="qm_quick_reply">Quick reply</string>
 
+    <!-- Add menu for 'Add SMS to calendar remind' -->
+    <string name="menu_add_to_calendar">Add to calendar</string>
 </resources>
