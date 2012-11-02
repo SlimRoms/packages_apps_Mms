@@ -18,7 +18,8 @@
  */
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.android.mms">
+        package="com.android.mms"
+        android:sharedUserId="android.uid.system">
 
     <uses-sdk
         android:minSdkVersion="14"
