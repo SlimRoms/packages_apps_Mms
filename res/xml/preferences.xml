@@ -124,15 +124,10 @@
         android:defaultValue="false" />
 
     <CheckBoxPreference
-        android:key="pref_dark_theme"
-        android:title="@string/pref_dark_theme_title"
-        android:summary="@string/pref_dark_theme_summary"
-        android:defaultValue="false" />
-
-    <CheckBoxPreference
         android:key="pref_key_qm_lockscreen"
         android:title="@string/pref_wake_unlock_title"
         android:summary="@string/pref_wake_unlock_summary"
+        android:layout="?android:attr/preferenceLayoutChild"
         android:dependency="pref_key_quickmessage"
         android:defaultValue="false" />
 
@@ -140,10 +135,17 @@
         android:key="pref_key_close_all"
         android:title="@string/pref_close_all_title"
         android:summary="@string/pref_close_all_summary"
+        android:layout="?android:attr/preferenceLayoutChild"
         android:dependency="pref_key_quickmessage"
         android:defaultValue="false" />
 
-  </PreferenceCategory>
+    <CheckBoxPreference
+        android:key="pref_dark_theme"
+        android:title="@string/pref_dark_theme_title"
+        android:summary="@string/pref_dark_theme_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/prefs_templates_settings" >
         <Preference
