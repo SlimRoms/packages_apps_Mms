@@ -2114,15 +2114,7 @@ public class ComposeMessageActivity extends Activity
     }
 
     public boolean rightOrientation(int orientation) {
-	if (orientation < -65 ) {
-		return true;
-	} else {
-		return false;
-	}
-    }
-
-    public boolean rightProximity(int oldProximityint, int currentProximity) {
-	if (oldProximity == 1 && currentProximity == 0) {
+	if (orientation < -50 && orientation > -130) {
 		return true;
 	} else {
 		return false;
