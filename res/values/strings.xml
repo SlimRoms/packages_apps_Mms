@@ -857,9 +857,9 @@
     <string name="pref_summary_mms_use_sent_timestamp">Display sent date instead of received date in timestamps</string>
 
     <!-- Soft Keyboard Type -->
-    <string name="pref_keyboard_emoji">Emoji</string>
-    <string name="pref_keyboard_send">Enter to Send</string>
-    <string name="pref_keyboard_new_line">Enter for a new line</string>
+    <string name="pref_keyboard_emoji">Show the Emoticons key</string>
+    <string name="pref_keyboard_new_line">Show the Enter key</string>
+    <string name="pref_keyboard_unknown">Unknown, please reselect</string>
 
     <!-- QUICKMESSAGE SUPPORT -->
     <!-- Preferences -->

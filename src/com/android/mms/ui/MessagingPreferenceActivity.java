@@ -40,6 +40,7 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.SearchRecentSuggestions;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -77,13 +78,15 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String FULL_TIMESTAMP            = "pref_key_mms_full_timestamp";
     public static final String SENT_TIMESTAMP            = "pref_key_mms_use_sent_timestamp";
     public static final String ENABLE_EMOJIS             = "pref_key_enable_emojis";
-    public static final String INPUT_TYPE                = "pref_key_mms_input_type";
 
     // QuickMessage
     public static final String QUICKMESSAGE_ENABLED      = "pref_key_quickmessage";
     public static final String QM_LOCKSCREEN_ENABLED     = "pref_key_qm_lockscreen";
     public static final String QM_CLOSE_ALL_ENABLED      = "pref_key_close_all";
     public static final String QM_DARK_THEME_ENABLED     = "pref_dark_theme";
+
+    // Keyboard input type
+    public static final String INPUT_TYPE                = "pref_key_mms_input_type";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
@@ -111,6 +114,11 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private CheckBoxPreference mEnableQmLockscreenPref;
     private CheckBoxPreference mEnableQmCloseAllPref;
     private CheckBoxPreference mEnableQmDarkThemePref;
+
+    // Keyboard input type
+    private ListPreference mInputTypePref;
+    private CharSequence[] mInputTypeEntries;
+    private CharSequence[] mInputTypeValues;
 
     @Override
     protected void onCreate(Bundle icicle) {
@@ -154,6 +162,12 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mEnableQmCloseAllPref = (CheckBoxPreference) findPreference(QM_CLOSE_ALL_ENABLED);
         mEnableQmDarkThemePref = (CheckBoxPreference) findPreference(QM_DARK_THEME_ENABLED);
 
+        // Keyboard input type
+        mInputTypePref = (ListPreference) findPreference(INPUT_TYPE);
+        mInputTypeEntries = getResources().getTextArray(R.array.pref_entries_input_type);
+        mInputTypeValues = getResources().getTextArray(R.array.pref_values_input_type);
+
+        // Vibration
         mVibrateEntries = getResources().getTextArray(R.array.prefEntries_vibrateWhen);
         mVibrateValues = getResources().getTextArray(R.array.prefValues_vibrateWhen);
 
@@ -249,11 +263,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         });
 
         String gestureSensitivity = String.valueOf(sharedPreferences.getInt(GESTURE_SENSITIVITY_VALUE, 3));
-
         mGestureSensitivity.setSummary(gestureSensitivity);
         mGestureSensitivity.setValue(gestureSensitivity);
         mGestureSensitivity.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 int value = Integer.parseInt((String) newValue);
@@ -271,6 +283,13 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         setMmsDisplayLimit();
 
         adjustVibrateSummary(mVibrateWhenPref.getValue());
+
+        // Read the input type value and set the summary
+        String inputType = sharedPreferences.getString(MessagingPreferenceActivity.INPUT_TYPE,
+                Integer.toString(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE));
+        mInputTypePref.setValue(inputType);
+        adjustInputTypeSummary(mInputTypePref.getValue());
+        mInputTypePref.setOnPreferenceChangeListener(this);
     }
 
     private void setEnabledNotificationsPref() {
@@ -512,6 +531,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         if (preference == mVibrateWhenPref) {
             adjustVibrateSummary((String)newValue);
             result = true;
+        } else if (preference == mInputTypePref) {
+            adjustInputTypeSummary((String)newValue);
+            result = true;
         }
         return result;
     }
@@ -525,5 +547,16 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             }
         }
         mVibrateWhenPref.setSummary(null);
+    }
+
+    private void adjustInputTypeSummary(String value) {
+        int len = mInputTypeValues.length;
+        for (int i = 0; i < len; i++) {
+            if (mInputTypeValues[i].equals(value)) {
+                mInputTypePref.setSummary(mInputTypeEntries[i]);
+                return;
+            }
+        }
+        mInputTypePref.setSummary(R.string.pref_keyboard_unknown);
     }
 }

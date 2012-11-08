@@ -348,7 +348,7 @@ public class ComposeMessageActivity extends Activity
     private SimpleCursorAdapter mTemplatesCursorAdapter;
     private double mGestureSensitivity;
 
-    private int inputMethod;
+    private int mInputMethod;
 
     private int mLastSmoothScrollPosition;
     private boolean mScrollOnSend;      // Flag that we need to scroll the list to the end.
@@ -2013,7 +2013,8 @@ public class ComposeMessageActivity extends Activity
                 .getInt(MessagingPreferenceActivity.GESTURE_SENSITIVITY_VALUE, 3);
         boolean showGesture = prefs.getBoolean(MessagingPreferenceActivity.SHOW_GESTURE, false);
         boolean stripUnicode = prefs.getBoolean(MessagingPreferenceActivity.STRIP_UNICODE, false);
-        inputMethod = Integer.parseInt(prefs.getString(MessagingPreferenceActivity.INPUT_TYPE, Integer.toString(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE)));
+        mInputMethod = Integer.parseInt(prefs.getString(MessagingPreferenceActivity.INPUT_TYPE,
+                Integer.toString(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE)));
 
         mLibrary = TemplateGesturesLibrary.getStore(this);
 
@@ -2382,15 +2383,15 @@ public class ComposeMessageActivity extends Activity
             }
         }, 100);
 
+        // Load the selected input type
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences((Context) ComposeMessageActivity.this);
-        inputMethod = Integer.parseInt(prefs.getString(MessagingPreferenceActivity.INPUT_TYPE, Integer.toString(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE)));
-        Log.d("MMS Input Type", Integer.toString(inputMethod));
-        mTextEditor.setInputType(InputType.TYPE_CLASS_TEXT|
-                                inputMethod|
-                                InputType.TYPE_TEXT_FLAG_AUTO_CORRECT|
-                                InputType.TYPE_TEXT_FLAG_CAP_SENTENCES|
-                                InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        mInputMethod = Integer.parseInt(prefs.getString(MessagingPreferenceActivity.INPUT_TYPE,
+                Integer.toString(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE)));
+        mTextEditor.setInputType(InputType.TYPE_CLASS_TEXT | mInputMethod
+                | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT
+                | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
+                | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
 
         mIsRunning = true;
         updateThreadIdIfRunning();
@@ -3495,14 +3496,15 @@ public class ComposeMessageActivity extends Activity
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (event != null) {
             boolean sendNow;
-            if(!mIsHardKeyboardOpen && inputMethod == InputType.TYPE_TEXT_VARIATION_LONG_MESSAGE){
+            if (!mIsHardKeyboardOpen && mInputMethod == InputType.TYPE_TEXT_VARIATION_LONG_MESSAGE) {
                 //if the physical keyboard is not open and if the user has selected enter
                 //for a new line the shift key must be pressed to send
                 sendNow = event.isShiftPressed();
-            }else{
+            } else {
                 //otherwise enter sends and shift must be pressed for a new line
                 sendNow = !event.isShiftPressed();
             }
+
             if (sendNow) {
                 if (isPreparedForSending()) {
                     confirmSendMessageIfNeeded();
