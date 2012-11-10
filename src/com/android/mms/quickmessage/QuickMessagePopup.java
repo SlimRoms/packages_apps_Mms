@@ -56,6 +56,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -112,6 +113,8 @@ public class QuickMessagePopup extends Activity implements
             "com.android.mms.SMS_FROM_NUMBER";
     public static final String SMS_NOTIFICATION_OBJECT_EXTRA =
             "com.android.mms.NOTIFICATION_OBJECT";
+    public static final String QR_SHOW_KEYBOARD_EXTRA =
+            "com.android.mms.QR_SHOW_KEYBOARD";
 
     // Templates support
     private static final int DIALOG_TEMPLATE_SELECT        = 1;
@@ -281,6 +284,11 @@ public class QuickMessagePopup extends Activity implements
             QuickMessage qm = new QuickMessage(extras.getString(SMS_FROM_NAME_EXTRA),
                     extras.getString(SMS_FROM_NUMBER_EXTRA), nm);
             mMessageList.add(qm);
+
+            // If triggered from Quick Reply the keyboard should be visible immediately
+            if (extras.getBoolean(QR_SHOW_KEYBOARD_EXTRA, false)) {
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            }
 
             if (newMessage && mCurrentPage != -1) {
                 // There is already a message showing
@@ -557,7 +565,6 @@ public class QuickMessagePopup extends Activity implements
 
         mEmojiDialog.show();
     }
-
 
     /**
      * This method dismisses the on screen keyboard if it is visible for the supplied qm

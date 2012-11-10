@@ -996,6 +996,11 @@ public class MessagingNotification {
         if (messageCount == 1 || uniqueThreadCount == 1) {
             // Add the QuickMessage action only if the pop-up won't be shown already
             if (!qmPopupEnabled && qmIntent != null) {
+
+                // This is a QR, we should show the keyboard when the user taps to reply
+                qmIntent.putExtra(QuickMessagePopup.QR_SHOW_KEYBOARD_EXTRA, true);
+
+                // Create the pending intent and add it to the notification
                 CharSequence qmText = context.getText(R.string.qm_quick_reply);
                 PendingIntent qmPendingIntent = PendingIntent.getActivity(context, 0, qmIntent,
                         PendingIntent.FLAG_UPDATE_CURRENT);
