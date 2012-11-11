@@ -408,15 +408,15 @@
     <string name="pref_summary_mms_use_sent_timestamp">Statt Empfangszeitpunkt den Sendezeitpunkt der Nachricht anzeigen und speichern</string>
 
     <!-- Soft Keyboard Type -->
-    <string name="pref_keyboard_emoji">Emoji</string>
-    <string name="pref_keyboard_send">Mit Eingabe senden</string>
-    <string name="pref_keyboard_new_line">Eingabe fügt neue Zeile ein</string>
+    <string name="pref_keyboard_emoji">Emoticon-Taste anzeigen</string>
+    <string name="pref_keyboard_new_line">Eingabetaste anzeigen</string>
+    <string name="pref_keyboard_unknown">Unbekannt. Neue Auswahl treffen</string>
 
     <!-- QUICKMESSAGE SUPPORT -->
     <!-- Preferences -->
-    <string name="pref_quickmessage">Schnellnachricht</string>
-    <string name="pref_quickmessage_title">Schnellnachrichten aktivieren</string>
-    <string name="pref_quickmessage_summary">Das Schnellnachricht-Pop-up anzeigen</string>
+    <string name="pref_quickmessage">Schnellnachricht und Antwort</string>
+    <string name="pref_quickmessage_title">Schnellnachrichten anzeigen</string>
+    <string name="pref_quickmessage_summary">Das Schnellnachricht-Pop-up bei Eingang von SMS anzeigen</string>
     <string name="pref_wake_unlock_title">Wecken und Entsperren</string>
     <string name="pref_wake_unlock_summary">Gerät bei Nachrichteneingang wecken und entsperren. (Nicht bei Sicherheits-Sperrbildschirmen möglich)</string>
     <string name="pref_close_all_title">Alle schließen</string>
