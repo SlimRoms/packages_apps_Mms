@@ -408,15 +408,15 @@
     <string name="pref_summary_mms_use_sent_timestamp">在时间戳中显示发送时间而不是接收时间</string>
 
     <!-- Soft Keyboard Type -->
-    <string name="pref_keyboard_emoji">绘文字</string>
-    <string name="pref_keyboard_send">回车将发送信息</string>
-    <string name="pref_keyboard_new_line">回车将开始新的一行</string>
+    <string name="pref_keyboard_emoji">显示表情符号按键</string>
+    <string name="pref_keyboard_new_line">显示回车键</string>
+    <string name="pref_keyboard_unknown">未知, 请重新选择</string>
 
     <!-- QUICKMESSAGE SUPPORT -->
     <!-- Preferences -->
-    <string name="pref_quickmessage">快速信息</string>
-    <string name="pref_quickmessage_title">启用快速信息</string>
-    <string name="pref_quickmessage_summary">显示快速信息对话框</string>
+    <string name="pref_quickmessage">快速信息与回复</string>
+    <string name="pref_quickmessage_title">显示快速信息</string>
+    <string name="pref_quickmessage_summary">收到短信时显示快速信息对话框</string>
     <string name="pref_wake_unlock_title">唤醒和解锁</string>
     <string name="pref_wake_unlock_summary">收到消息时唤醒和解锁设备 (仅在非安全锁定屏幕时有效)</string>
     <string name="pref_close_all_title">全部关闭</string>
