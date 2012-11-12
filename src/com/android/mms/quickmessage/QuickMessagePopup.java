@@ -41,6 +41,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.InputFilter;
 import android.text.InputFilter.LengthFilter;
+import android.text.InputType;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -55,6 +56,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -111,6 +113,8 @@ public class QuickMessagePopup extends Activity implements
             "com.android.mms.SMS_FROM_NUMBER";
     public static final String SMS_NOTIFICATION_OBJECT_EXTRA =
             "com.android.mms.NOTIFICATION_OBJECT";
+    public static final String QR_SHOW_KEYBOARD_EXTRA =
+            "com.android.mms.QR_SHOW_KEYBOARD";
 
     // Templates support
     private static final int DIALOG_TEMPLATE_SELECT        = 1;
@@ -143,6 +147,7 @@ public class QuickMessagePopup extends Activity implements
     private boolean mFullTimestamp = false;
     private boolean mStripUnicode = false;
     private boolean mEnableEmojis = false;
+    private int mInputMethod;
 
     // Message pager
     private ViewPager mMessagePager;
@@ -178,6 +183,8 @@ public class QuickMessagePopup extends Activity implements
         mDarkTheme = prefs.getBoolean(MessagingPreferenceActivity.QM_DARK_THEME_ENABLED, false);
         mStripUnicode = prefs.getBoolean(MessagingPreferenceActivity.STRIP_UNICODE, false);
         mEnableEmojis = prefs.getBoolean(MessagingPreferenceActivity.ENABLE_EMOJIS, false);
+        mInputMethod = Integer.parseInt(prefs.getString(MessagingPreferenceActivity.INPUT_TYPE,
+                Integer.toString(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE)));
 
         // Set the window features and layout
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -277,6 +284,11 @@ public class QuickMessagePopup extends Activity implements
             QuickMessage qm = new QuickMessage(extras.getString(SMS_FROM_NAME_EXTRA),
                     extras.getString(SMS_FROM_NUMBER_EXTRA), nm);
             mMessageList.add(qm);
+
+            // If triggered from Quick Reply the keyboard should be visible immediately
+            if (extras.getBoolean(QR_SHOW_KEYBOARD_EXTRA, false)) {
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            }
 
             if (newMessage && mCurrentPage != -1) {
                 // There is already a message showing
@@ -553,7 +565,6 @@ public class QuickMessagePopup extends Activity implements
 
         mEmojiDialog.show();
     }
-
 
     /**
      * This method dismisses the on screen keyboard if it is visible for the supplied qm
@@ -1034,6 +1045,10 @@ public class QuickMessagePopup extends Activity implements
                 }
 
                 // Set the remaining values
+                qmReplyText.setInputType(InputType.TYPE_CLASS_TEXT | mInputMethod
+                        | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT
+                        | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
+                        | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
                 qmReplyText.setText(qm.getReplyText());
                 qmReplyText.setSelection(qm.getReplyText().length());
                 qmReplyText.addTextChangedListener(new QmTextWatcher(mContext, qmTextCounter, qmSendButton,
@@ -1204,6 +1219,5 @@ public class QuickMessagePopup extends Activity implements
         @Override
         public void onPageScrolled(int arg0, float arg1, int arg2) {}
    }
-
 
 }

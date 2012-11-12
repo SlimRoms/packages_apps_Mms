@@ -382,6 +382,11 @@
     <string name="pref_title_mms_use_sent_timestamp">Oorspr. tijdsaanduiding</string>
     <string name="pref_summary_mms_use_sent_timestamp">Verzenddatum tonen i.p.v. ontvangstdatum in tijdsaanduidingen</string>
 
+    <!-- Soft Keyboard Type -->
+    <string name="pref_keyboard_emoji">Emoji</string>
+    <string name="pref_keyboard_send">Enter om te versturen</string>
+    <string name="pref_keyboard_new_line">Enter voor een nieuwe regel</string>
+
     <!-- QUICKMESSAGE SUPPORT -->
     <!-- Preferences -->
     <string name="pref_quickmessage">SnelBericht</string>
@@ -408,4 +413,14 @@
 
     <!-- QM - Quick reply -->
     <string name="qm_quick_reply">Snel beantwoorden</string>
+
+    <!-- Settings item for the soft keyboard picker -->
+    <string name="pref_title_input_type">Type softwaretoetsenbord</string>
+    <string name="pref_summary_input_type">Kies het te gebruiken softwaretoetsenbord tijdens het opstellen van berichten</string>
+
+    <string name="label_mms_push">Mms-push</string>
+    <string name="desc_mms_push">Mms-berichten naar het netwerk sturen vanuit Postvak UIT</string>
+
+    <!-- Add menu for 'Add SMS to calendar remind' -->
+    <string name="menu_add_to_calendar">Toevoegen aan agenda</string>
 </resources>
