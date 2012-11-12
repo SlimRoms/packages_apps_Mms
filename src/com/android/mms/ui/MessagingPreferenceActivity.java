@@ -25,6 +25,7 @@ import com.android.mms.R;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -40,6 +41,8 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.SearchRecentSuggestions;
+import android.text.InputType;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -78,7 +81,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String FULL_TIMESTAMP            = "pref_key_mms_full_timestamp";
     public static final String SENT_TIMESTAMP            = "pref_key_mms_use_sent_timestamp";
     public static final String ENABLE_EMOJIS             = "pref_key_enable_emojis";
-    public static final String INPUT_TYPE                = "pref_key_mms_input_type";
 
     // QuickMessage
     public static final String QUICKMESSAGE_ENABLED      = "pref_key_quickmessage";
@@ -87,6 +89,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String QM_DARK_THEME_ENABLED     = "pref_dark_theme";
 
     private static final String DIRECT_CALL_PREF = "direct_call_pref";
+
+    // Keyboard input type
+    public static final String INPUT_TYPE                = "pref_key_mms_input_type";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
@@ -100,6 +105,8 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private Preference mMmsReadReportPref;
     private Preference mManageSimPref;
     private Preference mClearHistoryPref;
+    private CheckBoxPreference mMmsAutoRetrieval;
+    private CheckBoxPreference mMmsRetrievalDuringRoaming;
     private ListPreference mVibrateWhenPref;
     private CheckBoxPreference mEnableNotificationsPref;
     private Recycler mSmsRecycler;
@@ -117,6 +124,11 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private CheckBoxPreference mEnableQmDarkThemePref;
 
     private CheckBoxPreference mDirectCall;
+
+    // Keyboard input type
+    private ListPreference mInputTypePref;
+    private CharSequence[] mInputTypeEntries;
+    private CharSequence[] mInputTypeValues;
 
     @Override
     protected void onCreate(Bundle icicle) {
@@ -150,11 +162,20 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mMmsReadReportPref = findPreference("pref_key_mms_read_reports");
         mMmsLimitPref = findPreference("pref_key_mms_delete_limit");
         mClearHistoryPref = findPreference("pref_key_mms_clear_history");
-	mDirectCall = (CheckBoxPreference) findPreference("direct_call_pref");
+		mDirectCall = (CheckBoxPreference) findPreference("direct_call_pref");
         mEnableNotificationsPref = (CheckBoxPreference) findPreference(NOTIFICATION_ENABLED);
         mVibrateWhenPref = (ListPreference) findPreference(NOTIFICATION_VIBRATE_WHEN);
         mManageTemplate = findPreference(MANAGE_TEMPLATES);
         mGestureSensitivity = (ListPreference) findPreference(GESTURE_SENSITIVITY);
+
+        // Get the MMS retrieval settings. Defaults to enabled with roaming disabled
+        ContentResolver resolver = getContentResolver();
+        mMmsAutoRetrieval = (CheckBoxPreference) findPreference(AUTO_RETRIEVAL);
+        mMmsAutoRetrieval.setChecked(Settings.System.getInt(resolver,
+                Settings.System.MMS_AUTO_RETRIEVAL, 1) == 1);
+        mMmsRetrievalDuringRoaming = (CheckBoxPreference) findPreference(RETRIEVAL_DURING_ROAMING);
+        mMmsRetrievalDuringRoaming.setChecked(Settings.System.getInt(resolver,
+                Settings.System.MMS_AUTO_RETRIEVAL_ON_ROAMING, 0) == 1); 
 
         // QuickMessage
         mEnableQuickMessagePref = (CheckBoxPreference) findPreference(QUICKMESSAGE_ENABLED);
@@ -162,6 +183,12 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mEnableQmCloseAllPref = (CheckBoxPreference) findPreference(QM_CLOSE_ALL_ENABLED);
         mEnableQmDarkThemePref = (CheckBoxPreference) findPreference(QM_DARK_THEME_ENABLED);
 
+        // Keyboard input type
+        mInputTypePref = (ListPreference) findPreference(INPUT_TYPE);
+        mInputTypeEntries = getResources().getTextArray(R.array.pref_entries_input_type);
+        mInputTypeValues = getResources().getTextArray(R.array.pref_values_input_type);
+
+        // Vibration
         mVibrateEntries = getResources().getTextArray(R.array.prefEntries_vibrateWhen);
         mVibrateValues = getResources().getTextArray(R.array.prefValues_vibrateWhen);
 
@@ -257,11 +284,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         });
 
         String gestureSensitivity = String.valueOf(sharedPreferences.getInt(GESTURE_SENSITIVITY_VALUE, 3));
-
         mGestureSensitivity.setSummary(gestureSensitivity);
         mGestureSensitivity.setValue(gestureSensitivity);
         mGestureSensitivity.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 int value = Integer.parseInt((String) newValue);
@@ -279,6 +304,13 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         setMmsDisplayLimit();
 
         adjustVibrateSummary(mVibrateWhenPref.getValue());
+
+        // Read the input type value and set the summary
+        String inputType = sharedPreferences.getString(MessagingPreferenceActivity.INPUT_TYPE,
+                Integer.toString(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE));
+        mInputTypePref.setValue(inputType);
+        adjustInputTypeSummary(mInputTypePref.getValue());
+        mInputTypePref.setOnPreferenceChangeListener(this);
     }
 
     private void setEnabledNotificationsPref() {
@@ -391,11 +423,20 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         } else if (preference == mEnableQmDarkThemePref) {
             // Update the actual "enable dark theme" value that is stored in secure settings.
             enableQmDarkTheme(mEnableQmDarkThemePref.isChecked(), this);
+
+        } else if (preference == mMmsAutoRetrieval) {
+            // Update the value in Settings.System
+            Settings.System.putInt(getContentResolver(), Settings.System.MMS_AUTO_RETRIEVAL,
+                    mMmsAutoRetrieval.isChecked() ? 1 : 0);
+
+        } else if (preference == mMmsRetrievalDuringRoaming) {
+            // Update the value in Settings.System
+            Settings.System.putInt(getContentResolver(), Settings.System.MMS_AUTO_RETRIEVAL_ON_ROAMING,
+                    mMmsRetrievalDuringRoaming.isChecked() ? 1 : 0);
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-
 
     NumberPickerDialog.OnNumberSetListener mSmsLimitListener =
         new NumberPickerDialog.OnNumberSetListener() {
@@ -541,6 +582,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         if (preference == mVibrateWhenPref) {
             adjustVibrateSummary((String)newValue);
             result = true;
+        } else if (preference == mInputTypePref) {
+            adjustInputTypeSummary((String)newValue);
+            result = true;
         }
         return result;
     }
@@ -554,5 +598,16 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             }
         }
         mVibrateWhenPref.setSummary(null);
+    }
+
+    private void adjustInputTypeSummary(String value) {
+        int len = mInputTypeValues.length;
+        for (int i = 0; i < len; i++) {
+            if (mInputTypeValues[i].equals(value)) {
+                mInputTypePref.setSummary(mInputTypeEntries[i]);
+                return;
+            }
+        }
+        mInputTypePref.setSummary(R.string.pref_keyboard_unknown);
     }
 }

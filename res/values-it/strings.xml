@@ -408,5 +408,6 @@
     <string name="type_to_reply_text_enter_to_send">Digita per rispondere</string>
     <string name="toast_sending_message">Invio messaggio</string>
     <string name="qm_quick_reply">Rispondi</string>
+    <string name="menu_add_to_calendar">Aggiungi al calendario</string>
 </resources>
 

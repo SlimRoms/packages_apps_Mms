@@ -141,7 +141,6 @@
             android:textColorHint="?android:attr/textColorTertiary"
             android:textCursorDrawable = "@null"
             android:maxLines="3"
-            android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
             android:imeOptions="actionSend|flagNoEnterAction"
             android:maxLength="2000" />
 
