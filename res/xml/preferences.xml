@@ -88,6 +88,12 @@
             android:summary="@string/pref_summary_mms_read_reports"
             android:title="@string/pref_title_mms_read_reports" />
 
+        <CheckBoxPreference android:defaultValue="false"
+            android:key="pref_key_mms_group_mms"
+            android:summary="@string/pref_summary_mms_group_mms"
+            android:title="@string/pref_title_mms_group_mms"
+            android:persistent="true" />
+
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_key_mms_auto_retrieval"
