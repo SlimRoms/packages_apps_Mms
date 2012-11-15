@@ -159,12 +159,6 @@
     <!-- QuickMessage settings -->
     <PreferenceCategory android:title="@string/pref_quickmessage">
         <CheckBoxPreference
-            android:key="pref_dark_theme"
-            android:title="@string/pref_dark_theme_title"
-            android:summary="@string/pref_dark_theme_summary"
-            android:defaultValue="false" />
-
-        <CheckBoxPreference
             android:key="pref_key_quickmessage"
             android:title="@string/pref_quickmessage_title"
             android:dependency="pref_key_enable_notifications"

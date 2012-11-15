@@ -181,7 +181,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mEnableQuickMessagePref = (CheckBoxPreference) findPreference(QUICKMESSAGE_ENABLED);
         mEnableQmLockscreenPref = (CheckBoxPreference) findPreference(QM_LOCKSCREEN_ENABLED);
         mEnableQmCloseAllPref = (CheckBoxPreference) findPreference(QM_CLOSE_ALL_ENABLED);
-        mEnableQmDarkThemePref = (CheckBoxPreference) findPreference(QM_DARK_THEME_ENABLED);
+        //mEnableQmDarkThemePref = (CheckBoxPreference) findPreference(QM_DARK_THEME_ENABLED);
 
         // Keyboard input type
         mInputTypePref = (ListPreference) findPreference(INPUT_TYPE);
@@ -340,7 +340,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private void setEnabledQmDarkThemePref() {
         // The "Use dark theme" setting is really stored in our own prefs. Read the
         // current value and set the checkbox to match.
-        mEnableQmDarkThemePref.setChecked(getQmDarkThemeEnabled(this));
+        //mEnableQmDarkThemePref.setChecked(getQmDarkThemeEnabled(this));
     }
 
     private void setSmsDisplayLimit() {
@@ -422,7 +422,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
         } else if (preference == mEnableQmDarkThemePref) {
             // Update the actual "enable dark theme" value that is stored in secure settings.
-            enableQmDarkTheme(mEnableQmDarkThemePref.isChecked(), this);
+            //enableQmDarkTheme(mEnableQmDarkThemePref.isChecked(), this);
 
         } else if (preference == mMmsAutoRetrieval) {
             // Update the value in Settings.System
@@ -547,8 +547,8 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
     public static boolean getQmDarkThemeEnabled(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean qmDarkThemeEnabled =
-            prefs.getBoolean(MessagingPreferenceActivity.QM_DARK_THEME_ENABLED, false);
+        boolean qmDarkThemeEnabled = false;
+        //    prefs.getBoolean(MessagingPreferenceActivity.QM_DARK_THEME_ENABLED, false);
         return qmDarkThemeEnabled;
     }
 
