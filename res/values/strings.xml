@@ -949,4 +949,8 @@
     <string name="msg_sig_summary">Set a custom Signature for messages</string>
     <string name="msg_sig_enter_text">Enter signature text</string>
 
+    <!-- Mms Breath -->
+    <string name="mms_breath">Breathing SMS</string>
+    <string name="mms_breath_summary">Will give your statusbar notifications a breathing effect</string>
+
 </resources>
