@@ -139,6 +139,8 @@
             android:key="mms_breath"
             android:title="@string/mms_breath"
             android:summary="@string/mms_breath_summary"
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:dependency="pref_key_enable_notifications"
             android:defaultValue="false" />
 
         <RingtonePreference
