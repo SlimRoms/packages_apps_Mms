@@ -18,6 +18,7 @@
 package com.android.mms.ui;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
@@ -25,6 +26,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
@@ -36,6 +40,7 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.RingtonePreference;
 import android.provider.SearchRecentSuggestions;
 import android.text.InputType;
 import android.provider.Settings;
@@ -137,11 +142,12 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private Preference mMmsReadReportPref;
     private Preference mManageSimPref;
     private Preference mClearHistoryPref;
-    private ListPreference mVibrateWhenPref;
+    private CheckBoxPreference mVibratePref;
     private CheckBoxPreference mEnableNotificationsPref;
     private CheckBoxPreference mEnablePrivacyModePref;
     private CheckBoxPreference mMmsAutoRetrievialPref;
     private CheckBoxPreference mMmsRetrievalDuringRoamingPref;
+    private RingtonePreference mRingtonePref;
     private Recycler mSmsRecycler;
     private Recycler mMmsRecycler;
     private Preference mManageTemplate;
@@ -149,8 +155,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private ListPreference mUnicodeStripping;
     private CharSequence[] mUnicodeStrippingEntries;
     private static final int CONFIRM_CLEAR_SEARCH_HISTORY_DIALOG = 3;
-    private CharSequence[] mVibrateEntries;
-    private CharSequence[] mVibrateValues;
 
     // Keyboard input type
     private ListPreference mInputTypePref;
@@ -205,7 +209,8 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mDirectCall = (CheckBoxPreference) findPreference("direct_call_pref");
         mEnableNotificationsPref = (CheckBoxPreference) findPreference(NOTIFICATION_ENABLED);
         mEnablePrivacyModePref = (CheckBoxPreference) findPreference(PRIVACY_MODE_ENABLED);
-        mVibrateWhenPref = (ListPreference) findPreference(NOTIFICATION_VIBRATE_WHEN);
+        mVibratePref = (CheckBoxPreference) findPreference(NOTIFICATION_VIBRATE);
+        mRingtonePref = (RingtonePreference) findPreference(NOTIFICATION_RINGTONE);
         mManageTemplate = findPreference(MANAGE_TEMPLATES);
         mGestureSensitivity = (ListPreference) findPreference(GESTURE_SENSITIVITY);
         mUnicodeStripping = (ListPreference) findPreference(UNICODE_STRIPPING);
@@ -238,10 +243,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mInputTypePref = (ListPreference) findPreference(INPUT_TYPE);
         mInputTypeEntries = getResources().getTextArray(R.array.pref_entries_input_type);
         mInputTypeValues = getResources().getTextArray(R.array.pref_values_input_type);
-
-        // Vibration
-        mVibrateEntries = getResources().getTextArray(R.array.prefEntries_vibrateWhen);
-        mVibrateValues = getResources().getTextArray(R.array.prefValues_vibrateWhen);
 
         setMessagePreferences();
     }
@@ -324,12 +325,15 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
         // If needed, migrate vibration setting from a previous version
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        if (!sharedPreferences.contains(NOTIFICATION_VIBRATE_WHEN) &&
-                sharedPreferences.contains(NOTIFICATION_VIBRATE)) {
-            int stringId = sharedPreferences.getBoolean(NOTIFICATION_VIBRATE, false) ?
-                    R.string.prefDefault_vibrate_true :
-                    R.string.prefDefault_vibrate_false;
-            mVibrateWhenPref.setValue(getString(stringId));
+        if (sharedPreferences.contains(NOTIFICATION_VIBRATE_WHEN)) {
+            String vibrateWhen = sharedPreferences.
+                    getString(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_WHEN, null);
+            boolean vibrate = "always".equals(vibrateWhen);
+            SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+            prefsEditor.putBoolean(NOTIFICATION_VIBRATE, vibrate);
+            prefsEditor.remove(NOTIFICATION_VIBRATE_WHEN);  // remove obsolete setting
+            prefsEditor.apply();
+            mVibratePref.setChecked(vibrate);
         }
 
         mManageTemplate.setOnPreferenceClickListener(new OnPreferenceClickListener() {
@@ -375,7 +379,8 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         setSmsDisplayLimit();
         setMmsDisplayLimit();
 
-        adjustVibrateSummary(mVibrateWhenPref.getValue());
+        String soundValue = sharedPreferences.getString(NOTIFICATION_RINGTONE, null);
+        setRingtoneSummary(soundValue);
 
         // Read the input type value and set the summary
         String inputType = sharedPreferences.getString(MessagingPreferenceActivity.INPUT_TYPE,
@@ -383,6 +388,13 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mInputTypePref.setValue(inputType);
         adjustInputTypeSummary(mInputTypePref.getValue());
         mInputTypePref.setOnPreferenceChangeListener(this);
+    }
+
+    private void setRingtoneSummary(String soundValue) {
+        Uri soundUri = TextUtils.isEmpty(soundValue) ? null : Uri.parse(soundValue);
+        Ringtone tone = soundUri != null ? RingtoneManager.getRingtone(this, soundUri) : null;
+        mRingtonePref.setSummary(tone != null ? tone.getTitle(this)
+                : getResources().getString(R.string.silent_ringtone));
     }
 
     private void setEnabledNotificationsPref() {
@@ -704,13 +716,13 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     }
 
     private void registerListeners() {
-        mVibrateWhenPref.setOnPreferenceChangeListener(this);
+        mRingtonePref.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         boolean result = false;
-        if (preference == mVibrateWhenPref) {
-            adjustVibrateSummary((String)newValue);
+        if (preference == mRingtonePref) {
+            setRingtoneSummary((String)newValue);
             result = true;
         } else if (preference == mInputTypePref) {
             adjustInputTypeSummary((String)newValue);
@@ -722,17 +734,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             mSignature.setText(sp.getString(MSG_SIGNATURE, ""));
         }
         return result;
-    }
-
-    private void adjustVibrateSummary(String value) {
-        int len = mVibrateValues.length;
-        for (int i = 0; i < len; i++) {
-            if (mVibrateValues[i].equals(value)) {
-                mVibrateWhenPref.setSummary(mVibrateEntries[i]);
-                return;
-            }
-        }
-        mVibrateWhenPref.setSummary(null);
     }
 
     private void adjustInputTypeSummary(String value) {
