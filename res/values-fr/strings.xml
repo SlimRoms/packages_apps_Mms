@@ -345,7 +345,7 @@
     <string name="pref_title_mms_full_timestamp">Date complète</string>
     <string name="pref_summary_mms_full_timestamp">Afficher la date et l\'heure des messages</string>
     <string name="pref_title_mms_use_sent_timestamp">Date originale</string>
-    <string name="pref_summary_mms_use_sent_timestamp">Afficher la date d\'envoi au lieu de la date de récéption</string>
+    <string name="pref_summary_mms_use_sent_timestamp">Afficher la date d\'envoi au lieu de la date de réception</string>
     <string name="menu_add_to_calendar">Ajouter au calendrier</string>
     <string name="pref_keyboard_emoji">Afficher la touche des Emoji</string>
     <string name="pref_keyboard_new_line">Afficher la touche Entrée</string>
@@ -372,19 +372,19 @@
     <string name="pref_title_mms_message_font_size">Taille de police des messages</string>
     <string name="pref_summary_mms_message_font_size">Modifier la taille de police de l\'affichage des messages</string>
     <string name="pref_dialogtitle_mms_message_font_size">Sélectionnez la taille de police</string>
-    <string name="pref_title_notification_privacy_mode_enabled">Mode privée</string>
-    <string name="pref_summary_notification_privacy_mode_enabled">Masquer l\'expéditeur et le message dans la barre d\'État et désactiver la réponse rapide</string>
+    <string name="pref_title_notification_privacy_mode_enabled">Mode privé</string>
+    <string name="pref_summary_notification_privacy_mode_enabled">Masquer l\'expéditeur et le message dans la barre d\'état et désactiver la réponse rapide</string>
     <string name="notification_single_title_privacy_mode">Nouveau message</string>
     <string name="notification_single_text_privacy_mode">1 message non lu</string>
     <string name="notification_multiple_title_privacy_mode">Nouveaux messages</string>
     <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> message non lu</string>
     <string name="notification_ticker_privacy_mode">Nouveau message reçu</string>
     <string name="msg_sig_title">Signature</string>
-    <string name="msg_sig_summary">Définir une Signature personnalisée pour les messages</string>
+    <string name="msg_sig_summary">Définir une signature personnalisée pour les messages</string>
     <string name="msg_sig_enter_text">Ajouter une signature</string>
     <string name="mms_breath">Breathing SMS</string>
-    <string name="mms_breath_summary">Il donnera à vos notification dans la barre d’état un effet breathing</string>
-    <string name="hide_avatar">Masquer l\'Avatar</string>
+    <string name="mms_breath_summary">Il donnera à vos notification dans la barre d\'état un effet breathing</string>
+    <string name="hide_avatar">Masquer l\'avatar</string>
     <string name="hide_avatar_summary">Masquer l\'avatar dans la liste de conversations</string>
     <string name="pref_multi_select">Sélectionneur facile</string>
     <string name="pref_multi_select_summary">Sélectionner plusieurs contacts à l\'aide des cases à cocher</string>
@@ -428,4 +428,7 @@
         <item quantity="one"><xliff:g id="NUMBER">%1$s</xliff:g> personnes</item>
         <item quantity="other"><xliff:g id="NUMBER">%1$s</xliff:g> personnes</item>
     </plurals>
+    <!-- Text area -->
+    <string name="pref_text_area_size_title">Taille de la zone de texte</string>
+    <string name="pref_text_area_size_summary">Définir la taille de la zone texte à <xliff:g id="lines">%1$s</xliff:g> lignes</string>
 </resources>
