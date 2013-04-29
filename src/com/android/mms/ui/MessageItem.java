@@ -333,7 +333,7 @@ public class MessageItem {
                 }
                 MultimediaMessagePdu msg = (MultimediaMessagePdu)pduLoaded.mPdu;
                 mSlideshow = pduLoaded.mSlideshow;
-                mAttachmentType = MessageUtils.getAttachmentType(mSlideshow, msg);
+                mAttachmentType = MessageUtils.getAttachmentType(mSlideshow);
 
                 if (mMessageType == PduHeaders.MESSAGE_TYPE_RETRIEVE_CONF) {
                     if (msg == null) {
