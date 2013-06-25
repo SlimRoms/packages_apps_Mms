@@ -318,8 +318,6 @@
     <string name="message_timestamp_format"><xliff:g id="STRING_0">%1$s</xliff:g> – <xliff:g id="STRING_1">%2$s</xliff:g></string>
     <string name="pref_extra_settings">Dodatkowe ustawienia</string>
     <string name="pref_char_settings">ustawienia znaków</string>
-    <string name="pref_title_strip_unicode">Opuszczaj Unikod</string>
-    <string name="pref_summary_strip_unicode">Zastępuj znaki (ogonki itp.), które nie są wspierane w 160-znakowych wiadomościach SMS</string>
     <string name="pref_title_enable_emojis">Włącz emoji</string>
     <string name="pref_summary_enable_emojis">Włącz wsparcie dla zestawu 471 unikodowych emotikon emoji</string>
     <string name="menu_insert_emoji">Wstaw emojis</string>
@@ -345,8 +343,6 @@
     <string name="template_not_present_error">Brak zdefiniowanych szablonów</string>
     <string name="template_not_present_error_title">Błąd</string>
     <string name="template_select">Wybierz szablon</string>
-    <string name="template_cancel_confirm_title">Ostrzeżenie</string>
-    <string name="template_cancel_confirm_text">Szablon zostanie usunięty</string>
     <string name="gestures_already_present">Ostrzeżenie: Podobny gest jest już powiązany z innym szablonem!</string>
     <string name="pref_title_mms_notification_vibrate_settings">Ustawienia wibracji</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Wzór wibracji</string>
@@ -404,7 +400,6 @@
     <string name="pref_multi_select">Łatwy selektor</string>
     <string name="pref_multi_select_summary">Wybierz wiele kontaktów za pomocą pola wyboru</string>
     <string name="add_recipients">Dodaj odbiorców</string>
-    <string name="add_recipients_positive_button">Dodaj</string>
     <string-array name="select_dialog_items">
         <item>1 sekunda</item>
         <item>2 sekundy</item>

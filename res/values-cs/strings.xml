@@ -324,8 +324,6 @@
     <string name="template_not_present_error">Nejsou definovány žádné šablony</string>
     <string name="template_not_present_error_title">Chyba</string>
     <string name="template_select">Vyberte šablonu</string>
-    <string name="template_cancel_confirm_title">Varování</string>
-    <string name="template_cancel_confirm_text">Šablona bude smazána. Opravdu chcete pokračovat?</string>
     <string name="gestures_already_present">Varování: podobné gesto je již přiřazené k jiné šabloně!</string>
     <string name="pref_title_mms_notification_vibrate_settings">Nastavení vibrací</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Vzor vibrace</string>
@@ -389,7 +387,6 @@
     <string name="pref_multi_select">Snadný výběr</string>
     <string name="pref_multi_select_summary">Vybrat několik kontaktů pomocí zaškrtávání</string>
     <string name="add_recipients">Přidat příjemce</string>
-    <string name="add_recipients_positive_button">Přidat</string>
     <string-array name="select_dialog_items">
         <item>1 sekunda</item>
         <item>2 sekundy</item>

@@ -324,8 +324,6 @@
     <string name="template_not_present_error">Nema gotovih predložaka</string>
     <string name="template_not_present_error_title">Greška</string>
     <string name="template_select">Odaberite predložak</string>
-    <string name="template_cancel_confirm_title">Upozorenje</string>
-    <string name="template_cancel_confirm_text">Predložak će biti obrisan. Nastavi?</string>
     <string name="gestures_already_present">Upozorenje: Drugi predložak ima sličnu gestu!</string>
     <string name="pref_title_mms_notification_vibrate_settings">Postavke vibracije</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Vibracijski uzorak</string>
@@ -389,7 +387,6 @@
     <string name="pref_multi_select">Jednostavan odabir</string>
     <string name="pref_multi_select_summary">Odaberite više kontakata koristeći kučice</string>
     <string name="add_recipients">Dodaj primatelje</string>
-    <string name="add_recipients_positive_button">Dodaj</string>
     <string-array name="select_dialog_items">
         <item>1 sekunda</item>
         <item>2 sekunde</item>

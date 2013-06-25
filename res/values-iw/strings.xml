@@ -353,8 +353,6 @@
     <string name="pref_extra_settings">הגדרות נוספות</string>
 
     <!-- Strip unicode -->
-    <string name="pref_title_strip_unicode">הסר תווי Unicode</string>
-    <string name="pref_summary_strip_unicode">החלף תווים נפוצים שאינם נתמכים בהודעות SMS של 160 תווים בתווים דומים (אזהרה: כולל את כל האלפבית העברי!)</string>
 
     <!-- Enable emojis -->
     <string name="pref_title_enable_emojis">תמיכה ב-Emoji</string>
@@ -389,8 +387,6 @@
     <string name="template_not_present_error">אין תבניות מוגדרות</string>
     <string name="template_not_present_error_title">שגיאה</string>
     <string name="template_select">בחר תבנית</string>
-    <string name="template_cancel_confirm_title">אזהרה</string>
-    <string name="template_cancel_confirm_text">התבנית תמחק. להמשיך?</string>
     <string name="gestures_already_present">אזהרה: מחווה דומה משוייכת לתבנית אחרת!</string>
 
     <!-- Change Vibrate pattern/method for message notification -->

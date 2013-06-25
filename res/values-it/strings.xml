@@ -324,8 +324,6 @@
     <string name="template_not_present_error">Non sono stati definiti dei modelli</string>
     <string name="template_not_present_error_title">Errore</string>
     <string name="template_select">Seleziona un modello</string>
-    <string name="template_cancel_confirm_title">Attenzione</string>
-    <string name="template_cancel_confirm_text">Il modello verrà cancellato. Continuare?</string>
     <string name="gestures_already_present">Attenzione! Una gesture simile è associata ad un altro template</string>
     <string name="pref_title_mms_notification_vibrate_settings">Impostazioni vibrazione</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Schema vibrazione</string>
@@ -389,7 +387,6 @@
     <string name="pref_multi_select">Selettore facile</string>
     <string name="pref_multi_select_summary">Selezionare più contatti utilizzando una casella di controllo</string>
     <string name="add_recipients">Aggiungere i destinatari</string>
-    <string name="add_recipients_positive_button">Aggiungi</string>
     <string-array name="select_dialog_items">
         <item>1 secondo</item>
         <item>2 secondi</item>

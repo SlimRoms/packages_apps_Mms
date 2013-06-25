@@ -142,12 +142,9 @@
     <string name="pref_title_sms_delete">حد الرسالة النصية</string>
     <string name="pref_title_mms_delete">حد رسالة الوسائط المتعددة</string>
     <string name="pref_title_notification_enabled">التنبيهات</string>
-    <string name="pref_summary_notification_enabled">عرض تنبيهات الرسائل في شريط الحالة</string>
     <string name="pref_title_notification_vibrateWhen">اهتزاز</string>
-    <string name="pref_summary_notification_vibrateWhen">الاهتزاز عند إعلامي أيضًا</string>
     <string name="pref_title_notification_ringtone">اختيار نغمة الرنين</string>
     <string name="pref_messages_to_save">تعيين عدد الرسائل التي سيتم حفظها</string>
-    <string name="prefDialogTitle_vibrateWhen">اهتزاز</string>
     <string name="pref_title_mms_auto_retrieval">استرداد تلقائي</string>
     <string name="pref_summary_mms_auto_retrieval">استرداد الرسائل تلقائيًا</string>
     <string name="pref_title_mms_retrieval_during_roaming">استرداد تلقائي للتجوال</string>
@@ -392,7 +389,6 @@
     <string name="pref_multi_select">تحديد سهل</string>
     <string name="pref_multi_select_summary">حدد جهات اتصال متعددة باستخدام خانة اختيار</string>
     <string name="add_recipients">إضافة مستلمين</string>
-    <string name="add_recipients_positive_button">إضافة</string>
     <string name="pref_text_area_size_title">Text area size</string>
     <string name="pref_text_area_size_summary">Set text area to <xliff:g id="lines">%1$s</xliff:g> lines</string>
     <string-array name="select_dialog_items">

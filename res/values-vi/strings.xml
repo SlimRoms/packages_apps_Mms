@@ -324,8 +324,6 @@
     <string name="template_not_present_error">Chưa có mẫu nào</string>
     <string name="template_not_present_error_title">Lỗi</string>
     <string name="template_select">Chọn một mẫu</string>
-    <string name="template_cancel_confirm_title">Cảnh báo</string>
-    <string name="template_cancel_confirm_text">Các mẫu sẽ bị xóa. Tiếp tục?</string>
     <string name="gestures_already_present">Cảnh báo: Một cử chỉ tương tự đã được gán một mẫu khác!</string>
     <string name="pref_title_mms_notification_vibrate_settings">Cài đặt Rung</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Mẫu rung</string>
@@ -389,7 +387,6 @@
     <string name="pref_multi_select">Chọn dễ dàng</string>
     <string name="pref_multi_select_summary">Chọn nhiều số liên lạc bằng hộp kiểm cho phép chọn nhiều mục</string>
     <string name="add_recipients">Thêm người nhận</string>
-    <string name="add_recipients_positive_button">Thêm</string>
     <string-array name="select_dialog_items">
         <item>1 giây</item>
         <item>2 giây</item>

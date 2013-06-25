@@ -309,8 +309,6 @@
     <string name="enumeration_comma">, </string>
     <string name="message_timestamp_format"><xliff:g id="STRING_0">%1$s</xliff:g> – <xliff:g id="STRING_1">%2$s</xliff:g></string>
     <string name="pref_extra_settings">Setări suplimentare</string>
-    <string name="pref_title_strip_unicode">Înlocuire unicod</string>
-    <string name="pref_summary_strip_unicode">Înlocuiţi caracterele comune, care nu sunt acceptate în 160 de caractere SMS</string>
     <string name="pref_title_enable_emojis">Suport Emoji</string>
     <string name="pref_summary_enable_emojis">Activaţi suportul pentru Unicode emojis, un set de 471 emoticoane simpatice</string>
     <string name="pref_title_sms_split_counter">Contor împărţire</string>
@@ -335,8 +333,6 @@
     <string name="template_not_present_error">Nu aveţi nici un şablon definit</string>
     <string name="template_not_present_error_title">Eroare</string>
     <string name="template_select">Selectaţi un şablon</string>
-    <string name="template_cancel_confirm_title">Avertisment</string>
-    <string name="template_cancel_confirm_text">Doriţi să anulaţi?</string>
     <string name="gestures_already_present">Avertisment: Un gest smilar este asociat cu un alt şablon!</string>
     <string name="pref_title_mms_notification_vibrate_settings">Setări vibrare</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Model vibrare</string>
@@ -370,7 +366,6 @@
     <string name="notification_multiple_title_privacy_mode">Mesaje noi</string>
     <string name="pref_multi_select_summary">Selectați mai multe contacte utilizând o casetă de selectare</string>
     <string name="add_recipients">Adăuga destinatari</string>
-    <string name="add_recipients_positive_button">Adăugaţi</string>
     <string-array name="select_dialog_items">
         <item>1 secundă</item>
         <item>2 secunde</item>

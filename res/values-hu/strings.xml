@@ -324,8 +324,6 @@
     <string name="template_not_present_error">Még nincs definiált sablon.</string>
     <string name="template_not_present_error_title">Hiba</string>
     <string name="template_select">Válasszon sablont</string>
-    <string name="template_cancel_confirm_title">Figyelem</string>
-    <string name="template_cancel_confirm_text">Biztosan törölni szeretné?</string>
     <string name="gestures_already_present">Figyelem: Egy hasonló kézmozdulat már társítva van egy másik sablonhoz!</string>
     <string name="pref_title_mms_notification_vibrate_settings">Rezgés beállítások</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Rezgés típusa</string>
@@ -389,7 +387,6 @@
     <string name="pref_multi_select">Könnyűválasztó</string>
     <string name="pref_multi_select_summary">Több kapcsolat kiválasztása jelölőnégyzet használatával</string>
     <string name="add_recipients">Címzettek hozzáadása</string>
-    <string name="add_recipients_positive_button">Hozzáadás</string>
     <string-array name="select_dialog_items">
         <item>1 másodperc</item>
         <item>2 másodperc</item>

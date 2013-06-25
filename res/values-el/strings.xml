@@ -373,8 +373,6 @@
     <string name="template_not_present_error">Δεν υπάρχουν καθορισμένα πρότυπα</string>
     <string name="template_not_present_error_title">Σφάλμα</string>
     <string name="template_select">Επιλογή προτύπου</string>
-    <string name="template_cancel_confirm_title">Προσοχή</string>
-    <string name="template_cancel_confirm_text">Το πρότυπο θα διαγραφεί. Συνέχεια;</string>
     <string name="gestures_already_present">Προσοχή: Μια παρόμοια κίνηση είναι συνδεδεμένη με ένα άλλο πρότυπο!</string>
 
     <!-- Change Vibrate pattern/method for message notification -->
@@ -390,8 +388,6 @@
     <string name="pref_extra_settings">Επιπλέον ρυθμίσεις</string>
 
     <!-- Strip unicode -->
-    <string name="pref_title_strip_unicode">Αφαίρεση unicode</string>
-    <string name="pref_summary_strip_unicode">Αντικατάσταση χαρακτήρων που δεν υποστηρίζονται σε SMS 160 χαρακτήρων</string>
 
     <!-- Enable emojis -->
     <string name="pref_title_enable_emojis">Υποστήριξη emoji</string>

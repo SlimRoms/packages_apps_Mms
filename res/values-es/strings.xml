@@ -324,8 +324,6 @@
     <string name="template_not_present_error">No ha definido ninguna plantilla</string>
     <string name="template_not_present_error_title">Error</string>
     <string name="template_select">Seleccionar una plantilla</string>
-    <string name="template_cancel_confirm_title">Aviso</string>
-    <string name="template_cancel_confirm_text">Se va a borrar la plantilla. ¿Continuar?</string>
     <string name="gestures_already_present">Aviso: ¡Un gesto similar ya ha sido asociado a otra plantilla!</string>
     <string name="pref_title_mms_notification_vibrate_settings">Opciones de Vibración</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Patrón de vibración</string>
@@ -389,7 +387,6 @@
     <string name="pref_multi_select">Selector fácil</string>
     <string name="pref_multi_select_summary">Seleccione varios contactos con una casilla de verificación</string>
     <string name="add_recipients">Agregar destinatarios</string>
-    <string name="add_recipients_positive_button">Añadir</string>
     <string-array name="select_dialog_items">
         <item>1 segundo</item>
         <item>2 segundos</item>
