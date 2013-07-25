@@ -184,9 +184,8 @@ public class MmsWidgetService extends RemoteViewsService {
             if (Log.isLoggable(LogTag.WIDGET, Log.VERBOSE)) {
                 Log.v(TAG, "getConversationCount");
             }
-            synchronized (sWidgetLock) {
-                return Math.min(mConversationCursor.getCount(), MAX_CONVERSATIONS_COUNT);
-            }
+
+            return Math.min(mConversationCursor.getCount(), MAX_CONVERSATIONS_COUNT);
         }
 
         /*

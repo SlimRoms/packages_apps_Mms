@@ -173,13 +173,9 @@
     <string name="pref_title_mms_delete" msgid="7265878070847351664">"Limit multimediálnych správ"</string>
     <string name="pref_title_notification_enabled" msgid="9118792213953729414">"Upozornenia"</string>
     <string name="pref_title_notification_vibrateWhen" msgid="4251208067092761057">"Vibrovať"</string>
-    <string name="pref_title_notification_ringtone" msgid="5467265237106229952">"Zvoliť tón zvonenia"</string>
+    <string name="pref_title_notification_ringtone" msgid="8667533917574559659">"Zvuk"</string>
     <string name="pref_messages_to_save" msgid="3202539743892934926">"Nastaviť počet ukladaných správ"</string>
-  <string-array name="prefEntries_vibrateWhen">
-    <item msgid="2520871831815631409">"Vždy"</item>
-    <item msgid="6069709696037750627">"Iba v tichom režime"</item>
-    <item msgid="7486145357487111435">"Nikdy"</item>
-  </string-array>
+    <string name="silent_ringtone" msgid="7981237991326592780">"Tichý"</string>
     <string name="pref_title_mms_auto_retrieval" msgid="4021878285474431355">"Automatické načítanie"</string>
     <string name="pref_summary_mms_auto_retrieval" msgid="925163257363757048">"Automaticky načítať správy"</string>
     <string name="pref_title_mms_retrieval_during_roaming" msgid="6016227402731817804">"Automatické načítanie pri roamingu"</string>
@@ -282,7 +278,7 @@
     <string name="copy_to_sdcard" msgid="757028609638184856">"Uložiť prílohu"</string>
     <string name="copy_to_sdcard_success" msgid="7948625615155992014">"Príloha bola uložená."</string>
     <string name="copy_to_sdcard_fail" msgid="4944606369631916737">"Prílohu sa nepodarilo uložiť."</string>
-    <string name="save_ringtone" msgid="2310157075045201051">"Uložiť ako vyzváňací tón"</string>
+    <string name="save_ringtone" msgid="2310157075045201051">"Uložiť ako tón zvonenia"</string>
     <string name="saved_ringtone" msgid="3847363932276708626">"Tón zvonenia bol uložený."</string>
     <string name="saved_ringtone_fail" msgid="4778500070919251116">"Tón zvonenia sa nepodarilo uložiť."</string>
     <string name="menu_insert_smiley" msgid="4964504393061025071">"Vložiť smajlík"</string>

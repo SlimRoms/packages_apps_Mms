@@ -3,8 +3,7 @@
 /*
  * Copyright (C) 2007-2008 Esmertec AG.
  * Copyright (C) 2007-2008 The Android Open Source Project
- * QuickMessage: Copyright (C) 2012 The CyanogenMod Project (DvTonder)
-
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,8 +25,6 @@
     <string name="menu_call_back" msgid="7538482331117914146">"Вызов: <xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="menu_send_email" msgid="671366308915241664">"Написать письмо пользователю <xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="menu_compose_new" msgid="3763437973691046238">"Новое сообщение"</string>
-    <!-- Menu item for Mark all threads read -->
-    <string name="menu_mark_all_read">Отметить все как прочтенные</string>
     <string name="menu_preferences" msgid="4693148116114749414">"Настройки"</string>
     <string name="menu_add_address_to_contacts" msgid="4491980950419914944">"Сохранить номер <xliff:g id="CONTACTEMAILORNUMBER">%s</xliff:g>"</string>
     <string name="menu_call" msgid="5877123227307074690">"Позвонить"</string>
@@ -108,8 +105,6 @@
     <string name="cannot_send_message" msgid="3414307479833622644">"Не удалось отправить сообщение"</string>
     <string name="cannot_send_message_reason" msgid="8745080126044054343">"Не указано ни одного реального получателя."</string>
     <string name="cannot_forward_drm_obj" msgid="5047623751430559077">"Нельзя переслать DRM-объект из этого сообщения."</string>
-    <!-- Error message displayed when the user attempts to attach a contact whose ID could not be resolved -->
-    <string name="cannot_find_contact">Невозможно присоединить контакт: неизвестный контакт.</string>
     <string name="converting_to_picture_message" msgid="2980023239017588627">"Преобразование в сообщение MMS..."</string>
     <string name="cannot_add_slide_anymore" msgid="4631404749618820994">"Добавлено максимальное число слайдов."</string>
     <string name="cannot_add_picture_and_video" msgid="4954353772391381447">"Нельзя добавить на слайд и картинку, и видео."</string>
@@ -178,20 +173,13 @@
     <string name="pref_title_mms_delete" msgid="7265878070847351664">"Макс. количество MMS"</string>
     <string name="pref_title_notification_enabled" msgid="9118792213953729414">"Уведомления"</string>
     <string name="pref_title_notification_vibrateWhen" msgid="4251208067092761057">"Вибросигнал"</string>
-    <string name="pref_title_notification_ringtone" msgid="5467265237106229952">"Выбрать рингтон"</string>
-    <string name="pref_messages_to_save" msgid="3202539743892934926">"Установить макс. кол-во сообщений в цепочке"</string>
-  <string-array name="prefEntries_vibrateWhen">
-    <item msgid="2520871831815631409">"Всегда"</item>
-    <item msgid="6069709696037750627">"Только в режиме без звука"</item>
-    <item msgid="7486145357487111435">"Никогда"</item>
-  </string-array>
+    <string name="pref_title_notification_ringtone" msgid="8667533917574559659">"Рингтон"</string>
+    <string name="pref_messages_to_save" msgid="3202539743892934926">"Установить макс. кол-во сообщений в цепочке для хранения"</string>
+    <string name="silent_ringtone" msgid="7981237991326592780">"Без звука"</string>
     <string name="pref_title_mms_auto_retrieval" msgid="4021878285474431355">"Автозагрузка"</string>
     <string name="pref_summary_mms_auto_retrieval" msgid="925163257363757048">"Автоматически загружать MMS-сообщения"</string>
     <string name="pref_title_mms_retrieval_during_roaming" msgid="6016227402731817804">"Автозагрузка в роуминге"</string>
     <string name="pref_summary_mms_retrieval_during_roaming" msgid="2427892806582531020">"Автоматически загружать MMS-сообщения в роуминге"</string>
-    <!-- Setting item for folder to save MMS Attachments to -->
-    <string name="pref_title_save_location">Папка сохранения вложений</string>
-    <string name="pref_title_save_location_summary">Выберите папку для сохранения вложений</string>
     <string name="confirm_dialog_title" msgid="2187213750475782725">"Удалить?"</string>
     <string name="confirm_dialog_locked_title" msgid="8179085718150932242">"Удалить заблокированное сообщение?"</string>
   <plurals name="confirm_delete_conversation">
@@ -236,7 +224,7 @@
     <string name="sim_copy_to_phone_memory" product="tablet" msgid="3721000641648594602">"Копировать в память планшетного ПК"</string>
     <string name="sim_copy_to_phone_memory" product="default" msgid="5895767417844881971">"Копировать в память телефона"</string>
     <string name="sim_delete" msgid="610790510655316922">"Удалить"</string>
-    <string name="sim_manage_messages_title" msgid="3989147182100584333">"Текстовые сообщения на SIM-карте"</string>
+    <string name="sim_manage_messages_title" msgid="3989147182100584333">"SMS на SIM-карте"</string>
     <string name="sim_view" msgid="1997173541766393706">"Просмотр"</string>
     <string name="sim_empty" msgid="2356766833071636297">"На SIM-карте нет сообщений."</string>
     <string name="delivery_header_title" msgid="5361719578869045764">"Отчет"</string>
@@ -257,8 +245,6 @@
     <string name="attach_sound" msgid="3149325985970669609">"Аудио"</string>
     <string name="attach_record_sound" msgid="6011431304469858929">"Записать аудио"</string>
     <string name="attach_slideshow" msgid="3497422151091037063">"Слайд-шоу"</string>
-    <!-- Attachment Type Selector Adapter. This string is an option in the "Attach" dialog, "Add music" dialog -->
-    <string name="attach_contact_info">Информация о контакте</string>
     <string name="select_bottom_text" msgid="4201966447623311931">"Текст внизу"</string>
     <string name="select_top_text" msgid="6734183477539197815">"Текст вверху"</string>
     <string name="delivery_toast_body" msgid="5960519861835727013">"%s: сообщение доставлено"</string>
@@ -266,8 +252,6 @@
     <string name="notification_multiple_title" msgid="332602028959557541">"Новые сообщения"</string>
     <string name="notification_failed_multiple" msgid="6192531993698497229">"Не удалось отправить сообщения (<xliff:g id="COUNT">%s</xliff:g>)"</string>
     <string name="notification_failed_multiple_title" msgid="1112032024904397126">"Сообщения не отправлены"</string>
-    <!-- Failed to Attach Recorded Audio (SoundRecorder not found) -->
-    <string name="record_sound_error_alert">Невозможно записать звук: SoundRecorder.apk не найден!</string>
     <string name="sim_full_title" msgid="1809829051697702810">"SIM-карта заполнена"</string>
     <string name="sim_full_body" msgid="6241664980790322925">"Удалите несколько сообщений, чтобы освободить место."</string>
     <string name="sms_full_title" msgid="6041287140125011854">"Память для текстовых сообщений переполнена."</string>
@@ -346,8 +330,6 @@
   </plurals>
     <string name="error_state" msgid="5177386717626893507">"Данные были изменены"</string>
     <string name="error_state_text" msgid="7918866106335387710">"Цепочки не соответствуют получателям. Сделайте снимок экрана и отправьте сообщение об ошибке через веб-сайт http://go/droidanizer"</string>
-    <string name="label_mms_push">Отправить MMS</string>
-    <string name="desc_mms_push">Отослать MMS из исходящих на сервер</string>
   <plurals name="recipient_count">
     <item quantity="other" msgid="7338580381574463136">"<xliff:g id="NUMBER">%1$s</xliff:g> чел."</item>
   </plurals>
@@ -360,181 +342,4 @@
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
     <string name="message_timestamp_format" msgid="4188999027493614617">"<xliff:g id="STRING_0">%1$s</xliff:g> – <xliff:g id="STRING_1">%2$s</xliff:g>"</string>
-    <!-- Extra Settings: -->
-    <string name="pref_extra_settings">Дополнительные настройки</string>
-    <string name="pref_char_settings">Настройки символов</string>
-    
-    <!-- Enable emojis -->
-    <string name="pref_title_enable_emojis">Включить emojis</string>
-    <string name="pref_summary_enable_emojis">Включить поддержку emojis, набора из 471 отличных юникод смайликов</string>
-
-    <string name="menu_insert_emoji">Вставить emoji</string>
-    <string name="pref_title_sms_split_counter">Счётчик фрагментов</string>
-    <string name="pref_summary_sms_split_counter">Добавляет к сообщению счётчик (напр. 1/2)</string>
-
-    <!-- Sms templates -->
-    <string name="prefs_templates_settings">SMS шаблоны</string>
-    <string name="pref_title_templates_manage">Шаблоны</string>
-    <string name="pref_summary_templates_manage">Управление шаблонами SMS</string>
-    <string name="pref_title_templates_show_gesture">Жесты</string>
-    <string name="pref_summary_templates_show_gesture">Показывать след жеста</string>
-    <string name="pref_title_template_gestures_sensitivity">Чувствительность жеста</string>
-    <string name="template_save">Сохранить</string>
-    <string name="template_insert_hint">Введите сюда текст шаблона</string>
-    <string name="template_empty_text">Текстовое поле не может быть пустым</string>
-    <string name="template_explanation">Введите или измените текст шаблона и нарисуйте жест, чтобы связать их</string>
-    <string name="template_edit">Изменить</string>
-    <string name="template_delete">Удалить</string>
-    <string name="template_ctx_menu_title">Действия</string>
-    <string name="template_list_title">Шаблоны</string>
-    <string name="template_new_title">Новый шаблон</string>
-    <string name="template_insert">Ввести шаблон</string>
-    <string name="template_gesture_draw">Нарисуйте жест в области ниже</string>
-    <string name="template_not_present_error">Вы не определили шаблон</string>
-    <string name="template_not_present_error_title">Ошибка</string>
-    <string name="template_select">Выберите шаблон</string>
-    <string name="template_confirm_dialog_title">Удалить?</string>
-    <plurals name="template_confirm_delete_conversation">
-    <item quantity="one">Один шаблон будет удален.</item>
-        <item quantity="other"><xliff:g id="number" example="15">%1$s</xliff:g> шаблон(а/ов) будет(ут) удален(ы).</item>
-    </plurals>
-    <string name="gestures_already_present">Такой жест уже назначен на другой шаблон</string>
-    <string name="select_template">Выбрать шаблоны</string>
-
-    <!-- Change Vibrate pattern/method for message notification -->
-    <string name="pref_title_mms_notification_vibrate_settings">Настройки вибрации</string>
-    <string name="pref_title_mms_notification_vibrate_pattern">Режим вибрации</string>
-    <string name="pref_summary_mms_notification_vibrate_pattern">Изменение режима вибрации</string>
-    <string name="pref_title_mms_notification_vibrate_custom">Пользоват. режим вибрации</string>
-    <string name="pref_text_mms_notification_vibrate_custom">Формат выкл/вкл в миллисекундах: выкл, вкл, выкл, вкл</string>
-    
-    <!-- Strip unicode -->
-    <string name="pref_title_unicode_stripping">Раскрывать юникод</string>
-    <string name="pref_unicode_stripping_leave_intact">Оставить символы как есть</string>
-    <string name="pref_unicode_stripping_non_encodable">Заменить некодируемые символы</string>
-    <string name="pref_unicode_stripping_all">Заменить все неподдерживаемые символы обычными</string>
-    
-    <!-- Enable quick emojis -->
-    <string name="pref_title_enable_quick_emojis">Быстрая вставка emoji</string>
-    <string name="pref_summary_enable_quick_emojis">Показать кнопку рядом с полем ввода текста для быстрого доступа к emoji</string>
-    
-    <!-- Enable SoftBank emoji encoding -->
-    <string name="pref_title_enable_softbank_encoding">Стандарт emoji on SoftBank</string>
-    <string name="pref_summary_enable_softbank_encoding">Использовать стандарт оператора SoftBank для кодирования emoji</string>
-
-    <!-- Full timestamps -->
-    <string name="pref_title_mms_full_timestamp">Полная метка времени</string>
-    <string name="pref_summary_mms_full_timestamp">Включение отображения полной даты и времени в сообщениях</string>
-    <!-- Which timestamps -->
-    <string name="pref_title_mms_use_sent_timestamp">Исходная метка времени</string>
-    <string name="pref_summary_mms_use_sent_timestamp">Отображение и сохранение даты отправки, а не даты приёма</string>
-
-    <!-- Soft Keyboard Type -->
-    <string name="pref_keyboard_emoji">Кнопка \"Смайлики\"</string>
-    <string name="pref_keyboard_new_line">Кнопка \"Отправить\"</string>
-    <string name="pref_keyboard_unknown">Неизвестный тип. Пожалуйста, повторите выбор</string>
-
-    <!-- QUICKMESSAGE SUPPORT -->
-    <!-- Preferences -->
-    <string name="pref_quickmessage">Быстрый ответ</string>
-    <string name="pref_quickmessage_title">Включить быстрый ответ</string>
-    <string name="pref_quickmessage_summary">Показывать всплывающее окно для быстрого ответа</string>
-    <string name="pref_wake_unlock_title">Пробуждение и разблокировка</string>
-    <string name="pref_wake_unlock_summary">Пробуждать и разблокировать устройство при входящем сообщении (только для небезопасной блокировки экрана)</string>
-    <string name="pref_close_all_title">Закрыть всё</string>
-    <string name="pref_close_all_summary">Кнопка \"Закрыть\" закрывает все сообщения</string>
-    <string name="message_counter_separator">из</string>
-
-    <!-- QM Dialog box buttons -->
-    <string name="button_close">Закрыть</string>
-    <string name="button_view">Посмотреть</string>
-    <string name="button_templates">Шаблоны</string>
-
-    <string name="storage_warning_title">"Хранилище SMS заполнено"</string>
-    <string name="storage_warning_content">"Вы не сможете получать новые SMS/MMS сообщения"</string>
-
-    <!-- Hint text in message body field when keyboard is exposed -->
-    <string name="type_to_reply_text_enter_to_send">Начните писать чтобы ответить</string>
-
-    <!-- QM Toast -->
-    <string name="toast_sending_message">Отправка сообщения</string>
-
-    <!-- QM - Quick reply -->
-    <string name="qm_quick_reply">Ответить</string>
-    <string name="qm_mark_read">Прочтено</string>
-    
-    <!-- Direct call -->
-    <string name="direct_call_title">Быстрый вызов</string>
-    <string name="direct_call_summary">Сразу набирать номер абонента при нажатии на номер, не используя кнопку вызова</string>
-
-    <!-- Message Font size -->
-    <string name="pref_title_mms_message_font_size">Размер шрифта сообщения</string>
-    <string name="pref_summary_mms_message_font_size">Изменить размер шрифта сообщения</string>
-    <string name="pref_dialogtitle_mms_message_font_size">Выбрать размер шрифта</string>
-
-    <!-- Privacy mode -->
-    <string name="pref_title_notification_privacy_mode_enabled">Режим приватности</string>
-    <string name="pref_summary_notification_privacy_mode_enabled">Скрыть отправителья и получателя в строке состояния и отключить быстрый ответ</string>
-    <string name="notification_single_title_privacy_mode">Новое сообщение</string>
-    <string name="notification_single_text_privacy_mode">1 непрочитанное сообщение</string>
-    <string name="notification_multiple_title_privacy_mode">Новые сообщения</string>
-    <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> непрочитанных сообщений</string>
-    <string name="notification_ticker_privacy_mode">Принято новое сообщение</string>
-
-    <!-- Message signature -->
-    <string name="msg_sig_title">Подпись</string>
-    <string name="msg_sig_summary">Задать подпись для сообщений</string>
-    <string name="msg_sig_enter_text">Введите текст подписи</string>
-
-    <!-- Mms Breath -->
-    <string name="mms_breath">Пульсирующее SMS</string>
-    <string name="mms_breath_summary">Придает уведомлениям в строке состояния пульсирующий эффект</string>
-
-    <!-- Settings item for the soft keyboard picker -->
-    <string name="pref_title_input_type">Тип клавиатуры</string>
-    <string name="pref_summary_input_type">Выберите тип клавиатуры при написании сообщения</string>
-
-    <!-- Add menu for 'Add SMS to calendar remind' -->
-    <string name="menu_add_to_calendar">Добавить в календарь</string>
-
-    <!-- Avatar -->
-    <string name="hide_avatar">Скрывать аватар</string>
-    <string name="hide_avatar_summary">Скрывать аватарку в списке сообщений</string>
-
-    <!-- Multi Contact selector -->
-    <string name="pref_multi_select">Мульти-выбор</string>
-    <string name="pref_multi_select_summary">Выбрать несколько контактов \"галочкой\"</string>
-    <string name="add_recipients">Добавить получателей</string>
-    <string name="groups_header">Группы</string>
-    <string name="loading_recipients">Загрузка контактов и групп</string>
-    <string name="no_recipients">Нет получателей</string>
-
-    <!-- Text area -->
-    <string name="pref_text_area_size_title">Размер текстовой области</string>
-    <string name="pref_text_area_size_summary">Установить текстовую область в <xliff:g id="lines">%1$s</xliff:g> строк</string>
-
-    <!-- Custom user-agent -->
-    <string name="pref_mms_ua_default_android">Обычный Android</string>
-    <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
-    <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
-    <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
-    <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
-    <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
-    <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
-    <string name="pref_mms_ua_custom_option">Свой\u2026</string>
-    <string name="pref_title_mms_user_agent">User Agent</string>
-    <string name="pref_summary_mms_user_agent">Объявлять телефон как другую модель для работы MMS</string>
-    <string name="pref_mms_user_agent_custom_set">User Agent установлен на:\n</string>
-
-    <!-- Multi-Part SMS -->
-    <string name="pref_title_sms_multi_part">Многочастное SMS</string>
-    <string name="pref_title_sms_multi_part_size">Размер многочастного собщения</string>
-    <string name="pref_summary_sms_multi_part_mms">Текстовые сообщения длиннее 160 символов будут преобразованы в MMS</string>
-    <string name="pref_summary_sms_multi_part">Сообщения длиннее 160 символов будут отправляться как многочастное SMS</string>
-    <string name="pref_summary_sms_multi_part_mms_size">Сообщения будут преобразованы в MMS после <xliff:g id="seg">%1$s</xliff:g> сегментов</string>
-
-    <!-- Split SMS -->
-    <string name="pref_title_sms_split">Разбить SMS</string>
-    <string name="pref_summary_sms_split">Сообщения будут разбиты на части по 160 символов</string>
-
 </resources>
