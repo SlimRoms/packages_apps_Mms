@@ -15,6 +15,231 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Menu item for Mark all threads read -->
+    <string name="menu_mark_all_read">Mark all as Read</string>
+
+    <!-- Error message displayed when the user attempts to attach a contact whose ID could not be resolved -->
+    <string name="cannot_find_contact">The contact you selected could not be attached.</string>
+
+    <!-- The vibrate notification modes -->
+    <string-array name="prefEntries_vibrateWhen">
+        <!-- Always -->
+        <item>Always</item>
+        <!-- Only when the phone is in Silent mode -->
+        <item>Only when silent</item>
+        <!-- Never -->
+        <item>Never</item>
+    </string-array>
+
+    <!-- The vibrateWhen values -->
+    <string-array translatable="false" name="prefValues_vibrateWhen">
+        <item>always</item>
+        <item>silent</item>
+        <item>never</item>
+    </string-array>
+
+    <!-- Setting item for folder to save MMS Attachments to -->
+    <string name="pref_title_save_location">Attachment save folder</string>
+    <string name="pref_title_save_location_summary">Specify folder to save attachments</string>
+
+    <!-- Attachment Type Selector Adapter. This string is an option in the "Attach" dialog, "Add music" dialog -->
+    <string name="attach_contact_info">Contact Information</string>
+
+    <!-- Failed to Attach Recorded Audio (SoundRecorder not found) -->
+    <string name="record_sound_error_alert">Could not record audio.  SoundRecorder.apk is missing!</string>
+
+    <!-- File name used to copy an attachment to the shared storage
+    if the received location is not a valid file name -->
+    <string translatable="false" name="copy_to_sdcard_filename_fallback">mms</string>
+
+    <!-- File name used to save a sound as a ringtone
+    if the received location is not a valid file name -->
+    <string translatable="false" name="save_ringtone_filename_fallback">mms_ringtone</string>
+
+    <string name="label_mms_push">MMS Push</string>
+    <string name="desc_mms_push">Pushes MMS from outbox to the network</string>
+
+    <!-- Extra Settings: -->
+    <string name="pref_extra_settings">Extra settings</string>
+    <string name="pref_char_settings">Char settings</string>
+
+    <!-- Enable emojis -->
+    <string name="pref_title_enable_emojis">Emoji support</string>
+    <string name="pref_summary_enable_emojis">Enable support for unicode emojis, a set of 471 nice emoticons</string>
+
+    <!-- Emoji Menu item -->
+    <string name="menu_insert_emoji">Insert emojis</string>
+
+    <!-- Settings item for boolean option for SMS Split Counter -->
+    <string name="pref_title_sms_split_counter">Split counter</string>
+    <!-- Settings item description for boolean SMS Split 160 characters setting -->
+    <string name="pref_summary_sms_split_counter">Adds counter to message ex. (1/2)</string>
+
+    <!-- Sms templates -->
+    <string name="prefs_templates_settings">Sms templates</string>
+    <string name="pref_title_templates_manage">Templates</string>
+    <string name="pref_summary_templates_manage">Manage your sms templates</string>
+    <string name="pref_title_templates_show_gesture">Gesture</string>
+    <string name="pref_summary_templates_show_gesture">Show gesture trace</string>
+    <string name="pref_title_template_gestures_sensitivity">Gesture sensitivity</string>
+    <string name="template_save">Save</string>
+    <string name="template_insert_hint">Insert here the template text</string>
+    <string name="template_empty_text">Text field cannot be empty</string>
+    <string name="template_explanation">Insert or modify the template text and optionally draw a gesture to associate it</string>
+    <string name="template_edit">Edit</string>
+    <string name="template_delete">Delete</string>
+    <string name="template_ctx_menu_title">Actions</string>
+    <string name="template_list_title">Templates</string>
+    <string name="template_new_title">New template</string>
+    <string name="template_insert">Insert template</string>
+    <string name="template_gesture_draw">Draw the gesture in the space below</string>
+    <string name="template_not_present_error">There are no defined templates</string>
+    <string name="template_not_present_error_title">Error</string>
+    <string name="template_select">Select a template</string>
+    <string name="template_confirm_dialog_title">Delete?</string>
+    <plurals name="template_confirm_delete_conversation">
+        <item quantity="one">One template will be deleted.</item>
+        <item quantity="other"><xliff:g id="number" example="15">%1$s</xliff:g> templates will be deleted.</item>
+    </plurals>
+    <string name="gestures_already_present">A similar gesture is already associated with another template</string>
+    <string name="select_template">Select templates</string>
+
+    <!-- Change Vibrate pattern/method for message notification -->
+    <string name="pref_title_mms_notification_vibrate_settings">Vibrate settings</string>
+    <string name="pref_title_mms_notification_vibrate_pattern">Vibrate pattern</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Change vibrate pattern</string>
+    <string name="pref_title_mms_notification_vibrate_custom">Custom vibrate pattern</string>
+    <string name="pref_text_mms_notification_vibrate_custom">Format off/on in milliseconds: off, on, off, on, ...</string>
+
+    <!-- Strip unicode -->
+    <string name="pref_title_unicode_stripping">Strip unicode</string>
+    <string name="pref_unicode_stripping_leave_intact">Leave characters intact</string>
+    <string name="pref_unicode_stripping_non_encodable">Strip non-encodable characters</string>
+    <string name="pref_unicode_stripping_all">Strip all unicode characters</string>
+
+    <!-- Enable quick emojis -->
+    <string name="pref_title_enable_quick_emojis">Quick emoji button</string>
+    <string name="pref_summary_enable_quick_emojis">Display a button next to the text-input area for quick emoji access</string>
+
+    <!-- Enable SoftBank emoji encoding -->
+    <string name="pref_title_enable_softbank_encoding">SoftBank emoji</string>
+    <string name="pref_summary_enable_softbank_encoding">Use SoftBank emoji encoding</string>
+
+    <!-- Full timestamps -->
+    <string name="pref_title_mms_full_timestamp">Full timestamps</string>
+    <string name="pref_summary_mms_full_timestamp">Display both date and time in timestamps</string>
+
+    <!-- Which timestamps -->
+    <string name="pref_title_mms_use_sent_timestamp">Original timestamps</string>
+    <string name="pref_summary_mms_use_sent_timestamp">Display sent date instead of received date in timestamps</string>
+
+    <!-- Add menu for 'Add SMS to calendar remind' -->
+    <string name="menu_add_to_calendar">Add to calendar</string>
+
+    <!-- Soft Keyboard Type -->
+    <string name="pref_keyboard_emoji">Show the Emoticons key</string>
+    <string name="pref_keyboard_new_line">Show the Enter key</string>
+    <string name="pref_keyboard_unknown">Unknown, please reselect</string>
+
+    <!-- Settings item for the soft keyboard picker -->
+    <string name="pref_title_input_type">Soft keyboard type</string>
+    <string name="pref_summary_input_type">Select the soft keyboard to use when composing messages</string>
+
+    <!-- QM Preferences -->
+    <string name="pref_quickmessage">Quick Message and Reply</string>
+    <string name="pref_quickmessage_title">Show QuickMessage</string>
+    <string name="pref_quickmessage_summary">Display the QuickMessage pop-up for incoming SMS messages</string>
+    <string name="pref_wake_unlock_title">Wake and unlock</string>
+    <string name="pref_wake_unlock_summary">Wake and unlock device on incoming message (insecure lock screens only)</string>
+    <string name="pref_close_all_title">Close all</string>
+    <string name="pref_close_all_summary">Close button closes all messages</string>
+    <string name="message_counter_separator">of</string>
+
+    <!-- QM Dialog box buttons -->
+    <string name="button_close">Close</string>
+    <string name="button_view">View</string>
+    <string name="button_templates">Templates</string>
+
+    <string name="storage_warning_title">"Your phone's storage is full"</string>
+    <string name="storage_warning_content">"You won't receive new SMS/MMS messages"</string>
+
+    <!-- Hint text in message body field when keyboard is exposed -->
+    <string name="type_to_reply_text_enter_to_send">Type to reply</string>
+
+    <!-- QM Toast -->
+    <string name="toast_sending_message">Sending message</string>
+
+    <!-- QM - Quick reply -->
+    <string name="qm_quick_reply">Reply</string>
+    <string name="qm_mark_read">Read</string>
+
+    <!-- Direct call -->
+    <string name="direct_call_title">Direct Call</string>
+    <string name="direct_call_summary">Picking up the phone calls the current contact</string>
+
+    <!-- Message Font size -->
+    <string name="pref_title_mms_message_font_size">Message font size</string>
+    <string name="pref_summary_mms_message_font_size">Change font size of message view</string>
+    <string name="pref_dialogtitle_mms_message_font_size">Select font size</string>
+
+    <!-- Privacy mode -->
+    <string name="pref_title_notification_privacy_mode_enabled">Privacy mode</string>
+    <string name="pref_summary_notification_privacy_mode_enabled">Hide sender and message in status bar and disable Quick reply</string>
+    <string name="notification_single_title_privacy_mode">New message</string>
+    <string name="notification_single_text_privacy_mode">1 unread message</string>
+    <string name="notification_multiple_title_privacy_mode">New messages</string>
+    <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> unread messages</string>
+    <string name="notification_ticker_privacy_mode">New message received</string>
+
+    <!-- Message signature -->
+    <string name="msg_sig_title">Signature</string>
+    <string name="msg_sig_summary">Set a custom Signature for messages</string>
+    <string name="msg_sig_enter_text">Enter signature text</string>
+
+    <!-- Mms Breath -->
+    <string name="mms_breath">Breathing SMS</string>
+    <string name="mms_breath_summary">Will give your statusbar notifications a breathing effect</string>
+
+    <!-- Avatar -->
+    <string name="hide_avatar">Hide Avatar</string>
+    <string name="hide_avatar_summary">Hide avatar in the conversations list screen</string>
+
+    <!-- Multi Contact selector -->
+    <string name="pref_multi_select">Easy Selector</string>
+    <string name="pref_multi_select_summary">Select multiple contacts using a checkbox</string>
+    <string name="add_recipients">Add recipients</string>
+    <string name="groups_header">Groups</string>
+    <string name="loading_recipients">Loading contacts and groups</string>
+    <string name="no_recipients">No possible recipients</string>
+
+    <!-- Text area -->
+    <string name="pref_text_area_size_title">Text area size</string>
+    <string name="pref_text_area_size_summary">Set text area to <xliff:g id="lines">%1$s</xliff:g> lines</string>
+
+    <!-- Custom user-agent -->
+    <string name="pref_mms_ua_default_android">Default Android</string>
+    <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+    <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+    <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
+    <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+    <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+    <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+    <string name="pref_mms_ua_custom_option">Custom\u2026</string>
+    <string name="pref_title_mms_user_agent">User Agent</string>
+    <string name="pref_summary_mms_user_agent">Spoof phone as a different model for MMS</string>
+    <string name="pref_mms_user_agent_custom_set">ser Agent set to:\n</string>
+
+    <!-- Multi-Part SMS -->
+    <string name="pref_title_sms_multi_part">Multi-part SMS</string>
+    <string name="pref_title_sms_multi_part_size">Multi-part SMS size</string>
+    <string name="pref_summary_sms_multi_part_mms">Text messages over 160 chars will be sent as MMS</string>
+    <string name="pref_summary_sms_multi_part">Text messages over 160 chars will be sent as Multi-part SMS</string>
+    <string name="pref_summary_sms_multi_part_mms_size">Text message will be converted to MMS after <xliff:g id="seg">%1$s</xliff:g> segments</string>
+
+    <!-- Split SMS -->
+    <string name="pref_title_sms_split">Split SMS</string>
+    <string name="pref_summary_sms_split">Text messages will be split to 160 char messages</string>
+
     <!-- Blacklist preferences -->
     <string name="blacklist_title">Blacklist</string>
     <string name="blacklist_summary_disabled">Disabled</string>
