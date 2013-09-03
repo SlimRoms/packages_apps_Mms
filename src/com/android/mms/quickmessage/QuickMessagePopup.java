@@ -300,6 +300,12 @@ public class QuickMessagePopup extends Activity implements
                 removeMatchingMessages(threadId);
             }
         } else {
+            if (newMessage && mCurrentPage != -1) {
+                // Save the EditText contents, so it doesn't get lost when the PagerAdapter updates
+                mCurrentQm = mMessageList.get(mCurrentPage);
+                mCurrentQm.saveReplyText();
+                if (DEBUG) Log.d(LOG_TAG, "parseIntent(): Saved EditText=[" + mCurrentQm.getReplyText() + "]");
+            }
             // Parse the intent and ensure we have a notification object to work with
             NotificationInfo nm = (NotificationInfo) extras.getParcelable(SMS_NOTIFICATION_OBJECT_EXTRA);
             if (nm != null) {
