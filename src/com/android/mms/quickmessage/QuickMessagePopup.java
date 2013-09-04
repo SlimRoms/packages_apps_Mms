@@ -304,6 +304,7 @@ public class QuickMessagePopup extends Activity implements
                 // Save the EditText contents, so it doesn't get lost when the PagerAdapter updates
                 mCurrentQm = mMessageList.get(mCurrentPage);
                 mCurrentQm.saveReplyText();
+                dismissKeyboard(mCurrentQm);
                 if (DEBUG) Log.d(LOG_TAG, "parseIntent(): Saved EditText=[" + mCurrentQm.getReplyText() + "]");
             }
             // Parse the intent and ensure we have a notification object to work with
