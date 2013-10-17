@@ -140,7 +140,7 @@
 
     <!-- Privacy mode -->
     <string name="pref_title_notification_privacy_mode_enabled">Режим приватности</string>
-    <string name="pref_summary_notification_privacy_mode_enabled">Скрыть отправителья и получателя в строке состояния и отключить быстрый ответ</string>
+    <string name="pref_summary_notification_privacy_mode_enabled">Скрыть отправителя и получателя в строке состояния и отключить быстрый ответ</string>
     <string name="notification_single_title_privacy_mode">Новое сообщение</string>
     <string name="notification_single_text_privacy_mode">1 непрочитанное сообщение</string>
     <string name="notification_multiple_title_privacy_mode">Новые сообщения</string>
@@ -154,7 +154,7 @@
 
     <!-- Mms Breath -->
     <string name="mms_breath">Пульсирующее SMS</string>
-    <string name="mms_breath_summary">Придает уведомлениям в строке состояния пульсирующий эффект</string>
+    <string name="mms_breath_summary">Придать уведомлениям в строке состояния пульсирующий эффект</string>
 
     <!-- Settings item for the soft keyboard picker -->
     <string name="pref_title_input_type">Тип клавиатуры</string>
