@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2013 SlimRoms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="menu_mark_all_read">Összes kijelölése olvasottként</string>
+    <string name="cannot_find_contact">A választott kontakt nem csatolható.</string>
+    <string name="pref_title_save_location">Mellékletek mentési mappája</string>
+    <string name="pref_title_save_location_summary">Adja meg a mellékletek mentésének helyét</string>
+    <string name="attach_contact_info">Kontakt-információ</string>
+    <string name="record_sound_error_alert">Nem lehet hangfelvételt készíteni. A SoundRecorder.apk hiányzik!</string>
+    <string name="label_mms_push">MMS Push</string>
+    <string name="desc_mms_push">Az MMS-t a kimenőlistából a hálózatra helyezi</string>
+    <string name="pref_extra_settings">Extra beállítások</string>
+    <string name="pref_char_settings">Karakter-beállítások</string>
+    <string name="pref_title_enable_emojis">Ikonok engedélyezése</string>
+    <string name="pref_summary_enable_emojis">Ikonok megjelenítéséhez szükséges unicode támogatás engedélyezése</string>
+    <string name="menu_insert_emoji">Ikon beszúrása</string>
+    <string name="pref_title_sms_split_counter">Darabszám</string>
+    <string name="pref_summary_sms_split_counter">Számláló megjelenítése pl. (1/2)</string>
+    <string name="prefs_templates_settings">SMS Sablonok</string>
+    <string name="pref_title_templates_manage">Kézmozdulat</string>
+    <string name="pref_summary_templates_manage">SMS sablonok kezelése</string>
+    <string name="pref_title_templates_show_gesture">Kézmozdulat</string>
+    <string name="pref_summary_templates_show_gesture">Kézmozdulat útvonalának megjelenítése</string>
+    <string name="pref_title_template_gestures_sensitivity">Kézmozdulat érzékenysége</string>
+    <string name="template_save">Mentés</string>
+    <string name="template_insert_hint">Írja be a sablon szövegét</string>
+    <string name="template_empty_text">A mező nem lehet üres.</string>
+    <string name="template_explanation">Írja be, vagy módosítsa a sablon szövegét és opcionálisan társíthat hozzá kézmozdulatot is.</string>
+    <string name="template_edit">Szerkesztés</string>
+    <string name="template_delete">Törlés</string>
+    <string name="template_ctx_menu_title">Műveletek</string>
+    <string name="template_list_title">Sablonok</string>
+    <string name="template_new_title">Új sablon</string>
+    <string name="template_insert">Sablon beszúrása</string>
+    <string name="template_gesture_draw">Rajzolja le a társítani kívánt kézmozdulatot az alábbi felületre.</string>
+    <string name="template_not_present_error">Még nincs definiált sablon.</string>
+    <string name="template_not_present_error_title">Hiba</string>
+    <string name="template_select">Válasszon sablont</string>
+    <string name="gestures_already_present">Figyelem: Egy hasonló kézmozdulat már társítva van egy másik sablonhoz!</string>
+    <string name="pref_title_mms_notification_vibrate_settings">Rezgés beállítások</string>
+    <string name="pref_title_mms_notification_vibrate_pattern">Rezgés típusa</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Rezgés mintájának beállítása</string>
+    <string name="pref_title_mms_notification_vibrate_custom">Egyedi rezgés minta</string>
+    <string name="pref_text_mms_notification_vibrate_custom">Formátum: ki/be milliszekundumban: ki, be, ki, be, ...</string>
+    <string name="pref_title_unicode_stripping">Unicode eltávolítása</string>
+    <string name="pref_unicode_stripping_leave_intact">Hagyja a karaktereket érintetlenül</string>
+    <string name="pref_unicode_stripping_non_encodable">Kódolhatatlan karakterek eltávolítása</string>
+    <string name="pref_unicode_stripping_all">Az összes Unicode karakter eltávolítása</string>
+    <string name="pref_title_enable_quick_emojis">Emoji gyorsbillentyű</string>
+    <string name="pref_summary_enable_quick_emojis">Helyezzen gombot a szövegbeviteli felület mellé a gyors emoji eléréshez</string>
+    <string name="pref_title_enable_softbank_encoding">SoftBank emoji</string>
+    <string name="pref_summary_enable_softbank_encoding">Használjon SoftBank emoji-kódolást</string>
+    <string name="pref_title_mms_full_timestamp">Teljes időbélyeg</string>
+    <string name="pref_summary_mms_full_timestamp">Mindkét dátum/idő megjelenítése</string>
+    <string name="pref_title_mms_use_sent_timestamp">Eredeti dátum</string>
+    <string name="pref_summary_mms_use_sent_timestamp">Küldés dátumának megjelenítése a fogadás dátuma helyett</string>
+    <string name="menu_add_to_calendar">Hozzáadás a naptárhoz</string>
+    <string name="pref_keyboard_emoji">Hangulatjel beszúrása</string>
+    <string name="pref_keyboard_new_line">Új sor beszúrása</string>
+    <string name="pref_keyboard_unknown">Ismeretlen, kérjük, válassza ki újra</string>
+    <string name="pref_title_input_type">Enter billentyű</string>
+    <string name="pref_summary_input_type">Válassza ki az Enter billentyűhöz társított műveletet</string>
+    <string name="pref_quickmessage">Gyors üzenetek és válaszok</string>
+    <string name="pref_quickmessage_title">Gyors üzenetek engedélyezése</string>
+    <string name="pref_quickmessage_summary">Gyors üzenetek felugró ablak megjelenítése</string>
+    <string name="pref_wake_unlock_title">Felébresztés és feloldás</string>
+    <string name="pref_wake_unlock_summary">Készülék felébresztése és feloldása üzenet érkezésekor (csak nem biztosított képernyőzár esetén)</string>
+    <string name="pref_close_all_title">Összes bezárása</string>
+    <string name="pref_close_all_summary">A bezárás gomb az összes üzenetet zárja be</string>
+    <string name="message_counter_separator">/</string>
+    <string name="button_close">Bezárás</string>
+    <string name="button_view">Megtekintés</string>
+    <string name="button_templates">Sablonok</string>
+    <string name="type_to_reply_text_enter_to_send">Írja be az üzenetet</string>
+    <string name="toast_sending_message">Üzenet küldése</string>
+    <string name="qm_quick_reply">Válasz</string>
+    <string name="qm_mark_read">Elolvasva</string>
+    <string name="direct_call_title">Közvetlen Hívás</string>
+    <string name="direct_call_summary">A telefon felvétele tárcsázza az aktuális kapcsolatot</string>
+    <string name="pref_title_mms_message_font_size">Üzenet betűmérete</string>
+    <string name="pref_summary_mms_message_font_size">Üzenet-nézet betűméretének cseréje</string>
+    <string name="pref_dialogtitle_mms_message_font_size">Válasszon betűméretet</string>
+    <string name="pref_title_notification_privacy_mode_enabled">Titkos mód</string>
+    <string name="pref_summary_notification_privacy_mode_enabled">Küldő és üzenet elrejtése a status bar-on és a Gyorsválasz tiltása</string>
+    <string name="notification_single_title_privacy_mode">Új üzenet</string>
+    <string name="notification_single_text_privacy_mode">1 olvasatlan üzenet</string>
+    <string name="notification_multiple_title_privacy_mode">Új üzenetek</string>
+    <string name="notification_multiple_text_privacy_mode"><xliff:g id="NUMBER">%1$s</xliff:g> olvasatlan üzenet</string>
+    <string name="notification_ticker_privacy_mode">Új üzenet érkezett</string>
+    <string name="msg_sig_title">Aláírás</string>
+    <string name="msg_sig_summary">Egyedi aláírás beállítása az üzenetekhez</string>
+    <string name="msg_sig_enter_text">Írja be az aláírás szövegét</string>
+    <string name="mms_breath">Breathing SMS</string>
+    <string name="mms_breath_summary">Egyedi effektet ad az értesítéseknek a statusbar-on</string>
+    <string name="hide_avatar">Kapcsolat képének elrejtése</string>
+    <string name="hide_avatar_summary">Kapcsolat képének elrejtése a párbeszéd-listán</string>
+    <string name="pref_multi_select">Könnyűválasztó</string>
+    <string name="pref_multi_select_summary">Több kapcsolat kiválasztása jelölőnégyzet használatával</string>
+    <string name="add_recipients">Címzettek hozzáadása</string>
+    <string-array name="prefEntries_vibrateWhen">
+        <item>Mindig</item>
+        <item>Csak néma üzemmódban</item>
+        <item>Soha</item>
+    </string-array>
+</resources>
