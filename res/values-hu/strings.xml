@@ -45,7 +45,7 @@
     <string name="expire_on" msgid="4436268382742593921">"Lejár: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="kilobyte" msgid="534782148965716631">"kB"</string>
     <string name="undelivered_msg_dialog_title" msgid="7479433403599785755">"Kézbesítetlen üzenet"</string>
-    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Nem sikerült elküldeni az üzenetet."\n"Utolsó kísérlet: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
+    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Nem sikerült elküldeni az üzenetet.\nUtolsó kísérlet: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
     <string name="undelivered_sms_dialog_body" msgid="4203703285563450868">"Nem sikerült elküldeni az üzenetet."</string>
     <string name="delete_thread" msgid="757258847736632791">"Szál törlése"</string>
     <string name="menu_forward" msgid="9026858380050046756">"Továbbítás"</string>
@@ -86,6 +86,8 @@
     <string name="all_threads" msgid="2663426830306307194">"Az összes szál"</string>
     <string name="type_to_compose_text_enter_to_send" msgid="3539985471008581265">"Írja be az üzenetet"</string>
     <string name="open_keyboard_to_compose_message" msgid="7860109685511253191">"Billentyűzet megnyitása üzenet begépeléséhez"</string>
+    <string name="sending_disabled_not_default_app" msgid="6685337318181265136">"Küldés kikapcsolva"</string>
+    <string name="compose_disabled_toast" msgid="1838175321052707875">"Nem írható meg. Nem ez az alapértelmezett SMS-alkalmazás."</string>
     <string name="compressing" msgid="1961357529661045180">"A kép túl nagy. Kicsinyítés..."</string>
     <string name="unsupported_media_format" msgid="1350489690977363764">"Nem támogatott <xliff:g id="NAME">%1$s</xliff:g> formátum."</string>
     <string name="select_different_media" msgid="6241623357299382183">"Válasszon egy másikat: <xliff:g id="NAME">%1$s</xliff:g>."</string>
@@ -156,6 +158,10 @@
     <string name="pref_mms_settings_title" msgid="55618772118264355">"Multimédiás (MMS) üzenetek"</string>
     <string name="pref_sms_settings_title" msgid="5173078369851066881">"Szöveges (SMS) üzenetek"</string>
     <string name="pref_sms_storage_title" msgid="9001233319190616445">"Tárhely"</string>
+    <string name="pref_title_sms_disabled" msgid="1441894740130104326">"SMS-ek letiltva"</string>
+    <string name="pref_summary_sms_disabled" msgid="8975773722051230744">"Érintse meg, hogy az Üzenetek legyen az alapértelmezett SMS-alkalmazás"</string>
+    <string name="pref_title_sms_enabled" msgid="1857849790200375277">"SMS-ek engedélyezve"</string>
+    <string name="pref_summary_sms_enabled" msgid="2106125420361911250">"Érintse meg az alapértelmezett SMS-alkalmazás módosításához"</string>
     <string name="pref_summary_manage_sim_messages" msgid="4141349892597640864">"A SIM-kártyán lévő üzenetek kezelése"</string>
     <string name="pref_summary_mms_delivery_reports" msgid="4874657984217756112">"Kézbesítési jelentés kérése minden elküldött üzenetről"</string>
     <string name="pref_summary_mms_read_reports" msgid="2748323864008907440">"Olvasási visszaigazolás kérése minden elküldött üzenetről"</string>
@@ -274,6 +280,7 @@
     <string name="message_send_failed_title" msgid="3469894907399046372">"Az üzenet nincs elküldve"</string>
     <string name="message_failed_body" msgid="3421296112073915245">"Érintse meg az üzenetet annak áttekintéséhez, és próbálja újra."</string>
     <string name="download_later" msgid="5531365714424360903">"Jelenleg nem lehet letölteni. Próbálkozzon később."</string>
+    <string name="no_apn" msgid="505932916503312015">"Nincs APN megadva az eszközön."</string>
     <string name="select_audio" msgid="3528161449756771832">"Hang kiválasztása"</string>
     <string name="copy_to_sdcard" msgid="757028609638184856">"Melléklet mentése"</string>
     <string name="copy_to_sdcard_success" msgid="7948625615155992014">"A melléklet elmentve."</string>
@@ -281,7 +288,6 @@
     <string name="save_ringtone" msgid="2310157075045201051">"Mentés csengőhangként"</string>
     <string name="saved_ringtone" msgid="3847363932276708626">"A csengőhang mentve."</string>
     <string name="saved_ringtone_fail" msgid="4778500070919251116">"Nem sikerült menteni a csengőhangot."</string>
-    <string name="menu_insert_smiley" msgid="4964504393061025071">"Hangulatjel beszúrása"</string>
     <string name="menu_group_participants" msgid="4288356090262299071">"Résztvevők csoportosítása"</string>
     <string name="select_link_title" msgid="3371818607625768447">"Művelet kiválasztása"</string>
     <string name="slide_number" msgid="1923958526266726635">"<xliff:g id="NUMBER">%s</xliff:g>. dia"</string>
@@ -342,4 +348,11 @@
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
     <string name="message_timestamp_format" msgid="4188999027493614617">"<xliff:g id="STRING_0">%1$s</xliff:g> – <xliff:g id="STRING_1">%2$s</xliff:g>"</string>
+    <string name="storage_warning_title" msgid="7124740686325942375">"A telefon tárhelye megtelt"</string>
+    <string name="storage_warning_content" msgid="1100367816649962354">"A jövőben nem kap új SMS/MMS-üzeneteket"</string>
+    <string name="label_mms_send_outbox_msg" msgid="3395185162973061099">"MMS-ébresztő"</string>
+    <string name="desc_mms_send_outbox_msg" msgid="1837156781311437148">"A kimenő üzenetekben szereplő összes MMS-t elküldi a hálózatnak"</string>
+    <string name="banner_sms_promo_title_initial" msgid="510014388581481569">"Az SMS-eket nem az Üzenetek alkalmazás kezeli"</string>
+    <string name="banner_sms_promo_title_application" msgid="8123569785369713254">"Az SMS-eket a következő alkalmazás kezeli: <xliff:g id="APPNAME">%s</xliff:g>"</string>
+    <string name="banner_sms_promo_message" msgid="3536714414252763826">"Ezt módosíthatja a Beállítások között."</string>
 </resources>

@@ -45,7 +45,7 @@
     <string name="expire_on" msgid="4436268382742593921">"Okuphelelwa yisikhathi: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="kilobyte" msgid="534782148965716631">"KB"</string>
     <string name="undelivered_msg_dialog_title" msgid="7479433403599785755">"Umyalezo ongathunyelwanga"</string>
-    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Ayikwazanga ukuthumela lo myalezo. "\n"Ukzama okwenziwe: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
+    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Ayikwazanga ukuthumela lo myalezo. \nUkzama okwenziwe: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
     <string name="undelivered_sms_dialog_body" msgid="4203703285563450868">"Ayikwazanga ukuthumela lo umyalezo."</string>
     <string name="delete_thread" msgid="757258847736632791">"Susa indikimba"</string>
     <string name="menu_forward" msgid="9026858380050046756">"Dlulisa"</string>
@@ -86,6 +86,8 @@
     <string name="all_threads" msgid="2663426830306307194">"Zonke izindikimba"</string>
     <string name="type_to_compose_text_enter_to_send" msgid="3539985471008581265">"Thayipha umlayezo"</string>
     <string name="open_keyboard_to_compose_message" msgid="7860109685511253191">"Vula i-keyboard ukuze uthayiphe umlayezo"</string>
+    <string name="sending_disabled_not_default_app" msgid="6685337318181265136">"Ukuthumela kukhutshaziwe"</string>
+    <string name="compose_disabled_toast" msgid="1838175321052707875">"Ayikwazi ukubhala. Akulona uhlelo lokusebenza oluzenzakalelayo lwe-SMS."</string>
     <string name="compressing" msgid="1961357529661045180">"Isithombe sikhulu kakhulu. Iyanciphisa..."</string>
     <string name="unsupported_media_format" msgid="1350489690977363764">"Ifomethi <xliff:g id="NAME">%1$s</xliff:g> engasekelwe"</string>
     <string name="select_different_media" msgid="6241623357299382183">"Khetha i-<xliff:g id="NAME">%1$s</xliff:g> ehlukile."</string>
@@ -119,7 +121,7 @@
     <string name="preview" msgid="5438149136136446756">"Buka kuqala"</string>
     <string name="preview_slideshow" msgid="6824095909448728427">"Buka kuqala"</string>
     <string name="replace_image" msgid="3171240952601443619">"Buyisela isithombe"</string>
-    <string name="duration_sec" msgid="6617032324007824096">"Ubude (<xliff:g id="DURATION">%s</xliff:g> imizuzwana)"</string>
+    <string name="duration_sec" msgid="6617032324007824096">"Ubude (<xliff:g id="DURATION">%s</xliff:g> amasekhondi)"</string>
     <string name="duration_selector_title" msgid="5981097971537625852">"Ubude beslayidi "</string>
     <string name="layout_selector_title" msgid="7344600117972450771">"Ukwakheka kombukiso weslayidi "</string>
     <string name="layout_top" msgid="6811021650398972346">"Ukwakheka (ngenhla)"</string>
@@ -129,16 +131,16 @@
     <string name="duration_zero" msgid="3549377790195185977">"Ubude kumele bube bukhulu kunamasekhondi ayize"</string>
     <string name="secs" msgid="6886003523109967972">"amasekhondi"</string>
   <string-array name="select_dialog_items">
-    <item msgid="4840183714016984112">"isekhondi elingu-1"</item>
-    <item msgid="3734955613666864447">"amasekhondi angu-2"</item>
-    <item msgid="6032232473048379828">"amasekhondi angu-3"</item>
-    <item msgid="5978471781525927827">"amasekhondi angu-4"</item>
-    <item msgid="4888440297621208402">"amasekhondi angu-5"</item>
-    <item msgid="6047246213264166841">"amasekhondi angu-6"</item>
-    <item msgid="2327501250056533797">"amasekhondi angu-7"</item>
-    <item msgid="3400770414689795703">"amasekhondi angu-8"</item>
-    <item msgid="4358760614161107970">"amasekhondi angu-9"</item>
-    <item msgid="2618179407176906471">"amasekhondi angu-10"</item>
+    <item msgid="4840183714016984112">"1 isekhondi"</item>
+    <item msgid="3734955613666864447">"2 amasekhondi"</item>
+    <item msgid="6032232473048379828">"3 amasekhondi"</item>
+    <item msgid="5978471781525927827">"4 amasekhondi"</item>
+    <item msgid="4888440297621208402">"5 amasekhondi"</item>
+    <item msgid="6047246213264166841">"6 amasekhondi"</item>
+    <item msgid="2327501250056533797">"7 amasekhondi"</item>
+    <item msgid="3400770414689795703">"8 amasekhondi"</item>
+    <item msgid="4358760614161107970">"9 amasekhondi"</item>
+    <item msgid="2618179407176906471">"10 amasekhondi"</item>
     <item msgid="7786079681602275449">"Okunye"</item>
   </string-array>
     <string name="menu_view_contact" msgid="1414670584423909451">"Buka othintana naye"</string>
@@ -156,6 +158,10 @@
     <string name="pref_mms_settings_title" msgid="55618772118264355">"Imiyalezo (MMS) wemalthimidiya"</string>
     <string name="pref_sms_settings_title" msgid="5173078369851066881">"Umyalezo (SMS) wombhalo"</string>
     <string name="pref_sms_storage_title" msgid="9001233319190616445">"Isitoreji"</string>
+    <string name="pref_title_sms_disabled" msgid="1441894740130104326">"I-SMS ikhutshaziwe"</string>
+    <string name="pref_summary_sms_disabled" msgid="8975773722051230744">"Thinta ukuze wenze Imilayezo ibe uhlelo lwakho lokusebenza oluzenzakalelayo le-SMS"</string>
+    <string name="pref_title_sms_enabled" msgid="1857849790200375277">"I-SMS inikwe amandla"</string>
+    <string name="pref_summary_sms_enabled" msgid="2106125420361911250">"Thinta ukuze ushintshe uhlelo lwakho lokusebenza oluzenzakalelayo le-SMS"</string>
     <string name="pref_summary_manage_sim_messages" msgid="4141349892597640864">"Phatha imlayezo egcinwe ekhadini lakho le-SIM"</string>
     <string name="pref_summary_mms_delivery_reports" msgid="4874657984217756112">"Cela umbiko wokuthumela womlayezo ngamunye owuthumelayo"</string>
     <string name="pref_summary_mms_read_reports" msgid="2748323864008907440">"Cela umbiko wokufundiwe womyalezo ngamunye owuthumelayo"</string>
@@ -203,7 +209,7 @@
     <string name="text_message" msgid="8196464345251877972">"Umyalezo wombhalo"</string>
     <string name="multimedia_message" msgid="1512644521083533071">"Umyalezo wezokuxhumana okuxubile"</string>
     <string name="multimedia_notification" msgid="4124031788554972308">"Isaziso somyalezo wokuxhumano okuxubile"</string>
-    <string name="from_label" msgid="2055117571548171397">"Ivela ku: "</string>
+    <string name="from_label" msgid="2055117571548171397">"Ibuya: "</string>
     <string name="to_address_label" msgid="5837363600471845801">"Kuya ku: "</string>
     <string name="bcc_label" msgid="530867161453958774">"Bcc: "</string>
     <string name="sent_label" msgid="2722190650145251584">"Thunyelwe: "</string>
@@ -274,6 +280,7 @@
     <string name="message_send_failed_title" msgid="3469894907399046372">"Umlayezo awuthunyelwanga"</string>
     <string name="message_failed_body" msgid="3421296112073915245">"Khetha ukubona kuqala umyalezo bese uzama futhi."</string>
     <string name="download_later" msgid="5531365714424360903">"Ayikwazi ukulanda manje. Zama futhi ngemva kwesikhashana."</string>
+    <string name="no_apn" msgid="505932916503312015">"Ayikho i-APN ecaciswe kudivayisi."</string>
     <string name="select_audio" msgid="3528161449756771832">"Khetha okulalelwayo"</string>
     <string name="copy_to_sdcard" msgid="757028609638184856">"Gcina isinamathiseli"</string>
     <string name="copy_to_sdcard_success" msgid="7948625615155992014">"Isinamathiseli silondoloziwe"</string>
@@ -281,7 +288,6 @@
     <string name="save_ringtone" msgid="2310157075045201051">"Gcina njenge ringithoni"</string>
     <string name="saved_ringtone" msgid="3847363932276708626">"Iringithoni igciniwe"</string>
     <string name="saved_ringtone_fail" msgid="4778500070919251116">"Ayikwazanga ukugcina iringithoni."</string>
-    <string name="menu_insert_smiley" msgid="4964504393061025071">"Faka ismayili"</string>
     <string name="menu_group_participants" msgid="4288356090262299071">"Qoqa abahlanganyeli"</string>
     <string name="select_link_title" msgid="3371818607625768447">"Khetha isenzo"</string>
     <string name="slide_number" msgid="1923958526266726635">"Islayidi <xliff:g id="NUMBER">%s</xliff:g>"</string>
@@ -342,4 +348,11 @@
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
     <string name="message_timestamp_format" msgid="4188999027493614617">"<xliff:g id="STRING_0">%1$s</xliff:g> - <xliff:g id="STRING_1">%2$s</xliff:g>"</string>
+    <string name="storage_warning_title" msgid="7124740686325942375">"Isitoreji sefoni yakho sigcwele"</string>
+    <string name="storage_warning_content" msgid="1100367816649962354">"Ngeke uthole imilayezo emisha ye-SMS/MMS"</string>
+    <string name="label_mms_send_outbox_msg" msgid="3395185162973061099">"Ukuvuka kwe-MMS"</string>
+    <string name="desc_mms_send_outbox_msg" msgid="1837156781311437148">"Ithumela wonke ama-SMS kusukela kokuphumayo kuya kunethiwekhi"</string>
+    <string name="banner_sms_promo_title_initial" msgid="510014388581481569">"Imilayezo akulona uhlelo lwakho lokusebenza lwe-SMS"</string>
+    <string name="banner_sms_promo_title_application" msgid="8123569785369713254">"I-<xliff:g id="APPNAME">%s</xliff:g> inguhlelo lwakho lokusebenza lwe-SMS"</string>
+    <string name="banner_sms_promo_message" msgid="3536714414252763826">"Ungashintsha lokhu kokuthi Izilungiselelo"</string>
 </resources>

@@ -28,7 +28,7 @@
     <string name="menu_preferences" msgid="4693148116114749414">"ቅንብሮች"</string>
     <string name="menu_add_address_to_contacts" msgid="4491980950419914944">"ወደ <xliff:g id="CONTACTEMAILORNUMBER">%s</xliff:g>ሰዎች አክል"</string>
     <string name="menu_call" msgid="5877123227307074690">"ደውል"</string>
-    <string name="menu_search" msgid="2289469305728821360">" ፈልግ"</string>
+    <string name="menu_search" msgid="2289469305728821360">"ፍለጋ"</string>
     <string name="menu_delete_all" msgid="808729454898114735">"ሁሉንም ክሮች ሰርዝ"</string>
     <string name="menu_delete" msgid="1851666911396479006">"ክር ሰርዝ"</string>
     <string name="menu_view" msgid="7448852683948080108">"የፍርግም ክር"</string>
@@ -45,7 +45,7 @@
     <string name="expire_on" msgid="4436268382742593921">"ያበቃል: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="kilobyte" msgid="534782148965716631">"KB"</string>
     <string name="undelivered_msg_dialog_title" msgid="7479433403599785755">"ያልደረሰ መልዕክት"</string>
-    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"ይህን መልዕክት ለመላክ  አልተቻለም።"\n" ሙከራ ተደርጓል፡<xliff:g id="MESSAGE">%s</xliff:g>"</string>
+    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"ይህን መልዕክት ለመላክ  አልተቻለም።\n ሙከራ ተደርጓል፡<xliff:g id="MESSAGE">%s</xliff:g>"</string>
     <string name="undelivered_sms_dialog_body" msgid="4203703285563450868">"ይህን መልዕክት መላክ አልተቻለም።"</string>
     <string name="delete_thread" msgid="757258847736632791">"ክር ሰርዝ"</string>
     <string name="menu_forward" msgid="9026858380050046756">"አስተላልፍ"</string>
@@ -86,6 +86,8 @@
     <string name="all_threads" msgid="2663426830306307194">"ሁሉም ክሮች"</string>
     <string name="type_to_compose_text_enter_to_send" msgid="3539985471008581265">"መልዕክት ተይብ"</string>
     <string name="open_keyboard_to_compose_message" msgid="7860109685511253191">"መልዕክት ለመተየብ የሰሌዳ ቁልፍ ክፈት"</string>
+    <string name="sending_disabled_not_default_app" msgid="6685337318181265136">"መላክ ተሰናክሏል"</string>
+    <string name="compose_disabled_toast" msgid="1838175321052707875">"መጻፍ አልተቻለም። ነባሪ የኤስ ኤም ኤስ መተግበሪያ አይደለም።"</string>
     <string name="compressing" msgid="1961357529661045180">"ምስል በጣም ትልቅ ነው። በማመቅ ላይ...."</string>
     <string name="unsupported_media_format" msgid="1350489690977363764">"የማይደገፍ  የ<xliff:g id="NAME">%1$s</xliff:g> ቅርፀት"</string>
     <string name="select_different_media" msgid="6241623357299382183">"የተለየ<xliff:g id="NAME">%1$s</xliff:g>ምረጥ።"</string>
@@ -119,7 +121,7 @@
     <string name="preview" msgid="5438149136136446756">"ቅድመ-ዕይታ"</string>
     <string name="preview_slideshow" msgid="6824095909448728427">"ቅድመ-ዕይታ"</string>
     <string name="replace_image" msgid="3171240952601443619">"ፎቶ ተካ"</string>
-    <string name="duration_sec" msgid="6617032324007824096">"ቆይታ(<xliff:g id="DURATION">%s</xliff:g>ሰከንድ)"</string>
+    <string name="duration_sec" msgid="6617032324007824096">"ቆይታ(<xliff:g id="DURATION">%s</xliff:g>ሴኮንድ)"</string>
     <string name="duration_selector_title" msgid="5981097971537625852">"የስላይድ ጊዜ ርዝመት "</string>
     <string name="layout_selector_title" msgid="7344600117972450771">"ስላይድ ትዕይንት አቀማመጥ "</string>
     <string name="layout_top" msgid="6811021650398972346">"አቀማመጥ (ከላይ)"</string>
@@ -129,7 +131,7 @@
     <string name="duration_zero" msgid="3549377790195185977">"የጊዜ ርዝመት ከዜሮ ሰከንዶች በላይ መሆን አለበት።"</string>
     <string name="secs" msgid="6886003523109967972">"ሰከንዶች"</string>
   <string-array name="select_dialog_items">
-    <item msgid="4840183714016984112">"1 ሰከንድ"</item>
+    <item msgid="4840183714016984112">"1 ሴኮንድ"</item>
     <item msgid="3734955613666864447">"2 ሰከንዶች"</item>
     <item msgid="6032232473048379828">"3 ሰከንዶች"</item>
     <item msgid="5978471781525927827">"4 ሰከንዶች"</item>
@@ -145,7 +147,7 @@
     <string name="menu_add_to_contacts" msgid="1258127580972228970">"ወደ ሰዎች አክል"</string>
     <string name="hidden_sender_address" msgid="2776075636669924968">"የተደበቀ የላኪ አድራሻ"</string>
     <string name="yes" msgid="3246158147503160811">"እሺ"</string>
-    <string name="no" msgid="4289742508556913860">"ይቅር"</string>
+    <string name="no" msgid="4289742508556913860">"ሰርዝ"</string>
     <string name="set" msgid="4642365398263275979">"አዘጋጅ"</string>
     <string name="play" msgid="1888432400937785115">"ተጫወት"</string>
     <string name="edit" msgid="5912118407791492696">"አርትዕ"</string>
@@ -156,6 +158,10 @@
     <string name="pref_mms_settings_title" msgid="55618772118264355">"ማህደረ ብዙ መረጃ መልዕክቶች(ኤም ኤም ኤስ )"</string>
     <string name="pref_sms_settings_title" msgid="5173078369851066881">"አጭር የመልዕክት ፁሁፎች  (ኤስ ኤም ኤስ )"</string>
     <string name="pref_sms_storage_title" msgid="9001233319190616445">"ማከማቻ"</string>
+    <string name="pref_title_sms_disabled" msgid="1441894740130104326">"ኤስ ኤም ኤስ ተሰናክሏል"</string>
+    <string name="pref_summary_sms_disabled" msgid="8975773722051230744">"Messagingን ነባሪ የኤስ ኤም ኤስ መተግበሪያዎ ለማድረግ ነካ ያድርጉ"</string>
+    <string name="pref_title_sms_enabled" msgid="1857849790200375277">"ኤስ ኤም ኤስ ነቅቷል"</string>
+    <string name="pref_summary_sms_enabled" msgid="2106125420361911250">"ነባሪ የኤስ ኤም ኤስ መተግበሪያዎን ለመቀየር ነካ ያድርጉ"</string>
     <string name="pref_summary_manage_sim_messages" msgid="4141349892597640864">"በSIM ካርድዎ ላይ የተከማቹትን መልዕክቶች አደራጅ"</string>
     <string name="pref_summary_mms_delivery_reports" msgid="4874657984217756112">"እያንዳንዱ ለሚልኩት መልዕክት የደርሷል ሪፖርት ጠይቅ"</string>
     <string name="pref_summary_mms_read_reports" msgid="2748323864008907440">"ለሚልኩት እያንዳንዱ  መልዕክት የተነቧል ሪፖርት ጠይቅ"</string>
@@ -274,6 +280,7 @@
     <string name="message_send_failed_title" msgid="3469894907399046372">"መልዕክት አልተላከም"</string>
     <string name="message_failed_body" msgid="3421296112073915245">"መልዕክት ለመከለስ እና እንደገና ለመሞከር ንካ"</string>
     <string name="download_later" msgid="5531365714424360903">"አሁን ማውረድ አልተቻለም፡፡ እባክህ እንደገና ሞክር፡፡"</string>
+    <string name="no_apn" msgid="505932916503312015">"በመሣሪያው ላይ ምንም የተገለጸ ኤ ፒ ኤን የለም።"</string>
     <string name="select_audio" msgid="3528161449756771832">"አውዲዮ ምረጥ"</string>
     <string name="copy_to_sdcard" msgid="757028609638184856">"አባሪ አስቀምጥ"</string>
     <string name="copy_to_sdcard_success" msgid="7948625615155992014">"አባሪ ተቀምጧል"</string>
@@ -281,12 +288,11 @@
     <string name="save_ringtone" msgid="2310157075045201051">"እንደጥሪ ድምፅ አስቀምጥ"</string>
     <string name="saved_ringtone" msgid="3847363932276708626">"የደውል ቅላጼ ተቀምጧል"</string>
     <string name="saved_ringtone_fail" msgid="4778500070919251116">"የደውል ቅላጼ ማስቀመጥ አልተቻለም"</string>
-    <string name="menu_insert_smiley" msgid="4964504393061025071">"ፈገግታ ጨምር"</string>
     <string name="menu_group_participants" msgid="4288356090262299071">"የቡድን ተሳታፊዎች"</string>
     <string name="select_link_title" msgid="3371818607625768447">"እርምጃ ምረጥ"</string>
     <string name="slide_number" msgid="1923958526266726635">"ስላይድ<xliff:g id="NUMBER">%s</xliff:g>"</string>
   <plurals name="slide_duration">
-    <item quantity="one" msgid="1654101988340583935">"<xliff:g id="NUMBER">%s</xliff:g> ሰከንድ"</item>
+    <item quantity="one" msgid="1654101988340583935">"<xliff:g id="NUMBER">%s</xliff:g> ሴኮንድ"</item>
     <item quantity="few" msgid="7887190171856293871">"<xliff:g id="NUMBER">%s</xliff:g>ሰከንዶች"</item>
     <item quantity="other" msgid="3736425355579939863">"<xliff:g id="NUMBER">%s</xliff:g>ሰከንዶች"</item>
   </plurals>
@@ -342,4 +348,11 @@
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">"፣ "</string>
     <string name="message_timestamp_format" msgid="4188999027493614617">"<xliff:g id="STRING_0">%1$s</xliff:g> - <xliff:g id="STRING_1">%2$s</xliff:g>"</string>
+    <string name="storage_warning_title" msgid="7124740686325942375">"የስልክዎ ማከማቻ ሙሉ ነው"</string>
+    <string name="storage_warning_content" msgid="1100367816649962354">"አዲስ የኤስ ኤም ኤስ/ኤም ኤም ኤስ መልዕክቶች አይደርሱዎትም"</string>
+    <string name="label_mms_send_outbox_msg" msgid="3395185162973061099">"የኤም ኤም ኤስ ማስነሻ"</string>
+    <string name="desc_mms_send_outbox_msg" msgid="1837156781311437148">"ሁሉንም ኤም ኤም ኤሶች ከወጪ መልዕክት ወደ አውታረ መረቡ ይልካቸዋል"</string>
+    <string name="banner_sms_promo_title_initial" msgid="510014388581481569">"Messaging የእርስዎ ኤስ ኤም ኤስ መተግበሪያ አይደለም"</string>
+    <string name="banner_sms_promo_title_application" msgid="8123569785369713254">"<xliff:g id="APPNAME">%s</xliff:g> የእርስዎ ኤስ ኤም ኤስ መተግበሪያ ነው"</string>
+    <string name="banner_sms_promo_message" msgid="3536714414252763826">"ይህን በቅንብሮች ውስጥ መቀየር ይችላሉ"</string>
 </resources>

@@ -173,6 +173,10 @@
     <string name="type_to_compose_text_enter_to_send">Type message</string>
     <!-- Hint text in message body field when keyboard is hidden -->
     <string name="open_keyboard_to_compose_message">Open keyboard to type message</string>
+    <!-- Hint text when we are not the default SMS app -->
+    <string name="sending_disabled_not_default_app">Sending disabled</string>
+    <!-- Toast text when user tries to compose while we are not the default SMS app -->
+    <string name="compose_disabled_toast">Can\'t compose. Not default SMS app.</string>
 
     <!-- Toast message while an image is being resized -->
     <string name="compressing">Picture too large. Compressing\u2026</string>
@@ -316,6 +320,15 @@
     <string name="pref_sms_settings_title">"Text (SMS) messages"</string>
     <!-- Settings screen, section heading for storage-specific settings -->
     <string name="pref_sms_storage_title">Storage</string>
+
+    <!-- Title for SMS Disabled -->
+    <string name="pref_title_sms_disabled">SMS Disabled</string>
+    <!-- Summary for SMS Disabled -->
+    <string name="pref_summary_sms_disabled">Touch to make Messaging your default SMS app</string>
+    <!-- Title for SMS Enabled -->
+    <string name="pref_title_sms_enabled">SMS Enabled</string>
+    <!-- Summary for SMS Enabled -->
+    <string name="pref_summary_sms_enabled">Touch to change your default SMS app</string>
 
     <!-- Settings item description for entering SIM card message screen -->
     <string name="pref_summary_manage_sim_messages">Manage messages stored on your SIM card</string>
@@ -595,6 +608,8 @@
     <string name="message_failed_body">Touch to review the message and try again.</string>
     <!-- Dialog box message when there's a problem retrieving messages. -->
     <string name="download_later">Can\'t download right now. Try again later.</string>
+    <!-- Dialog box message when there's no APN specified on the device. -->
+    <string name="no_apn">No APN specified on the device.</string>
 
     <!-- Title for audio file picker -->
     <string name="select_audio">Choose audio</string>
@@ -611,7 +626,6 @@
     <!-- Toast message on failed copying ringtone to drm provider -->
     <string name="saved_ringtone_fail">Couldn\'t save ringtone.</string>
     <!-- Menu item -->
-    <string name="menu_insert_smiley">Insert smiley</string>
     <!-- Menu item  [CHAR LIMIT=40] -->
     <string name="menu_group_participants">Group participants</string>
 
@@ -775,5 +789,16 @@
 
     <!-- In message list items, this string builds the timestamp line when the message is in a group [CHAR LIMIT=NONE] -->
     <string name="message_timestamp_format"><xliff:g id="string" example="Fred Flinstone">%1$s</xliff:g>\u0020-\u0020<xliff:g id="string" example="9:39AM">%2$s</xliff:g></string>
+
+    <string name="storage_warning_title">"Your phone's storage is full"</string>
+    <string name="storage_warning_content">"You won't receive new SMS/MMS messages"</string>
+    <!--  Strings used forh MMS push of messages in outbox -->
+    <string name="label_mms_send_outbox_msg">MMS Wakeup</string>
+    <string name="desc_mms_send_outbox_msg">Sends out all MMSs from the outbox to the network</string>
+
+    <!-- Banner in conversation list for making Messaging the default SMS app -->
+    <string name="banner_sms_promo_title_initial">Messaging is not your SMS app</string>
+    <string name="banner_sms_promo_title_application"><xliff:g id="appName">%s</xliff:g> is your SMS app</string>
+    <string name="banner_sms_promo_message">You can change this in Settings</string>
 
 </resources>

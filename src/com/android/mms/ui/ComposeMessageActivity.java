@@ -159,7 +159,6 @@ import com.android.mms.util.DraftCache;
 import com.android.mms.util.EmojiParser;
 import com.android.mms.util.PhoneNumberFormatter;
 import com.android.mms.util.SendingProgressTokenManager;
-import com.android.mms.util.SmileyParser;
 import com.android.mms.util.UnicodeFilter;
 import com.android.mms.widget.MmsWidgetProvider;
 import com.google.android.mms.ContentType;
@@ -250,7 +249,6 @@ public class ComposeMessageActivity extends Activity
     private static final int MENU_SEND_EMAIL            = 23;
     private static final int MENU_COPY_MESSAGE_TEXT     = 24;
     private static final int MENU_COPY_TO_SDCARD        = 25;
-    private static final int MENU_INSERT_SMILEY         = 26;
     private static final int MENU_ADD_ADDRESS_TO_CONTACTS = 27;
     private static final int MENU_LOCK_MESSAGE          = 28;
     private static final int MENU_UNLOCK_MESSAGE        = 29;
@@ -411,6 +409,10 @@ public class ComposeMessageActivity extends Activity
     private boolean mShouldLoadDraft;
 
     private UnicodeFilter mUnicodeFilter = null;
+
+    // Whether or not we are currently enabled for SMS. This field is updated in onStart to make
+    // sure we notice if the user has changed the default SMS app.
+    private boolean mIsSmsEnabled;
 
     private Handler mHandler = new Handler();
 
@@ -1153,7 +1155,8 @@ public class ComposeMessageActivity extends Activity
             addCallAndContactMenuItems(menu, l, msgItem);
 
             // Forward is not available for undownloaded messages.
-            if (msgItem.isDownloaded() && (msgItem.isSms() || isForwardable(msgId))) {
+            if (msgItem.isDownloaded() && (msgItem.isSms() || isForwardable(msgId))
+                    && mIsSmsEnabled) {
                 menu.add(0, MENU_FORWARD_MESSAGE, 0, R.string.menu_forward)
                         .setOnMenuItemClickListener(l);
             }
@@ -1199,10 +1202,10 @@ public class ComposeMessageActivity extends Activity
                 }
             }
 
-            if (msgItem.mLocked) {
+            if (msgItem.mLocked && mIsSmsEnabled) {
                 menu.add(0, MENU_UNLOCK_MESSAGE, 0, R.string.menu_unlock)
                     .setOnMenuItemClickListener(l);
-            } else {
+            } else if (mIsSmsEnabled) {
                 menu.add(0, MENU_LOCK_MESSAGE, 0, R.string.menu_lock)
                     .setOnMenuItemClickListener(l);
             }
@@ -1215,8 +1218,10 @@ public class ComposeMessageActivity extends Activity
                         .setOnMenuItemClickListener(l);
             }
 
-            menu.add(0, MENU_DELETE_MESSAGE, 0, R.string.delete_message)
-                .setOnMenuItemClickListener(l);
+            if (mIsSmsEnabled) {
+                menu.add(0, MENU_DELETE_MESSAGE, 0, R.string.delete_message)
+                    .setOnMenuItemClickListener(l);
+            }
         }
     };
 
@@ -1976,6 +1981,7 @@ public class ComposeMessageActivity extends Activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mIsSmsEnabled = MmsConfig.isSmsEnabled(this);
         super.onCreate(savedInstanceState);
 
         resetConfiguration(getResources().getConfiguration());
@@ -2176,7 +2182,7 @@ public class ComposeMessageActivity extends Activity
             drawBottomPanel();
         }
 
-        onKeyboardStateChanged(mIsKeyboardOpen);
+        onKeyboardStateChanged();
 
         if (Log.isLoggable(LogTag.APP, Log.VERBOSE)) {
             log("update title, mConversation=" + mConversation.toString());
@@ -2311,6 +2317,11 @@ public class ComposeMessageActivity extends Activity
     @Override
     protected void onStart() {
         super.onStart();
+        boolean isSmsEnabled = MmsConfig.isSmsEnabled(this);
+        if (isSmsEnabled != mIsSmsEnabled) {
+            mIsSmsEnabled = isSmsEnabled;
+            invalidateOptionsMenu();
+        }
 
         initFocus();
 
@@ -2602,7 +2613,7 @@ public class ComposeMessageActivity extends Activity
             Log.v(TAG, "CMA.onConfigurationChanged: " + newConfig +
                     ", mIsKeyboardOpen=" + mIsKeyboardOpen);
         }
-        onKeyboardStateChanged(mIsKeyboardOpen);
+        onKeyboardStateChanged();
     }
 
     // returns true if landscape/portrait configuration has changed
@@ -2616,10 +2627,20 @@ public class ComposeMessageActivity extends Activity
         return false;
     }
 
-    private void onKeyboardStateChanged(boolean isKeyboardOpen) {
+    private void onKeyboardStateChanged() {
         // If the keyboard is hidden, don't show focus highlights for
         // things that cannot receive input.
-        if (isKeyboardOpen) {
+        mTextEditor.setEnabled(mIsSmsEnabled);
+        if (!mIsSmsEnabled) {
+            if (mRecipientsEditor != null) {
+                mRecipientsEditor.setFocusableInTouchMode(false);
+            }
+            if (mSubjectTextEditor != null) {
+                mSubjectTextEditor.setFocusableInTouchMode(false);
+            }
+            mTextEditor.setFocusableInTouchMode(false);
+            mTextEditor.setHint(R.string.sending_disabled_not_default_app);
+        } else if (mIsKeyboardOpen) {
             if (mRecipientsEditor != null) {
                 mRecipientsEditor.setFocusableInTouchMode(true);
             }
@@ -2878,7 +2899,7 @@ public class ComposeMessageActivity extends Activity
             }
         }
 
-        if (MmsConfig.getMmsEnabled()) {
+        if (MmsConfig.getMmsEnabled() && mIsSmsEnabled) {
             if (!isSubjectEditorVisible()) {
                 menu.add(0, MENU_ADD_SUBJECT, 0, R.string.add_subject).setIcon(
                         R.drawable.ic_menu_edit);
@@ -2900,8 +2921,6 @@ public class ComposeMessageActivity extends Activity
         }
 
         if (!mWorkingMessage.hasSlideshow()) {
-            menu.add(0, MENU_INSERT_SMILEY, 0, R.string.menu_insert_smiley).setIcon(
-                    R.drawable.ic_menu_emoticons);
             SharedPreferences prefs = PreferenceManager
                     .getDefaultSharedPreferences((Context) ComposeMessageActivity.this);
             boolean enableEmojis = prefs.getBoolean(MessagingPreferenceActivity.ENABLE_EMOJIS, false);
@@ -2910,11 +2929,15 @@ public class ComposeMessageActivity extends Activity
             }
         }
 
+        if (isPreparedForSending() && mIsSmsEnabled) {
+            menu.add(0, MENU_SEND, 0, R.string.send).setIcon(android.R.drawable.ic_menu_send);
+        }
+
         if (getRecipients().size() > 1) {
             menu.add(0, MENU_GROUP_PARTICIPANTS, 0, R.string.menu_group_participants);
         }
 
-        if (mMsgListAdapter.getCount() > 0) {
+        if (mMsgListAdapter.getCount() > 0 && mIsSmsEnabled) {
             // Removed search as part of b/1205708
             //menu.add(0, MENU_SEARCH, 0, R.string.menu_search).setIcon(
             //        R.drawable.ic_menu_search);
@@ -2923,7 +2946,7 @@ public class ComposeMessageActivity extends Activity
                 menu.add(0, MENU_DELETE_THREAD, 0, R.string.delete_thread).setIcon(
                     android.R.drawable.ic_menu_delete);
             }
-        } else {
+        } else if (mIsSmsEnabled) {
             menu.add(0, MENU_DISCARD, 0, R.string.discard).setIcon(android.R.drawable.ic_menu_delete);
         }
 
@@ -3006,13 +3029,11 @@ public class ComposeMessageActivity extends Activity
             case MENU_CALL_RECIPIENT:
                 dialRecipient();
                 break;
-            case MENU_INSERT_SMILEY:
-                showSmileyDialog();
-                break;
             case MENU_INSERT_EMOJI:
                 showEmojiDialog();
                 break;
-            case MENU_GROUP_PARTICIPANTS: {
+            case MENU_GROUP_PARTICIPANTS:
+            {
                 Intent intent = new Intent(this, RecipientListActivity.class);
                 intent.putExtra(THREAD_ID, mConversation.getThreadId());
                 startActivity(intent);
@@ -3742,6 +3763,7 @@ public class ComposeMessageActivity extends Activity
                 }
             });
         }
+        onKeyboardStateChanged();
     }
 
     private void hideBottomPanel() {
@@ -3757,6 +3779,7 @@ public class ComposeMessageActivity extends Activity
         showSubjectEditor(showSubjectEditor || mWorkingMessage.hasSubject());
 
         invalidateOptionsMenu();
+        onKeyboardStateChanged();
     }
 
     //==========================================================
@@ -4102,9 +4125,10 @@ public class ComposeMessageActivity extends Activity
     private boolean isPreparedForSending() {
         int recipientCount = recipientCount();
 
-        return recipientCount > 0 && recipientCount <= MmsConfig.getRecipientLimit() &&
-            (mWorkingMessage.hasAttachment() ||
-                    mWorkingMessage.hasText() ||
+        return recipientCount > 0 &&
+                recipientCount <= MmsConfig.getRecipientLimit() &&
+                mIsSmsEnabled &&
+                (mWorkingMessage.hasAttachment() || mWorkingMessage.hasText() ||
                     mWorkingMessage.hasSubject());
     }
 
@@ -4680,93 +4704,6 @@ public class ComposeMessageActivity extends Activity
 
             MmsWidgetProvider.notifyDatasetChanged(getApplicationContext());
         }
-    }
-
-    private void showSmileyDialog() {
-        if (mSmileyDialog == null) {
-            int[] icons = SmileyParser.DEFAULT_SMILEY_RES_IDS;
-            String[] names = getResources().getStringArray(
-                    SmileyParser.DEFAULT_SMILEY_NAMES);
-            final String[] texts = getResources().getStringArray(
-                    SmileyParser.DEFAULT_SMILEY_TEXTS);
-
-            final int N = names.length;
-
-            List<Map<String, ?>> entries = new ArrayList<Map<String, ?>>();
-            for (int i = 0; i < N; i++) {
-                // We might have different ASCII for the same icon, skip it if
-                // the icon is already added.
-                boolean added = false;
-                for (int j = 0; j < i; j++) {
-                    if (icons[i] == icons[j]) {
-                        added = true;
-                        break;
-                    }
-                }
-                if (!added) {
-                    HashMap<String, Object> entry = new HashMap<String, Object>();
-
-                    entry.put("icon", icons[i]);
-                    entry.put("name", names[i]);
-                    entry.put("text", texts[i]);
-
-                    entries.add(entry);
-                }
-            }
-
-            final SimpleAdapter a = new SimpleAdapter(
-                    this,
-                    entries,
-                    R.layout.smiley_menu_item,
-                    new String[] {"icon", "name", "text"},
-                    new int[] {R.id.smiley_icon, R.id.smiley_name, R.id.smiley_text});
-            SimpleAdapter.ViewBinder viewBinder = new SimpleAdapter.ViewBinder() {
-                @Override
-                public boolean setViewValue(View view, Object data, String textRepresentation) {
-                    if (view instanceof ImageView) {
-                        Drawable img = getResources().getDrawable((Integer)data);
-                        ((ImageView)view).setImageDrawable(img);
-                        return true;
-                    }
-                    return false;
-                }
-            };
-            a.setViewBinder(viewBinder);
-
-            AlertDialog.Builder b = new AlertDialog.Builder(this);
-
-            b.setTitle(getString(R.string.menu_insert_smiley));
-
-            b.setCancelable(true);
-            b.setAdapter(a, new DialogInterface.OnClickListener() {
-                @Override
-                @SuppressWarnings("unchecked")
-                public final void onClick(DialogInterface dialog, int which) {
-                    HashMap<String, Object> item = (HashMap<String, Object>) a.getItem(which);
-                    EditText mToInsert;
-
-                    String smiley = (String)item.get("text");
-                    // tag EditText to insert to
-                    if (mSubjectTextEditor != null && mSubjectTextEditor.hasFocus()) {
-                        mToInsert = mSubjectTextEditor;
-                    } else {
-                        mToInsert = mTextEditor;
-                    }
-                    // Insert the smiley text at current cursor position in editText
-                    // math funcs deal with text selected in either direction
-                    //
-                    int start = mToInsert.getSelectionStart();
-                    int end = mToInsert.getSelectionEnd();
-                    mToInsert.getText().replace(Math.min(start, end), Math.max(start, end), smiley);
-
-                    dialog.dismiss();
-                }
-            });
-
-            mSmileyDialog = b.create();
-        }
-
-        mSmileyDialog.show();
     }
 
     private void showEmojiDialog() {

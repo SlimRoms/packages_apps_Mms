@@ -22,4 +22,8 @@ All Rights Reserved. -->
     <dimen name="qm_message_height">210dp</dimen>
     <dimen name="qm_dialog_button_bar_height">48dip</dimen>
 
+    <!-- Bammer item spacing -->
+    <dimen name="banner_s_space">4dip</dimen>
+    <dimen name="banner_m_space">8dip</dimen>
+
 </resources>

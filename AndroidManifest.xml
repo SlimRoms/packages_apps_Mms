@@ -45,7 +45,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INSTALL_DRM" />
     <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <!-- Needed for QuickMessage -->
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
@@ -56,6 +55,13 @@
                 android:label="@string/label_mms_push"
                 android:description="@string/desc_mms_push"/>
     <uses-permission android:name="android.permission.MMS_PUSH"/>
+
+    <!-- System apps can access the  receiver through intent-->
+    <permission android:name="android.permission.MMS_SEND_OUTBOX_MSG"
+                android:protectionLevel="signatureOrSystem"
+                android:label="@string/label_mms_send_outbox_msg"
+                android:description="@string/desc_mms_send_outbox_msg"/>
+    <uses-permission android:name="android.permission.MMS_SEND_OUTBOX_MSG"/>
 
     <application android:name="MmsApp"
             android:label="@string/app_label"
@@ -207,11 +213,16 @@
         <receiver android:name=".transaction.PushReceiver"
             android:permission="android.permission.BROADCAST_WAP_PUSH">
             <intent-filter>
-                <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED" />
+                <action android:name="android.provider.Telephony.WAP_PUSH_DELIVER" />
                 <data android:mimeType="application/vnd.wap.mms-message" />
             </intent-filter>
         </receiver>
-
+     <receiver android:name=".transaction.MmsPushOutboxMessages"
+            android:permission="android.permission.MMS_SEND_OUTBOX_MSG">
+            <intent-filter>
+                <action android:name="android.intent.action.MMS_SEND_OUTBOX_MSG" />
+            </intent-filter>
+        </receiver>
         <receiver android:name=".transaction.MmsSystemEventReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.CONTENT_CHANGED" />
@@ -245,7 +256,7 @@
         <receiver android:name=".transaction.PrivilegedSmsReceiver"
             android:permission="android.permission.BROADCAST_SMS">
             <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="android.provider.Telephony.SMS_DELIVER" />
             </intent-filter>
         </receiver>
 
@@ -409,4 +420,5 @@
          <receiver android:name=".quickmessage.ClearAllReceiver" />
 
         </application>
+
 </manifest>

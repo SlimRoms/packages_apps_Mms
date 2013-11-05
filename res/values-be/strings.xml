@@ -45,7 +45,7 @@
     <string name="expire_on" msgid="4436268382742593921">"Мінае: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="kilobyte" msgid="534782148965716631">"Кб"</string>
     <string name="undelivered_msg_dialog_title" msgid="7479433403599785755">"Недастаўленыя паведамленні"</string>
-    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Немагчыма адправіць паведамленне."\n"Спроба: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
+    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Немагчыма адправіць паведамленне.\nСпроба: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
     <string name="undelivered_sms_dialog_body" msgid="4203703285563450868">"Немагчыма адправіць гэта паведамленне."</string>
     <string name="delete_thread" msgid="757258847736632791">"Выдаліць галіну"</string>
     <string name="menu_forward" msgid="9026858380050046756">"Наперад"</string>
@@ -86,6 +86,10 @@
     <string name="all_threads" msgid="2663426830306307194">"Усе галіны"</string>
     <string name="type_to_compose_text_enter_to_send" msgid="3539985471008581265">"Увесці паведамленне"</string>
     <string name="open_keyboard_to_compose_message" msgid="7860109685511253191">"Адкрыць клавіятуру, каб увесці паведамленне"</string>
+    <!-- no translation found for sending_disabled_not_default_app (6685337318181265136) -->
+    <skip />
+    <!-- no translation found for compose_disabled_toast (1838175321052707875) -->
+    <skip />
     <string name="compressing" msgid="1961357529661045180">"Малюнак занадта вялікі. Сцісканне..."</string>
     <string name="unsupported_media_format" msgid="1350489690977363764">"Фармат <xliff:g id="NAME">%1$s</xliff:g> не падтрымліваецца."</string>
     <string name="select_different_media" msgid="6241623357299382183">"Выберыце iншы варыянт: <xliff:g id="NAME">%1$s</xliff:g>."</string>
@@ -156,6 +160,14 @@
     <string name="pref_mms_settings_title" msgid="55618772118264355">"Мультымедыйныя паведамленнi (MMS)"</string>
     <string name="pref_sms_settings_title" msgid="5173078369851066881">"Тэкставыя паведамленні (SMS)"</string>
     <string name="pref_sms_storage_title" msgid="9001233319190616445">"Сховішча"</string>
+    <!-- no translation found for pref_title_sms_disabled (1441894740130104326) -->
+    <skip />
+    <!-- no translation found for pref_summary_sms_disabled (8975773722051230744) -->
+    <skip />
+    <!-- no translation found for pref_title_sms_enabled (1857849790200375277) -->
+    <skip />
+    <!-- no translation found for pref_summary_sms_enabled (2106125420361911250) -->
+    <skip />
     <string name="pref_summary_manage_sim_messages" msgid="4141349892597640864">"Кіраваць паведамленнямі, якія захоўваюцца на SIM-карце"</string>
     <string name="pref_summary_mms_delivery_reports" msgid="4874657984217756112">"Запытаць справаздачу аб дастаўцы для кожнага паведамлення, адпраўленнага вамі"</string>
     <string name="pref_summary_mms_read_reports" msgid="2748323864008907440">"Запытаць справаздачу аб прачытанні для кожнага паведамлення, адпраўленага вамі"</string>
@@ -274,6 +286,8 @@
     <string name="message_send_failed_title" msgid="3469894907399046372">"Паведамленне не адпраўленае"</string>
     <string name="message_failed_body" msgid="3421296112073915245">"Нацiснiце, каб прагледзець паведамленне, і паўтарыце спробу."</string>
     <string name="download_later" msgid="5531365714424360903">"Не атрымлiваецца спампаваць зараз. Паўтарыце спробу пазней."</string>
+    <!-- no translation found for no_apn (505932916503312015) -->
+    <skip />
     <string name="select_audio" msgid="3528161449756771832">"Выберыце аўдыё"</string>
     <string name="copy_to_sdcard" msgid="757028609638184856">"Захаваць укладанне"</string>
     <string name="copy_to_sdcard_success" msgid="7948625615155992014">"Далучаны файл захаваны."</string>
@@ -281,7 +295,6 @@
     <string name="save_ringtone" msgid="2310157075045201051">"Захаваць як рынгтон"</string>
     <string name="saved_ringtone" msgid="3847363932276708626">"Рынгтон захаваны."</string>
     <string name="saved_ringtone_fail" msgid="4778500070919251116">"Немагчыма захаваць мелодыю."</string>
-    <string name="menu_insert_smiley" msgid="4964504393061025071">"Уставіць смайлік"</string>
     <string name="menu_group_participants" msgid="4288356090262299071">"Удзельнікi групы"</string>
     <string name="select_link_title" msgid="3371818607625768447">"Выберыце дзеянне"</string>
     <string name="slide_number" msgid="1923958526266726635">"Слайд <xliff:g id="NUMBER">%s</xliff:g>"</string>
@@ -342,4 +355,18 @@
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
     <string name="message_timestamp_format" msgid="4188999027493614617">"<xliff:g id="STRING_0">%1$s</xliff:g>—<xliff:g id="STRING_1">%2$s</xliff:g>"</string>
+    <!-- no translation found for storage_warning_title (7124740686325942375) -->
+    <skip />
+    <!-- no translation found for storage_warning_content (1100367816649962354) -->
+    <skip />
+    <!-- no translation found for label_mms_send_outbox_msg (3395185162973061099) -->
+    <skip />
+    <!-- no translation found for desc_mms_send_outbox_msg (1837156781311437148) -->
+    <skip />
+    <!-- no translation found for banner_sms_promo_title_initial (510014388581481569) -->
+    <skip />
+    <!-- no translation found for banner_sms_promo_title_application (8123569785369713254) -->
+    <skip />
+    <!-- no translation found for banner_sms_promo_message (3536714414252763826) -->
+    <skip />
 </resources>

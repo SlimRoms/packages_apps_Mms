@@ -16,12 +16,6 @@
 
 package com.android.mms.util;
 
-import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.Set;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -29,7 +23,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Matrix;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.util.Log;
@@ -39,6 +32,12 @@ import com.android.mms.R;
 import com.android.mms.TempFileProvider;
 import com.android.mms.ui.UriImage;
 import com.android.mms.util.ImageCacheService.ImageData;
+
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Set;
 
 /**
  * Primary {@link ThumbnailManager} implementation used by {@link MessagingApplication}.
@@ -311,8 +310,6 @@ public class ThumbnailManager extends BackgroundLoaderManager {
 
             UriImage uriImage = new UriImage(mContext, mUri);
             String path = uriImage.getPath();
-            int orientation = uriImage.getOrientation();
-            Log.w(TAG, "Orientation requested for thumbnail = " + orientation);
 
             if (path == null) {
                 return null;
@@ -336,11 +333,6 @@ public class ThumbnailManager extends BackgroundLoaderManager {
                 if (bitmap == null) {
                     Log.w(TAG, "decode cached failed " + path);
                 }
-                if (orientation != 0) {
-                    Matrix m = new Matrix();
-                    UriImage.endowTransformMatrix(m, 1, orientation);
-                    bitmap = Bitmap.createBitmap(bitmap,0, 0, bitmap.getWidth(), bitmap.getHeight(), m, false);
-                }
                 return bitmap;
             } else {
                 Bitmap bitmap;
@@ -354,7 +346,7 @@ public class ThumbnailManager extends BackgroundLoaderManager {
                     return null;
                 }
 
-                bitmap = resizeDownBySideLength(bitmap, THUMBNAIL_TARGET_SIZE, orientation, true);
+                bitmap = resizeDownBySideLength(bitmap, THUMBNAIL_TARGET_SIZE, true);
 
                 if (!isTempFile) {
                     byte[] array = compressBitmap(bitmap);
@@ -397,30 +389,27 @@ public class ThumbnailManager extends BackgroundLoaderManager {
                     BitmapFactory.decodeByteArray(bytes, offset, length, options));
         }
 
-        // @param orientation: After resizing also rotate
         private Bitmap resizeDownBySideLength(
-                Bitmap bitmap, int maxLength, int orientation, boolean recycle) {
+                Bitmap bitmap, int maxLength, boolean recycle) {
             int srcWidth = bitmap.getWidth();
             int srcHeight = bitmap.getHeight();
             float scale = Math.min(
                     (float) maxLength / srcWidth, (float) maxLength / srcHeight);
-            if (scale >= 1.0f && orientation == 0) return bitmap;
-
-            Log.w(TAG, "resizeDownBySideLength, orientation = " + orientation);
-            return resizeBitmapByScale(bitmap, Math.min(scale, 1.0f), orientation, recycle);
+            if (scale >= 1.0f) return bitmap;
+            return resizeBitmapByScale(bitmap, scale, recycle);
         }
 
-        // @param orientation: After resizing also rotate
         private Bitmap resizeBitmapByScale(
-                Bitmap bitmap, float scale, int orientation, boolean recycle) {
-            Matrix m = new Matrix();
-            UriImage.endowTransformMatrix(m,scale,orientation);
+                Bitmap bitmap, float scale, boolean recycle) {
             int width = Math.round(bitmap.getWidth() * scale);
             int height = Math.round(bitmap.getHeight() * scale);
             if (width == bitmap.getWidth()
-                    && height == bitmap.getHeight() && orientation ==0) return bitmap;
-            Log.w(TAG, "resizeBitmapByScale, orientation = " + orientation + " scale = " + scale);
-            Bitmap target = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),m,false);
+                    && height == bitmap.getHeight()) return bitmap;
+            Bitmap target = Bitmap.createBitmap(width, height, getConfig(bitmap));
+            Canvas canvas = new Canvas(target);
+            canvas.scale(scale, scale);
+            Paint paint = new Paint(Paint.FILTER_BITMAP_FLAG | Paint.DITHER_FLAG);
+            canvas.drawBitmap(bitmap, 0, 0, paint);
             if (recycle) bitmap.recycle();
             return target;
         }
@@ -496,7 +485,14 @@ public class ThumbnailManager extends BackgroundLoaderManager {
             // We need to resize down if the decoder does not support inSampleSize.
             // (For example, GIF images.)
             result = resizeDownIfTooBig(result, targetSize, true);
-            return ensureGLCompatibleBitmap(result);
+            result = ensureGLCompatibleBitmap(result);
+
+            int orientation = UriImage.getOrientation(mContext, uri);
+            // Rotate the bitmap if we need to.
+            if (result != null && orientation != 0) {
+                result = UriImage.rotateBitmap(result, orientation);
+            }
+            return result;
         }
 
         // This computes a sample size which makes the longer side at least
@@ -527,9 +523,8 @@ public class ThumbnailManager extends BackgroundLoaderManager {
             float scale = Math.max(
                     (float) targetSize / srcWidth, (float) targetSize / srcHeight);
             if (scale > 0.5f) return bitmap;
-            return resizeBitmapByScale(bitmap, scale, 0, recycle);
+            return resizeBitmapByScale(bitmap, scale, recycle);
         }
-
     }
 
     public static class ImageLoaded {

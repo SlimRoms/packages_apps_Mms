@@ -89,7 +89,6 @@ import com.android.mms.ui.ImageAdapter;
 import com.android.mms.ui.MessageUtils;
 import com.android.mms.ui.MessagingPreferenceActivity;
 import com.android.mms.util.EmojiParser;
-import com.android.mms.util.SmileyParser;
 import com.android.mms.util.UnicodeFilter;
 import com.google.android.mms.MmsException;
 
@@ -197,8 +196,8 @@ public class QuickMessagePopup extends Activity implements
         mInputMethod = Integer.parseInt(prefs.getString(MessagingPreferenceActivity.INPUT_TYPE,
                 Integer.toString(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE)));
 
-        mDarkTheme = mContext.getResources().getConfiguration().uiInvertedMode
-                         == Configuration.UI_INVERTED_MODE_YES;
+        //mDarkTheme = mContext.getResources().getConfiguration().uiInvertedMode
+          //               == Configuration.UI_INVERTED_MODE_YES;
 
         // Set the window features and layout
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -385,10 +384,6 @@ public class QuickMessagePopup extends Activity implements
 
         menu.clear();
 
-        // Smileys menu item
-        menu.add(0, MENU_INSERT_SMILEY, 0, R.string.menu_insert_smiley)
-            .setIcon(R.drawable.ic_menu_emoticons);
-
         // Emoji's menu item (if enabled)
         if (mEnableEmojis) {
             menu.add(0, MENU_INSERT_EMOJI, 0, R.string.menu_insert_emoji);
@@ -412,9 +407,6 @@ public class QuickMessagePopup extends Activity implements
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case MENU_INSERT_SMILEY:
-                showSmileyDialog();
-                return true;
 
             case MENU_INSERT_EMOJI:
                 showEmojiDialog();
@@ -444,91 +436,6 @@ public class QuickMessagePopup extends Activity implements
      */
     private void selectTemplate() {
         getLoaderManager().restartLoader(0, null, this);
-    }
-
-    /**
-     * Copied from ComposeMessageActivity.java, this method displays the available
-     * smileys and allows the user to select and append it to the reply text. It
-     * has been modified to work with this class
-     */
-    private void showSmileyDialog() {
-        if (mSmileyDialog == null) {
-            int[] icons = SmileyParser.DEFAULT_SMILEY_RES_IDS;
-            String[] names = getResources().getStringArray(
-                    SmileyParser.DEFAULT_SMILEY_NAMES);
-            final String[] texts = getResources().getStringArray(
-                    SmileyParser.DEFAULT_SMILEY_TEXTS);
-
-            final int N = names.length;
-
-            List<Map<String, ?>> entries = new ArrayList<Map<String, ?>>();
-            for (int i = 0; i < N; i++) {
-                // We might have different ASCII for the same icon, skip it if
-                // the icon is already added.
-                boolean added = false;
-                for (int j = 0; j < i; j++) {
-                    if (icons[i] == icons[j]) {
-                        added = true;
-                        break;
-                    }
-                }
-                if (!added) {
-                    HashMap<String, Object> entry = new HashMap<String, Object>();
-
-                    entry. put("icon", icons[i]);
-                    entry. put("name", names[i]);
-                    entry.put("text", texts[i]);
-                    entries.add(entry);
-                }
-            }
-
-            final SimpleAdapter a = new SimpleAdapter(
-                    this,
-                    entries,
-                    R.layout.smiley_menu_item,
-                    new String[] {"icon", "name", "text"},
-                    new int[] {R.id.smiley_icon, R.id.smiley_name, R.id.smiley_text});
-            SimpleAdapter.ViewBinder viewBinder = new SimpleAdapter.ViewBinder() {
-                @Override
-                public boolean setViewValue(View view, Object data, String textRepresentation) {
-                    if (view instanceof ImageView) {
-                        Drawable img = getResources().getDrawable((Integer)data);
-                        ((ImageView)view).setImageDrawable(img);
-                        return true;
-                    }
-                    return false;
-                }
-            };
-            a.setViewBinder(viewBinder);
-
-            AlertDialog.Builder b = new AlertDialog.Builder(this);
-            b.setTitle(getString(R.string.menu_insert_smiley));
-            b.setCancelable(true);
-            b.setAdapter(a, new DialogInterface.OnClickListener() {
-                @Override
-                @SuppressWarnings("unchecked")
-                public final void onClick(DialogInterface dialog, int which) {
-                    HashMap<String, Object> item = (HashMap<String, Object>) a.getItem(which);
-                    String smiley = (String)item.get("text");
-
-                    // Get the currently visible message and append the smiley
-                    QuickMessage qm = mMessageList.get(mCurrentPage);
-                    if (qm != null) {
-                        // add the smiley at the cursor location or replace selected
-                        int start = qm.getEditText().getSelectionStart();
-                        int end = qm.getEditText().getSelectionEnd();
-                        qm.getEditText().getText().replace(Math.min(start, end),
-                                Math.max(start, end), smiley);
-                    }
-
-                    dialog.dismiss();
-                }
-            });
-
-            mSmileyDialog = b.create();
-        }
-
-        mSmileyDialog.show();
     }
 
     /**
@@ -897,11 +804,10 @@ public class QuickMessagePopup extends Activity implements
         boolean enableEmojis = prefs.getBoolean(MessagingPreferenceActivity.ENABLE_EMOJIS, false);
 
         if (!TextUtils.isEmpty(message)) {
-            SmileyParser parser = SmileyParser.getInstance();
-            CharSequence smileyBody = parser.addSmileySpans(message);
+            CharSequence smileyBody = message;
             if (enableEmojis) {
                 EmojiParser emojiParser = EmojiParser.getInstance();
-                smileyBody = emojiParser.addEmojiSpans(smileyBody);
+                smileyBody = emojiParser.addEmojiSpans(message);
             }
             buf.append(smileyBody);
         }
@@ -1008,12 +914,7 @@ public class QuickMessagePopup extends Activity implements
 
             // Load the layout to be used
             LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View layout;
-            if (mDarkTheme) {
-                layout = inflater.inflate(R.layout.quickmessage_content_dark, null);
-            } else {
-                layout = inflater.inflate(R.layout.quickmessage_content_light, null);
-            }
+            View layout = inflater.inflate(R.layout.quickmessage_content_light, null);
 
             // Load the main views
             EditText qmReplyText = (EditText) layout.findViewById(R.id.embedded_text_editor);

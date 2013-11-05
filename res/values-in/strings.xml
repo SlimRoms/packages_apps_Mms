@@ -45,7 +45,7 @@
     <string name="expire_on" msgid="4436268382742593921">"Kedaluwarsa: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="kilobyte" msgid="534782148965716631">"KB"</string>
     <string name="undelivered_msg_dialog_title" msgid="7479433403599785755">"Pesan tidak terkirim"</string>
-    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Tidak dapat mengirim pesan ini."\n"Upaya dilakukan: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
+    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Tidak dapat mengirim pesan ini.\nUpaya dilakukan: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
     <string name="undelivered_sms_dialog_body" msgid="4203703285563450868">"Tidak dapat mengirim pesan ini."</string>
     <string name="delete_thread" msgid="757258847736632791">"Hapus untaian"</string>
     <string name="menu_forward" msgid="9026858380050046756">"Teruskan"</string>
@@ -86,6 +86,8 @@
     <string name="all_threads" msgid="2663426830306307194">"Semua utas"</string>
     <string name="type_to_compose_text_enter_to_send" msgid="3539985471008581265">"Ketik pesan"</string>
     <string name="open_keyboard_to_compose_message" msgid="7860109685511253191">"Buka keyboard untuk mengetik pesan"</string>
+    <string name="sending_disabled_not_default_app" msgid="6685337318181265136">"Pengiriman dinonaktifkan"</string>
+    <string name="compose_disabled_toast" msgid="1838175321052707875">"Tidak dapat menulis pesan. Bukan aplikasi SMS default."</string>
     <string name="compressing" msgid="1961357529661045180">"Gambar terlalu besar. Memampatkan…"</string>
     <string name="unsupported_media_format" msgid="1350489690977363764">"Format <xliff:g id="NAME">%1$s</xliff:g> tidak didukung"</string>
     <string name="select_different_media" msgid="6241623357299382183">"Pilih <xliff:g id="NAME">%1$s</xliff:g> yang berbeda."</string>
@@ -156,6 +158,10 @@
     <string name="pref_mms_settings_title" msgid="55618772118264355">"Pesan multimedia (MMS)"</string>
     <string name="pref_sms_settings_title" msgid="5173078369851066881">"Pesan teks (SMS)"</string>
     <string name="pref_sms_storage_title" msgid="9001233319190616445">"Penyimpanan"</string>
+    <string name="pref_title_sms_disabled" msgid="1441894740130104326">"SMS Dinonaktifkan"</string>
+    <string name="pref_summary_sms_disabled" msgid="8975773722051230744">"Sentuh untuk menjadikan Perpesanan sebagai aplikasi SMS default Anda"</string>
+    <string name="pref_title_sms_enabled" msgid="1857849790200375277">"SMS Diaktifkan"</string>
+    <string name="pref_summary_sms_enabled" msgid="2106125420361911250">"Sentuh untuk mengubah aplikasi SMS default Anda"</string>
     <string name="pref_summary_manage_sim_messages" msgid="4141349892597640864">"Kelola pesan yang tersimpan di kartu SIM"</string>
     <string name="pref_summary_mms_delivery_reports" msgid="4874657984217756112">"Minta laporan pengiriman dari setiap pesan yang Anda kirimkan"</string>
     <string name="pref_summary_mms_read_reports" msgid="2748323864008907440">"Minta laporan telah dibaca dari setiap pesan yang Anda kirimkan"</string>
@@ -274,6 +280,7 @@
     <string name="message_send_failed_title" msgid="3469894907399046372">"Pesan tidak dikirim"</string>
     <string name="message_failed_body" msgid="3421296112073915245">"Sentuh untuk meninjau pesan, lalu coba lagi."</string>
     <string name="download_later" msgid="5531365714424360903">"Tidak dapat mengunduh sekarang. Coba lagi nanti."</string>
+    <string name="no_apn" msgid="505932916503312015">"Tidak ada APN yang ditetapkan pada perangkat ini."</string>
     <string name="select_audio" msgid="3528161449756771832">"Pilih audio"</string>
     <string name="copy_to_sdcard" msgid="757028609638184856">"Simpan lampiran"</string>
     <string name="copy_to_sdcard_success" msgid="7948625615155992014">"Lampiran disimpan."</string>
@@ -281,7 +288,6 @@
     <string name="save_ringtone" msgid="2310157075045201051">"Simpan sebagai nada dering"</string>
     <string name="saved_ringtone" msgid="3847363932276708626">"Nada dering disimpan."</string>
     <string name="saved_ringtone_fail" msgid="4778500070919251116">"Tidak dapat menyimpan nada dering."</string>
-    <string name="menu_insert_smiley" msgid="4964504393061025071">"Masukkan smiley"</string>
     <string name="menu_group_participants" msgid="4288356090262299071">"Peserta grup"</string>
     <string name="select_link_title" msgid="3371818607625768447">"Pilih tindakan"</string>
     <string name="slide_number" msgid="1923958526266726635">"Slide <xliff:g id="NUMBER">%s</xliff:g>"</string>
@@ -342,4 +348,11 @@
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
     <string name="message_timestamp_format" msgid="4188999027493614617">"<xliff:g id="STRING_0">%1$s</xliff:g> - <xliff:g id="STRING_1">%2$s</xliff:g>"</string>
+    <string name="storage_warning_title" msgid="7124740686325942375">"Ruang penyimpanan ponsel Anda penuh"</string>
+    <string name="storage_warning_content" msgid="1100367816649962354">"Anda tidak akan menerima pesan SMS/MMS baru"</string>
+    <string name="label_mms_send_outbox_msg" msgid="3395185162973061099">"Bangunkan saat MMS"</string>
+    <string name="desc_mms_send_outbox_msg" msgid="1837156781311437148">"Mengirimkan semua MMS dari kotak keluar ke jaringan"</string>
+    <string name="banner_sms_promo_title_initial" msgid="510014388581481569">"Perpesanan bukan aplikasi SMS Anda"</string>
+    <string name="banner_sms_promo_title_application" msgid="8123569785369713254">"<xliff:g id="APPNAME">%s</xliff:g> adalah aplikasi SMS Anda"</string>
+    <string name="banner_sms_promo_message" msgid="3536714414252763826">"Anda dapat mengubah ini di Setelan"</string>
 </resources>

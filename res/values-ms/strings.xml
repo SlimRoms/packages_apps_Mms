@@ -45,7 +45,7 @@
     <string name="expire_on" msgid="4436268382742593921">"Tamat tempoh: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="kilobyte" msgid="534782148965716631">"KB"</string>
     <string name="undelivered_msg_dialog_title" msgid="7479433403599785755">"Mesej tidak diserahkan"</string>
-    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Tidak dapat menghantar mesej ini "\n"Percubaan dibuat: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
+    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Tidak dapat menghantar mesej ini \nPercubaan dibuat: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
     <string name="undelivered_sms_dialog_body" msgid="4203703285563450868">"Tidak dapat menghantar mesej ini."</string>
     <string name="delete_thread" msgid="757258847736632791">"Padam urutan"</string>
     <string name="menu_forward" msgid="9026858380050046756">"Kirim semula"</string>
@@ -274,6 +274,7 @@
     <string name="message_send_failed_title" msgid="3469894907399046372">"Mesej tidak dihantar"</string>
     <string name="message_failed_body" msgid="3421296112073915245">"Sentuh untuk menyemak semula mesej dan cuba lagi."</string>
     <string name="download_later" msgid="5531365714424360903">"Tidak boleh memuat turun sekarang. Cuba lagi kemudian."</string>
+    <string name="no_apn" msgid="505932916503312015">"Tiada APN dinyatakan pada peranti."</string>
     <string name="select_audio" msgid="3528161449756771832">"Pilih audio"</string>
     <string name="copy_to_sdcard" msgid="757028609638184856">"Menyimpan lampiran"</string>
     <string name="copy_to_sdcard_success" msgid="7948625615155992014">"Lampiran disimpan."</string>
@@ -342,4 +343,8 @@
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
     <string name="message_timestamp_format" msgid="4188999027493614617">"<xliff:g id="STRING_0">%1$s</xliff:g> - <xliff:g id="STRING_1">%2$s</xliff:g>"</string>
+    <string name="storage_warning_title" msgid="7124740686325942375">"Storan telefon anda penuh"</string>
+    <string name="storage_warning_content" msgid="1100367816649962354">"Anda tidak akan menerima mesej SMS/MMS baharu"</string>
+    <string name="label_mms_send_outbox_msg" msgid="3395185162973061099">"MMS Wakeup"</string>
+    <string name="desc_mms_send_outbox_msg" msgid="1837156781311437148">"Hantar semua MMS dari peti keluar ke rangkaian"</string>
 </resources>

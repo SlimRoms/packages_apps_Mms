@@ -42,7 +42,6 @@ import com.android.mms.data.Contact;
 import com.android.mms.data.ContactList;
 import com.android.mms.data.Conversation;
 import com.android.mms.util.EmojiParser;
-import com.android.mms.util.SmileyParser;
 
 /**
  * This class manages the view for given conversation.
@@ -218,8 +217,7 @@ public class ConversationListItem extends RelativeLayout implements Contact.Upda
         Contact.addListener(this);
 
         // Subject
-        SmileyParser parser = SmileyParser.getInstance();
-        CharSequence smileySubject = parser.addSmileySpans(conversation.getSnippet());
+        CharSequence smileySubject = conversation.getSnippet();
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(mContext);
         boolean enableEmojis = prefs.getBoolean(MessagingPreferenceActivity.ENABLE_EMOJIS, false);

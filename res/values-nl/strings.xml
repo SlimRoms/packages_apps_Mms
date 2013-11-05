@@ -45,7 +45,7 @@
     <string name="expire_on" msgid="4436268382742593921">"Verloopt op: <xliff:g id="DATE">%s</xliff:g>"</string>
     <string name="kilobyte" msgid="534782148965716631">"kB"</string>
     <string name="undelivered_msg_dialog_title" msgid="7479433403599785755">"Niet-afgeleverd bericht"</string>
-    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Kan dit bericht niet verzenden."\n"Poging gedaan: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
+    <string name="undelivered_msg_dialog_body" msgid="4789268239627694551">"Kan dit bericht niet verzenden.\nPoging gedaan: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
     <string name="undelivered_sms_dialog_body" msgid="4203703285563450868">"Kan dit bericht niet verzenden."</string>
     <string name="delete_thread" msgid="757258847736632791">"Thread verwijderen"</string>
     <string name="menu_forward" msgid="9026858380050046756">"Doorsturen"</string>
@@ -86,6 +86,8 @@
     <string name="all_threads" msgid="2663426830306307194">"Alle threads"</string>
     <string name="type_to_compose_text_enter_to_send" msgid="3539985471008581265">"Typ een bericht"</string>
     <string name="open_keyboard_to_compose_message" msgid="7860109685511253191">"Open het toetsenbord om een bericht te typen"</string>
+    <string name="sending_disabled_not_default_app" msgid="6685337318181265136">"Verzenden uitgeschakeld"</string>
+    <string name="compose_disabled_toast" msgid="1838175321052707875">"Kan geen bericht opstellen omdat dit niet de standaard sms-app is."</string>
     <string name="compressing" msgid="1961357529661045180">"Afbeelding te groot. Comprimeren..."</string>
     <string name="unsupported_media_format" msgid="1350489690977363764">"Niet-ondersteunde <xliff:g id="NAME">%1$s</xliff:g>-indeling."</string>
     <string name="select_different_media" msgid="6241623357299382183">"Selecteer een andere <xliff:g id="NAME">%1$s</xliff:g>."</string>
@@ -156,6 +158,10 @@
     <string name="pref_mms_settings_title" msgid="55618772118264355">"Multimediaberichten (MMS)"</string>
     <string name="pref_sms_settings_title" msgid="5173078369851066881">"Tekstberichten (sms)"</string>
     <string name="pref_sms_storage_title" msgid="9001233319190616445">"Opslag"</string>
+    <string name="pref_title_sms_disabled" msgid="1441894740130104326">"Sms uitgeschakeld"</string>
+    <string name="pref_summary_sms_disabled" msgid="8975773722051230744">"Raak aan om Berichten in te stellen als standaard-app voor sms\'en"</string>
+    <string name="pref_title_sms_enabled" msgid="1857849790200375277">"Sms ingeschakeld"</string>
+    <string name="pref_summary_sms_enabled" msgid="2106125420361911250">"Raak aan om uw standaard-app voor sms\'en te wijzigen"</string>
     <string name="pref_summary_manage_sim_messages" msgid="4141349892597640864">"Berichten op uw SIM-kaart beheren"</string>
     <string name="pref_summary_mms_delivery_reports" msgid="4874657984217756112">"Ontvangstbevestiging voor elk verzonden bericht aanvragen"</string>
     <string name="pref_summary_mms_read_reports" msgid="2748323864008907440">"Leesbevestiging voor elk verzonden bericht aanvragen"</string>
@@ -274,6 +280,7 @@
     <string name="message_send_failed_title" msgid="3469894907399046372">"Bericht niet verzonden"</string>
     <string name="message_failed_body" msgid="3421296112073915245">"Raak dit aan om het bericht te controleren en opnieuw te proberen."</string>
     <string name="download_later" msgid="5531365714424360903">"Kan nu niet downloaden. Probeer het later opnieuw."</string>
+    <string name="no_apn" msgid="505932916503312015">"Geen APN gespecificeerd op het apparaat."</string>
     <string name="select_audio" msgid="3528161449756771832">"Audio selecteren"</string>
     <string name="copy_to_sdcard" msgid="757028609638184856">"Bijlage opslaan"</string>
     <string name="copy_to_sdcard_success" msgid="7948625615155992014">"Bijlage opgeslagen."</string>
@@ -281,7 +288,6 @@
     <string name="save_ringtone" msgid="2310157075045201051">"Opslaan als beltoon"</string>
     <string name="saved_ringtone" msgid="3847363932276708626">"Beltoon opgeslagen."</string>
     <string name="saved_ringtone_fail" msgid="4778500070919251116">"Kan beltoon niet opslaan."</string>
-    <string name="menu_insert_smiley" msgid="4964504393061025071">"Smiley invoegen"</string>
     <string name="menu_group_participants" msgid="4288356090262299071">"Groepsdeelnemers"</string>
     <string name="select_link_title" msgid="3371818607625768447">"Actie selecteren"</string>
     <string name="slide_number" msgid="1923958526266726635">"Dia <xliff:g id="NUMBER">%s</xliff:g>"</string>
@@ -342,4 +348,11 @@
     <string name="notification_separator" msgid="2334673105226536422">"  "</string>
     <string name="enumeration_comma" msgid="213598026698964628">", "</string>
     <string name="message_timestamp_format" msgid="4188999027493614617">"<xliff:g id="STRING_0">%1$s</xliff:g> - <xliff:g id="STRING_1">%2$s</xliff:g>"</string>
+    <string name="storage_warning_title" msgid="7124740686325942375">"De opslagruimte van uw telefoon is vol"</string>
+    <string name="storage_warning_content" msgid="1100367816649962354">"U ontvangt geen nieuwe sms\'jes/mms\'jes"</string>
+    <string name="label_mms_send_outbox_msg" msgid="3395185162973061099">"MMS-activering"</string>
+    <string name="desc_mms_send_outbox_msg" msgid="1837156781311437148">"Alle MMS-berichten uit de outbox verzenden naar het netwerk"</string>
+    <string name="banner_sms_promo_title_initial" msgid="510014388581481569">"Berichten is niet uw sms-app"</string>
+    <string name="banner_sms_promo_title_application" msgid="8123569785369713254">"<xliff:g id="APPNAME">%s</xliff:g> is uw sms-app"</string>
+    <string name="banner_sms_promo_message" msgid="3536714414252763826">"U kunt dit wijzigen via Instellingen."</string>
 </resources>

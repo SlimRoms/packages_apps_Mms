@@ -18,7 +18,7 @@
 package com.android.mms.transaction;
 
 import static android.content.Intent.ACTION_BOOT_COMPLETED;
-import static android.provider.Telephony.Sms.Intents.SMS_RECEIVED_ACTION;
+import static android.provider.Telephony.Sms.Intents.SMS_DELIVER_ACTION;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -223,7 +223,7 @@ public class SmsReceiverService extends Service {
             if (Log.isLoggable(LogTag.TRANSACTION, Log.VERBOSE)) {
                 Log.v(TAG, "handleMessage serviceId: " + serviceId + " intent: " + intent);
             }
-            if (intent != null) {
+            if (intent != null && MmsConfig.isSmsEnabled(getApplicationContext())) {
                 String action = intent.getAction();
 
                 int error = intent.getIntExtra("errorCode", 0);
@@ -234,7 +234,7 @@ public class SmsReceiverService extends Service {
 
                 if (MESSAGE_SENT_ACTION.equals(intent.getAction())) {
                     handleSmsSent(intent, error);
-                } else if (SMS_RECEIVED_ACTION.equals(action)) {
+                } else if (SMS_DELIVER_ACTION.equals(action)) {
                     handleSmsReceived(intent, error);
                 } else if (ACTION_BOOT_COMPLETED.equals(action)) {
                     handleBootCompleted();
