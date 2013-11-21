@@ -50,6 +50,7 @@ import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.mms.MmsApp;
 import com.android.mms.MmsConfig;
 import com.android.mms.R;
+import com.android.mms.preferences.UserAgentListPreference;
 import com.android.mms.templates.TemplatesListActivity;
 import com.android.mms.transaction.TransactionService;
 import com.android.mms.util.Recycler;
@@ -124,6 +125,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
     private static final String DIRECT_CALL_PREF         = "direct_call_pref";
     public static final String MESSAGE_FONT_SIZE         = "pref_key_mms_message_font_size";
+    private static final String HIDE_AVATAR              = "pref_hide_avatar";
 
     // Text Area
     private static final String PREF_TEXT_AREA_SIZE      = "pref_text_area_size";
@@ -173,6 +175,16 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private ListPreference mUnicodeStripping;
     private CharSequence[] mUnicodeStrippingEntries;
     private static final int CONFIRM_CLEAR_SEARCH_HISTORY_DIALOG = 3;
+
+    private CheckBoxPreference mEnableEmojis;
+    private CheckBoxPreference mEnableQuickEmojis;
+    private CheckBoxPreference mSoftBankEmojis;
+    private CheckBoxPreference mFullTimestamp;
+    private CheckBoxPreference mSentTimestamp;
+    private CheckBoxPreference mShowGesture;
+    private CheckBoxPreference mHideAvatar;
+    private ListPreference mMessageFontSize;
+    private UserAgentListPreference mUserAgent;
 
     // Keyboard input type
     private ListPreference mInputTypePref;
@@ -242,6 +254,42 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mSmsPrefCategory.setEnabled(mIsSmsEnabled);
         mMmsPrefCategory.setEnabled(mIsSmsEnabled);
         mNotificationPrefCategory.setEnabled(mIsSmsEnabled);
+        mSmsLimitPref.setEnabled(mIsSmsEnabled);
+        mSmsDeliveryReportPref.setEnabled(mIsSmsEnabled);
+        mSmsSplitCounterPref.setEnabled(mIsSmsEnabled);
+        mSmsSplitPref.setEnabled(mIsSmsEnabled);
+        mSmsMultiPartPref.setEnabled(mIsSmsEnabled);
+        mSmsMultiPartSizePref.setEnabled(mIsSmsEnabled);
+        mMmsLimitPref.setEnabled(mIsSmsEnabled);
+        mMmsDeliveryReportPref.setEnabled(mIsSmsEnabled);
+        mMmsGroupMmsPref.setEnabled(mIsSmsEnabled);
+        mMmsReadReportPref.setEnabled(mIsSmsEnabled);
+        mManageSimPref.setEnabled(mIsSmsEnabled);
+        mVibratePref.setEnabled(mIsSmsEnabled);
+        mEnableNotificationsPref.setEnabled(mIsSmsEnabled);
+        mEnablePrivacyModePref.setEnabled(mIsSmsEnabled);
+        mRingtonePref.setEnabled(mIsSmsEnabled);
+        mManageTemplate.setEnabled(mIsSmsEnabled);
+        mGestureSensitivity.setEnabled(mIsSmsEnabled);
+        mUnicodeStripping.setEnabled(mIsSmsEnabled);
+        mInputTypePref.setEnabled(mIsSmsEnabled);
+        mEnableQuickMessagePref.setEnabled(mIsSmsEnabled);
+        mEnableQmLockscreenPref.setEnabled(mIsSmsEnabled);
+        mEnableQmCloseAllPref.setEnabled(mIsSmsEnabled);
+        mDirectCall.setEnabled(mIsSmsEnabled);
+        mSignature.setEnabled(mIsSmsEnabled);
+        mMMSBreath.setEnabled(mIsSmsEnabled);
+        mTextAreaSize.setEnabled(mIsSmsEnabled);
+        mBlacklist.setEnabled(mIsSmsEnabled);
+        mEnableEmojis.setEnabled(mIsSmsEnabled);
+        mEnableQuickEmojis.setEnabled(mIsSmsEnabled);
+        mSoftBankEmojis.setEnabled(mIsSmsEnabled);
+        mFullTimestamp.setEnabled(mIsSmsEnabled);
+        mSentTimestamp.setEnabled(mIsSmsEnabled);
+        mShowGesture.setEnabled(mIsSmsEnabled);
+        mHideAvatar.setEnabled(mIsSmsEnabled);
+        mMessageFontSize.setEnabled(mIsSmsEnabled);
+        mUserAgent.setEnabled(mIsSmsEnabled);
     }
 
     private void updateBlacklistSummary() {
@@ -290,6 +338,20 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mGestureSensitivity = (ListPreference) findPreference(GESTURE_SENSITIVITY);
         mUnicodeStripping = (ListPreference) findPreference(UNICODE_STRIPPING);
         mUnicodeStrippingEntries = getResources().getTextArray(R.array.pref_unicode_stripping_entries);
+
+        mEnableEmojis = (CheckBoxPreference) findPreference(ENABLE_EMOJIS);
+        mEnableQuickEmojis = (CheckBoxPreference) findPreference(ENABLE_QUICK_EMOJIS);
+        mSoftBankEmojis = (CheckBoxPreference) findPreference(SOFTBANK_EMOJIS);
+
+        mFullTimestamp = (CheckBoxPreference) findPreference(FULL_TIMESTAMP);
+        mSentTimestamp = (CheckBoxPreference) findPreference(SENT_TIMESTAMP);
+
+        mShowGesture = (CheckBoxPreference) findPreference(SHOW_GESTURE);
+
+        mHideAvatar = (CheckBoxPreference) findPreference(HIDE_AVATAR);
+        mMessageFontSize = (ListPreference) findPreference(MESSAGE_FONT_SIZE);
+
+        mUserAgent = (UserAgentListPreference) findPreference(USER_AGENT);
 
         mMMSBreath = (CheckBoxPreference) findPreference(MMS_BREATH);
         mMMSBreath.setChecked(mMMSBreath.isChecked());
