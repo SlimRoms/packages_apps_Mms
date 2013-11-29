@@ -22,7 +22,7 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="19" />
 
     <original-package android:name="com.android.mms" />
 
