@@ -18,6 +18,7 @@
 <resources>
 
     <!-- QuickMessage -->
+    <dimen name="qm_message_width">300dp</dimen>
     <dimen name="qm_message_height">210dp</dimen>
     <dimen name="qm_dialog_button_bar_height">48dip</dimen>
 
