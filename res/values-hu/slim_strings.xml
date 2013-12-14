@@ -116,4 +116,57 @@
         <item>Csak néma üzemmódban</item>
         <item>Soha</item>
     </string-array>
+    <string name="groups_header">Csoportok</string>
+    <string name="loading_recipients">Személyek és csoportok betöltése</string>
+    <string name="no_recipients">Nem létező cím</string>
+
+    <!-- Text area -->
+    <string name="pref_text_area_size_title">Szöveg terület mérete</string>
+    <string name="pref_text_area_size_summary">Állítsa a szövegmezőbe <xliff:g id="lines">%1$s</xliff:g> sorokat</string>
+
+    <!-- Custom user-agent -->
+    <string name="pref_mms_ua_default_android">Alapértelmezett Android</string>
+    <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+    <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+    <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
+    <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+    <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+    <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+    <string name="pref_mms_ua_custom_option">Egyéni\u2026</string>
+    <string name="pref_title_mms_user_agent">Felhasználói ügynök</string>
+    <string name="pref_summary_mms_user_agent">Téveszd meg a telefont másik modellként az üzenethez</string>
+    <string name="pref_mms_user_agent_custom_set">Ügynök beállítása:\n</string>
+
+    <!-- Multi-Part SMS -->
+    <string name="pref_title_sms_multi_part">Több részes SMS</string>
+    <string name="pref_title_sms_multi_part_size">Több részes SMS méret</string>
+    <string name="pref_summary_sms_multi_part_mms">160 karakternél hosszabb üzenet MMS-ként küldi</string>
+    <string name="pref_summary_sms_multi_part">160 karakternél hosszabb üzenetet több részes SMS-ként küldi el</string>
+    <string name="pref_summary_sms_multi_part_mms_size">Szöveges üzenet MMS-é alakítása után <xliff:g id="seg">%1$s</xliff:g> szegmensek</string>
+
+    <!-- Split SMS -->
+    <string name="pref_title_sms_split">SMS vágás</string>
+    <string name="pref_summary_sms_split">Szöveges üzenetek 160 karakterenként kerülnek vágásra</string>
+
+    <!-- Blacklist preferences -->
+    <string name="blacklist_title">Feketelista</string>
+    <string name="blacklist_summary_disabled">Tiltott</string>
+    <string name="blacklist_summary">Bejövő üzenet a feketelistás számokról blokkolva lesz</string>
+
+    <!-- Blacklist notifications -->
+    <string name="blacklist_notification">Blokkolt üzenet %s</string>
+    <string name="blacklist_notification_private_number">Blokkolt üzenet magánszámról</string>
+    <string name="blacklist_notification_list_private">Magánszám</string>
+    <string name="blacklist_notification_unknown_number">Blokkolt üzenet ismeretlen számról %s</string>
+    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> üzeneteket blokkolt</string>
+    <string name="unblock_number">Felold</string>
+
+    <!-- Blacklist management -->
+    <string name="add_to_blacklist">Fekete listához ad</string>
+    <string name="add_to_blacklist_message">Üzenetek innen %s blokkolva lesznek</string>
+
+    <!-- Generic blacklist handling -->
+    <string name="alert_dialog_yes">Igen</string>
+    <string name="alert_dialog_no">Nem</string>
+
 </resources>
