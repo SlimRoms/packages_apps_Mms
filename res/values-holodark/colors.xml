@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright 2013 SlimRoms Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources>
+    <!-- Activity background color -->
+    <drawable name="class_zero_background">#7f040000</drawable>
+
+    <!-- text color -->
+    <drawable name="text_color_red">#ffff4444</drawable>
+    <drawable name="text_color_black">#ffffffff</drawable>
+    <color name="text_hairline">#ff888888</color>
+    <color name="message_count_color">#ff888888</color>
+
+    <!-- Chat "sent time" text background -->
+    <color name="timestamp_color">#ff888888</color>
+
+    <!-- the background color used for unread conversation -->
+    <color name="unread_bgcolor">#ff222222</color>
+    <color name="read_bgcolor">#00000000</color>
+
+    <color name="widget_sender_text_color_read">#aaaaaa</color>
+    <color name="widget_sender_text_color_unread">#cccccc</color>
+    <color name="widget_subject_text_color_read">#888888</color>
+    <color name="widget_subject_text_color_unread">#aaaaaa</color>
+
+    <!-- Color of the text for buttons in the action bar  -->
+    <color name="action_bar_button_text_color">#FFFFFF</color>
+
+    <!-- New text colors from layouts to make theme chooser apk easier to theme -->
+    <color name="compose_message_edit_text">#ffffff</color>
+    <color name="compose_message_text_counter">#cccccccc</color>
+    <color name="actionbar_text">#ffffff</color>
+    <color name="delete_thread_dialog">#ffffff</color>
+    <color name="delivery_report_header">#ffffff</color>
+    <color name="delivery_report_recipient">#ffffff</color>
+    <color name="delivery_report_status">#ffffff</color>
+    <color name="delivery_report_date">#ffffff</color>
+    <color name="button_text">#ffffff</color>
+    <color name="message_received">#ffffff</color>
+    <color name="message_sent">#ffffff</color>
+    <color name="widget_unread_text">#888888</color>
+    <color name="widget_loading">#ffffff</color>
+
+    <!-- New Background colors from layouts to make theme chooser apk easier to theme -->
+    <color name="background">#000000</color>
+    <color name="darkgray_backgrounds">#777777</color>
+    <color name="quickmessage_body_light_bg">#ff1e1e1e</color>
+    <color name="quickmessage_body_dark_bg">#ff1e1e1e</color>
+    <color name="dividers">#111111</color>
+    <color name="transparent">#00000000</color>
+    <color name="date_view_background">#00000000</color>
+
+    <color name="translucent_white">#cc000000</color>
+
+    <color name="banner_item_transparent">#00000000</color>
+    <color name="banner_item_activated">#67ffffff</color>
+    <color name="banner_item_selected">#ccffffff</color>
+    <color name="banner_item_pressed">#67ffffff</color>
+
+    <color name="text_shadow_color_light">#33ffffff</color>
+    <color name="solid_white">#ff000000</color>
+
+	<!-- QuickMessage colors from layout-->
+	<color name="quickmessage_body_text_color">#ffffffff</color>
+	<color name="quickmessage_divider">#ffffffff</color>
+	
+</resources>

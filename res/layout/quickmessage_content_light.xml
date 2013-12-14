@@ -71,7 +71,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/quickmessage_divider"
         android:paddingBottom="4dp"
         android:paddingTop="4dp" />
 
@@ -98,8 +98,8 @@
             android:paddingRight="8dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="16sp"
-            android:textColor="?android:attr/textColorPrimaryInverse"
-            android:textColorLink="?android:attr/textColorPrimaryInverse" />
+            android:textColor="@color/quickmessage_body_text_color"
+            android:textColorLink="@color/quickmessage_body_text_color" />
     </ScrollView>
 
     <!-- 'Tap to reply' editor, character counter and send button -->
@@ -137,7 +137,7 @@
             android:nextFocusRight="@+id/send_button"
             android:hint="@string/type_to_reply_text_enter_to_send"
             android:minHeight="@dimen/input_text_height"
-            android:textColor="?android:attr/textColorPrimaryInverse"
+            android:textColor="@color/quickmessage_body_text_color"
             android:textColorHint="?android:attr/textColorTertiary"
             android:textCursorDrawable = "@null"
             android:maxLines="3"
