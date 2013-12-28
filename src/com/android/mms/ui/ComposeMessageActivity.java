@@ -2929,10 +2929,6 @@ public class ComposeMessageActivity extends Activity
             }
         }
 
-        if (isPreparedForSending() && mIsSmsEnabled) {
-            menu.add(0, MENU_SEND, 0, R.string.send).setIcon(android.R.drawable.ic_menu_send);
-        }
-
         if (getRecipients().size() > 1) {
             menu.add(0, MENU_GROUP_PARTICIPANTS, 0, R.string.menu_group_participants);
         }
