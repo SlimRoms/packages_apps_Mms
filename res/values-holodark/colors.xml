@@ -75,8 +75,8 @@
     <color name="text_shadow_color_light">#33ffffff</color>
     <color name="solid_white">#ff000000</color>
 
-	<!-- QuickMessage colors from layout-->
-	<color name="quickmessage_body_text_color">#ffffffff</color>
-	<color name="quickmessage_divider">#ffffffff</color>
-	
+    <!-- QuickMessage colors from layout-->
+    <color name="quickmessage_body_text_color">#ffffffff</color>
+    <color name="quickmessage_divider">#ffffffff</color>
+
 </resources>
