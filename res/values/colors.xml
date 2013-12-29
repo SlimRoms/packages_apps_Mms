@@ -64,6 +64,7 @@
     <color name="quickmessage_body_dark_bg">#ff1e1e1e</color>
     <color name="dividers">#eeeeee</color>
     <color name="transparent">#00000000</color>
+    <color name="date_view_background">#00000000</color>
 
     <color name="translucent_white">#ccffffff</color>
 
@@ -75,7 +76,7 @@
     <color name="text_shadow_color_light">#33000000</color>
     <color name="solid_white">#ffffffff</color>
 
-	<!-- QuickMessage colors from layout-->
-	<color name="quickmessage_body_text_color">#ff000000</color>
-	<color name="quickmessage_divider">#ff33b5e5</color>
+    <!-- QuickMessage colors from layout-->
+    <color name="quickmessage_body_text_color">#ff000000</color>
+    <color name="quickmessage_divider">#ff33b5e5</color>
 </resources>

@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/avatar"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentRight="false"
                 android:background="@drawable/hairline_left"
                 android:orientation="vertical" >
 
@@ -73,7 +73,7 @@
                     android:orientation="horizontal" >
 
                     <TextView android:id="@+id/date_view"
-                        android:background="@drawable/listitem_background"
+                        android:background="@color/date_view_background"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="3dip"
