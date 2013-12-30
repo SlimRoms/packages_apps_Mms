@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?>
+<!--
  * Copyright (C) 2008 Esmertec AG.
  * Copyright (C) 2008 The Android Open Source Project
  *
@@ -14,44 +14,12 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-  -->
-
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string-array name="empty_subject_strings">
-    <item msgid="7691141505407124426">"nincs tárgy"</item>
-  </string-array>
-  <string-array name="pref_templates_gestures_sensitivity_entries">
-    <item>1 (Pontatlanabb)</item>
-    <item>2</item>
-    <item>3</item>
-    <item>4</item>
-    <item>5</item>
-    <item>6</item>
-    <item>7</item>
-    <item>8</item>
-    <item>9</item>
-    <item>10</item>
-    <item>11</item>
-    <item>12 (Pontosabb)</item>
-  </string-array>
-
-  <string-array name="pref_mms_notification_vibrate_pattern_entries">
-    <item>Normál</item>
-    <item>Közepes</item>
-    <item>Hosszú</item>
-    <item>Többszöri rövid</item>
-    <item>Többszöri hosszú</item>
-    <item>@string/pref_title_mms_notification_vibrate_custom</item>
-  </string-array>
-
-  <string-array name="pref_mms_notification_vibrate_pattern_values">
-    <item></item>
-    <item>0,1200</item>
-    <item>0,2500</item>
-    <item>0,300,100,300,100,300,100,300,100,300</item>
-    <item>0,800,200,800,200,800</item>
-    <item>Egyéni</item>
-  </string-array>
-
+ -->
+<resources>
+    <!-- String to match as no subject and filter out as a subject. For example, if the
+         subject string is "no subject", we won't display that. We'll pretend
+         no subject string was delivered. -->
+    <string-array name="empty_subject_strings">
+        <item>nincs tárgy</item>
+    </string-array>
 </resources>
