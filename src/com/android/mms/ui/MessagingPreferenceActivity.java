@@ -97,6 +97,10 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String QM_CLOSE_ALL_ENABLED      = "pref_key_close_all";
     public static final String QM_DARK_THEME_ENABLED     = "pref_dark_theme";
 
+    // Vibrate pattern
+    public static final String NOTIFICATION_VIBRATE_PATTERN =
+            "pref_key_mms_notification_vibrate_pattern";
+
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
 
