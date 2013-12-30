@@ -56,4 +56,13 @@
     <string name="confirm_mark_read_conversation">The conversation will be marked as read.</string>
     <string name="confirm_mark_read_all_conversations">All threads will be marked as read.</string>
 
+    <!-- Vibrate pattern -->
+    <string name="pref_title_mms_notification_vibrate_pattern">Vibrate pattern</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Change vibrate pattern</string>
+    <string name="pref_mms_notification_vibrate_normal">Normal</string>
+    <string name="pref_mms_notification_vibrate_med_vib">Medium vibrate</string>
+    <string name="pref_mms_notification_vibrate_long_vib">Long vibrate</string>
+    <string name="pref_mms_notification_vibrate_mult_short">Multiple short</string>
+    <string name="pref_mms_notification_vibrate_mult_long">Multiple long</string>
+
 </resources>
