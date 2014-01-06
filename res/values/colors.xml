@@ -24,7 +24,7 @@
     <!-- text color -->
     <drawable name="text_color_red">#ffff4444</drawable>
     <drawable name="text_color_black">#ff000000</drawable>
-    <color name="text_hairline">#ffcccccc</color>
+    <color name="text_hairline">#ff888888</color>
     <color name="message_count_color">#66333333</color>
 
     <!-- Chat "sent time" text background -->
