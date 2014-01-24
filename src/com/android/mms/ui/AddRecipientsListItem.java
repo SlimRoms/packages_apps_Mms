@@ -103,6 +103,11 @@ public class AddRecipientsListItem extends RelativeLayout {
     }
 
     private void updateAvatarView() {
+        Drawable defaultContactImage =
+                mContext.getResources().getDrawable(R.drawable.ic_contact_picture);
+        if (!sDefaultContactImage.getConstantState().equals(defaultContactImage)) {
+            sDefaultContactImage = defaultContactImage;
+        }
         Drawable avatarDrawable;
 
         Contact contact = mPhoneNumber.getContact();
