@@ -140,6 +140,11 @@ public class ConversationListItem extends RelativeLayout implements Contact.Upda
     }
 
     private void updateAvatarView() {
+        Drawable defaultContactImage =
+                mContext.getResources().getDrawable(R.drawable.ic_contact_picture);
+        if (!sDefaultContactImage.getConstantState().equals(defaultContactImage)) {
+            sDefaultContactImage = defaultContactImage;
+        }
         Drawable avatarDrawable;
         if (mConversation.getRecipients().size() == 1) {
             Contact contact = mConversation.getRecipients().get(0);

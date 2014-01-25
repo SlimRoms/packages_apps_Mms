@@ -283,6 +283,11 @@ public class MessageListItem extends LinearLayout implements
     }
 
     private void updateAvatarView(String addr, boolean isSelf) {
+        Drawable defaultContactImage =
+                mContext.getResources().getDrawable(R.drawable.ic_contact_picture);
+        if (!sDefaultContactImage.getConstantState().equals(defaultContactImage)) {
+            sDefaultContactImage = defaultContactImage;
+        }
         Drawable avatarDrawable;
         if (isSelf || !TextUtils.isEmpty(addr)) {
             Contact contact = isSelf ? Contact.getMe(false) : Contact.get(addr, false);
