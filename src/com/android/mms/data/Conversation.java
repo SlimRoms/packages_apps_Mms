@@ -1,3 +1,18 @@
+/*
+* Copyright (C) 2015 SlimRoms Project
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 package com.android.mms.data;
 
 import java.util.ArrayList;
@@ -33,6 +48,7 @@ import android.widget.Toast;
 import com.android.mms.LogTag;
 import com.android.mms.MmsApp;
 import com.android.mms.R;
+import com.android.mms.data.slim.SlimConversationSettings;
 import com.android.mms.transaction.MessagingNotification;
 import com.android.mms.transaction.MmsMessageSender;
 import com.android.mms.ui.ComposeMessageActivity;
@@ -62,6 +78,9 @@ public class Conversation {
     public static final String[] UNREAD_PROJECTION = {
         Threads._ID,
         Threads.READ
+    };
+
+    public static final String[] CONVERSATION_SETTING = {
     };
 
     private static final String UNREAD_SELECTION = "(read=0 OR seen=0)";
@@ -852,6 +871,8 @@ public class Conversation {
                 handler.startDelete(token, new Long(threadId), uri, selection, null);
 
                 DraftCache.getInstance().setDraftState(threadId, false);
+
+                SlimConversationSettings.delete(MmsApp.getApplication(), threadId);
             }
         }
     }
@@ -882,6 +903,8 @@ public class Conversation {
 
             handler.setDeleteToken(token);
             handler.startDelete(token, new Long(-1), Threads.CONTENT_URI, selection, null);
+
+            SlimConversationSettings.deleteAll(app);
         }
     }
 
