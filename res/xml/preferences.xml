@@ -170,6 +170,14 @@
             android:summary="@string/pref_summary_notification_privacy_mode_enabled" />
 
         <CheckBoxPreference
+            android:key="pref_key_enable_heads_up_mode"
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:dependency="pref_key_enable_notifications"
+            android:defaultValue="true"
+            android:title="@string/pref_title_notification_heads_up_mode_enabled"
+            android:summary="@string/pref_summary_notification_heads_up_mode_enabled" />
+
+        <CheckBoxPreference
             android:key="mms_breath"
             android:title="@string/mms_breath"
             android:summary="@string/mms_breath_summary"
