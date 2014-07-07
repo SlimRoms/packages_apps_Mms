@@ -116,4 +116,8 @@
         <item>Solo en modo silencio</item>
         <item>Nunca</item>
     </string-array>
+
+    <!-- Heads up mode -->
+    <string name="pref_title_notification_heads_up_mode_enabled">Modo "heads up"</string>
+    <string name="pref_summary_notification_heads_up_mode_enabled">Mostrar mensajes como notificaciones "heads up".</string>
 </resources>
