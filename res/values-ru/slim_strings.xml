@@ -144,6 +144,10 @@
     <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> непрочитанных сообщений</string>
     <string name="notification_ticker_privacy_mode">Принято новое сообщение</string>
 
+    <!-- Heads up mode -->
+    <string name="pref_title_notification_heads_up_mode_enabled>Уведомления \"поверх\"</string>
+    <string name="pref_summary_notification_heads_up_mode_enabled">Показывать уведомления поверх всех приложений.</string>
+
     <!-- Message signature -->
     <string name="msg_sig_title">Подпись</string>
     <string name="msg_sig_summary">Задать подпись для сообщений</string>
