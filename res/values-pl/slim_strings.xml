@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2013 SlimRoms Project
+<!-- Copyright (C) 2013 SlimRoms Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,34 +13,64 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Menu item for Mark all threads read -->
     <string name="menu_mark_all_read">Oznacz wszystkie jako przeczytane</string>
-    <string name="cannot_find_contact">Nie można dołączyć wybranego kontaktu.</string>
-    <string name="pref_title_save_location">Folder zapisania załączników</string>
-    <string name="pref_title_save_location_summary">Określ folder do zapisania załączników</string>
+
+    <!-- Error message displayed when the user attempts to attach a contact whose ID could not be resolved -->
+    <string name="cannot_find_contact">Kontakt który wybrałeś nie może być dodany.</string>
+
+    <!-- The vibrate notification modes -->
+    <string-array name="prefEntries_vibrateWhen">
+        <!-- Always -->
+        <item>Zawsze</item>
+        <!-- Only when the phone is in Silent mode -->
+        <item>Tylko gdy wyciszony</item>
+        <!-- Never -->
+        <item>Nigdy</item>
+    </string-array>
+
+        <!-- Setting item for folder to save MMS Attachments to -->
+    <string name="pref_title_save_location">Folder zapisu</string>
+    <string name="pref_title_save_location_summary">Określ folder zapisywania załączników</string>
+
+    <!-- Attachment Type Selector Adapter. This string is an option in the "Attach" dialog, "Add music" dialog -->
     <string name="attach_contact_info">Informacje o kontakcie</string>
+
+    <!-- Failed to Attach Recorded Audio (SoundRecorder not found) -->
     <string name="record_sound_error_alert">Nie można nagrać audio. Brak SoundRecorder.apk!</string>
+
     <string name="label_mms_push">MMS Push</string>
-    <string name="desc_mms_push">Popycha MMS z folderu Skrzynka nadawcza do sieci</string>
-    <string name="pref_extra_settings">Dodatkowe ustawienia</string>
-    <string name="pref_char_settings">ustawienia znaków</string>
+    <string name="desc_mms_push">Wysyła MMS ze skrzynki nadawczej do sieci</string>
+
+    <!-- Extra Settings: -->
+    <string name="pref_extra_settings">Ustawienia dodatkowe</string>
+    <string name="pref_char_settings">Ustawienia znaków</string>
+
+    <!-- Enable emojis -->
     <string name="pref_title_enable_emojis">Włącz emoji</string>
-    <string name="pref_summary_enable_emojis">Włącz wsparcie dla zestawu 471 unikodowych emotikon emoji</string>
-    <string name="menu_insert_emoji">Wstaw emojis</string>
-    <string name="pref_title_sms_split_counter">Wskaźnik podziału</string>
-    <string name="pref_summary_sms_split_counter">Dodaje wskaźnik do wiadomości np. (1/2)</string>
+    <string name="pref_summary_enable_emojis">Włącz wsparcie dla zestawu 471 emotikonów emoji</string>
+
+    <!-- Emoji Menu item -->
+    <string name="menu_insert_emoji">Wstaw emoji</string>
+
+    <!-- Settings item for boolean option for SMS Split Counter -->
+    <string name="pref_title_sms_split_counter">Licznik podziału wiadomości</string>
+    <!-- Settings item description for boolean SMS Split 160 characters setting -->
+    <string name="pref_summary_sms_split_counter">Dodaje licznik do wiadomości np. (1/2)</string>
+
+    <!-- Sms templates -->
     <string name="prefs_templates_settings">Szablony SMS</string>
     <string name="pref_title_templates_manage">Szablony</string>
     <string name="pref_summary_templates_manage">Zarządzaj swoimi szablonami SMS</string>
-    <string name="pref_title_templates_show_gesture">Gest</string>
+    <string name="pref_title_templates_show_gesture">Gesty</string>
     <string name="pref_summary_templates_show_gesture">Pokaż ślad gestu</string>
     <string name="pref_title_template_gestures_sensitivity">Czułość gestu</string>
     <string name="template_save">Zapisz</string>
     <string name="template_insert_hint">Tu wstaw tekst szablonu</string>
     <string name="template_empty_text">Pole tekstowe nie może być puste</string>
-    <string name="template_explanation">Wstaw lub modyfikuj tekst szablonu i ewentualnie narysuj gest dla niego</string>
+    <string name="template_explanation">Wstaw lub modyfikuj tekst szablonu i opcjonalnie narysuj gest dla niego</string>
     <string name="template_edit">Edytuj</string>
     <string name="template_delete">Usuń</string>
     <string name="template_ctx_menu_title">Akcje</string>
@@ -51,64 +81,170 @@
     <string name="template_not_present_error">Brak zdefiniowanych szablonów</string>
     <string name="template_not_present_error_title">Błąd</string>
     <string name="template_select">Wybierz szablon</string>
-    <string name="gestures_already_present">Ostrzeżenie: Podobny gest jest już powiązany z innym szablonem!</string>
+    <string name="template_confirm_dialog_title">Usunąć?</string>
+    <plurals name="template_confirm_delete_conversation">
+        <item quantity="one">Szablon zostanie usunięty.</item>
+        <item quantity="other"><xliff:g id="number" example="15">%1$s</xliff:g> szablonów zostanie usuniętych.</item>
+    </plurals>
+    <string name="gestures_already_present">Podobny gest jest już powiązany z innym szablonem</string>
+    <string name="select_template">Wybierz szablony</string>
+
+    <!-- Change Vibrate pattern/method for message notification -->
     <string name="pref_title_mms_notification_vibrate_settings">Ustawienia wibracji</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Wzór wibracji</string>
     <string name="pref_summary_mms_notification_vibrate_pattern">Zmień wzór wibracji</string>
     <string name="pref_title_mms_notification_vibrate_custom">Własny wzór wibracji</string>
     <string name="pref_text_mms_notification_vibrate_custom">Format wyłącz/włącz w milisekundach: wyłącz, włącz, wyłącz, włącz, ...</string>
-    <string name="pref_title_enable_quick_emojis">Przycisk szybkiego emoji</string>
-    <string name="pref_summary_enable_quick_emojis">Wyświetlenie przycisku obok obszaru wprowadzania tekstu dla szybkiego dostępu emoji</string>
+
+    <!-- Strip unicode -->
+    <string name="pref_title_unicode_stripping">Opuszczanie Unicode</string>
+    <string name="pref_unicode_stripping_leave_intact">Pozostaw znaki niezmienione</string>
+    <string name="pref_unicode_stripping_non_encodable">Opuszczaj znaki niekodowalne</string>
+    <string name="pref_unicode_stripping_all">Opuszczaj wszystkie znaki</string>
+
+    <!-- Enable quick emojis -->
+    <string name="pref_title_enable_quick_emojis">Przycisk szybkich emoji</string>
+    <string name="pref_summary_enable_quick_emojis">Wyświetl przycisk szybkiego dostępu do emoji obok pola wprowadzania tekstu</string>
+
+    <!-- Enable SoftBank emoji encoding -->
+    <string name="pref_title_enable_softbank_encoding">Emoji SoftBank</string>
+    <string name="pref_summary_enable_softbank_encoding">Użyj kodowania emoji SoftBank emoji</string>
+
+    <!-- Full timestamps -->
     <string name="pref_title_mms_full_timestamp">Pełna data</string>
     <string name="pref_summary_mms_full_timestamp">Wyświetla pełną datę oraz czas w wiadomościach</string>
+
+    <!-- Which timestamps -->
     <string name="pref_title_mms_use_sent_timestamp">Oryginalna data</string>
     <string name="pref_summary_mms_use_sent_timestamp">Wyświetla datę wysłania zamiast daty odebrania wiadomości</string>
+
+    <!-- Add menu for 'Add SMS to calendar remind' -->
     <string name="menu_add_to_calendar">Dodaj do kalendarza</string>
+
+    <!-- Soft Keyboard Type -->
     <string name="pref_keyboard_emoji">Pokaż przycisk emotikon</string>
-    <string name="pref_keyboard_new_line">Pokaż klawisz Enter</string>
-    <string name="pref_keyboard_unknown">Nieznane, proszę wybierz ponownie</string>
+    <string name="pref_keyboard_new_line">Pokaż przycisk enter</string>
+    <string name="pref_keyboard_unknown">Nieznane, proszę wybrać ponownie</string>
+
+    <!-- Settings item for the soft keyboard picker -->
     <string name="pref_title_input_type">Typ klawiatury</string>
-    <string name="pref_summary_input_type">Wybierz klawiaturę do tworzenia wiadomości</string>
+    <string name="pref_summary_input_type">Wybierz typ klawiatury używanej do tworzenie wiadomości</string>
+
+    <!-- QM Preferences -->
     <string name="pref_quickmessage">Szybka wiadomość</string>
     <string name="pref_quickmessage_title">Włącz Szybkie wiadomości</string>
-    <string name="pref_quickmessage_summary">Pokaż wyskakujące okno wiadomości</string>
+    <string name="pref_quickmessage_summary">Pokaż wyskakujące okno dla przychodzących wiadomości</string>
     <string name="pref_wake_unlock_title">Wybudź i odblokuj</string>
-    <string name="pref_wake_unlock_summary">Wybudź i odblokuj urządzenie przy nadejściu wiadomości (tylko niezabezpieczone ekrany blokady)</string>
+    <string name="pref_wake_unlock_summary">Wybudź i odblokuj urządzenie przy nadejściu wiadomości (tylko przy niezabezpieczonym ekranie blokady)</string>
     <string name="pref_close_all_title">Zamknij wszystkie</string>
     <string name="pref_close_all_summary">Przycisk „Zamknij” zamyka wszystkie wiadomości</string>
     <string name="message_counter_separator">z</string>
+
+    <!-- QM Dialog box buttons -->
     <string name="button_close">Zamknij</string>
-    <string name="button_view">Wygląd</string>
+    <string name="button_view">Zobacz</string>
     <string name="button_templates">Szablony</string>
+
+    <!-- Hint text in message body field when keyboard is exposed -->
     <string name="type_to_reply_text_enter_to_send">Wpisz wiadomość</string>
+
+    <!-- QM Toast -->
     <string name="toast_sending_message">Wysyłanie</string>
-    <string name="qm_quick_reply">Szybka odpowiedź</string>
-    <string name="qm_mark_read">Przeczytany</string>
+
+    <!-- QM - Quick reply -->
+    <string name="qm_quick_reply">Odpisz</string>
+    <string name="qm_mark_read">Odznacz</string>
+
+    <!-- Direct call -->
     <string name="direct_call_title">Bezpośrednie połączenie</string>
     <string name="direct_call_summary">Dzwoni do bieżącego kontaktu</string>
+
+    <!-- Message Font size -->
     <string name="pref_title_mms_message_font_size">Rozmiar czcionki wiadomości</string>
     <string name="pref_summary_mms_message_font_size">Zmienia rozmiar czcionki widoku wiadomości</string>
     <string name="pref_dialogtitle_mms_message_font_size">Wybierz rozmiar czcionki</string>
+
+    <!-- Privacy mode -->
     <string name="pref_title_notification_privacy_mode_enabled">Tryb prywatny</string>
-    <string name="pref_summary_notification_privacy_mode_enabled">Ukrywanie nadawcy i wiadomości na pasku stanu i wyłączenie szybką odpowiedź</string>
+    <string name="pref_summary_notification_privacy_mode_enabled">Ukrywa treść i nadawcę na pasku statusu oraz wyłącza szybkie wiadomości</string>
     <string name="notification_single_title_privacy_mode">Nowa wiadomość</string>
-    <string name="notification_single_text_privacy_mode">1 nieprzeczytana wiadomość</string>
+    <string name="notification_single_text_privacy_mode">1 nowa wiadomość</string>
     <string name="notification_multiple_title_privacy_mode">Nowe wiadomości</string>
-    <string name="notification_multiple_text_privacy_mode">Liczba nieprzeczytanych wiadomości: <xliff:g id="NUMBER">%1$s</xliff:g></string>
-    <string name="notification_ticker_privacy_mode">Odebrano nową wiadomość</string>
+    <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> nieprzeczytanych wiadomości</string>
+    <string name="notification_ticker_privacy_mode">Otrzymano nową wiadomość</string>
+
+    <!-- Heads up mode -->
+    <string name="pref_title_notification_heads_up_mode_enabled">Heads-up</string>
+    <string name="pref_summary_notification_heads_up_mode_enabled">Pokaż wiadomości jako powiadomienie Heads-up.</string>
+
+    <!-- Message signature -->
     <string name="msg_sig_title">Podpis</string>
-    <string name="msg_sig_summary">Ustaw niestandardowy podpis dla wiadomości</string>
-    <string name="msg_sig_enter_text">Wprowadź tekst podpisu</string>
+    <string name="msg_sig_summary">Ustaw własny podpis do wiadomości</string>
+    <string name="msg_sig_enter_text">Wpisz tekst podpisu</string>
+
+    <!-- Mms Breath -->
     <string name="mms_breath">Oddychający SMS</string>
     <string name="mms_breath_summary">Powiadomienia na pasku stanu będą miały efekt oddychania</string>
+
+    <!-- Avatar -->
     <string name="hide_avatar">Ukryj Avatar</string>
     <string name="hide_avatar_summary">Ukryj avatar w oknie listy rozmów</string>
+
+    <!-- Multi Contact selector -->
     <string name="pref_multi_select">Łatwy selektor</string>
     <string name="pref_multi_select_summary">Wybierz wiele kontaktów za pomocą pola wyboru</string>
     <string name="add_recipients">Dodaj odbiorców</string>
-    <string-array name="prefEntries_vibrateWhen">
-        <item>Zawsze</item>
-        <item>Tylko po wyciszeniu</item>
-        <item>Nigdy</item>
-    </string-array>
+    <string name="groups_header">Grupy</string>
+    <string name="loading_recipients">Wczytuję kontakty i grupy</string>
+    <string name="no_recipients">Brak odbiorców</string>
+
+    <!-- Text area -->
+    <string name="pref_text_area_size_title">Rozmiar obszaru tekstu</string>
+    <string name="pref_text_area_size_summary">Ustaw obszar tekstu na <xliff:g id="lines">%1$s</xliff:g> linie</string>
+
+    <!-- Custom user-agent -->
+    <string name="pref_mms_ua_default_android">Domyślny Android</string>
+    <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+    <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+    <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
+    <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+    <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+    <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+    <string name="pref_mms_ua_custom_option">Własny\u2026</string>
+    <string name="pref_title_mms_user_agent">Agent użytkownika</string>
+    <string name="pref_summary_mms_user_agent">Użyj innego modelu telefonu dla MMS</string>
+    <string name="pref_mms_user_agent_custom_set">ustaw Agenta na:\n</string>
+
+    <!-- Multi-Part SMS -->
+    <string name="pref_title_sms_multi_part">Długa wiadomość SMS</string>
+    <string name="pref_title_sms_multi_part_size">Ilość SMSów</string>
+    <string name="pref_summary_sms_multi_part_mms">Wiadomości powyżej 160 znaków będą wysłane jako MMS</string>
+    <string name="pref_summary_sms_multi_part">Wiadomości powyżej 160 znaków będą wysłane jako długi SMS</string>
+    <string name="pref_summary_sms_multi_part_mms_size">Wiadomości zostaną przekonwertowane na MMS po <xliff:g id="seg">%1$s</xliff:g> segmentach</string>
+
+    <!-- Split SMS -->
+    <string name="pref_title_sms_split">Podziel SMS</string>
+    <string name="pref_summary_sms_split">Wiadomość będzie podzielona na 160 znakowe wiadomości</string>
+
+    <!-- Blacklist preferences -->
+    <string name="blacklist_title">Czarna lista</string>
+    <string name="blacklist_summary_disabled">Wyłączona</string>
+    <string name="blacklist_summary">Wiadomości przychodzące z numerów na czarnej liście będą zablokowane</string>
+
+    <!-- Blacklist notifications -->
+    <string name="blacklist_notification">Zablokowano wiadomość od %s</string>
+    <string name="blacklist_notification_private_number">Zablokowano wiadomość z numeru zastrzeżonego</string>
+    <string name="blacklist_notification_list_private">Zastrzeżony</string>
+    <string name="blacklist_notification_unknown_number">Zablokowano wiadomość z nieznanego numeru %s</string>
+    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> zablokowanych wiadomości</string>
+    <string name="unblock_number">Odblokuj</string>
+
+    <!-- Blacklist management -->
+    <string name="add_to_blacklist">Dodaj do czarnej listy</string>
+    <string name="add_to_blacklist_message">Następne wiadomości od %s będą blokowane</string>
+
+    <!-- Generic blacklist handling -->
+    <string name="alert_dialog_yes">Tak</string>
+    <string name="alert_dialog_no">Nie</string>
+
 </resources>
