@@ -117,6 +117,55 @@
         <item>Nunca</item>
     </string-array>
 
+    <!-- Text area -->
+    <string name="pref_text_area_size_title">Tamaño del área de texto</string>
+    <string name="pref_text_area_size_summary">Establecer caja de texto  de<xliff:g id="lines">%1$s</xliff:g> líneas</string>
+
+    <!-- Custom user-agent -->
+    <string name="pref_mms_ua_default_android">Predeterminado Android</string>
+    <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+    <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+    <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
+    <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+    <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+    <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+    <string name="pref_mms_ua_custom_option">Personalizado\u2026</string>
+    <string name="pref_title_mms_user_agent">Modelo de teléfono</string>
+    <string name="pref_summary_mms_user_agent">Simular un modelo de teléfono diferente para lso MMS</string>
+    <string name="pref_mms_user_agent_custom_set">Establecer modelo a:\n</string>
+
+    <!-- Multi-Part SMS -->
+    <string name="pref_title_sms_multi_part">SMS partidos</string>
+    <string name="pref_title_sms_multi_part_size">Tamaño de SMS partidos</string>
+    <string name="pref_summary_sms_multi_part_mms">Los mensajes de texto de más de 160 caracteres se enviarán como un MMS</string>
+    <string name="pref_summary_sms_multi_part">Los mensajes de texto de más de 160 caracteres se enviaran como SMS partidos</string>
+    <string name="pref_summary_sms_multi_part_mms_size">El mensaje de texto se convertirá en MMS tras <xliff:g id="seg">%1$s</xliff:g> segmentos</string>
+
+    <!-- Split SMS -->
+    <string name="pref_title_sms_split">Particionado SMS</string>
+    <string name="pref_summary_sms_split">Los mensajes de texto se partirán en mensajes de 160 caracteres</string>
+
+    <!-- Blacklist preferences -->
+    <string name="blacklist_title">Lista negra</string>
+    <string name="blacklist_summary_disabled">Deshabilitada</string>
+    <string name="blacklist_summary">Se bloquearán los mensajes de texto de los números de teléfono de la lista negra</string>
+
+    <!-- Blacklist notifications -->
+    <string name="blacklist_notification">Mensaje de %s bloqueado</string>
+    <string name="blacklist_notification_private_number">Mensaje de un número privado bloqueado</string>
+    <string name="blacklist_notification_list_private">Privado</string>
+    <string name="blacklist_notification_unknown_number">Mensaje de número desconocido %s bloqueado</string>
+    <string name="blacklist_notification_multiple">Se han bloqueado <xliff:g id="count">%d</xliff:g> mensajes</string>
+    <string name="unblock_number">Desbloquear</string>
+
+    <!-- Blacklist management -->
+    <string name="add_to_blacklist">Añadir a la lista negra</string>
+    <string name="add_to_blacklist_message">Se bloquearán los mensajes de %s</string>
+
+    <!-- Generic blacklist handling -->
+    <string name="alert_dialog_yes">Si</string>
+    <string name="alert_dialog_no">No</string>
+
     <!-- Heads up mode -->
     <string name="pref_title_notification_heads_up_mode_enabled">Modo "heads up"</string>
     <string name="pref_summary_notification_heads_up_mode_enabled">Mostrar mensajes como notificaciones "heads up".</string>
