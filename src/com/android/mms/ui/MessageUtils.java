@@ -118,6 +118,7 @@ public class MessageUtils {
     private static final int SELECT_SYSTEM = 0;
     private static final int SELECT_EXTERNAL = 1;
     private static final boolean DEBUG = false;
+    public static final int PHONE_SINGLE_MODE = -1;
     public static final int PHONE_DEFAULT = 0;  //  for single card product
     public static final int PHONE1 = 0;  // for DSDS product of slot one
     public static final int PHONE2 = 1;  // for DSDS product of slot two
@@ -1289,6 +1290,23 @@ public class MessageUtils {
         return (tm.getSimState(phoneId) != TelephonyManager.SIM_STATE_ABSENT)
                     && (tm.getSimState(phoneId) != TelephonyManager.SIM_STATE_CARD_IO_ERROR)
                     && (tm.getSimState(phoneId) != TelephonyManager.SIM_STATE_UNKNOWN);
+    }
+
+    private static boolean isCdmaPhone(long subscription) {
+        boolean isCdma = false;
+        int activePhone =  TelephonyManager.getDefault().getCurrentPhoneType(subscription);
+        if (TelephonyManager.PHONE_TYPE_CDMA == activePhone) {
+            isCdma = true;
+        }
+        return isCdma;
+    }
+
+    private static boolean isNetworkRoaming(long subscription) {
+        return TelephonyManager.getDefault().isNetworkRoaming(subscription);
+    }
+
+    public static boolean isCdmaInternationalRoaming(long subscription) {
+        return isCdmaPhone(subscription) && isNetworkRoaming(subscription);
     }
 
     public static boolean isMsimIccCardActive() {

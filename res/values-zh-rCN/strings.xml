@@ -177,6 +177,8 @@
     <string name="pref_title_mms_group_mms" msgid="1251698526583908432">"群发信息"</string>
     <string name="pref_title_mms_read_reports" msgid="4882179829495828541">"已读报告"</string>
     <string name="pref_title_sms_delivery_reports" msgid="876064208254451038">"发送报告"</string>
+    <string name="pref_title_sms_delivery_reports_slot1">"卡1发送报告"</string>
+    <string name="pref_title_sms_delivery_reports_slot2">"卡2发送报告"</string>
     <string name="pref_title_auto_delete" msgid="7227835692631701134">"删除旧短信"</string>
     <string name="pref_title_sms_delete" msgid="6890538316799296878">"短信限制"</string>
     <string name="pref_title_mms_delete" msgid="7265878070847351664">"彩信限制"</string>
@@ -369,6 +371,16 @@
 
     <string name="slot1">"卡1"</string>
     <string name="slot2">"卡2"</string>
+
+    <string name="pref_title_sms_validity_period">"短信有效期"</string>
+    <string name="pref_title_sms_validity_period_slot1">"卡1短信有效期"</string>
+    <string name="pref_title_sms_validity_period_slot2">"卡2短信有效期"</string>
+    <string name="sms_validity_period_not_set">"不设置"</string>
+    <string name="sms_validity_period_one_hour">"1小时"</string>
+    <string name="sms_validity_period_six_hours">"6小时"</string>
+    <string name="sms_validity_period_twelve_hours">"12小时"</string>
+    <string name="sms_validity_period_one_day">"1天"</string>
+    <string name="sms_validity_period_maximum">"最长"</string>
 
     <string name="confirm_delete_selected_messages">选中的信息将被删除</string>
     <!-- menu item of mailboxmessagecontent -->
