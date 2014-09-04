@@ -410,9 +410,12 @@ public class SmsReceiverService extends Service {
                 if (saveSuccess) {
                     long subId = TelephonyManager.getDefault().isMultiSimEnabled()
                             ? sms.getSubId() : (long)MessageUtils.SUB_INVALID;
-                    MessagingNotification.blockingUpdateNewIccMessageIndicator(this,
-                            sms.getDisplayOriginatingAddress(), sms.getDisplayMessageBody(),
-                            SubscriptionManager.getPhoneId(subId), sms.getTimestampMillis());
+                    String address = MessageUtils.convertIdp(this,
+                            sms.getDisplayOriginatingAddress());
+                    MessagingNotification.blockingUpdateNewIccMessageIndicator(
+                            this, address, sms.getDisplayMessageBody(),
+                            SubscriptionManager.getPhoneId(subId),
+                            sms.getTimestampMillis());
                 } else {
                     Toast.makeText(this, getString(R.string.pref_sms_store_card_unknown_fail),
                             Toast.LENGTH_LONG).show();
@@ -558,7 +561,7 @@ public class SmsReceiverService extends Service {
         }
 
         ContentResolver resolver = context.getContentResolver();
-        String originatingAddress = sms.getOriginatingAddress();
+        String originatingAddress = MessageUtils.convertIdp(this, sms.getOriginatingAddress());
         int protocolIdentifier = sms.getProtocolIdentifier();
         String selection;
         String[] selectionArgs;
@@ -684,7 +687,7 @@ public class SmsReceiverService extends Service {
         // Store the message in the content provider.
         ContentValues values = new ContentValues();
 
-        values.put(Inbox.ADDRESS, sms.getDisplayOriginatingAddress());
+        values.put(Inbox.ADDRESS, MessageUtils.convertIdp(this, sms.getDisplayOriginatingAddress()));
 
         // Use now for the timestamp to avoid confusion with clock
         // drift between the handset and the SMSC.
@@ -765,7 +768,8 @@ public class SmsReceiverService extends Service {
         boolean result = true;
         SmsManager sm = SmsManager.getDefault();
         long subscription = sm.getDefaultSmsSubId();
-        byte pdu[] = MessageUtils.getDeliveryPdu(null, sms.getOriginatingAddress(),
+        String address = MessageUtils.convertIdp(this, sms.getOriginatingAddress());
+        byte pdu[] = MessageUtils.getDeliveryPdu(null, address,
                 sms.getMessageBody(), sms.getTimestampMillis(), subscription);
         result &= TelephonyManager.getDefault().isMultiSimEnabled()
                 ? SmsManager.getSmsManagerForSubscriber(subscription).copyMessageToIcc(null, pdu, SmsManager.STATUS_ON_ICC_READ)
