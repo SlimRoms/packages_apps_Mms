@@ -44,6 +44,7 @@
         <item>@string/pref_sms_store_phone</item>
         <item>@string/pref_sms_store_sim</item>
     </string-array>
+
     <string-array name="entries_sms_validity_period">
         <item>@string/sms_validity_period_not_set</item>
         <item>@string/sms_validity_period_one_hour</item>
@@ -62,4 +63,9 @@
         <item>635040</item>
     </string-array>
 
+    <string-array name="entries_list_search_type">
+        <item>@string/search_as_content</item>
+        <item>@string/search_as_name</item>
+        <item>@string/search_as_number</item>
+    </string-array>
 </resources>
