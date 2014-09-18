@@ -402,4 +402,12 @@
     <string name="copy_to_sim_fail">"信息保存失败"</string>
     <string name="copy_to_phone_success">"信息已保存"</string>
     <string name="copy_to_phone_fail">"信息保存失败"</string>
+
+    <!-- Settings item description for Preferred storage -->
+    <string name="pref_title_sms_store">优先存储器</string>
+    <string name="pref_title_sms_store_sim1">卡1优先存储器</string>
+    <string name="pref_title_sms_store_sim2">卡2优先存储器</string>
+    <string name="pref_sms_store_phone">话机</string>
+    <string name="pref_sms_store_sim">SIM卡</string>
+    <string name="pref_sms_store_sim_unknown_fail">新短信接收失败，无法正确读取SIM卡</string>
 </resources>
