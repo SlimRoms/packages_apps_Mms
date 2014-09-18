@@ -87,6 +87,7 @@ import android.provider.Telephony.Sms;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SubInfoRecord;
 import android.telephony.SubscriptionManager;
+import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
@@ -220,6 +221,7 @@ public class ComposeMessageActivity extends Activity
     private static final int MENU_SAVE_RINGTONE         = 30;
     private static final int MENU_PREFERENCES           = 31;
     private static final int MENU_GROUP_PARTICIPANTS    = 32;
+    private static final int MENU_COPY_TO_SIM           = 34;
     private static final int MENU_RESEND                = 35;
 
     private static final int RECIPIENTS_MAX_LENGTH = 312;
@@ -257,6 +259,9 @@ public class ComposeMessageActivity extends Activity
     // even if we tell it to (turning off and on the screen). So we need to force load the
     // messages+draft after the max delay.
     private static final int LOADING_MESSAGES_AND_DRAFT_MAX_DELAY_MS = 500;
+
+    private static final int MSG_COPY_TO_SIM_FAILED = 1;
+    private static final int MSG_COPY_TO_SIM_SUCCESS = 2;
 
     private ContentResolver mContentResolver;
 
@@ -1249,6 +1254,13 @@ public class ComposeMessageActivity extends Activity
                     .setOnMenuItemClickListener(l);
             }
 
+            if (msgItem.isSms()) {
+                if (MessageUtils.getActivatedIccCardCount() > 0) {
+                    menu.add(0, MENU_COPY_TO_SIM, 0, R.string.copy_to_sim)
+                            .setOnMenuItemClickListener(l);
+                }
+            }
+
             menu.add(0, MENU_VIEW_MESSAGE_DETAILS, 0, R.string.view_message_details)
                 .setOnMenuItemClickListener(l);
 
@@ -1513,6 +1525,25 @@ public class ComposeMessageActivity extends Activity
                     return true;
                 }
 
+                case MENU_COPY_TO_SIM: {
+                    if (MessageUtils.getActivatedIccCardCount() > 1) {
+                        String[] items = new String[TelephonyManager.getDefault()
+                                .getPhoneCount()];
+                        for (int i = 0; i < items.length; i++) {
+                            items[i] = MessageUtils.getMultiSimName(ComposeMessageActivity.this, i);
+                        }
+                        CopyToSimSelectListener listener = new CopyToSimSelectListener(mMsgItem);
+                        new AlertDialog.Builder(ComposeMessageActivity.this)
+                            .setTitle(R.string.copy_to_sim)
+                            .setPositiveButton(android.R.string.ok, listener)
+                            .setSingleChoiceItems(items, 0, listener)
+                            .setCancelable(true)
+                            .show();
+                    } else {
+                        new Thread(new CopyToSimThread(mMsgItem)).start();
+                    }
+                    return true;
+                }
                 default:
                     return false;
             }
@@ -4542,5 +4573,102 @@ public class ComposeMessageActivity extends Activity
             }
         }
         // If we're not running, but resume later, the current thread ID will be set in onResume()
+    }
+
+    // Handler for handle copy mms to SIM with toast.
+    private Handler mCopyToSimWithToastHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+        int resId = 0;
+            switch (msg.what){
+                case MSG_COPY_TO_SIM_FAILED:
+                     resId = R.string.copy_to_sim_fail;
+                     break;
+                case MSG_COPY_TO_SIM_SUCCESS:
+                     resId = R.string.copy_to_sim_success;
+                     break;
+                default:
+                     break;
+            }
+            Toast.makeText(ComposeMessageActivity.this, resId, Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    private class CopyToSimSelectListener implements DialogInterface.OnClickListener {
+        private MessageItem msgItem;
+        private int phoneId;
+
+        public CopyToSimSelectListener(MessageItem msgItem) {
+            super();
+            this.msgItem = msgItem;
+        }
+
+        public void onClick(DialogInterface dialog, int which) {
+            if (which >= 0) {
+                phoneId = which;
+            } else if (which == DialogInterface.BUTTON_POSITIVE) {
+                new Thread(new CopyToSimThread(msgItem, phoneId)).start();
+            }
+        }
+    }
+
+    private class CopyToSimThread extends Thread {
+        private MessageItem msgItem;
+        private int phoneId;
+
+        public CopyToSimThread(MessageItem msgItem) {
+            this.msgItem = msgItem;
+            this.phoneId = SubscriptionManager.getPhoneId(SmsManager.getDefault()
+                                      .getDefaultSmsSubId());
+        }
+
+        public CopyToSimThread(MessageItem msgItem, int phoneId) {
+            this.msgItem = msgItem;
+            this.phoneId = phoneId;
+        }
+
+        @Override
+        public void run() {
+            Message msg = mCopyToSimWithToastHandler.obtainMessage();
+            msg.what = copyToSim(msgItem, phoneId) ?  MSG_COPY_TO_SIM_SUCCESS
+                    : MSG_COPY_TO_SIM_FAILED;
+            msg.sendToTarget();
+        }
+    }
+
+    private boolean copyToSim(MessageItem msgItem) {
+        return copyToSim(msgItem, SubscriptionManager.getPhoneId(SmsManager
+                       .getDefault().getDefaultSmsSubId()));
+    }
+
+    private boolean copyToSim(MessageItem msgItem, int phoneId) {
+        int boxId = msgItem.mBoxId;
+        String address = msgItem.mAddress;
+        String text = msgItem.mBody;
+        long timestamp = msgItem.mDate != 0 ? msgItem.mDate : System.currentTimeMillis();
+
+        long[] sub = SubscriptionManager.getSubId(phoneId);
+        SmsManager sm = SmsManager.getSmsManagerForSubscriber(sub[0]);
+        ArrayList<String> messages = sm.divideMessage(text);
+
+        boolean ret = true;
+        for (String message : messages) {
+            byte pdu[] = null;
+            int status;
+            if (Sms.isOutgoingFolder(boxId)) {
+                pdu = SmsMessage.getSubmitPdu(null, address, message,
+                        false).encodedMessage;
+                status = SmsManager.STATUS_ON_ICC_SENT;
+            } else {
+                pdu = MessageUtils.getDeliveryPdu(null, address,
+                        message, timestamp, phoneId);
+                status = SmsManager.STATUS_ON_ICC_READ;
+            }
+            ret = sm.copyMessageToIcc(null, pdu, status);
+            if (!ret) {
+                break;
+            }
+        }
+        return ret;
     }
 }
