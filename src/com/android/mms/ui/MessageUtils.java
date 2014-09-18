@@ -49,6 +49,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.StatFs;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -84,6 +85,7 @@ import com.android.mms.data.WorkingMessage;
 import com.android.mms.model.MediaModel;
 import com.android.mms.model.SlideModel;
 import com.android.mms.model.SlideshowModel;
+import com.android.mms.transaction.MessagingNotification;
 import com.android.mms.transaction.MmsMessageSender;
 import com.android.mms.util.AddressUtils;
 import com.android.mms.util.DownloadManager;
@@ -141,6 +143,10 @@ public class MessageUtils {
 
     // add threshold for low memory
     private static final int THRESHOLD_LOW_MEM_PERCENTAGE = 5;
+    // add for obtain mms data path
+    private static final String MMS_DATA_DATA_DIR = "/data/data";
+    // the remaining space , format as MB
+    public static final long MIN_AVAILABLE_SPACE_MMS = 2 * 1024 * 1024;
 
     // Cache of both groups of space-separated ids to their full
     // comma-separated display names, as well as individual ids to
@@ -169,6 +175,8 @@ public class MessageUtils {
 
     // Save the thread id for same recipient forward mms
     public static ArrayList<Long> sSameRecipientList = new ArrayList<Long>();
+    // add for obtaining all short message count
+    public static final Uri MESSAGES_COUNT_URI = Uri.parse("content://mms-sms/messagescount");
 
     static {
         for (int i = 0; i < NUMERIC_CHARS_SUGAR.length; i++) {
@@ -1655,5 +1663,67 @@ public class MessageUtils {
         long lowBytes = (path.getTotalSpace() * THRESHOLD_LOW_MEM_PERCENTAGE) / 100;
 
         return lowBytes > path.getFreeSpace();
+    }
+
+    public static long getStoreUnused() {
+        File path = new File(MMS_DATA_DATA_DIR);
+        StatFs stat = new StatFs(path.getPath());
+        long blockSize = stat.getBlockSize();
+        long availableBlocks = stat.getAvailableBlocks();
+        return availableBlocks * blockSize;
+    }
+
+    public static boolean isPhoneMemoryFull() {
+        long available = getStoreUnused();
+        return available < MIN_AVAILABLE_SPACE_MMS ;
+    }
+
+    /* Used for check whether have memory for save mms */
+    public static boolean isMmsMemoryFull() {
+        boolean isMemoryFull = isPhoneMemoryFull();
+        if (isMemoryFull) {
+            Log.d(TAG, "Mms emory is full ");
+            return true;
+        }
+        return false;
+    }
+
+    /* check to see whether short message count is up to 2000 */
+    public static void checkIsPhoneMessageFull(Context context) {
+        boolean isPhoneMemoryFull = isPhoneMemoryFull();
+        boolean isPhoneSmsCountFull = false;
+        int maxSmsMessageCount = context.getResources().getInteger(R.integer.max_sms_message_count);
+        if (maxSmsMessageCount != -1) {
+            int msgCount = getSmsMessageCount(context);
+            isPhoneSmsCountFull = msgCount >= maxSmsMessageCount;
+        }
+
+        Log.d(TAG, "checkIsPhoneMessageFull : isPhoneMemoryFull = " + isPhoneMemoryFull
+                + "isPhoneSmsCountFull = " + isPhoneSmsCountFull);
+
+        MessagingNotification.updateSmsMessageFullIndicator(context,
+                (isPhoneMemoryFull || isPhoneSmsCountFull));
+    }
+
+    public static int getSmsMessageCount(Context context) {
+        int msgCount = -1;
+
+        Cursor cursor = SqliteWrapper.query(context, context.getContentResolver(),
+                MESSAGES_COUNT_URI, null, null, null, null);
+
+        if (cursor != null) {
+            try {
+                if (cursor.moveToFirst()) {
+                    msgCount = cursor.getInt(0);
+                } else {
+                    Log.d(TAG, "getSmsMessageCount returned no rows!");
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+
+        Log.d(TAG, "getSmsMessageCount : msgCount = " + msgCount);
+        return msgCount;
     }
 }

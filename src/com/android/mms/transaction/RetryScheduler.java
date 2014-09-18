@@ -78,6 +78,7 @@ public class RetryScheduler implements Observer {
 
     public void update(Observable observable) {
         Transaction t = (Transaction) observable;
+        TransactionState state = t.getState();
         try {
 
             if (Log.isLoggable(LogTag.TRANSACTION, Log.VERBOSE)) {
@@ -91,7 +92,6 @@ public class RetryScheduler implements Observer {
                     || (t instanceof ReadRecTransaction)
                     || (t instanceof SendTransaction)) {
                 try {
-                    TransactionState state = t.getState();
                     if (state.getState() == TransactionState.FAILED) {
                         Uri uri = state.getContentUri();
                         if (uri != null) {
@@ -103,8 +103,9 @@ public class RetryScheduler implements Observer {
                 }
             }
         } finally {
-            if (isMmsDataConnectivityPossible(t.getSubId())) {
-                setRetryAlarm(mContext);
+            if (isMmsDataConnectivityPossible(t.getSubId()) &&
+                    state.getState() == TransactionState.FAILED) {
+                    setRetryAlarm(mContext);
             } else {
                 Log.d(TAG, "Retry alarm is not set");
             }
