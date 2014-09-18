@@ -66,6 +66,7 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.mms.LogTag;
 import com.android.mms.MmsConfig;
 import com.android.mms.R;
+import com.android.mms.ui.MessageUtils;
 import com.android.mms.util.DownloadManager;
 import com.android.mms.util.RateController;
 import com.google.android.mms.pdu.GenericPdu;
@@ -744,6 +745,10 @@ public class TransactionService extends Service implements Observer {
                     switch (transaction.getType()) {
                         case Transaction.NOTIFICATION_TRANSACTION:
                         case Transaction.RETRIEVE_TRANSACTION:
+                            if (getResources().getBoolean(R.bool.config_detect_low_memory)
+                                    && MessageUtils.isMemoryLow()) {
+                                MessagingNotification.notifyMemoryLow(this);
+                            }
                             // We're already in a non-UI thread called from
                             // NotificationTransacation.run(), so ok to block here.
                             long threadId = MessagingNotification.getThreadId(
