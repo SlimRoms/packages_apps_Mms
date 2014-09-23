@@ -177,6 +177,8 @@ public class MessageUtils {
     private static final int[] sVideoDuration =
             new int[] {0, 5, 10, 15, 20, 30, 40, 50, 60, 90, 120};
 
+    public static final int SLIDE_TEXT_LIMIT_SIZE = 3000; // text limit size of slide texts.
+
     /**
      * MMS address parsing data structures
      */
@@ -397,8 +399,6 @@ public class MessageUtils {
         EncodedStringValue subject = msg.getSubject();
         if (subject != null) {
             String subStr = subject.getString();
-            // Message size should include size of subject.
-            size += subStr.length();
             details.append(subStr);
         }
 
@@ -410,7 +410,8 @@ public class MessageUtils {
         // Message size: *** KB
         details.append('\n');
         details.append(res.getString(R.string.message_size_label));
-        details.append((size - 1)/1000 + 1);
+        details.append((size + SlideshowModel.SLIDESHOW_SLOP - 1)
+                / SlideshowModel.SLIDESHOW_SLOP + 1);
         details.append(" KB");
 
         return details.toString();
