@@ -347,8 +347,7 @@ public class TransactionService extends Service implements Observer {
             return;
         }
         mConnMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (mConnMgr == null || !mConnMgr.getMobileDataEnabled()
-                || !MmsConfig.isSmsEnabled(getApplicationContext())) {
+        if (mConnMgr == null || !MmsConfig.isSmsEnabled(getApplicationContext())) {
             endMmsConnectivity();
             stopSelf(serviceId);
             return;
