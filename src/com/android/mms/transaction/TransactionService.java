@@ -189,7 +189,6 @@ public class TransactionService extends Service implements Observer {
             @Override
             public void onLost(Network network) {
                 Log.d(TAG, "sub:" + mSubId + "NetworkCallback.onLost: network=" + network);
-                releaseNetworkRequest();
             }
             @Override
             public void onUnavailable() {
@@ -260,13 +259,11 @@ public class TransactionService extends Service implements Observer {
         }
     }
 
-    private NetworkRequest buildNetworkRequest(String subId) {
+    private NetworkRequest buildNetworkRequest() {
         NetworkRequest networkRequest = new NetworkRequest.Builder()
             .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
             .addCapability(NetworkCapabilities.NET_CAPABILITY_MMS)
             .build();
-
-        networkRequest.networkCapabilities.setNetworkSpecifier(subId);
 
         return networkRequest;
     }
@@ -714,7 +711,7 @@ public class TransactionService extends Service implements Observer {
                 ConnectivityManager.TYPE_MOBILE, Phone.FEATURE_ENABLE_MMS, subId);
 
         if (mMmsNetworkRequest == null) {
-            mMmsNetworkRequest = buildNetworkRequest(subId);
+            mMmsNetworkRequest = buildNetworkRequest();
             mMmsNetworkCallback = getNetworkCallback(subId);
 
             mConnMgr.registerNetworkCallback(mMmsNetworkRequest, mMmsNetworkCallback);
