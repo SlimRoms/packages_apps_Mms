@@ -104,12 +104,22 @@
     <string name="gestures_already_present">A similar gesture is already associated with another template</string>
     <string name="select_template">Select templates</string>
 
+    <!-- Gestures sensitivity entries -->
+    <string name="pref_templates_gestures_sensitivity_broadest">1 (broadest)</string>
+    <string name="pref_templates_gestures_sensitivity_strictest">12 (strictest)</string>
+
     <!-- Change Vibrate pattern/method for message notification -->
     <string name="pref_title_mms_notification_vibrate_settings">Vibrate settings</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Vibrate pattern</string>
     <string name="pref_summary_mms_notification_vibrate_pattern">Change vibrate pattern</string>
+    <string name="pref_title_mms_notification_vibrate_normal">Normal</string>
+    <string name="pref_title_mms_notification_vibrate_medium">Medium Vibrate</string>
+    <string name="pref_title_mms_notification_vibrate_long">Long Vibrate</string>
+    <string name="pref_title_mms_notification_vibrate_multiple_short">Multiple Short</string>
+    <string name="pref_title_mms_notification_vibrate_multiple_long">Multiple Long</string>
     <string name="pref_title_mms_notification_vibrate_custom">Custom vibrate pattern</string>
     <string name="pref_text_mms_notification_vibrate_custom">Format off/on in milliseconds: off, on, off, on, ...</string>
+    <string name="pref_mms_notification_vibrate_pattern_custom">custom</string>
 
     <!-- Strip unicode -->
     <string name="pref_title_unicode_stripping">Strip unicode</string>
@@ -228,7 +238,10 @@
     <string name="pref_mms_ua_custom_option">Custom\u2026</string>
     <string name="pref_title_mms_user_agent">User Agent</string>
     <string name="pref_summary_mms_user_agent">Spoof phone as a different model for MMS</string>
-    <string name="pref_mms_user_agent_custom_set">ser Agent set to:\n</string>
+    <string name="pref_mms_user_agent_custom_set">User Agent set to:\n</string>
+
+    <string name="pref_mms_user_agent_default">default</string>
+    <string name="pref_mms_user_agent_custom">custom</string>
 
     <!-- Multi-Part SMS -->
     <string name="pref_title_sms_multi_part">Multi-part SMS</string>
