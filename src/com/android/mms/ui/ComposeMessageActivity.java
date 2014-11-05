@@ -928,8 +928,9 @@ public class ComposeMessageActivity extends Activity
     };
 
     private void checkForTooManyRecipients() {
-        final int recipientLimit = MmsConfig.getRecipientLimit();
-        if (recipientLimit != Integer.MAX_VALUE) {
+        final int recipientLimit =
+                MmsConfig.getInt(mSelectedSubId, SmsManager.MMS_CONFIG_RECIPIENT_LIMIT);
+        if (recipientLimit != Integer.MAX_VALUE && recipientLimit > 0) {
             final int recipientCount = recipientCount();
             boolean tooMany = recipientCount > recipientLimit;
 
