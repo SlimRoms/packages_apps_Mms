@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="menu_mark_all_read">Σήμανση όλων ως αναγνωσμένων</string>
   <string-array name="prefEntries_vibrateWhen">
     <item>Πάντα</item>
     <item>Μόνο στο αθόρυβο</item>
@@ -45,12 +46,20 @@
   <string name="template_not_present_error">Δεν υπάρχουν καθορισμένα πρότυπα</string>
   <string name="template_not_present_error_title">Σφάλμα</string>
   <string name="template_select">Επιλογή προτύπου</string>
+  <string name="template_confirm_dialog_title">Διαγραφή?</string>
   <string name="gestures_already_present">Προσοχή: Μια παρόμοια κίνηση είναι συνδεδεμένη με ένα άλλο πρότυπο!</string>
+  <string name="pref_templates_gestures_sensitivity_broadest">1 (ευρύτερη)</string>
   <string name="pref_title_mms_notification_vibrate_settings">Ρυθμίσεις δόνησης</string>
   <string name="pref_title_mms_notification_vibrate_pattern">Μοτίβο δόνησης</string>
   <string name="pref_summary_mms_notification_vibrate_pattern">Αλλαγή μοτίβου δόνησης</string>
+  <string name="pref_title_mms_notification_vibrate_normal">Κανονικό</string>
+  <string name="pref_title_mms_notification_vibrate_medium">Μεσαία δόνηση</string>
+  <string name="pref_title_mms_notification_vibrate_long">Εκτενής δόνηση</string>
   <string name="pref_title_mms_notification_vibrate_custom">Προσαρμοσμένο μοτίβο δόνησης</string>
   <string name="pref_text_mms_notification_vibrate_custom">Μορφή: off/on σε millisecond: off, on, off, on, ...</string>
+  <string name="pref_mms_notification_vibrate_pattern_custom">προσαρμοσμένο</string>
+  <string name="pref_unicode_stripping_leave_intact">Καμία αλλαγή στους χαρακτήρες</string>
+  <string name="pref_unicode_stripping_non_encodable">Αφαίρεση χαρακτήρων που δεν μπορούν να κωδικοποιηθούν</string>
   <string name="pref_title_mms_full_timestamp">Πλήρες timestamps</string>
   <string name="pref_summary_mms_full_timestamp">Εμφάνιση της ημερομηνίας και της ώρας στα timestamps</string>
   <string name="pref_title_mms_use_sent_timestamp">Αρχικά timestamps</string>
@@ -76,4 +85,38 @@
   <string name="toast_sending_message">Το μήνυμα αποστέλλεται</string>
   <string name="qm_quick_reply">Απάντηση</string>
   <string name="qm_mark_read">Διαβάστηκε</string>
+  <string name="direct_call_title">Άμεση κλήση</string>
+  <string name="pref_dialogtitle_mms_message_font_size">Επιλέξτε μέγεθος γραμματοσειράς</string>
+  <string name="pref_title_notification_privacy_mode_enabled">Λειτουργία απορρήτου</string>
+  <string name="pref_summary_notification_privacy_mode_enabled">Απόκρυψη αποστολέα και μηνύματος στην μπάρα κατάστασης και απενεργοποίηση Γρήγορης απάντησης</string>
+  <string name="notification_single_title_privacy_mode">Νέο μήνυμα</string>
+  <string name="notification_single_text_privacy_mode">1 μη αναγνωσμένο μήνυμα</string>
+  <string name="notification_multiple_title_privacy_mode">Νέα μηνύματα</string>
+  <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> μη αναγνωσμένα μηνύματα</string>
+  <string name="notification_ticker_privacy_mode">Νέο μήνυμα ελήφθη</string>
+  <string name="msg_sig_title">Υπογραφή</string>
+  <string name="add_recipients">Προσθέστε παραλήπτες</string>
+  <string name="groups_header">Ομάδες</string>
+  <string name="pref_mms_ua_default_android">Προεπιλογή Android</string>
+  <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+  <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+  <string name="pref_mms_ua_blackberry_8800">Βατόμουρο 8800</string>
+  <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+  <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+  <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+  <string name="pref_mms_user_agent_default">προεπιλογή</string>
+  <string name="pref_mms_user_agent_custom">προσαρμοσμένο</string>
+  <string name="blacklist_title">Μαύρη Λίστα</string>
+  <string name="blacklist_summary_disabled">Απενεργοποιημένο</string>
+  <string name="blacklist_summary">Εισερχόμενα μηνύματα από αριθμούς που είναι στη μαύρη λίστα θα απορρίπτονται</string>
+  <string name="blacklist_notification">Απορρίφθηκε μήνυμα από %s</string>
+  <string name="blacklist_notification_private_number">Απορρίφθηκε μήνυμα από απόρρητο αριθμό</string>
+  <string name="blacklist_notification_list_private">Απόρρητο</string>
+  <string name="blacklist_notification_unknown_number">Απορρίφθηκε μήνυμα από άγνωστο αριθμό %s</string>
+  <string name="blacklist_notification_multiple">Απορρίφθηκαν <xliff:g id="count">%d</xliff:g> μηνύματα</string>
+  <string name="unblock_number">Ακύρωση φραγής</string>
+  <string name="add_to_blacklist">Προσθήκη στη μαύρη λίστα</string>
+  <string name="add_to_blacklist_message">Μελλοντικά μηνύματα από το %s θα απορρίπτονται</string>
+  <string name="alert_dialog_yes">Ναί</string>
+  <string name="alert_dialog_no">\'Οχι</string>
 </resources>

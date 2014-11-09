@@ -23,7 +23,7 @@
     <item>Nie</item>
   </string-array>
   <string name="pref_title_save_location">Speicherort Anlage</string>
-  <string name="pref_title_save_location_summary">Geben sie einen Ordner an um Anlagen zu speichern</string>
+  <string name="pref_title_save_location_summary">Geben sie einen Ordner an, um Anlagen zu speichern</string>
   <string name="attach_contact_info">Kontaktinformationen</string>
   <string name="record_sound_error_alert">Audio kann nicht aufgezeichnet werden.    SoundRecorder.apk fehlt!</string>
   <string name="label_mms_push">MMS-Push</string>
@@ -109,15 +109,15 @@
   <string name="pref_title_mms_message_font_size">Schriftgröße der Nachrichten</string>
   <string name="pref_summary_mms_message_font_size">Ändert die Schriftgröße der Nachrichtenansicht</string>
   <string name="pref_dialogtitle_mms_message_font_size">Schriftgröße auswählen</string>
-  <string name="pref_title_notification_privacy_mode_enabled">Privater Modus</string>
-  <string name="pref_summary_notification_privacy_mode_enabled">Blendet Absender und Nachricht in der Statusleiste aus und deaktiviert Schnellantworten</string>
+  <string name="pref_title_notification_privacy_mode_enabled">Datenschutz-Modus</string>
+  <string name="pref_summary_notification_privacy_mode_enabled">Absender und Nachricht nicht in der Statusleiste zeigen und Schnellantwort blockieren</string>
   <string name="notification_single_title_privacy_mode">Neue Nachricht</string>
   <string name="notification_single_text_privacy_mode">1 ungelesene Nachricht</string>
   <string name="notification_multiple_title_privacy_mode">Neue Nachrichten</string>
-  <string name="notification_multiple_text_privacy_mode">ungelesene Nachrichten</string>
+  <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> ungelesene Nachrichten</string>
   <string name="notification_ticker_privacy_mode">Neue Nachricht empfangen</string>
-  <string name="pref_title_notification_heads_up_mode_enabled">Heads-up Modus</string>
-  <string name="pref_summary_notification_heads_up_mode_enabled">Nachrichten als Heads-up Benachrichtigung angezeigt.</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Heads-up-Modus</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Nachrichten als Heads-up-Meldung anzeigen.</string>
   <string name="msg_sig_title">Signatur</string>
   <string name="msg_sig_summary">Setze eine benutzerdefinierte Signatur für Nachrichten</string>
   <string name="msg_sig_enter_text">Signaturtext eingeben</string>
@@ -152,5 +152,5 @@
   <string name="blacklist_summary">Eingehende Nachrichten von Nummern, die sich in der Sperrliste befinden, werden abgewiesen</string>
   <string name="blacklist_notification">Eine Nachricht von %s wurde abgewiesen</string>
   <string name="blacklist_notification_private_number">Eine Nachricht mit unterdrückter Nummer wurde abgewiesen</string>
-  <string name="blacklist_notification_unknown_number">Eine Nachricht von %s wurde abgewiesen</string>
+  <string name="blacklist_notification_unknown_number">Eine Nachricht von unbekannter Nummer %s wurde abgewiesen</string>
 </resources>
