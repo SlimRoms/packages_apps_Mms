@@ -364,7 +364,7 @@ public class MessageItem {
                     try {
                         reportInt = Integer.parseInt(report);
                         if (reportInt == PduHeaders.VALUE_YES) {
-                            mDeliveryStatus = DeliveryStatus.RECEIVED;
+                            mDeliveryStatus = checkDeliveryStatus();
                         } else {
                             mDeliveryStatus = DeliveryStatus.NONE;
                         }
@@ -402,6 +402,34 @@ public class MessageItem {
             }
         }
     }
+
+    private DeliveryStatus checkDeliveryStatus() {
+        DeliveryStatus ds = DeliveryStatus.PENDING;
+        String[] project = {Mms.MESSAGE_ID};
+        Cursor c = mContext.getContentResolver().query(mMessageUri, project, null, null, null);
+        try{
+            if (c != null && c.moveToFirst()) {
+                String id = c.getString(0);
+                if (id != null) {
+                    String where = Mms.MESSAGE_ID + "=? and " + Mms.MESSAGE_TYPE + "=?";
+                    String[] whereValue = {id,
+                            Integer.toString(PduHeaders.MESSAGE_TYPE_DELIVERY_IND)};
+                    Cursor cur = mContext.getContentResolver().query(
+                            Mms.CONTENT_URI, project, where, whereValue, null);
+                    if (cur != null && cur.getCount() > 0) {
+                        ds = DeliveryStatus.RECEIVED;
+                        cur.close();
+                    }
+                }
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+        }
+        return ds;
+    }
+
 
     public void setOnPduLoaded(PduLoadedCallback pduLoadedCallback) {
         mPduLoadedCallback = pduLoadedCallback;
