@@ -55,12 +55,26 @@
   <string name="template_not_present_error">Non sono stati definiti dei modelli</string>
   <string name="template_not_present_error_title">Errore</string>
   <string name="template_select">Seleziona un modello</string>
+  <string name="template_confirm_dialog_title">Eliminare?</string>
+  <plurals name="template_confirm_delete_conversation">
+    <item quantity="one">Un modello verrà eliminato.</item>
+    <item quantity="other"><xliff:g id="number" example="15">%1$s</xliff:g> modelli verranno eliminati.</item>
+  </plurals>
   <string name="gestures_already_present">Attenzione! Una gesture simile è associata ad un altro template</string>
+  <string name="select_template">Seleziona modelli</string>
+  <string name="pref_templates_gestures_sensitivity_broadest">1 (più tollerante)</string>
+  <string name="pref_templates_gestures_sensitivity_strictest">12 (più preciso)</string>
   <string name="pref_title_mms_notification_vibrate_settings">Impostazioni vibrazione</string>
   <string name="pref_title_mms_notification_vibrate_pattern">Schema vibrazione</string>
   <string name="pref_summary_mms_notification_vibrate_pattern">Cambia schema di vibrazione</string>
+  <string name="pref_title_mms_notification_vibrate_normal">Normale</string>
+  <string name="pref_title_mms_notification_vibrate_medium">Vibrazione media</string>
+  <string name="pref_title_mms_notification_vibrate_long">Vibrazione lunga</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_short">Ripetute e brevi</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_long">Ripetute e lunghe</string>
   <string name="pref_title_mms_notification_vibrate_custom">Schema personalizzato</string>
   <string name="pref_text_mms_notification_vibrate_custom">Formatta off/on in millisecondi: off, on, off, on, ...</string>
+  <string name="pref_mms_notification_vibrate_pattern_custom">personalizzato</string>
   <string name="pref_title_unicode_stripping">Rimuovi unicode</string>
   <string name="pref_unicode_stripping_leave_intact">Lascia intatti i caratteri</string>
   <string name="pref_unicode_stripping_non_encodable">Rimuovi i caratteri non codificati</string>
@@ -106,6 +120,8 @@
   <string name="notification_multiple_title_privacy_mode">Nuovi messaggi</string>
   <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> messaggi non letti</string>
   <string name="notification_ticker_privacy_mode">Nuovo messaggio ricevuto</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Usa heads up</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Visualizza i messaggi come notifiche heads up.</string>
   <string name="msg_sig_title">Firma</string>
   <string name="msg_sig_summary">Impostare una firma personalizzata per messaggi</string>
   <string name="msg_sig_enter_text">Immettere il testo della firma</string>
@@ -116,4 +132,42 @@
   <string name="pref_multi_select">Selettore facile</string>
   <string name="pref_multi_select_summary">Selezionare più contatti utilizzando una casella di controllo</string>
   <string name="add_recipients">Aggiungere i destinatari</string>
+  <string name="groups_header">Gruppi</string>
+  <string name="loading_recipients">Caricamento contatti e gruppi</string>
+  <string name="no_recipients">Nessun possibile destinatario</string>
+  <string name="pref_text_area_size_title">Dimensioni area testo</string>
+  <string name="pref_text_area_size_summary">Imposta l\'area di testo a <xliff:g id="lines"> %1$s </xliff:g> linee</string>
+  <string name="pref_mms_ua_default_android">Predefinito Android</string>
+  <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+  <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+  <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
+  <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+  <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+  <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+  <string name="pref_mms_ua_custom_option">Personalizzato\u2026</string>
+  <string name="pref_title_mms_user_agent">User Agent</string>
+  <string name="pref_summary_mms_user_agent">Emula dispositivo differente per gli MMS</string>
+  <string name="pref_mms_user_agent_custom_set">User Agent impostato come:\n</string>
+  <string name="pref_mms_user_agent_default">predefinito</string>
+  <string name="pref_mms_user_agent_custom">personalizzato</string>
+  <string name="pref_title_sms_multi_part">SMS concatenati</string>
+  <string name="pref_title_sms_multi_part_size">Dimensione SMS concatenati</string>
+  <string name="pref_summary_sms_multi_part_mms">I messaggi di testo con oltre 160 caratteri verranno inviati come MMS</string>
+  <string name="pref_summary_sms_multi_part">I messaggi di testo con oltre 160 caratteri verranno inviati come SMS concatenati</string>
+  <string name="pref_summary_sms_multi_part_mms_size">I messaggi di testo saranno convertiti in MMS dopo <xliff:g id="seg">%1$s</xliff:g> segmenti</string>
+  <string name="pref_title_sms_split">Dividi SMS</string>
+  <string name="pref_summary_sms_split">I messaggi di testo saranno divisi in messaggi da 160 caratteri</string>
+  <string name="blacklist_title">Blacklist</string>
+  <string name="blacklist_summary_disabled">Disattivata</string>
+  <string name="blacklist_summary">I messaggi provenienti dai numeri presenti nella blacklist saranno bloccati</string>
+  <string name="blacklist_notification">Bloccato un messaggio da %s</string>
+  <string name="blacklist_notification_private_number">Bloccato un messaggio da un numero privato</string>
+  <string name="blacklist_notification_list_private">Privato</string>
+  <string name="blacklist_notification_unknown_number">Bloccato un messaggio dal numero sconosciuto: %s</string>
+  <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> messageis bloccati</string>
+  <string name="unblock_number">Sblocca</string>
+  <string name="add_to_blacklist">Aggiungi alla blacklist</string>
+  <string name="add_to_blacklist_message">I futuri messaggi da %s saranno bloccati</string>
+  <string name="alert_dialog_yes">Sì</string>
+  <string name="alert_dialog_no">No</string>
 </resources>

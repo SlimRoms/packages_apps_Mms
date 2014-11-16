@@ -16,14 +16,23 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="menu_mark_all_read">Σήμανση όλων ως αναγνωσμένων</string>
+  <string name="cannot_find_contact">Η επαφή που επιλέξατε δεν μπορεί να αποδοθεί.</string>
   <string-array name="prefEntries_vibrateWhen">
     <item>Πάντα</item>
     <item>Μόνο στο αθόρυβο</item>
     <item>Ποτέ</item>
   </string-array>
+  <string name="pref_title_save_location">Συνημμένος φάκελος αποθήκευσης</string>
+  <string name="pref_title_save_location_summary">Καθορίστε το φάκελο για να αποθηκεύσετε τα συνημμένα</string>
+  <string name="attach_contact_info">Στοιχεία επαφής</string>
+  <string name="record_sound_error_alert">Δεν μπόρεσε να καταγραφεί ήχος.  SoundRecorder.apk λείπει!</string>
+  <string name="label_mms_push">MMS Push</string>
+  <string name="desc_mms_push">Ωθεί τα MMS από τα εξερχόμενα στο δίκτυο</string>
   <string name="pref_extra_settings">Επιπλέον ρυθμίσεις</string>
+  <string name="pref_char_settings">Ρυθμίσεις χαρακτήρων</string>
   <string name="pref_title_enable_emojis">Υποστήριξη emoji</string>
   <string name="pref_summary_enable_emojis">Ενεργοποιήστε την υποστήριξη για τα unicode emojis, ένα σύνολο από 471 ωραία emoticons</string>
+  <string name="menu_insert_emoji">Εισαγωγή emojis</string>
   <string name="pref_title_sms_split_counter">Μετρητής χαρακτήρων</string>
   <string name="pref_summary_sms_split_counter">Xαρακτήρες που απομένουν εώς το διαχωρισμό του SMS πχ. (1/160)</string>
   <string name="prefs_templates_settings">Πρότυπα SMS</string>
@@ -47,19 +56,33 @@
   <string name="template_not_present_error_title">Σφάλμα</string>
   <string name="template_select">Επιλογή προτύπου</string>
   <string name="template_confirm_dialog_title">Διαγραφή?</string>
+  <plurals name="template_confirm_delete_conversation">
+    <item quantity="one">Ένα πρότυπο θα διαγραφεί.</item>
+    <item quantity="other"><xliff:g id="number" example="15">%1$s</xliff:g> πρότυπα θα διαγραφούν.</item>
+  </plurals>
   <string name="gestures_already_present">Προσοχή: Μια παρόμοια κίνηση είναι συνδεδεμένη με ένα άλλο πρότυπο!</string>
+  <string name="select_template">Επιλέξτε πρότυπα</string>
   <string name="pref_templates_gestures_sensitivity_broadest">1 (ευρύτερη)</string>
+  <string name="pref_templates_gestures_sensitivity_strictest">12 (αυστηρότερη)</string>
   <string name="pref_title_mms_notification_vibrate_settings">Ρυθμίσεις δόνησης</string>
   <string name="pref_title_mms_notification_vibrate_pattern">Μοτίβο δόνησης</string>
   <string name="pref_summary_mms_notification_vibrate_pattern">Αλλαγή μοτίβου δόνησης</string>
   <string name="pref_title_mms_notification_vibrate_normal">Κανονικό</string>
   <string name="pref_title_mms_notification_vibrate_medium">Μεσαία δόνηση</string>
   <string name="pref_title_mms_notification_vibrate_long">Εκτενής δόνηση</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_short">Πολλαπλές μικρές</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_long">Πολλαπλές εκτενείς</string>
   <string name="pref_title_mms_notification_vibrate_custom">Προσαρμοσμένο μοτίβο δόνησης</string>
   <string name="pref_text_mms_notification_vibrate_custom">Μορφή: off/on σε millisecond: off, on, off, on, ...</string>
   <string name="pref_mms_notification_vibrate_pattern_custom">προσαρμοσμένο</string>
+  <string name="pref_title_unicode_stripping">Αφαίρεση unicode</string>
   <string name="pref_unicode_stripping_leave_intact">Καμία αλλαγή στους χαρακτήρες</string>
   <string name="pref_unicode_stripping_non_encodable">Αφαίρεση χαρακτήρων που δεν μπορούν να κωδικοποιηθούν</string>
+  <string name="pref_unicode_stripping_all">Αφαίρεση όλων των χαρακτήρων unicode</string>
+  <string name="pref_title_enable_quick_emojis">Γρήγορο κουμπί emoji</string>
+  <string name="pref_summary_enable_quick_emojis">Εμφανίζεται ένα κουμπί δίπλα στην περιοχή εισαγωγής κειμένου για γρήγορη πρόσβαση στα emoji</string>
+  <string name="pref_title_enable_softbank_encoding">SoftBank emoji</string>
+  <string name="pref_summary_enable_softbank_encoding">Χρησιμοποιήστε κωδικοποίηση SoftBank emoji</string>
   <string name="pref_title_mms_full_timestamp">Πλήρες timestamps</string>
   <string name="pref_summary_mms_full_timestamp">Εμφάνιση της ημερομηνίας και της ώρας στα timestamps</string>
   <string name="pref_title_mms_use_sent_timestamp">Αρχικά timestamps</string>
@@ -86,6 +109,9 @@
   <string name="qm_quick_reply">Απάντηση</string>
   <string name="qm_mark_read">Διαβάστηκε</string>
   <string name="direct_call_title">Άμεση κλήση</string>
+  <string name="direct_call_summary">Απαντώντας τα τηλεφωνήματα της τρέχουσας επαφής</string>
+  <string name="pref_title_mms_message_font_size">Μέγεθος γραμματοσειράς μηνύματος</string>
+  <string name="pref_summary_mms_message_font_size">Αλλαγή μέγεθος γραμματοσειράς στην προβολή μηνύματος</string>
   <string name="pref_dialogtitle_mms_message_font_size">Επιλέξτε μέγεθος γραμματοσειράς</string>
   <string name="pref_title_notification_privacy_mode_enabled">Λειτουργία απορρήτου</string>
   <string name="pref_summary_notification_privacy_mode_enabled">Απόκρυψη αποστολέα και μηνύματος στην μπάρα κατάστασης και απενεργοποίηση Γρήγορης απάντησης</string>
@@ -94,9 +120,23 @@
   <string name="notification_multiple_title_privacy_mode">Νέα μηνύματα</string>
   <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> μη αναγνωσμένα μηνύματα</string>
   <string name="notification_ticker_privacy_mode">Νέο μήνυμα ελήφθη</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Λειτουργία Heads up</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Εμφάνιση μηνυμάτων ως ειδοποίηση heads up.</string>
   <string name="msg_sig_title">Υπογραφή</string>
+  <string name="msg_sig_summary">Ορίστε μία  προσαρμοσμένη υπογραφή για τα μηνύματα</string>
+  <string name="msg_sig_enter_text">Εισάγετε το κείμενο της υπογραφής</string>
+  <string name="mms_breath">Breathing SMS</string>
+  <string name="mms_breath_summary">Θα δώσει στις ειδοποιήσεις στη μπάρα κατάστασης ένα εφφέ αναπνοής</string>
+  <string name="hide_avatar">Απόκρυψη Avatar</string>
+  <string name="hide_avatar_summary">Απόκρυψη avatar στην λίστα συνομιλιών</string>
+  <string name="pref_multi_select">Εύκολος επιλογέας</string>
+  <string name="pref_multi_select_summary">Επιλέξτε πολλαπλές επαφές, χρησιμοποιώντας ένα κουτάκι</string>
   <string name="add_recipients">Προσθέστε παραλήπτες</string>
   <string name="groups_header">Ομάδες</string>
+  <string name="loading_recipients">Φόρτωση επαφών και ομάδων</string>
+  <string name="no_recipients">Όχι πιθανοί δέκτες</string>
+  <string name="pref_text_area_size_title">Μέγεθος περιοχής κειμένου</string>
+  <string name="pref_text_area_size_summary">Ρυθμίστε την περιοχή κειμένου σε  <xliff:g id="lines"> %1$s </xliff:g></string>
   <string name="pref_mms_ua_default_android">Προεπιλογή Android</string>
   <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
   <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
@@ -104,8 +144,19 @@
   <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
   <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
   <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+  <string name="pref_mms_ua_custom_option">Προσαρμοσμένο\u2026</string>
+  <string name="pref_title_mms_user_agent">User Agent</string>
+  <string name="pref_summary_mms_user_agent">Κορόιδεψε το τηλέφωνο ως ένα διαφορετικό μοντέλο για MMS</string>
+  <string name="pref_mms_user_agent_custom_set">User Agent έχει οριστεί σε: \n</string>
   <string name="pref_mms_user_agent_default">προεπιλογή</string>
   <string name="pref_mms_user_agent_custom">προσαρμοσμένο</string>
+  <string name="pref_title_sms_multi_part">Πολυτμηματικό SMS</string>
+  <string name="pref_title_sms_multi_part_size">Μέγεθος πολυτμηματικού SMS</string>
+  <string name="pref_summary_sms_multi_part_mms">Μηνύματα κειμένου με πάνω από 160 χαρακτήρες θα σταλεί ως MMS</string>
+  <string name="pref_summary_sms_multi_part">Μηνύματα κειμένου με πάνω από 160 χαρακτήρες θα σταλεί ως πολυτμηματικό SMS</string>
+  <string name="pref_summary_sms_multi_part_mms_size">Το μήνυμα κειμένου θα μετατραπεί σε MMS μετά από <xliff:g id="seg"> %1$s </xliff:g> τμήματα</string>
+  <string name="pref_title_sms_split">Διαίρεση SMS</string>
+  <string name="pref_summary_sms_split">Τα μηνύματα κειμένου θα διαιρεθούν σε μηνύματα των 160 χαρακτήρων</string>
   <string name="blacklist_title">Μαύρη Λίστα</string>
   <string name="blacklist_summary_disabled">Απενεργοποιημένο</string>
   <string name="blacklist_summary">Εισερχόμενα μηνύματα από αριθμούς που είναι στη μαύρη λίστα θα απορρίπτονται</string>
