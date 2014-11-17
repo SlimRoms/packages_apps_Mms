@@ -158,6 +158,7 @@ public class MailBoxMessageList extends ListActivity implements
     private TextView mMessageTitle;
     private View mSpinners;
     private Spinner mSlotSpinner = null;
+    private Spinner mBoxSpinner = null;
     private ModeCallback mModeCallback = null;
     // mark whether comes into MultiChoiceMode or not.
     private boolean mMultiChoiceMode = false;
@@ -178,7 +179,6 @@ public class MailBoxMessageList extends ListActivity implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        handleIntent(getIntent());
 
         mQueryHandler = new BoxMsgListQueryHandler(getContentResolver());
         setContentView(R.layout.mailbox_list_screen);
@@ -200,6 +200,7 @@ public class MailBoxMessageList extends ListActivity implements
             mListView.setMultiChoiceModeListener(mModeCallback);
         }
         mHandler = new Handler();
+        handleIntent(getIntent());
     }
 
     @Override
@@ -425,6 +426,11 @@ public class MailBoxMessageList extends ListActivity implements
         if (mMailboxId <= MAIL_BOX_ID_INVALID) {
             mMailboxId = Sms.MESSAGE_TYPE_INBOX;
         }
+        if (mQueryBoxType == TYPE_DRAFTBOX) {
+            mSlotSpinner.setSelection(TYPE_ALL_SLOT);
+            mSlotSpinner.setEnabled(false);
+        }
+        mListView.setMultiChoiceModeListener(mModeCallback);
     }
 
     @Override
@@ -447,8 +453,8 @@ public class MailBoxMessageList extends ListActivity implements
 
     private void initSpinner() {
         final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        Spinner mBoxSpinner = (Spinner) findViewById(R.id.box_spinner);
-        Spinner mSlotSpinner = (Spinner) findViewById(R.id.slot_spinner);
+        mBoxSpinner = (Spinner) findViewById(R.id.box_spinner);
+        mSlotSpinner = (Spinner) findViewById(R.id.slot_spinner);
         // "TYPE_INBOX - 1" means the first value of "box type" in sharedpreference,
         // because "box type" 1-4 means box: inbox, sent, outbox, draft, but position
         // value is 0-3.
@@ -460,10 +466,18 @@ public class MailBoxMessageList extends ListActivity implements
                 int oldQueryType = mQueryBoxType;
                 // position 0-3 means box: inbox, sent, outbox, draft
                 mQueryBoxType = position + 1;
-                if(mQueryBoxType>TYPE_OUTBOX)
+                if (mQueryBoxType > TYPE_OUTBOX) {
                     mQueryBoxType = TYPE_OUTBOX;
+                }
                 if (oldQueryType != mQueryBoxType) {
                     unCheckAll();
+                    if (mQueryBoxType == TYPE_DRAFTBOX) {
+                        mQuerySlotType = TYPE_ALL_SLOT;
+                        mSlotSpinner.setSelection(TYPE_ALL_SLOT);
+                        mSlotSpinner.setEnabled(false);
+                    } else {
+                        mSlotSpinner.setEnabled(true);
+                    }
                     startAsyncQuery();
                     getListView().invalidateViews();
                 }

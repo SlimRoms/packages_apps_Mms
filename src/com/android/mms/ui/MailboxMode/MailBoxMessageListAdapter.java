@@ -89,6 +89,7 @@ public class MailBoxMessageListAdapter extends CursorAdapter implements Contact.
     private String mMsgType; // "sms" or "mms"
     private String mAddress;
     private String mName;
+    private int mMsgBox;
 
     public MailBoxMessageListAdapter(Context context, OnListContentChangedListener changedListener,
             Cursor cursor) {
@@ -134,7 +135,14 @@ public class MailBoxMessageListAdapter extends CursorAdapter implements Contact.
                 R.drawable.ic_contact_picture);
         Drawable sDefaultContactImageMms = mContext.getResources().getDrawable(
                 R.drawable.ic_contact_picture_mms);
-        if (MessageUtils.isMultiSimEnabled()) {
+
+        boolean isDraft = false;
+        if (mMsgType.equals("mms") && mMsgBox == Mms.MESSAGE_BOX_DRAFTS ||
+                mMsgType.equals("sms") && mMsgBox == Sms.MESSAGE_TYPE_DRAFT) {
+            isDraft = true;
+        }
+
+        if (!isDraft && MessageUtils.isMultiSimEnabled()) {
             sDefaultContactImage = (mPhoneId == MessageUtils.PHONE1) ? mContext.getResources()
                     .getDrawable(R.drawable.ic_contact_picture_card1) : mContext.getResources()
                     .getDrawable(R.drawable.ic_contact_picture_card2);
@@ -200,13 +208,13 @@ public class MailBoxMessageListAdapter extends CursorAdapter implements Contact.
         long date = 0;
         Drawable sendTypeIcon = null;
         boolean isLocked = false;
-        int msgBox = Sms.MESSAGE_TYPE_INBOX;
+        mMsgBox = Sms.MESSAGE_TYPE_INBOX;
         boolean isUnread = false;
 
         if (type.equals("sms")) {
             BoxMessageItem item = getCachedMessageItem(type, msgId, cursor);
             int status = item.mStatus;
-            msgBox = item.mSmsType;
+            mMsgBox = item.mSmsType;
             int smsRead = item.mRead;
             isUnread = (smsRead == 0 ? true : false);
             mPhoneId = item.mPhoneId;
@@ -219,11 +227,11 @@ public class MailBoxMessageListAdapter extends CursorAdapter implements Contact.
             final int mmsRead = cursor.getInt(COLUMN_MMS_READ);
             mPhoneId = cursor.getInt(COLUMN_MMS_PHONE_ID);
             int messageType = cursor.getInt(COLUMN_MMS_MESSAGE_TYPE);
-            msgBox = cursor.getInt(COLUMN_MMS_MESSAGE_BOX);
+            mMsgBox = cursor.getInt(COLUMN_MMS_MESSAGE_BOX);
             isLocked = cursor.getInt(COLUMN_MMS_LOCKED) != 0;
             recipientIds = cursor.getString(COLUMN_RECIPIENT_IDS);
 
-            if (0 == mmsRead && msgBox == Mms.MESSAGE_BOX_INBOX) {
+            if (0 == mmsRead && mMsgBox == Mms.MESSAGE_BOX_INBOX) {
                 isUnread = true;
             }
 
