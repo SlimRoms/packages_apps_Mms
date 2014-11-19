@@ -47,4 +47,5 @@
     <!-- QM - Quick reply -->
     <string name="qm_quick_reply">Quick reply</string>
 
+    <string name="start_new_message_button">New message</string>
 </resources>
