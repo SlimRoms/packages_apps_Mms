@@ -17,16 +17,10 @@
 -->
 <resources>
 
-    <!-- QuickMessage -->
-    <dimen name="qm_message_height">210dp</dimen>
-    <dimen name="qm_dialog_button_bar_height">48dip</dimen>
-
-    <!-- Floating action button -->
-    <dimen name="floating_action_button_height">56dp</dimen>
-    <dimen name="floating_action_button_width">56dp</dimen>
-    <dimen name="floating_action_button_radius">28dp</dimen>
-    <dimen name="floating_action_button_translation_z">2dp</dimen>
-    <dimen name="floating_action_button_margin_right">16dp</dimen>
-    <dimen name="floating_action_button_margin_bottom">16dp</dimen>
+    <style name="MmsTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/mms_theme_color</item>
+        <item name="android:colorPrimaryDark">@color/mms_theme_color_dark</item>
+        <item name="android:colorAccent">@color/mms_theme_color_accent</item>
+    </style>
 
 </resources>
