@@ -32,6 +32,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
@@ -98,6 +99,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private CheckBoxPreference mEnableNotificationsPref;
     private CheckBoxPreference mMmsAutoRetrievialPref;
     private RingtonePreference mRingtonePref;
+    private ListPreference mSmsStorePref;
+    private ListPreference mSmsStoreSim1Pref;
+    private ListPreference mSmsStoreSim2Pref;
     private Recycler mSmsRecycler;
     private Recycler mMmsRecycler;
     private static final int CONFIRM_CLEAR_SEARCH_HISTORY_DIALOG = 3;
@@ -202,6 +206,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             mVibratePref = null;
         }
         mRingtonePref = (RingtonePreference) findPreference(NOTIFICATION_RINGTONE);
+        mSmsStorePref = (ListPreference) findPreference("pref_key_sms_store");
+        mSmsStoreSim1Pref = (ListPreference) findPreference("pref_key_sms_store_sim1");
+        mSmsStoreSim2Pref = (ListPreference) findPreference("pref_key_sms_store_sim2");
 
         setMessagePreferences();
     }
@@ -255,6 +262,42 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
         setEnabledNotificationsPref();
 
+        if (getResources().getBoolean(R.bool.config_savelocation)) {
+            if (MessageUtils.isMultiSimEnabled()) {
+                PreferenceCategory storageOptions =
+                    (PreferenceCategory)findPreference("pref_key_storage_settings");
+                storageOptions.removePreference(mSmsStorePref);
+
+                if (!MessageUtils.hasIccCard(MessageUtils.PHONE1)) {
+                    storageOptions.removePreference(mSmsStoreSim1Pref);
+                } else {
+                    setSmsPreferStoreSummary(MessageUtils.PHONE1);
+                }
+                if (!MessageUtils.hasIccCard(MessageUtils.PHONE2)) {
+                    storageOptions.removePreference(mSmsStoreSim2Pref);
+                } else {
+                    setSmsPreferStoreSummary(MessageUtils.PHONE2);
+                }
+            } else {
+                PreferenceCategory storageOptions =
+                    (PreferenceCategory)findPreference("pref_key_storage_settings");
+                storageOptions.removePreference(mSmsStoreSim1Pref);
+                storageOptions.removePreference(mSmsStoreSim2Pref);
+
+                if (!MmsApp.getApplication().getTelephonyManager().hasIccCard()) {
+                    storageOptions.removePreference(mSmsStorePref);
+                } else {
+                    setSmsPreferStoreSummary();
+                }
+            }
+        } else {
+            PreferenceCategory storageOptions =
+                    (PreferenceCategory)findPreference("pref_key_storage_settings");
+            storageOptions.removePreference(mSmsStorePref);
+            storageOptions.removePreference(mSmsStoreSim1Pref);
+            storageOptions.removePreference(mSmsStoreSim2Pref);
+        }
+
         // If needed, migrate vibration setting from the previous tri-state setting stored in
         // NOTIFICATION_VIBRATE_WHEN to the boolean setting stored in NOTIFICATION_VIBRATE.
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -285,6 +328,47 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         Ringtone tone = soundUri != null ? RingtoneManager.getRingtone(this, soundUri) : null;
         mRingtonePref.setSummary(tone != null ? tone.getTitle(this)
                 : getResources().getString(R.string.silent_ringtone));
+    }
+
+    private void setSmsPreferStoreSummary() {
+        mSmsStorePref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                final String summary = newValue.toString();
+                int index = mSmsStorePref.findIndexOfValue(summary);
+                mSmsStorePref.setSummary(mSmsStorePref.getEntries()[index]);
+                mSmsStorePref.setValue(summary);
+                return true;
+            }
+        });
+        mSmsStorePref.setSummary(mSmsStorePref.getEntry());
+    }
+
+    private void setSmsPreferStoreSummary(int phoneId) {
+        if (MessageUtils.PHONE1 == phoneId) {
+            mSmsStoreSim1Pref.setOnPreferenceChangeListener(
+                    new Preference.OnPreferenceChangeListener() {
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    final String summary = newValue.toString();
+                    int index = mSmsStoreSim1Pref.findIndexOfValue(summary);
+                    mSmsStoreSim1Pref.setSummary(mSmsStoreSim1Pref.getEntries()[index]);
+                    mSmsStoreSim1Pref.setValue(summary);
+                    return false;
+                }
+            });
+            mSmsStoreSim1Pref.setSummary(mSmsStoreSim1Pref.getEntry());
+        } else {
+            mSmsStoreSim2Pref.setOnPreferenceChangeListener(
+                    new Preference.OnPreferenceChangeListener() {
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    final String summary = newValue.toString();
+                    int index = mSmsStoreSim2Pref.findIndexOfValue(summary);
+                    mSmsStoreSim2Pref.setSummary(mSmsStoreSim2Pref.getEntries()[index]);
+                    mSmsStoreSim2Pref.setValue(summary);
+                    return false;
+                }
+            });
+            mSmsStoreSim2Pref.setSummary(mSmsStoreSim2Pref.getEntry());
+        }
     }
 
     private void setEnabledNotificationsPref() {

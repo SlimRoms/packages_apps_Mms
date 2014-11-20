@@ -399,6 +399,8 @@ public class ManageSimMessages extends Activity
     public void onResume() {
         super.onResume();
         registerSimChangeObserver();
+        // Clean up the notification according to mPhoneId.
+        MessagingNotification.blockingRemoveIccNotifications(this, mPhoneId);
     }
 
     @Override
