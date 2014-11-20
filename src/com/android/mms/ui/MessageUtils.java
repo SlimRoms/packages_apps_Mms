@@ -19,6 +19,7 @@ package com.android.mms.ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
@@ -136,6 +137,9 @@ public class MessageUtils {
 
     public static final int PREFER_SMS_STORE_TO_PHONE = 0;
     public static final int PREFER_SMS_STORE_TO_SIM = 1;
+
+    // add threshold for low memory
+    private static final int THRESHOLD_LOW_MEM_PERCENTAGE = 5;
 
     // Cache of both groups of space-separated ids to their full
     // comma-separated display names, as well as individual ids to
@@ -1626,5 +1630,12 @@ public class MessageUtils {
         }
 
         return preferStore;
+    }
+
+    public static boolean isMemoryLow() {
+        File path = Environment.getDataDirectory();
+        long lowBytes = (path.getTotalSpace() * THRESHOLD_LOW_MEM_PERCENTAGE) / 100;
+
+        return lowBytes > path.getFreeSpace();
     }
 }

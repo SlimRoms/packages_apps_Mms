@@ -417,6 +417,10 @@ public class SmsReceiverService extends Service {
                         ", address: " + sms.getOriginatingAddress() +
                         ", body: " + sms.getMessageBody());
             }
+            if (getResources().getBoolean(R.bool.config_detect_low_memory)
+                    && MessageUtils.isMemoryLow()) {
+                MessagingNotification.notifyMemoryLow(this);
+            }
 
             if (messageUri != null) {
                 long threadId = MessagingNotification.getSmsThreadId(this, messageUri);
