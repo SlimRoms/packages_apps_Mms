@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.provider.Telephony.Mms;
 import android.provider.Telephony.Sms;
 import android.telephony.PhoneNumberUtils;
@@ -115,9 +117,18 @@ public class SmsSingleRecipientSender extends SmsMessageSender {
             }
             sentIntents.add(PendingIntent.getBroadcast(mContext, requestCode, intent, 0));
         }
+
+        int validityPeriod = getValidityPeriod(mPhoneId);
+        Log.d(TAG, "sendMessage validityPeriod = "+validityPeriod);
+        // Remove all attributes for CDMA international roaming.
+        if (MessageUtils.isCdmaInternationalRoaming(subId[0])) {
+            Log.v(TAG, "sendMessage during CDMA international roaming.");
+            deliveryIntents = null;
+            validityPeriod = -1;
+        }
         try {
             smsManager.sendMultipartTextMessage(mDest, mServiceCenter, messages,
-                    sentIntents, deliveryIntents);
+                    sentIntents, deliveryIntents, -1, false, validityPeriod);
         } catch (Exception ex) {
             Log.e(TAG, "SmsMessageSender.sendMessage: caught", ex);
             throw new MmsException("SmsMessageSender.sendMessage: caught " + ex +
@@ -128,6 +139,25 @@ public class SmsSingleRecipientSender extends SmsMessageSender {
                     ", uri=" + mUri + ", msgs.count=" + messageCount);
         }
         return false;
+    }
+
+    private int getValidityPeriod(int phoneId) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+        String validityPeriod = null;
+        switch (phoneId) {
+            case MessageUtils.PHONE_SINGLE_MODE:
+                validityPeriod = prefs.getString("pref_key_sms_validity_period", null);
+                break;
+            case MessageUtils.PHONE1:
+                validityPeriod = prefs.getString("pref_key_sms_validity_period_slot1", null);
+                break;
+            case MessageUtils.PHONE2:
+                validityPeriod = prefs.getString("pref_key_sms_validity_period_slot2", null);
+                break;
+            default:
+                break;
+        }
+        return (validityPeriod == null) ? -1 : Integer.parseInt(validityPeriod);
     }
 
     private void log(String msg) {
