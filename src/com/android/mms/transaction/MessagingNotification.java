@@ -986,7 +986,7 @@ public class MessagingNotification {
         // Update the notification.
         noti.setContentTitle(title)
             .setContentIntent(pendingIntent)
-            .setCategory(Notification.CATEGORY_MESSAGE);
+            .setCategory(Notification.CATEGORY_MESSAGE)
             .setPriority(Notification.PRIORITY_DEFAULT);     // TODO: set based on contact coming
                                                              // from a favorite.
 

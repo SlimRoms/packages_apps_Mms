@@ -295,7 +295,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mSignature.setEnabled(mIsSmsEnabled);
         mMMSBreath.setEnabled(mIsSmsEnabled);
         mTextAreaSize.setEnabled(mIsSmsEnabled);
-        mBlacklist.setEnabled(mIsSmsEnabled);
         mEnableEmojis.setEnabled(mIsSmsEnabled);
         mEnableQuickEmojis.setEnabled(mIsSmsEnabled);
         mSoftBankEmojis.setEnabled(mIsSmsEnabled);
