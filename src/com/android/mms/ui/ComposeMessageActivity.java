@@ -218,7 +218,7 @@ public class ComposeMessageActivity extends Activity
     public static final int REQUEST_CODE_PICK             = 110;
     public static final int REQUEST_CODE_ADD_RECIPIENTS   = 111;
 
-    private static final String TAG = "Mms/compose";
+    private static final String TAG = LogTag.TAG;
 
     private static final boolean DEBUG = false;
     private static final boolean TRACE = false;
@@ -2895,7 +2895,10 @@ public class ComposeMessageActivity extends Activity
             return true;
         }
 
-        if (isRecipientCallable()) {
+        // Don't show the call icon if the device don't support voice calling.
+        boolean voiceCapable =
+                getResources().getBoolean(com.android.internal.R.bool.config_voice_capable);
+        if (isRecipientCallable() && voiceCapable) {
             MenuItem item = menu.add(0, MENU_CALL_RECIPIENT, 0, R.string.menu_call)
                 .setIcon(R.drawable.ic_menu_call)
                 .setTitle(R.string.menu_call);
@@ -4615,6 +4618,13 @@ public class ComposeMessageActivity extends Activity
                     return;
 
                 case ConversationList.HAVE_LOCKED_MESSAGES_TOKEN:
+                    if (ComposeMessageActivity.this.isFinishing()) {
+                        Log.w(TAG, "ComposeMessageActivity is finished, do nothing ");
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return ;
+                    }
                     @SuppressWarnings("unchecked")
                     ArrayList<Long> threadIds = (ArrayList<Long>)cookie;
                     ConversationList.confirmDeleteThreadDialog(

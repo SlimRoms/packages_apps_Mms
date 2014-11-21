@@ -35,7 +35,7 @@ import com.android.mms.ui.MessageUtils;
 import com.android.mms.ui.MessagingPreferenceActivity;
 
 public class MmsConfig {
-    private static final String TAG = "MmsConfig";
+    private static final String TAG = LogTag.TAG;
     private static final boolean DEBUG = true;
     private static final boolean LOCAL_LOGV = false;
 
@@ -310,12 +310,12 @@ public class MmsConfig {
     public static final void beginDocument(XmlPullParser parser, String firstElementName) throws XmlPullParserException, IOException
     {
         int type;
-        while ((type=parser.next()) != parser.START_TAG
-                   && type != parser.END_DOCUMENT) {
+        while ((type=parser.next()) != XmlPullParser.START_TAG
+                   && type != XmlPullParser.END_DOCUMENT) {
             ;
         }
 
-        if (type != parser.START_TAG) {
+        if (type != XmlPullParser.START_TAG) {
             throw new XmlPullParserException("No start tag found");
         }
 
@@ -328,8 +328,8 @@ public class MmsConfig {
     public static final void nextElement(XmlPullParser parser) throws XmlPullParserException, IOException
     {
         int type;
-        while ((type=parser.next()) != parser.START_TAG
-                   && type != parser.END_DOCUMENT) {
+        while ((type=parser.next()) != XmlPullParser.START_TAG
+                   && type != XmlPullParser.END_DOCUMENT) {
             ;
         }
     }

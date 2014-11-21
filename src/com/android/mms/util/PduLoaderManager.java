@@ -51,7 +51,7 @@ import com.google.android.mms.util.PduCacheEntry;
  * Based on BooksImageManager by Virgil King.
  */
 public class PduLoaderManager extends BackgroundLoaderManager {
-    private static final String TAG = "Mms:PduLoaderManager";
+    private static final String TAG = LogTag.TAG;
 
     private static final boolean DEBUG_DISABLE_CACHE = false;
     private static final boolean DEBUG_DISABLE_PDUS = false;
@@ -65,7 +65,7 @@ public class PduLoaderManager extends BackgroundLoaderManager {
     public PduLoaderManager(final Context context) {
         super(context);
 
-        mSlideshowCache = new SimpleCache<Uri, SlideshowModel>(8, 16, 0.75f, true);
+        mSlideshowCache = new SimpleCache<Uri, SlideshowModel>(8, 16, 0.75f, false);
         mPduCache = PduCache.getInstance();
         mPduPersister = PduPersister.getPduPersister(context);
         mContext = context;

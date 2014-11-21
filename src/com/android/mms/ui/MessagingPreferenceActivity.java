@@ -21,14 +21,17 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
@@ -47,6 +50,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.android.internal.telephony.util.BlacklistUtils;
+import com.android.internal.telephony.IccCardConstants;
+import com.android.internal.telephony.TelephonyIntents;
+
 import com.android.mms.MmsApp;
 import com.android.mms.MmsConfig;
 import com.android.mms.R;
@@ -214,6 +220,23 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     // sure we notice if the user has changed the default SMS app.
     private boolean mIsSmsEnabled;
 
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (TelephonyIntents.ACTION_SIM_STATE_CHANGED.equals(action)) {
+                String stateExtra = intent.getStringExtra(IccCardConstants.INTENT_KEY_ICC_STATE);
+                if (stateExtra != null
+                        && IccCardConstants.INTENT_VALUE_ICC_ABSENT.equals(stateExtra)) {
+                    PreferenceCategory smsCategory =
+                            (PreferenceCategory)findPreference("pref_key_sms_settings");
+                    if (smsCategory != null) {
+                        smsCategory.removePreference(mManageSimPref);
+                    }
+                }
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -307,6 +330,12 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         }
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(mReceiver);
+    }
+
     private void loadPrefs() {
         addPreferencesFromResource(R.xml.preferences);
 
@@ -339,6 +368,11 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mEnablePrivacyModePref = (CheckBoxPreference) findPreference(PRIVACY_MODE_ENABLED);
         mEnableHeadsUpModePref = (CheckBoxPreference) findPreference(HEADS_UP_MODE_ENABLED);
         mVibratePref = (CheckBoxPreference) findPreference(NOTIFICATION_VIBRATE);
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        if (mVibratePref != null && (vibrator == null || !vibrator.hasVibrator())) {
+            mNotificationPrefCategory.removePreference(mVibratePref);
+            mVibratePref = null;
+        }
         mRingtonePref = (RingtonePreference) findPreference(NOTIFICATION_RINGTONE);
         mManageTemplate = findPreference(MANAGE_TEMPLATES);
         mGestureSensitivity = (ListPreference) findPreference(GESTURE_SENSITIVITY);
@@ -451,9 +485,10 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         // Text Area
         setTextAreaSummary();
 
-        // If needed, migrate vibration setting from a previous version
+        // If needed, migrate vibration setting from the previous tri-state setting stored in
+        // NOTIFICATION_VIBRATE_WHEN to the boolean setting stored in NOTIFICATION_VIBRATE.
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        if (sharedPreferences.contains(NOTIFICATION_VIBRATE_WHEN)) {
+        if (mVibratePref != null && sharedPreferences.contains(NOTIFICATION_VIBRATE_WHEN)) {
             String vibrateWhen = sharedPreferences.
                     getString(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_WHEN, null);
             boolean vibrate = "always".equals(vibrateWhen);
@@ -917,6 +952,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
     private void registerListeners() {
         mRingtonePref.setOnPreferenceChangeListener(this);
+        final IntentFilter intentFilter =
+                new IntentFilter(TelephonyIntents.ACTION_SIM_STATE_CHANGED);
+        registerReceiver(mReceiver, intentFilter);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

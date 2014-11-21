@@ -60,6 +60,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.mms.LogTag;
 import com.android.mms.MmsApp;
 import com.android.mms.R;
 import com.android.mms.data.Contact;
@@ -83,7 +84,7 @@ public class MessageListItem extends LinearLayout implements
         SlideViewInterface, OnClickListener {
     public static final String EXTRA_URLS = "com.android.mms.ExtraUrls";
 
-    private static final String TAG = "MessageListItem";
+    private static final String TAG = LogTag.TAG;
     private static final boolean DEBUG = false;
     private static final boolean DEBUG_DONT_LOAD_IMAGES = false;
 
@@ -236,6 +237,7 @@ public class MessageListItem extends LinearLayout implements
                 }
             case DownloadManager.STATE_TRANSIENT_FAILURE:
             case DownloadManager.STATE_PERMANENT_FAILURE:
+            case DownloadManager.STATE_SKIP_RETRYING:
             default:
                 setLongClickable(true);
                 inflateDownloadControls();

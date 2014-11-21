@@ -81,6 +81,7 @@ import com.android.mms.ui.MessagingPreferenceActivity;
 import com.android.mms.util.AddressUtils;
 import com.android.mms.util.DownloadManager;
 import com.android.mms.widget.MmsWidgetProvider;
+
 import com.google.android.mms.MmsException;
 import com.google.android.mms.pdu.EncodedStringValue;
 import com.google.android.mms.pdu.GenericPdu;
@@ -256,6 +257,16 @@ public class MessagingNotification {
             Contact.logWithTrace(TAG, "blockingUpdateNewMessageIndicator: newMsgThreadId: " +
                     newMsgThreadId);
         }
+        final boolean isDefaultSmsApp = MmsConfig.isSmsEnabled(context);
+        if (!isDefaultSmsApp) {
+            cancelNotification(context, NOTIFICATION_ID);
+            if (DEBUG || Log.isLoggable(LogTag.APP, Log.VERBOSE)) {
+                Log.d(TAG, "blockingUpdateNewMessageIndicator: not the default sms app - skipping "
+                        + "notification");
+            }
+            return;
+        }
+
         // notificationSet is kept sorted by the incoming message delivery time, with the
         // most recent message first.
         SortedSet<NotificationInfo> notificationSet =
@@ -978,8 +989,16 @@ public class MessagingNotification {
         // Update the notification.
         noti.setContentTitle(title)
             .setContentIntent(pendingIntent)
-            .addKind(Notification.KIND_MESSAGE);             // TODO: set based on contact coming
-                                                             // from a favorite.
+            .setCategory(Notification.CATEGORY_MESSAGE);            // TODO: set based on contact coming
+                                                                    // from a favorite.
+
+        // Tag notification with all senders.
+        for (NotificationInfo info : notificationSet) {
+            Uri peopleReferenceUri = info.mSender.getPeopleReferenceUri();
+            if (peopleReferenceUri != null) {
+                noti.addPerson(peopleReferenceUri.toString());
+            }
+        }
 
         int defaults = 0;
 

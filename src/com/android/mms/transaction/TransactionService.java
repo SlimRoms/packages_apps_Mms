@@ -87,7 +87,7 @@ import com.google.android.mms.pdu.PduPersister;
  * </ul>
  */
 public class TransactionService extends Service implements Observer {
-    private static final String TAG = "TransactionService";
+    private static final String TAG = LogTag.TAG;
 
     /**
      * Used to identify notification intents broadcasted by the
@@ -280,6 +280,11 @@ public class TransactionService extends Service implements Observer {
                                     if (Log.isLoggable(LogTag.TRANSACTION, Log.VERBOSE)) {
                                         Log.v(TAG, "onNewIntent: skipping - autodownload off");
                                     }
+                                    // Re-enable "download" button if auto-download is off
+                                    Uri uri = ContentUris.withAppendedId(Mms.CONTENT_URI,
+                                            cursor.getLong(columnIndexOfMsgId));
+                                    downloadManager.markState(uri,
+                                            DownloadManager.STATE_SKIP_RETRYING);
                                     break;
                                 }
                                 // Logic is twisty. If there's no failure or the failure
@@ -907,11 +912,23 @@ public class TransactionService extends Service implements Observer {
                     }
                     return true;
                 }
-
-                if (Log.isLoggable(LogTag.TRANSACTION, Log.VERBOSE)) {
-                    Log.v(TAG, "Adding transaction to 'mProcessing' list: " + transaction);
-                }
-                mProcessing.add(transaction);
+                // If there is already a transaction in processing list, because of the previous
+                // beginMmsConnectivity call and there is another transaction just at a time,
+                // when the pdp is connected, there will be a case of adding the new transaction
+                // to the Processing list. But Processing list is never traversed to
+                // resend, resulting in transaction not completed/sent.
+                if (mProcessing.size() > 0) {
+                    if (Log.isLoggable(LogTag.TRANSACTION, Log.VERBOSE)) {
+                        Log.v(TAG, "Adding transaction to 'mPending' list: " + transaction);
+                    }
+                    mPending.add(transaction);
+                    return true;
+                } else {
+                    if (Log.isLoggable(LogTag.TRANSACTION, Log.VERBOSE)) {
+                        Log.v(TAG, "Adding transaction to 'mProcessing' list: " + transaction);
+                    }
+                    mProcessing.add(transaction);
+               }
             }
 
             // Set a timer to keep renewing our "lease" on the MMS connection

@@ -48,7 +48,7 @@ import com.android.mms.util.EmojiParser;
  */
 public class ConversationListItem extends RelativeLayout implements Contact.UpdateListener,
             Checkable {
-    private static final String TAG = "ConversationListItem";
+    private static final String TAG = LogTag.TAG;
     private static final boolean DEBUG = false;
 
     private TextView mSubjectView;

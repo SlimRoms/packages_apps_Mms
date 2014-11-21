@@ -20,7 +20,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="1503967887341230795">"መልዕክት በመላክ ላይ"</string>
+    <string name="app_label" msgid="1503967887341230795">"መልዕክት መላኪያ"</string>
     <string name="new_message" msgid="1530369762346003973">"አዲስ መልዕክት"</string>
     <string name="menu_call_back" msgid="7538482331117914146">"<xliff:g id="NAME">%s</xliff:g> ደውል"</string>
     <string name="menu_send_email" msgid="671366308915241664">"ኢሜይል ወደ<xliff:g id="NAME">%s</xliff:g> ላክ"</string>
@@ -147,7 +147,7 @@
     <string name="menu_add_to_contacts" msgid="1258127580972228970">"ወደ ሰዎች አክል"</string>
     <string name="hidden_sender_address" msgid="2776075636669924968">"የተደበቀ የላኪ አድራሻ"</string>
     <string name="yes" msgid="3246158147503160811">"እሺ"</string>
-    <string name="no" msgid="4289742508556913860">"ሰርዝ"</string>
+    <string name="no" msgid="4289742508556913860">"ይቅር"</string>
     <string name="set" msgid="4642365398263275979">"አዘጋጅ"</string>
     <string name="play" msgid="1888432400937785115">"ተጫወት"</string>
     <string name="edit" msgid="5912118407791492696">"አርትዕ"</string>
@@ -304,9 +304,9 @@
     <string name="edit_slide_activity" msgid="8752829671778696983">"ስላይድ አርትዕ"</string>
     <string name="slideshow_activity" msgid="5658249461317434432">"ስላይድ ትዕይንት"</string>
     <string name="class_0_message_activity" msgid="6631339964159861048">"የክፍል 0 መልዕክት"</string>
-    <string name="search_label" msgid="6042598929386174964">"መልዕክት በመላክ ላይ"</string>
+    <string name="search_label" msgid="6042598929386174964">"መልዕክት መላኪያ"</string>
     <string name="search_hint" msgid="7273727663577472044">"መልዕክት ፍለጋ"</string>
-    <string name="search" msgid="7560238620274735199">"መልዕክት በመላክ ላይ"</string>
+    <string name="search" msgid="7560238620274735199">"መልዕክት መላኪያ"</string>
     <string name="search_setting_description" msgid="4104004595086437572">"በመልዕክቶችዎ ውስጥ ፅሁፍ"</string>
     <string name="search_empty" msgid="2109551478056039278">"ምንም ተመሳሳይ የለም።"</string>
   <plurals name="search_results_title">
@@ -314,10 +314,10 @@
     <item quantity="other" msgid="6196382287749539209">"<xliff:g id="NUMBER">%1$s</xliff:g> ውጤቶች ለ \"<xliff:g id="SEARCH">%2$s</xliff:g>\""</item>
   </plurals>
     <string name="search_history" msgid="4127805495662693154">"<xliff:g id="COUNT">%1$s</xliff:g> ውጤቶች ለ \"<xliff:g id="SEARCH">%2$s</xliff:g>\""</string>
-    <string name="confirm_clear_search_title" msgid="8510295993632032904">"አጥራ"</string>
+    <string name="confirm_clear_search_title" msgid="8510295993632032904">"አጽዳ"</string>
     <string name="confirm_clear_search_text" msgid="8731877031837077478">"የፍለጋ ታሪክ ይሰረዛሉ።"</string>
-    <string name="pref_mms_clear_search_history_title" msgid="6159758850628148164">"ፍለጋ ታሪክ አጥራ"</string>
-    <string name="pref_mms_clear_search_history_summary" msgid="7960005384066460035">"የቀደመ ፍለጋ መልዕክት በፍለጋ ሣጥን ውስጥ ከማሳየት አጥራ"</string>
+    <string name="pref_mms_clear_search_history_title" msgid="6159758850628148164">"ፍለጋ ታሪክ አጽዳ"</string>
+    <string name="pref_mms_clear_search_history_summary" msgid="7960005384066460035">"የቀደመ ፍለጋ መልዕክት በፍለጋ ሣጥን ውስጥ ከማሳየት አጽዳ"</string>
     <string name="save" msgid="6847069284991531310">"አስቀምጥ"</string>
     <string name="storage_limits_title" msgid="7074684882530693016">"መልዕክቶች ወስን"</string>
     <string name="storage_limits_message" msgid="2010501485394745696">"በእያንዳንዱ ውይይትህ ማስቀመጥ የምትፈልጋቸውን መልዕክቶች ቁጥር ትወስናለህ?"</string>

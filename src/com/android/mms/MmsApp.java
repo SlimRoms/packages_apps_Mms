@@ -46,7 +46,7 @@ import com.android.mms.util.EmojiParser;
 import com.android.mms.util.ThumbnailManager;
 
 public class MmsApp extends Application {
-    public static final String LOG_TAG = "Mms";
+    public static final String LOG_TAG = LogTag.TAG;
 
     private SearchRecentSuggestions mRecentSuggestions;
     private TelephonyManager mTelephonyManager;

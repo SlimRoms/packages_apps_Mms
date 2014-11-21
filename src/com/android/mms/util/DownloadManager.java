@@ -37,6 +37,7 @@ import android.widget.Toast;
 
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
+import com.android.mms.LogTag;
 import com.android.mms.R;
 import com.android.mms.data.Contact;
 import com.android.mms.ui.MessagingPreferenceActivity;
@@ -46,7 +47,7 @@ import com.google.android.mms.pdu.NotificationInd;
 import com.google.android.mms.pdu.PduPersister;
 
 public class DownloadManager {
-    private static final String TAG = "DownloadManager";
+    private static final String TAG = LogTag.TAG;
     private static final boolean DEBUG = false;
     private static final boolean LOCAL_LOGV = false;
 
@@ -58,6 +59,8 @@ public class DownloadManager {
     public static final int STATE_TRANSIENT_FAILURE = 0x82;
     public static final int STATE_PERMANENT_FAILURE = 0x87;
     public static final int STATE_PRE_DOWNLOADING   = 0x88;
+    // TransactionService will skip downloading Mms if auto-download is off
+    public static final int STATE_SKIP_RETRYING     = 0x89;
 
     private final Context mContext;
     private final Handler mHandler;

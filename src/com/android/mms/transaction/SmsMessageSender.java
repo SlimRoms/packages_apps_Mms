@@ -45,7 +45,7 @@ public class SmsMessageSender implements MessageSender {
     protected final String mServiceCenter;
     protected final long mThreadId;
     protected long mTimestamp;
-    private static final String TAG = "SmsMessageSender";
+    private static final String TAG = LogTag.TAG;
 
     // Default preference values
     private static final boolean DEFAULT_DELIVERY_REPORT_MODE  = false;

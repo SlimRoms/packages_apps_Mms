@@ -77,8 +77,7 @@ import com.google.android.mms.MmsException;
  * main thread that SmsReceiver runs on.
  */
 public class SmsReceiverService extends Service {
-    private static final String TAG = "SmsReceiverService";
-    private boolean DEBUG = false;
+    private static final String TAG = LogTag.TAG;
 
     private ServiceHandler mServiceHandler;
     private Looper mServiceLooper;
