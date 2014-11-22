@@ -423,5 +423,5 @@
     <string name="pref_title_sms_store_sim2">卡2优先存储器</string>
     <string name="pref_sms_store_phone">话机</string>
     <string name="pref_sms_store_sim">SIM卡</string>
-    <string name="pref_sms_store_sim_unknown_fail">新短信接收失败，无法正确读取SIM卡</string>
+    <string name="pref_sim_card_full_save_to_phone">SIM卡短信存储已满，自动保存到手机内存。</string>
 </resources>
