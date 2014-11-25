@@ -298,14 +298,13 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
     private void setMessagePreferences() {
 
+        boolean showSmsc = getResources().getBoolean(R.bool.config_show_smsc_pref);
         mSmscPrefCate = (PreferenceCategory) findPreference("pref_key_smsc");
-        showSmscPref();
-
-        if (!MmsApp.getApplication().getTelephonyManager().hasIccCard()) {
-            // No SIM card, remove the SIM-related prefs
-            mSmsPrefCategory.removePreference(mManageSimPref);
+        if (showSmsc) {
+            showSmscPref();
+        } else if (mSmscPrefCate != null) {
+            getPreferenceScreen().removePreference(mSmscPrefCate);
         }
-
         // Set SIM card SMS management preference
         updateSimSmsPref();
 
