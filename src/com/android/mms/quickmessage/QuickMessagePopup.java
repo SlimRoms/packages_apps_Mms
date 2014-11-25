@@ -269,7 +269,7 @@ public class QuickMessagePopup extends Activity {
             QuickMessage qm = new QuickMessage(extras.getString(SMS_FROM_NAME_EXTRA),
                     extras.getString(SMS_FROM_NUMBER_EXTRA), nm);
             mMessageList.add(qm);
-
+            mPagerAdapter.notifyDataSetChanged();
             // If triggered from Quick Reply the keyboard should be visible immediately
             if (extras.getBoolean(QR_SHOW_KEYBOARD_EXTRA, false)) {
                 getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
@@ -539,7 +539,7 @@ public class QuickMessagePopup extends Activity {
 
         // Clear the messages list
         mMessageList.clear();
-
+        mPagerAdapter.notifyDataSetChanged();
         if (DEBUG)
             Log.d(LOG_TAG, "clearNotification(): Message list cleared. Size = " + mMessageList.size());
     }
