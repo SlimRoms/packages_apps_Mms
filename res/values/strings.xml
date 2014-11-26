@@ -896,4 +896,8 @@
     <string name="pref_sms_store_sim_unknown_fail">Failure to receive new messages, the SIM card can\'t be read correctly</string>
     <string name="mms_size_indicator"><xliff:g id="mms_size">%1$s</xliff:g>K/<xliff:g id="all_size">%2$s</xliff:g>K</string>
     <string name="forward_size_over">Forbid forwarding, new message size over 300K.</string>
+
+    <string name="sim_capacity_title">SIM Capacity</string>
+    <string name="sim_capacity_used">Used:  </string>
+    <string name="sim_capacity">Capacity:  </string>
 </resources>
