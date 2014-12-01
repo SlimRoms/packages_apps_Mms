@@ -61,8 +61,14 @@
   <string name="pref_title_mms_notification_vibrate_settings">إعدادات الاهتزاز</string>
   <string name="pref_title_mms_notification_vibrate_pattern">نمط الاهتزاز</string>
   <string name="pref_summary_mms_notification_vibrate_pattern">تغيير نمط الاهتزاز</string>
+  <string name="pref_title_mms_notification_vibrate_normal">عادية</string>
+  <string name="pref_title_mms_notification_vibrate_medium">الإهتزاز متوسط</string>
+  <string name="pref_title_mms_notification_vibrate_long">الإهتزاز طويل</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_short">قصيرة متعددة</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_long">طويلة متعددة</string>
   <string name="pref_title_mms_notification_vibrate_custom">نمط اهتزاز مخصص</string>
   <string name="pref_text_mms_notification_vibrate_custom">تنسيق ايقاف/تشغيل بالمللي ثانية: إيقاف، تشغيل، إيقاف،،...</string>
+  <string name="pref_mms_notification_vibrate_pattern_custom">مخصص</string>
   <string name="pref_title_unicode_stripping">قطاع الترميز الموحد</string>
   <string name="pref_unicode_stripping_leave_intact">ترك الأحرف سليمة</string>
   <string name="pref_unicode_stripping_non_encodable">تجريد الاحرف الغير قابلة للترميز</string>
@@ -120,4 +126,19 @@
   <string name="add_recipients">إضافة مستلمين</string>
   <string name="pref_text_area_size_title">Text area size</string>
   <string name="pref_text_area_size_summary">Set text area to <xliff:g id="lines">%1$s</xliff:g> lines</string>
+  <string name="pref_mms_user_agent_default">الافتراضي</string>
+  <string name="pref_mms_user_agent_custom">مخصص</string>
+  <string name="blacklist_title">القائمة السوداء</string>
+  <string name="blacklist_summary_disabled">غير مُتاح</string>
+  <string name="blacklist_summary">سيتم حظر المكالمات الواردة من أرقام الهاتف في القائمة السوداء</string>
+  <string name="blacklist_notification">حظر رسالة من %s</string>
+  <string name="blacklist_notification_private_number">حظر رسالة من رقم خاص</string>
+  <string name="blacklist_notification_list_private">خاص</string>
+  <string name="blacklist_notification_unknown_number">حظر رسالة من رقم غير معروف %s</string>
+  <string name="blacklist_notification_multiple">تم حظر الرسائل <xliff:g id="count">%d</xliff:g></string>
+  <string name="unblock_number">رفع الحظر</string>
+  <string name="add_to_blacklist">أضف إلى القائمة السوداء</string>
+  <string name="add_to_blacklist_message">سيتم حظر الرسائل في المستقبل من %s</string>
+  <string name="alert_dialog_yes">نعم</string>
+  <string name="alert_dialog_no">لا</string>
 </resources>

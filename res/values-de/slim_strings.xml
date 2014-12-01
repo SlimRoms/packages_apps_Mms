@@ -25,12 +25,12 @@
   <string name="pref_title_save_location">Speicherort für Anlagen</string>
   <string name="pref_title_save_location_summary">Geben Sie einen Ordner an, um Anlagen zu speichern</string>
   <string name="attach_contact_info">Kontaktinformationen</string>
-  <string name="record_sound_error_alert">Audio kann nicht aufgezeichnet werden.    SoundRecorder.apk fehlt!</string>
+  <string name="record_sound_error_alert">Ton kann nicht aufgezeichnet werden. SoundRecorder.apk fehlt!</string>
   <string name="label_mms_push">MMS-Push</string>
   <string name="pref_extra_settings">Weitere Einstellungen</string>
   <string name="pref_char_settings">Zeichen Einstellungen</string>
   <string name="pref_title_enable_emojis">Emoji-Unterstützung</string>
-  <string name="pref_summary_enable_emojis">Unterstützung für Emojis aktivieren</string>
+  <string name="pref_summary_enable_emojis">Unterstützung von Unicode-Emojis (471 nette Emoticons) aktivieren</string>
   <string name="menu_insert_emoji">Emojis einfügen</string>
   <string name="pref_title_sms_split_counter">Zähler für Aufteilung</string>
   <string name="pref_summary_sms_split_counter">Der Nachricht einen Zähler anhängen, z.B. (1/2)</string>
@@ -38,12 +38,12 @@
   <string name="pref_title_templates_manage">Vorlagen</string>
   <string name="pref_summary_templates_manage">SMS-Vorlagen verwalten</string>
   <string name="pref_title_templates_show_gesture">Gesten</string>
-  <string name="pref_summary_templates_show_gesture">Spur anzeigen</string>
+  <string name="pref_summary_templates_show_gesture">Die Spur während des Zeichnens der Geste anzeigen</string>
   <string name="pref_title_template_gestures_sensitivity">Empfindlichkeit der Gesten</string>
   <string name="template_save">Speichern</string>
   <string name="template_insert_hint">Vorlagentext hier eingeben</string>
   <string name="template_empty_text">Das Textfeld darf nicht leer sein!</string>
-  <string name="template_explanation">Vorlagentext eingeben oder ändern. Optional kann eine Geste gezeichnet und mit der Vorlage verknüpft werden.</string>
+  <string name="template_explanation">Vorlagentext eingeben oder ändern. Optional kann eine Geste gezeichnet und mit der Vorlage verknüpft werden</string>
   <string name="template_edit">Bearbeiten</string>
   <string name="template_delete">Löschen</string>
   <string name="template_ctx_menu_title">Aktionen</string>
@@ -55,7 +55,11 @@
   <string name="template_not_present_error_title">Fehler</string>
   <string name="template_select">Vorlage auswählen</string>
   <string name="template_confirm_dialog_title">Löschen?</string>
-  <string name="gestures_already_present">Warnung: Eine ähnliche Geste wurde bereits mit einer anderen Vorlage verknüpft!</string>
+  <plurals name="template_confirm_delete_conversation">
+    <item quantity="one">Eine Vorlage wird gelöscht.</item>
+    <item quantity="other"><xliff:g id="number">%1$s</xliff:g> Vorlagen werden gelöscht.</item>
+  </plurals>
+  <string name="gestures_already_present">Eine ähnliche Geste wurde bereits mit einer anderen Vorlage verknüpft</string>
   <string name="select_template">Vorlagen auswählen</string>
   <string name="pref_templates_gestures_sensitivity_broadest">1 (Sehr unempfindlich)</string>
   <string name="pref_templates_gestures_sensitivity_strictest">12 (Sehr empfindlich)</string>
@@ -74,23 +78,22 @@
   <string name="pref_unicode_stripping_leave_intact">Leave characters intact</string>
   <string name="pref_unicode_stripping_non_encodable">Nicht kodierbare Zeichen entfernen</string>
   <string name="pref_unicode_stripping_all">Alle Unicode-Zeichen entfernen</string>
-  <string name="pref_title_enable_quick_emojis">Emoticon Schnellauswahl</string>
+  <string name="pref_title_enable_quick_emojis">Emoticon-Schnellauswahl</string>
   <string name="pref_summary_enable_quick_emojis">Eine Schaltfläche neben dem Texteingabe-Bereich für Emoticons anzeigen</string>
   <string name="pref_title_enable_softbank_encoding">SoftBank Emoticon-Kodierung</string>
   <string name="pref_summary_enable_softbank_encoding">SoftBank Emoticon-Kodierung aktivieren</string>
-  <string name="pref_title_mms_full_timestamp">Volle Datumsangabe</string>
+  <string name="pref_title_mms_full_timestamp">Vollständige Zeitstempel</string>
   <string name="pref_summary_mms_full_timestamp">Datum und Zeit der Nachricht anzeigen</string>
-  <string name="pref_title_mms_use_sent_timestamp">Originale Datumsangabe</string>
-  <string name="pref_summary_mms_use_sent_timestamp">Statt Empfangszeitpunkt den Sendezeitpunkt der Nachricht anzeigen und speichern</string>
+  <string name="pref_title_mms_use_sent_timestamp">Originale Zeitstempel</string>
+  <string name="pref_summary_mms_use_sent_timestamp">Statt Empfangszeitpunkt den Sendezeitpunkt der Nachricht anzeigen</string>
   <string name="menu_add_to_calendar">Zum Kalender hinzufügen</string>
   <string name="pref_keyboard_emoji">Emoticon-Taste anzeigen</string>
-  <string name="pref_keyboard_new_line">Eingabetaste anzeigen</string>
+  <string name="pref_keyboard_new_line">Enter-Taste anzeigen</string>
   <string name="pref_keyboard_unknown">Unbekannt. Neue Auswahl treffen</string>
-  <string name="pref_title_input_type">Bildschirmtastatur</string>
-  <string name="pref_summary_input_type">Bildschirmtastatur zur Eingabe von Nachrichten auswählen</string>
-  <string name="pref_quickmessage">Schnell antworten</string>
+  <string name="pref_title_input_type">Eingabemethode wählen</string>
+  <string name="pref_summary_input_type">Eingabemethode wählen, die bei Nachrichtenerstellung verwendet werden soll</string>
   <string name="pref_quickmessage_title">Pop-up anzeigen</string>
-  <string name="pref_quickmessage_summary">Ein Pop-up bei Eingang von SMS anzeigen, um schnell antorten zu können</string>
+  <string name="pref_quickmessage_summary">Bei Eingang einer SMS ein Pop-up anzeigen, um schnell antworten zu können</string>
   <string name="pref_wake_unlock_title">Wecken und Entsperren</string>
   <string name="pref_wake_unlock_summary">Gerät bei Nachrichteneingang aufwecken und entsperren (nur bei Bildschirmsperre ohne Sicherheitsabfrage möglich)</string>
   <string name="pref_close_all_title">Alle schließen</string>
@@ -99,8 +102,6 @@
   <string name="button_close">Schließen</string>
   <string name="button_view">Anzeigen</string>
   <string name="button_templates">Vorlagen</string>
-  <string name="type_to_reply_text_enter_to_send">Nachricht schreiben</string>
-  <string name="toast_sending_message">Nachricht senden\u2026</string>
   <string name="qm_quick_reply">Antworten</string>
   <string name="qm_mark_read">Gelesen</string>
   <string name="direct_call_title">Direktanruf</string>
@@ -129,6 +130,7 @@
   <string name="add_recipients">Empfänger hinzufügen</string>
   <string name="groups_header">Gruppen</string>
   <string name="loading_recipients">Kontakte und Gruppen laden</string>
+  <string name="no_recipients">Keine möglichen Empfänger</string>
   <string name="pref_text_area_size_title">Textbereich</string>
   <string name="pref_text_area_size_summary">Textbereich auf <xliff:g id="lines"> %1$s </xliff:g> Linien festgelegt</string>
   <string name="pref_mms_ua_default_android">Android-Standard</string>
@@ -142,6 +144,7 @@
   <string name="pref_mms_user_agent_default">Standard</string>
   <string name="pref_mms_user_agent_custom">benutzerdefiniert</string>
   <string name="pref_title_sms_multi_part">Mehrteilige SMS</string>
+  <string name="pref_title_sms_multi_part_size">Größe mehrteiliger SMS</string>
   <string name="pref_summary_sms_multi_part_mms">SMS-Nachrichten mit über 160 Zeichen werden als MMS gesendet werden</string>
   <string name="pref_summary_sms_multi_part">SMS-Nachrichten mit über 160 Zeichen werden als Mehrteilige-SMS gesendet werden</string>
   <string name="pref_summary_sms_multi_part_mms_size">SMS-Nachricht wird nach <xliff:g id="seg"> %1$s </xliff:g> Segmenten als MMS konvertiert</string>
@@ -152,4 +155,9 @@
   <string name="blacklist_notification">Eine Nachricht von %s wurde abgewiesen</string>
   <string name="blacklist_notification_private_number">Eine Nachricht mit unterdrückter Nummer wurde abgewiesen</string>
   <string name="blacklist_notification_unknown_number">Eine Nachricht von unbekannter Nummer %s wurde abgewiesen</string>
+  <string name="unblock_number">Aufheben</string>
+  <string name="add_to_blacklist">Zur Sperrliste hinzufügen</string>
+  <string name="add_to_blacklist_message">Zukünftige Nachrichten von %s werden abgewiesen</string>
+  <string name="alert_dialog_yes">Ja</string>
+  <string name="alert_dialog_no">Nein</string>
 </resources>

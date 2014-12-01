@@ -55,12 +55,22 @@
   <string name="template_not_present_error">Még nincs definiált sablon.</string>
   <string name="template_not_present_error_title">Hiba</string>
   <string name="template_select">Válasszon sablont</string>
+  <string name="template_confirm_dialog_title">Törlés?</string>
   <string name="gestures_already_present">Figyelem: Egy hasonló kézmozdulat már társítva van egy másik sablonhoz!</string>
+  <string name="select_template">Válasszon sablont</string>
+  <string name="pref_templates_gestures_sensitivity_broadest">1 (Pontatlanabb)</string>
+  <string name="pref_templates_gestures_sensitivity_strictest">12 (Pontosabb)</string>
   <string name="pref_title_mms_notification_vibrate_settings">Rezgés beállítások</string>
   <string name="pref_title_mms_notification_vibrate_pattern">Rezgés típusa</string>
   <string name="pref_summary_mms_notification_vibrate_pattern">Rezgés mintájának beállítása</string>
+  <string name="pref_title_mms_notification_vibrate_normal">Normál</string>
+  <string name="pref_title_mms_notification_vibrate_medium">Közepes rezgés</string>
+  <string name="pref_title_mms_notification_vibrate_long">Hosszú rezgés</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_short">Többszöri rövid</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_long">Többszöri hosszú</string>
   <string name="pref_title_mms_notification_vibrate_custom">Egyedi rezgés minta</string>
   <string name="pref_text_mms_notification_vibrate_custom">Formátum: ki/be milliszekundumban: ki, be, ki, be, ...</string>
+  <string name="pref_mms_notification_vibrate_pattern_custom">egyéni</string>
   <string name="pref_title_unicode_stripping">Unicode eltávolítása</string>
   <string name="pref_unicode_stripping_leave_intact">Hagyja a karaktereket érintetlenül</string>
   <string name="pref_unicode_stripping_non_encodable">Kódolhatatlan karakterek eltávolítása</string>
@@ -106,6 +116,8 @@
   <string name="notification_multiple_title_privacy_mode">Új üzenetek</string>
   <string name="notification_multiple_text_privacy_mode"><xliff:g id="NUMBER">%1$s</xliff:g> olvasatlan üzenet</string>
   <string name="notification_ticker_privacy_mode">Új üzenet érkezett</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Felugró értesités</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">engedélyezd a beérkező üzeneteket felugró ablakban</string>
   <string name="msg_sig_title">Aláírás</string>
   <string name="msg_sig_summary">Egyedi aláírás beállítása az üzenetekhez</string>
   <string name="msg_sig_enter_text">Írja be az aláírás szövegét</string>
@@ -131,6 +143,9 @@
   <string name="pref_mms_ua_custom_option">Egyéni\u2026</string>
   <string name="pref_title_mms_user_agent">Felhasználói ügynök</string>
   <string name="pref_summary_mms_user_agent">Téveszd meg a telefont másik modellként az üzenethez</string>
+  <string name="pref_mms_user_agent_custom_set"> Felhasználói Ügynök beállítása:\n</string>
+  <string name="pref_mms_user_agent_default">alapértelmezett</string>
+  <string name="pref_mms_user_agent_custom">egyéni</string>
   <string name="pref_title_sms_multi_part">Több részes SMS</string>
   <string name="pref_title_sms_multi_part_size">Több részes SMS méret</string>
   <string name="pref_summary_sms_multi_part_mms">160 karakternél hosszabb üzenet MMS-ként küldi</string>
