@@ -16,13 +16,13 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="menu_mark_all_read">Označit vše jako přečtené</string>
-  <string name="cannot_find_contact">Nelze vložit informace k vybranému kontaktu.</string>
+  <string name="cannot_find_contact">Nelze vložit informace o vybranému kontaktu.</string>
   <string-array name="prefEntries_vibrateWhen">
     <item>Vždy</item>
-    <item>Pouze v tichém módu</item>
+    <item>Pouze v tichém režimu</item>
     <item>Nikdy</item>
   </string-array>
-  <string name="pref_title_save_location">Složka pro uložení přílohy</string>
+  <string name="pref_title_save_location">Složka pro ukládání příloh</string>
   <string name="pref_title_save_location_summary">Určete složku pro ukládání příloh</string>
   <string name="attach_contact_info">Kontaktní informace</string>
   <string name="record_sound_error_alert">Nelze nahrávat zvuk. SoundRecorder.apk chybí!</string>
@@ -34,7 +34,7 @@
   <string name="pref_summary_enable_emojis">Povolit podporu unicode smajlíků, sada obsahuje 471 pěkných smajlíků</string>
   <string name="menu_insert_emoji">Vložit smajlík</string>
   <string name="pref_title_sms_split_counter">Počítadlo zpráv</string>
-  <string name="pref_summary_sms_split_counter">Přidat počítadlo počtu odesílaných zpráv (např. 1/2)</string>
+  <string name="pref_summary_sms_split_counter">Přidat počítadlo odesílaných zpráv (např. 1/2)</string>
   <string name="prefs_templates_settings">SMS šablony</string>
   <string name="pref_title_templates_manage">Šablony</string>
   <string name="pref_summary_templates_manage">Spravovat SMS šablony</string>
@@ -44,7 +44,7 @@
   <string name="template_save">Uložit</string>
   <string name="template_insert_hint">Zde vložte text šablony</string>
   <string name="template_empty_text">Textové pole nemůže být prázdné</string>
-  <string name="template_explanation">Vložit nebo upravit text šablony, vytvořit gesto, které se přiřadí k šabloně.</string>
+  <string name="template_explanation">Vložte nebo upravte text šablony a volitelně vytvořit gesto, které se k šabloně přiřadí</string>
   <string name="template_edit">Upravit</string>
   <string name="template_delete">Smazat</string>
   <string name="template_ctx_menu_title">Akce</string>
@@ -56,32 +56,45 @@
   <string name="template_not_present_error_title">Chyba</string>
   <string name="template_select">Vyberte šablonu</string>
   <string name="template_confirm_dialog_title">Smazat?</string>
-  <string name="gestures_already_present">Varování: podobné gesto je již přiřazené k jiné šabloně!</string>
+  <plurals name="template_confirm_delete_conversation">
+    <item quantity="one">Jedna šablona bude vymazána.</item>
+    <item quantity="few"><xliff:g id="number" example="15">%1$s</xliff:g> šablony budou smazány.</item>
+    <item quantity="other"><xliff:g id="number" example="15">%1$s</xliff:g> šablon bude smazáno.</item>
+  </plurals>
+  <string name="gestures_already_present">Varování: podobné gesto je již přiřazené k jiné šabloně</string>
   <string name="select_template">Zvolte šablonu</string>
+  <string name="pref_templates_gestures_sensitivity_broadest">1 (velmi citlivé)</string>
+  <string name="pref_templates_gestures_sensitivity_strictest">12 (nejméně citlivé)</string>
   <string name="pref_title_mms_notification_vibrate_settings">Nastavení vibrací</string>
   <string name="pref_title_mms_notification_vibrate_pattern">Šablona vibrací</string>
   <string name="pref_summary_mms_notification_vibrate_pattern">Změnit šablonu vibrací</string>
+  <string name="pref_title_mms_notification_vibrate_normal">Normální</string>
+  <string name="pref_title_mms_notification_vibrate_medium">Střední vibrace</string>
+  <string name="pref_title_mms_notification_vibrate_long">Dlouhá vibrace</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_short">Více krátkých</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_long">Více dlouhých</string>
   <string name="pref_title_mms_notification_vibrate_custom">Vlastní šablona vibrací</string>
   <string name="pref_text_mms_notification_vibrate_custom">Formát vypnuto/zapnuto v milisekundách: vypnuto, zapnuto, vypnuto, zapnuto, ...</string>
+  <string name="pref_mms_notification_vibrate_pattern_custom">vlastní</string>
   <string name="pref_title_unicode_stripping">Odstranit znaky Unicode</string>
   <string name="pref_unicode_stripping_leave_intact">Ponechat původní znaky</string>
   <string name="pref_unicode_stripping_non_encodable">Oříznout nekódovatelné znaky</string>
   <string name="pref_unicode_stripping_all">Oříznout všechny znaky Unicode</string>
-  <string name="pref_title_enable_quick_emojis">Tlačítko rychlého smajlíka</string>
+  <string name="pref_title_enable_quick_emojis">Tlačítko rychlých smajlíků</string>
   <string name="pref_summary_enable_quick_emojis">Zobrazit tlačítko rychlého vkládání smajlíků vedle vstupu pro textovou zprávu</string>
   <string name="pref_title_enable_softbank_encoding">SoftBank smajlíci</string>
-  <string name="pref_summary_enable_softbank_encoding">Použít kódy pro SoftBank smajlíky</string>
-  <string name="pref_title_mms_full_timestamp">Kompletní časový údaj</string>
-  <string name="pref_summary_mms_full_timestamp">Zobrazení času i datumu v informacích o zprávě</string>
+  <string name="pref_summary_enable_softbank_encoding">Použít SoftBank smajlíky</string>
+  <string name="pref_title_mms_full_timestamp">Kompletní časové údaje</string>
+  <string name="pref_summary_mms_full_timestamp">Zobrazení času i data v informacích o zprávě</string>
   <string name="pref_title_mms_use_sent_timestamp">Původní časové údaje</string>
-  <string name="pref_summary_mms_use_sent_timestamp">Zobrazí se pouze čas odeslání zprávy</string>
+  <string name="pref_summary_mms_use_sent_timestamp">Zobrazit datum odeslání namísto data přijetí</string>
   <string name="menu_add_to_calendar">Přidat do kalendáře</string>
-  <string name="pref_keyboard_emoji">Zobrazit klávesu pro smajlíky</string>
+  <string name="pref_keyboard_emoji">Zobrazit klávesu se smajlíky</string>
   <string name="pref_keyboard_new_line">Zobrazit klávesu Enter</string>
   <string name="pref_keyboard_unknown">Neplatná volba, zkuste to znovu</string>
-  <string name="pref_title_input_type">Chování klávesy Enter</string>
+  <string name="pref_title_input_type">Typ softwarové klávesnice</string>
   <string name="pref_summary_input_type">Vyberte softwarovou klávesnici pro použití při psaní zpráv</string>
-  <string name="pref_quickmessage">Vyskakovací okno</string>
+  <string name="pref_quickmessage">Rychlá zpráva a odpověď</string>
   <string name="pref_quickmessage_title">Zobrazovat vyskakovací okno</string>
   <string name="pref_quickmessage_summary">Zobrazit vyskakovací okno u příchozích SMS zpráv s možností rychlé odpovědi</string>
   <string name="pref_wake_unlock_title">Probudit a odemknout</string>
@@ -99,9 +112,9 @@
   <string name="direct_call_title">Přímé volání</string>
   <string name="direct_call_summary">Zvednutím telefonu zavoláte aktuálnímu kontaktu</string>
   <string name="pref_title_mms_message_font_size">Velikost písma zprávy</string>
-  <string name="pref_summary_mms_message_font_size">Změnit velikost písma zobrazení zpráv</string>
+  <string name="pref_summary_mms_message_font_size">Změnit velikost písma zobrazovaných zpráv</string>
   <string name="pref_dialogtitle_mms_message_font_size">Zvolte velikost písma</string>
-  <string name="pref_title_notification_privacy_mode_enabled">Režim soukromý</string>
+  <string name="pref_title_notification_privacy_mode_enabled">Soukromý režim</string>
   <string name="pref_summary_notification_privacy_mode_enabled">Skrýt odesílatele a zprávu ve stavové liště a zakázat rychlou odpověď</string>
   <string name="notification_single_title_privacy_mode">Nová zpráva</string>
   <string name="notification_single_text_privacy_mode">1 nepřečtená zpráva</string>
@@ -111,8 +124,8 @@
   <string name="msg_sig_title">Podpis</string>
   <string name="msg_sig_summary">Nastavte si vlastní podpis pro zprávy</string>
   <string name="msg_sig_enter_text">Zadejte text podpisu</string>
-  <string name="mms_breath">Dýchací SMS</string>
-  <string name="mms_breath_summary">Přidá dýchazí efekt notifikacím v oznamovací liště</string>
+  <string name="mms_breath">Dýchající SMS</string>
+  <string name="mms_breath_summary">Přidá efekt dýchání notifikacím v oznamovací liště</string>
   <string name="hide_avatar">Skrýt avatar</string>
   <string name="hide_avatar_summary">Skrýt avatar na obrazovce se seznamem konverzací</string>
   <string name="pref_multi_select">Snadná volba</string>
@@ -132,25 +145,28 @@
   <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
   <string name="pref_mms_ua_custom_option">Vlastní\u2026</string>
   <string name="pref_title_mms_user_agent">Uživatelský agent</string>
-  <string name="pref_summary_mms_user_agent">Upravit telefon pro používaní jiného modelu MMS</string>
+  <string name="pref_summary_mms_user_agent">Nastavit telefon na používaní jiného modelu MMS</string>
+  <string name="pref_mms_user_agent_custom_set">Uživatelský agent nastaven na:\n</string>
+  <string name="pref_mms_user_agent_default">výchozí</string>
+  <string name="pref_mms_user_agent_custom">vlastní</string>
   <string name="pref_title_sms_multi_part">Vícedílná SMS</string>
   <string name="pref_title_sms_multi_part_size">Velikost vícedílné SMS</string>
-  <string name="pref_summary_sms_multi_part_mms">Textové zprávy s více než 160 znaků budou odeslány jako MMS</string>
-  <string name="pref_summary_sms_multi_part">Textové zprávy s více než 160 znaků budou odeslány jako vícedílná SMS</string>
+  <string name="pref_summary_sms_multi_part_mms">Textové zprávy s více než 160 znaky budou odeslány jako MMS</string>
+  <string name="pref_summary_sms_multi_part">Textové zprávy s více než 160 znaky budou odeslány jako vícedílná SMS</string>
   <string name="pref_summary_sms_multi_part_mms_size">Text zprávy bude převeden na MMS po <xliff:g id="seg">%1$s</xliff:g> znacích	</string>
-  <string name="pref_title_sms_split">Počítadlo zpráv</string>
-  <string name="pref_summary_sms_split">Přidat počítadlo počtu odesílaných zpráv (např. 1/2)</string>
-  <string name="blacklist_title">Černá listina</string>
-  <string name="blacklist_summary_disabled">Zakázána</string>
+  <string name="pref_title_sms_split">Dělení zpráv</string>
+  <string name="pref_summary_sms_split">SMS budou rozděleny po 160 znacích</string>
+  <string name="blacklist_title">Blacklist</string>
+  <string name="blacklist_summary_disabled">Deaktivovaný</string>
   <string name="blacklist_summary">Příchozí zprávy z čísel na černé listině budou blokovány</string>
   <string name="blacklist_notification">Blokovaná zpráva z čísla %s</string>
   <string name="blacklist_notification_private_number">Blokovaná zpráva ze skrytého čísla</string>
   <string name="blacklist_notification_list_private">Skryté</string>
   <string name="blacklist_notification_unknown_number">Blokovaná zpráva z neznámého čísla %s</string>
-  <string name="blacklist_notification_multiple">Blokovaných zpráv:<xliff:g id="count">%d</xliff:g></string>
-  <string name="unblock_number">Neblokovat</string>
+  <string name="blacklist_notification_multiple">Blokovaných zpráv: <xliff:g id="count">%d</xliff:g></string>
+  <string name="unblock_number">Odblokovat</string>
   <string name="add_to_blacklist">Přidat na černou listinu</string>
-  <string name="add_to_blacklist_message">Příští zprávy z čísla %s budou blokovány</string>
+  <string name="add_to_blacklist_message">Příští zprávy z čísla %s budou zablokovány</string>
   <string name="alert_dialog_yes">Ano</string>
   <string name="alert_dialog_no">Ne</string>
 </resources>
