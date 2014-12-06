@@ -554,6 +554,7 @@ public class ComposeMessageActivity extends Activity
                 case AttachmentEditor.MSG_PLAY_VIDEO:
                 case AttachmentEditor.MSG_PLAY_AUDIO:
                 case AttachmentEditor.MSG_PLAY_SLIDESHOW:
+                case AttachmentEditor.MSG_VIEW_VCAL:
                 case AttachmentEditor.MSG_VIEW_VCARD:
                     if (mWorkingMessage.getSlideshow() != null) {
                          viewMmsMessageAttachment(msg.what);
@@ -562,6 +563,7 @@ public class ComposeMessageActivity extends Activity
                 case AttachmentEditor.MSG_REPLACE_IMAGE:
                 case AttachmentEditor.MSG_REPLACE_VIDEO:
                 case AttachmentEditor.MSG_REPLACE_AUDIO:
+                case AttachmentEditor.MSG_REPLACE_VCAL:
                 case AttachmentEditor.MSG_REPLACE_VCARD:
                     showAddAttachmentDialog(true);
                     break;
@@ -633,6 +635,7 @@ public class ComposeMessageActivity extends Activity
                             case WorkingMessage.VIDEO:
                             case WorkingMessage.AUDIO:
                             case WorkingMessage.VCARD:
+                            case WorkingMessage.VCAL:
                             case WorkingMessage.SLIDESHOW:
                                 MessageUtils.viewMmsMessageAttachment(ComposeMessageActivity.this,
                                         msgItem.mMessageUri, msgItem.mSlideshow,
@@ -2503,6 +2506,7 @@ public class ComposeMessageActivity extends Activity
 
         mIsPickingContact = false;
         addRecipientsListeners();
+
         if (isRecipientsEditorVisible()) {
             mRecipientsEditor.addTextChangedListener(mRecipientsWatcher);
         }
@@ -3938,6 +3942,11 @@ public class ComposeMessageActivity extends Activity
         handleAddAttachmentError(result, R.string.type_vcard);
     }
 
+    private void addVCal(Uri uri) {
+        int result = mWorkingMessage.setAttachment(WorkingMessage.VCAL, uri, false);
+        handleAddAttachmentError(result, R.string.type_vcal);
+    }
+
     AsyncDialog getAsyncDialog() {
         if (mAsyncDialog == null) {
             mAsyncDialog = new AsyncDialog(this);
@@ -4053,6 +4062,9 @@ public class ComposeMessageActivity extends Activity
                     && (type.equals("text/x-vcard")
                     || (wildcard && isVcardFile(uri)))) {
                 addVcard(uri);
+           } else if ((type.equals("text/x-vcalendar")
+                       && isVCalFile(uri))) {
+                addVCal(uri);
            }
         }
     }
@@ -5419,6 +5431,13 @@ public class ComposeMessageActivity extends Activity
     private boolean isVcardFile(Uri uri) {
         String path = uri.getPath();
         return null != path && path.toLowerCase().endsWith(".vcf");
+    }
+
+    // Get the path of uri and compare it to ".vcs" to judge whether it is a
+    // vcalendar file.
+    private boolean isVCalFile(Uri uri) {
+        String path = uri.getPath();
+        return null != path && path.toLowerCase().endsWith(".vcs");
     }
 
     private ListView getListView() {
