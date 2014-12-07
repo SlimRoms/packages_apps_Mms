@@ -55,7 +55,7 @@
   <string name="template_not_present_error">Il n\'y a pas de modèles</string>
   <string name="template_not_present_error_title">Erreur</string>
   <string name="template_select">Séléctionner un modèle</string>
-  <string name="gestures_already_present">Attention: Un geste similaire est associé à un autre modèle!</string>
+  <string name="gestures_already_present">Un geste similaire est déjà associé à un autre modèle</string>
   <string name="pref_title_mms_notification_vibrate_settings">Paramètres de vibration</string>
   <string name="pref_title_mms_notification_vibrate_pattern">Style de vibration</string>
   <string name="pref_summary_mms_notification_vibrate_pattern">Changer le style de vibration</string>
@@ -118,4 +118,6 @@
   <string name="add_recipients">Ajouter des destinataires</string>
   <string name="pref_text_area_size_title">Taille de la zone de texte</string>
   <string name="pref_text_area_size_summary">Définir la taille de la zone texte à <xliff:g id="lines">%1$s</xliff:g> lignes</string>
+  <string name="pref_title_sms_multi_part">SMS en plusieurs parties</string>
+  <string name="pref_title_sms_multi_part_size">Taille des SMS en plusieurs parties</string>
 </resources>
