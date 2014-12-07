@@ -120,6 +120,8 @@
   <string name="notification_multiple_title_privacy_mode">Mensajes nuevos</string>
   <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> mensajes no leídos</string>
   <string name="notification_ticker_privacy_mode">Nuevo mensaje recibido</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Modo de aviso</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Mostrar mensajes como notificaciones de aviso.</string>
   <string name="msg_sig_title">Firma</string>
   <string name="msg_sig_summary">Establecer una firma personalizada para los mensajes</string>
   <string name="msg_sig_enter_text">Inserta el texto de la firma</string>

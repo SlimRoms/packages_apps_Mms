@@ -116,6 +116,8 @@
   <string name="notification_multiple_title_privacy_mode">Νέα μηνύματα</string>
   <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> μη αναγνωσμένα μηνύματα</string>
   <string name="notification_ticker_privacy_mode">Νέο μήνυμα ελήφθη</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Λειτουργία Heads up</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Εμφάνιση μηνυμάτων ως ειδοποίηση heads up.</string>
   <string name="msg_sig_title">Υπογραφή</string>
   <string name="msg_sig_summary">Ορίστε μία  προσαρμοσμένη υπογραφή για τα μηνύματα</string>
   <string name="msg_sig_enter_text">Εισάγετε το κείμενο της υπογραφής</string>

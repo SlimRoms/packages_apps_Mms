@@ -121,6 +121,8 @@
   <string name="notification_multiple_title_privacy_mode">Новые сообщения</string>
   <string name="notification_multiple_text_privacy_mode">Новые сообщения (<xliff:g id="number" example="3">%1$s</xliff:g>)</string>
   <string name="notification_ticker_privacy_mode">Получено новое сообщение</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Режим уведомлений \"поверх\"</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Показывать сообщения в виде уведомлений \"поверх\".</string>
   <string name="msg_sig_title">Подпись</string>
   <string name="msg_sig_summary">Задать подпись для сообщений</string>
   <string name="msg_sig_enter_text">Введите текст подписи</string>

@@ -121,6 +121,8 @@
   <string name="notification_multiple_title_privacy_mode">Nové zprávy</string>
   <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> nepřečtených zpráv</string>
   <string name="notification_ticker_privacy_mode">Přijata nová zpráva</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Režim plovoucích oznámení</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Zobrazit zprávy jako plovoucí oznámení.</string>
   <string name="msg_sig_title">Podpis</string>
   <string name="msg_sig_summary">Nastavte si vlastní podpis pro zprávy</string>
   <string name="msg_sig_enter_text">Zadejte text podpisu</string>

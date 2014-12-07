@@ -49,6 +49,7 @@
   <string name="template_new_title">Neue Vorlage</string>
   <string name="template_gesture_draw">Geste auf der freien Fläche unterhalb zeichnen</string>
   <string name="template_not_present_error">Es wurden bisher keine Vorlagen angelegt</string>
+  <string name="template_confirm_dialog_title">Löschen?</string>
   <string name="gestures_already_present">Eine ähnliche Geste wurde bereits mit einer anderen Vorlage verknüpft</string>
   <string name="select_template">Vorlagen auswählen</string>
   <string name="pref_templates_gestures_sensitivity_broadest">1 (Sehr unempfindlich)</string>
@@ -75,6 +76,8 @@
   <string name="pref_summary_mms_message_font_size">Ändert die Schriftgröße der Nachrichtenansicht</string>
   <string name="pref_dialogtitle_mms_message_font_size">Schriftgröße auswählen</string>
   <string name="pref_summary_notification_privacy_mode_enabled">Absender und Nachricht nicht in der Statusleiste zeigen und Schnellantwort blockieren</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Heads-Up-Modus</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Nachrichten als Heads-Up-Meldung anzeigen.</string>
   <string name="mms_breath">Pulsierende SMS</string>
   <string name="mms_breath_summary">Zeigt ein pulsierendes Symbol in der Statusleiste</string>
   <string name="hide_avatar">Kontaktbild ausblenden</string>
