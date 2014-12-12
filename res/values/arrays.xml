@@ -35,6 +35,17 @@
         <item>@string/type_slot2</item>
     </string-array>
 
+    <string-array name="number_options">
+        <item>@string/menu_call</item>
+        <item>@string/title_send_message</item>
+        <item>@string/menu_add_to_contacts</item>
+    </string-array>
+
+    <string-array name="email_options">
+        <item>@string/menu_email</item>
+        <item>@string/menu_add_to_contacts</item>
+    </string-array>
+
     <string-array name="entries_sms_store_value">
         <item>0</item>
         <item>1</item>
