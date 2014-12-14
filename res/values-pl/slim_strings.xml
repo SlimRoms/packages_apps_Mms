@@ -116,6 +116,8 @@
   <string name="notification_multiple_title_privacy_mode">Nowe wiadomości</string>
   <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> nieprzeczytanych wiadomości</string>
   <string name="notification_ticker_privacy_mode">Otrzymano nową wiadomość</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Tryb wyskakujących powiadomień</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Pokazuj wiadomości jako wyskakujące powiadomienia.</string>
   <string name="msg_sig_title">Podpis</string>
   <string name="msg_sig_summary">Ustaw własny podpis do wiadomości</string>
   <string name="msg_sig_enter_text">Wpisz tekst podpisu</string>
@@ -164,4 +166,5 @@
   <string name="add_to_blacklist_message">Kolejne wiadomości od %s będą blokowane</string>
   <string name="alert_dialog_yes">Tak</string>
   <string name="alert_dialog_no">Nie</string>
+  <string name="start_new_message_button">Nowa wiadomość</string>
 </resources>

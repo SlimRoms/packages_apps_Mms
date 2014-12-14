@@ -171,4 +171,5 @@
   <string name="add_to_blacklist_message">Сообщения с номера %s будут заблокированы</string>
   <string name="alert_dialog_yes">Да</string>
   <string name="alert_dialog_no">Нет</string>
+  <string name="start_new_message_button">Новое сообщение</string>
 </resources>
