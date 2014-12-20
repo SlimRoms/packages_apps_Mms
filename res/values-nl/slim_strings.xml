@@ -15,12 +15,21 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="menu_mark_all_read">Alles als gelezen markeren</string>
+  <string name="cannot_find_contact">Het contact dat u selecteerde kon niet worden toegevoegd.</string>
   <string-array name="prefEntries_vibrateWhen">
     <item>Altijd</item>
     <item>Alleen indien stil</item>
     <item>Nooit</item>
   </string-array>
+  <string name="pref_title_save_location">Map om bijlage op te slaan</string>
+  <string name="pref_title_save_location_summary">Specificeer map om bijlages op te slaan</string>
+  <string name="attach_contact_info">Contact informatie</string>
+  <string name="record_sound_error_alert">Kan geen audio opnemen.  SoundRecorder.apk ontbreekt!</string>
+  <string name="label_mms_push">MMS Push</string>
+  <string name="desc_mms_push">Verstuurd MMS van Postvak Uit in het net</string>
   <string name="pref_extra_settings">Meer\u2026</string>
+  <string name="pref_char_settings">Tekens instellingen</string>
   <string name="pref_title_enable_emojis">Emoji</string>
   <string name="pref_summary_enable_emojis">Unicode-emoji\'s, 471 leuke smiley\'s, inschakelen</string>
   <string name="menu_insert_emoji">Emoji invoegen</string>
@@ -46,12 +55,34 @@
   <string name="template_not_present_error">U heeft nog geen sjabloon</string>
   <string name="template_not_present_error_title">Fout</string>
   <string name="template_select">Sjabloon selecteren</string>
+  <string name="template_confirm_dialog_title">Verwijderen?</string>
+  <plurals name="template_confirm_delete_conversation">
+    <item quantity="one">Een sjabloon wordt verwijderd.</item>
+    <item quantity="other"><xliff:g id="number" example="15">%1$s</xliff:g> sjablonen worden verwijderd.</item>
+  </plurals>
   <string name="gestures_already_present">Let op: een soortgelijk gebaar wordt al gebruikt.</string>
+  <string name="select_template">Sjablonen selecteren</string>
+  <string name="pref_templates_gestures_sensitivity_broadest">1 (minst strikt)</string>
+  <string name="pref_templates_gestures_sensitivity_strictest">12 (meest strikt)</string>
   <string name="pref_title_mms_notification_vibrate_settings">Trillen</string>
   <string name="pref_title_mms_notification_vibrate_pattern">Trilpatroon</string>
   <string name="pref_summary_mms_notification_vibrate_pattern">Trilpatroon wijzigen</string>
+  <string name="pref_title_mms_notification_vibrate_normal">Normaal</string>
+  <string name="pref_title_mms_notification_vibrate_medium">Middellang trillen</string>
+  <string name="pref_title_mms_notification_vibrate_long">Lang trillen</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_short">Meervoudig kort</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_long">Meervoudig lang</string>
   <string name="pref_title_mms_notification_vibrate_custom">Aangepast trilpatroon</string>
   <string name="pref_text_mms_notification_vibrate_custom">Indeling uit/aan in miliseconden: uit, aan, uit, aan, enz.</string>
+  <string name="pref_mms_notification_vibrate_pattern_custom">aangepast</string>
+  <string name="pref_title_unicode_stripping">Unicode omzetten</string>
+  <string name="pref_unicode_stripping_leave_intact">Tekens intact laten</string>
+  <string name="pref_unicode_stripping_non_encodable">Niet-encodeerbare tekens omzetten</string>
+  <string name="pref_unicode_stripping_all">Alle Unicode-tekens omzetten</string>
+  <string name="pref_title_enable_quick_emojis">Snelle emoticon knop</string>
+  <string name="pref_summary_enable_quick_emojis">Een knop voor snelle emoticon toegang naast het tekstinvoer veld weergegeven</string>
+  <string name="pref_title_enable_softbank_encoding">SoftBank emoticons</string>
+  <string name="pref_summary_enable_softbank_encoding">SoftBank emoticon codering gebruiken</string>
   <string name="pref_title_mms_full_timestamp">Volledige tijdsaanduiding</string>
   <string name="pref_summary_mms_full_timestamp">Datum en tijd tonen in tijdsaanduidingen</string>
   <string name="pref_title_mms_use_sent_timestamp">Oorspronkelijke tijdsaanduiding</string>
@@ -77,4 +108,66 @@
   <string name="toast_sending_message">Bericht wordt verzonden\u2026</string>
   <string name="qm_quick_reply">Snel beantwoorden</string>
   <string name="qm_mark_read">Gelezen</string>
+  <string name="direct_call_title">Directe oproep</string>
+  <string name="direct_call_summary">Door het oppakken van de telefoon wordt huidige contact gebeld</string>
+  <string name="pref_title_mms_message_font_size">Lettergrootte van bericht</string>
+  <string name="pref_summary_mms_message_font_size">Lettergrootte van berichtenlijst veranderen</string>
+  <string name="pref_dialogtitle_mms_message_font_size">Selecteer lettergrootte</string>
+  <string name="pref_title_notification_privacy_mode_enabled">Privacy modus</string>
+  <string name="pref_summary_notification_privacy_mode_enabled">Afzender en bericht verbergen in statusbalk en Snelbeantwoorden uitschakelen</string>
+  <string name="notification_single_title_privacy_mode">Nieuw bericht</string>
+  <string name="notification_single_text_privacy_mode">1 ongelezen bericht</string>
+  <string name="notification_multiple_title_privacy_mode">Nieuwe berichten</string>
+  <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> ongelezen berichten</string>
+  <string name="notification_ticker_privacy_mode">Nieuw bericht ontvangen</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Heads-up modus</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Berichten weergeven als heads-up melding.</string>
+  <string name="msg_sig_title">Ondertekening</string>
+  <string name="msg_sig_summary">Een aangepaste ondertekening voor berichten instellen</string>
+  <string name="msg_sig_enter_text">Tekst voor ondertekening invoeren</string>
+  <string name="mms_breath">Pulserende SMS</string>
+  <string name="mms_breath_summary">Geeft meldingen in uw statusbalk een pulserend effect</string>
+  <string name="hide_avatar">Avatar verbergen</string>
+  <string name="hide_avatar_summary">Avatar verbergen in berichtenlijst scherm</string>
+  <string name="pref_multi_select">Makkelijk selecteren</string>
+  <string name="pref_multi_select_summary">Meerdere contacten selecteren door een checkbox</string>
+  <string name="add_recipients">Ontvangers toevoegen</string>
+  <string name="groups_header">Groepen</string>
+  <string name="loading_recipients">Contacten en groepen laden</string>
+  <string name="no_recipients">Geen mogelijke ontvangers</string>
+  <string name="pref_text_area_size_title">Tekstveld grootte</string>
+  <string name="pref_text_area_size_summary">Tekstveld instellen op <xliff:g id="lines">%1$s</xliff:g> regels</string>
+  <string name="pref_mms_ua_default_android">Standaard Android</string>
+  <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+  <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+  <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
+  <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+  <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+  <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+  <string name="pref_mms_ua_custom_option">Aangepast\u2026</string>
+  <string name="pref_title_mms_user_agent">Gebruikersagent</string>
+  <string name="pref_summary_mms_user_agent">Bij MMS de telefoon als een ander model uitgeven</string>
+  <string name="pref_mms_user_agent_custom_set">Gebruikersagent ingesteld op:\n</string>
+  <string name="pref_mms_user_agent_default">standaard</string>
+  <string name="pref_mms_user_agent_custom">aangepast</string>
+  <string name="pref_title_sms_multi_part">Meerdelige SMS</string>
+  <string name="pref_title_sms_multi_part_size">Meerdelige SMS grootte</string>
+  <string name="pref_summary_sms_multi_part_mms">Tekstberichten groter als 160 tekens worden verzonden als MMS</string>
+  <string name="pref_summary_sms_multi_part">Tekstberichten groter als 160 tekens worden verzonden als meervoudige SMS</string>
+  <string name="pref_summary_sms_multi_part_mms_size">Tekstbericht wordt geconverteerd naar een MMS na <xliff:g id="seg">%1$s</xliff:g> segmenten</string>
+  <string name="pref_title_sms_split">Gedeelde SMS</string>
+  <string name="pref_summary_sms_split">SMS-berichten worden verdeeld over berichten van 160 tekens</string>
+  <string name="blacklist_title">Zwarte lijst</string>
+  <string name="blacklist_summary_disabled">Uitgeschakeld</string>
+  <string name="blacklist_summary">Inkomende berichten van telefoonnummers op de zwarte lijst worden geblokkeerd</string>
+  <string name="blacklist_notification">Bericht van %s geblokkeerd</string>
+  <string name="blacklist_notification_private_number">Bericht van afgeschermd nummer geblokkeerd</string>
+  <string name="blacklist_notification_list_private">Afgeschermd</string>
+  <string name="blacklist_notification_unknown_number">Bericht van onbekend nummer %s geblokkeerd</string>
+  <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> berichten zijn geblokkeerd</string>
+  <string name="unblock_number">Blokkering opheffen</string>
+  <string name="add_to_blacklist">Toevoegen aan zwarte lijst</string>
+  <string name="add_to_blacklist_message">Toekomstige berichten van %s worden geblokkeerd</string>
+  <string name="alert_dialog_yes">Ja</string>
+  <string name="alert_dialog_no">Nee</string>
 </resources>

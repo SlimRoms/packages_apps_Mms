@@ -27,6 +27,7 @@
   <string name="attach_contact_info">Kontaktinformationen</string>
   <string name="record_sound_error_alert">Ton kann nicht aufgezeichnet werden. SoundRecorder.apk fehlt!</string>
   <string name="label_mms_push">MMS-Push</string>
+  <string name="desc_mms_push">Verschiebt MMS vom Postausgang ins Netz</string>
   <string name="pref_extra_settings">Weitere Einstellungen</string>
   <string name="pref_char_settings">Zeichen Einstellungen</string>
   <string name="pref_title_enable_emojis">Emoji-Unterstützung</string>
@@ -42,7 +43,7 @@
   <string name="pref_title_template_gestures_sensitivity">Empfindlichkeit der Gesten</string>
   <string name="template_save">Speichern</string>
   <string name="template_insert_hint">Vorlagentext hier eingeben</string>
-  <string name="template_empty_text">Das Textfeld darf nicht leer sein!</string>
+  <string name="template_empty_text">Das Textfeld darf nicht leer sein</string>
   <string name="template_explanation">Vorlagentext eingeben oder ändern. Optional kann eine Geste gezeichnet und mit der Vorlage verknüpft werden</string>
   <string name="template_edit">Bearbeiten</string>
   <string name="template_delete">Löschen</string>
@@ -72,15 +73,15 @@
   <string name="pref_title_mms_notification_vibrate_multiple_short">Mehrmals kurz</string>
   <string name="pref_title_mms_notification_vibrate_multiple_long">Mehrmals lang</string>
   <string name="pref_title_mms_notification_vibrate_custom">Anderes Vibrationsmuster</string>
-  <string name="pref_text_mms_notification_vibrate_custom">Format aus/an in Millisekunden: aus, an, aus, an, \u2026</string>
+  <string name="pref_text_mms_notification_vibrate_custom">Format aus/an in Millisekunden: aus, an, aus, an, ...</string>
   <string name="pref_mms_notification_vibrate_pattern_custom">Benutzerdefiniert</string>
   <string name="pref_title_unicode_stripping">Unicode entfernen</string>
-  <string name="pref_unicode_stripping_leave_intact">Leave characters intact</string>
+  <string name="pref_unicode_stripping_leave_intact">Zeichen unberührt lassen</string>
   <string name="pref_unicode_stripping_non_encodable">Nicht kodierbare Zeichen entfernen</string>
   <string name="pref_unicode_stripping_all">Alle Unicode-Zeichen entfernen</string>
   <string name="pref_title_enable_quick_emojis">Emoticon-Schnellauswahl</string>
   <string name="pref_summary_enable_quick_emojis">Eine Schaltfläche neben dem Texteingabe-Bereich für Emoticons anzeigen</string>
-  <string name="pref_title_enable_softbank_encoding">SoftBank Emoticon-Kodierung</string>
+  <string name="pref_title_enable_softbank_encoding">SoftBank Emoticon</string>
   <string name="pref_summary_enable_softbank_encoding">SoftBank Emoticon-Kodierung aktivieren</string>
   <string name="pref_title_mms_full_timestamp">Vollständige Zeitstempel</string>
   <string name="pref_summary_mms_full_timestamp">Datum und Zeit der Nachricht anzeigen</string>
@@ -92,6 +93,7 @@
   <string name="pref_keyboard_unknown">Unbekannt. Neue Auswahl treffen</string>
   <string name="pref_title_input_type">Eingabemethode wählen</string>
   <string name="pref_summary_input_type">Eingabemethode wählen, die bei Nachrichtenerstellung verwendet werden soll</string>
+  <string name="pref_quickmessage">Schnell antworten</string>
   <string name="pref_quickmessage_title">Pop-up anzeigen</string>
   <string name="pref_quickmessage_summary">Bei Eingang einer SMS ein Pop-up anzeigen, um schnell antworten zu können</string>
   <string name="pref_wake_unlock_title">Wecken und Entsperren</string>
@@ -102,10 +104,12 @@
   <string name="button_close">Schließen</string>
   <string name="button_view">Anzeigen</string>
   <string name="button_templates">Vorlagen</string>
+  <string name="type_to_reply_text_enter_to_send">Nachricht schreiben</string>
+  <string name="toast_sending_message">Nachricht wird gesendet</string>
   <string name="qm_quick_reply">Antworten</string>
   <string name="qm_mark_read">Gelesen</string>
-  <string name="direct_call_title">Direktanruf</string>
-  <string name="direct_call_summary">Rufe den aktuellen Kontakt an</string>
+  <string name="direct_call_title">Direktwahl</string>
+  <string name="direct_call_summary">Hochheben des Telefons wählt den aktuellen Kontakt an</string>
   <string name="pref_title_mms_message_font_size">Schriftgröße der Nachrichten</string>
   <string name="pref_summary_mms_message_font_size">Ändert die Schriftgröße der Nachrichtenansicht</string>
   <string name="pref_dialogtitle_mms_message_font_size">Schriftgröße auswählen</string>
@@ -126,7 +130,7 @@
   <string name="hide_avatar">Kontaktbild ausblenden</string>
   <string name="hide_avatar_summary">Kontaktbilder in der Konservationsliste ausblenden</string>
   <string name="pref_multi_select">Einfache Selektion</string>
-  <string name="pref_multi_select_summary">Wählen Sie mehrere Kontakte mit Mehrfachauswahl</string>
+  <string name="pref_multi_select_summary">Wählen Sie mehrere Kontakte mit einer Checkbox aus</string>
   <string name="add_recipients">Empfänger hinzufügen</string>
   <string name="groups_header">Gruppen</string>
   <string name="loading_recipients">Kontakte und Gruppen laden</string>
@@ -141,20 +145,26 @@
   <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
   <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
   <string name="pref_mms_ua_custom_option">Benutzerdefiniert\u2026</string>
+  <string name="pref_title_mms_user_agent">User Agent</string>
+  <string name="pref_summary_mms_user_agent">Bei MMS Telefon als ein anderes Modell ausgeben</string>
+  <string name="pref_mms_user_agent_custom_set">User Agent-Einstellung:\n</string>
   <string name="pref_mms_user_agent_default">Standard</string>
-  <string name="pref_mms_user_agent_custom">benutzerdefiniert</string>
+  <string name="pref_mms_user_agent_custom">Benutzerdefiniert</string>
   <string name="pref_title_sms_multi_part">Mehrteilige SMS</string>
   <string name="pref_title_sms_multi_part_size">Größe mehrteiliger SMS</string>
   <string name="pref_summary_sms_multi_part_mms">SMS-Nachrichten mit über 160 Zeichen werden als MMS gesendet werden</string>
   <string name="pref_summary_sms_multi_part">SMS-Nachrichten mit über 160 Zeichen werden als Mehrteilige-SMS gesendet werden</string>
-  <string name="pref_summary_sms_multi_part_mms_size">SMS-Nachricht wird nach <xliff:g id="seg"> %1$s </xliff:g> Segmenten als MMS konvertiert</string>
+  <string name="pref_summary_sms_multi_part_mms_size">SMS-Nachricht wird nach <xliff:g id="seg"> %1$s </xliff:g> Segmenten in MMS konvertiert</string>
   <string name="pref_title_sms_split">SMS teilen</string>
+  <string name="pref_summary_sms_split">Textnachrichten werden in 160 Zeichen pro Nachricht aufgeteilt</string>
   <string name="blacklist_title">Sperrliste</string>
   <string name="blacklist_summary_disabled">Deaktiviert</string>
   <string name="blacklist_summary">Eingehende Nachrichten von Nummern, die sich in der Sperrliste befinden, werden abgewiesen</string>
   <string name="blacklist_notification">Eine Nachricht von %s wurde abgewiesen</string>
   <string name="blacklist_notification_private_number">Eine Nachricht mit unterdrückter Nummer wurde abgewiesen</string>
+  <string name="blacklist_notification_list_private">Unterdrückt</string>
   <string name="blacklist_notification_unknown_number">Eine Nachricht von unbekannter Nummer %s wurde abgewiesen</string>
+  <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> abgewiesene Nachrichten</string>
   <string name="unblock_number">Aufheben</string>
   <string name="add_to_blacklist">Zur Sperrliste hinzufügen</string>
   <string name="add_to_blacklist_message">Zukünftige Nachrichten von %s werden abgewiesen</string>
