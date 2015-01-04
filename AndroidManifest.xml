@@ -420,7 +420,11 @@
             android:excludeFromRecents="true"
             android:exported="true" />
 
-        <receiver android:name=".quickmessage.ClearAllReceiver" />
+         <receiver
+            android:name=".quickmessage.QmMarkRead"
+            android:exported="true" />
 
-7ad6f74b9adce98c2d06a8851df1523651b71984    </application>
+         <receiver android:name=".quickmessage.ClearAllReceiver" />
+
+    </application>
 </manifest>
