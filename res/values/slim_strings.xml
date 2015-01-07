@@ -412,4 +412,6 @@
 
     <!-- Sharing vcs files from Calendar -->
     <string name="type_vcal">vCal</string>
+
+    <string name="menu_delete_slim">Delete entries</string>
 </resources>
