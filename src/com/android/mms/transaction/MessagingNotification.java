@@ -49,6 +49,7 @@ import android.database.sqlite.SqliteWrapper;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -56,8 +57,9 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Telephony.Mms;
 import android.provider.Telephony.Sms;
-import android.telephony.TelephonyManager;
+import android.telephony.PhoneStateListener;
 import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.telephony.SubInfoRecord;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -194,6 +196,18 @@ public class MessagingNotification {
     private static final int MAX_MESSAGES_TO_SHOW = 8;  // the maximum number of new messages to
                                                         // show in a single notification.
 
+    private static int mPhoneState;
+    private static PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
+        @Override
+        public void onCallStateChanged(int state, String ignored) {
+            mPhoneState = state;
+        }
+    };
+
+    public static final AudioAttributes AUDIO_ATTRIBUTES_ALARM = new AudioAttributes.Builder()
+            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+            .setUsage(AudioAttributes.USAGE_ALARM)
+            .build();
 
     private MessagingNotification() {
     }
@@ -211,6 +225,9 @@ public class MessagingNotification {
         sNotificationOnDeleteIntent = new Intent(NOTIFICATION_DELETED_ACTION);
 
         sScreenDensity = context.getResources().getDisplayMetrics().density;
+
+        TelephonyManager.getDefault().listen(mPhoneStateListener,
+                PhoneStateListener.LISTEN_CALL_STATE);
     }
 
     /**
@@ -371,7 +388,12 @@ public class MessagingNotification {
         }
         String ringtoneStr = sp.getString(MessagingPreferenceActivity.NOTIFICATION_RINGTONE,
                 null);
-        noti.setSound(TextUtils.isEmpty(ringtoneStr) ? null : Uri.parse(ringtoneStr));
+        if (isInCall()) {
+            noti.setSound(TextUtils.isEmpty(ringtoneStr) ? null : Uri.parse(ringtoneStr),
+                    AUDIO_ATTRIBUTES_ALARM);
+        } else {
+            noti.setSound(TextUtils.isEmpty(ringtoneStr) ? null : Uri.parse(ringtoneStr));
+        }
         Log.d(TAG, "blockingUpdateNewIccMessageIndicator: adding sound to the notification");
 
         defaults |= Notification.DEFAULT_LIGHTS;
@@ -1083,7 +1105,12 @@ public class MessagingNotification {
 
             String ringtoneStr = sp.getString(MessagingPreferenceActivity.NOTIFICATION_RINGTONE,
                     null);
-            noti.setSound(TextUtils.isEmpty(ringtoneStr) ? null : Uri.parse(ringtoneStr));
+            if (isInCall()) {
+                noti.setSound(TextUtils.isEmpty(ringtoneStr) ? null : Uri.parse(ringtoneStr),
+                        AUDIO_ATTRIBUTES_ALARM);
+            } else {
+                noti.setSound(TextUtils.isEmpty(ringtoneStr) ? null : Uri.parse(ringtoneStr));
+            }
             Log.d(TAG, "updateNotification: new message, adding sound to the notification");
         }
 
@@ -1619,5 +1646,13 @@ public class MessagingNotification {
         notification.tickerText = title;
         notification.setLatestEventInfo(context, title, description, intent);
         nm.notify(FULL_NOTIFICATION_ID, notification);
+    }
+
+    /**
+     * This method check whether phone is in call status
+     */
+    protected static boolean isInCall() {
+        return mPhoneState == TelephonyManager.CALL_STATE_RINGING
+                || mPhoneState == TelephonyManager.CALL_STATE_OFFHOOK;
     }
 }
