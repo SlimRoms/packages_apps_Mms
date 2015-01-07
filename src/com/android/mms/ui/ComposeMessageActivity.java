@@ -3218,7 +3218,7 @@ public class ComposeMessageActivity extends Activity
 
         TemplateSelectListener listener = new TemplateSelectListener(smsTempArray);
         return new AlertDialog.Builder(ComposeMessageActivity.this)
-                .setTitle(R.string.message_template)
+                .setTitle(R.string.import_message_template)
                 .setItems(smsTempArray, listener)
                 .create();
     }
@@ -4233,8 +4233,9 @@ public class ComposeMessageActivity extends Activity
                 updateSendButtonState();
                 if (s.toString().getBytes().length == SUBJECT_MAX_LENGTH
                         && before < SUBJECT_MAX_LENGTH) {
-                    Toast.makeText(ComposeMessageActivity.this,
-                            R.string.subject_full, Toast.LENGTH_SHORT).show();
+                    String toast = getString(R.string.subject_full, SUBJECT_MAX_LENGTH);
+                    Toast.makeText(ComposeMessageActivity.this, toast,
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -4243,13 +4244,11 @@ public class ComposeMessageActivity extends Activity
         public void afterTextChanged(Editable s) {
             if (s.toString().getBytes().length > SUBJECT_MAX_LENGTH) {
                 String subject = s.toString();
-                Toast.makeText(ComposeMessageActivity.this,
-                        R.string.subject_full, Toast.LENGTH_SHORT).show();
-                while (subject.getBytes().length > SUBJECT_MAX_LENGTH) {
-                    subject = subject.substring(0, subject.length() - 1);
-                }
+                String toast = getString(R.string.subject_full, SUBJECT_MAX_LENGTH);
+                Toast.makeText(ComposeMessageActivity.this, toast,
+                        Toast.LENGTH_SHORT).show();
                 s.clear();
-                s.append(subject);
+                s.append(subject.substring(0, SUBJECT_MAX_LENGTH));
             }
         }
     };
@@ -5296,7 +5295,7 @@ public class ComposeMessageActivity extends Activity
             default:
                 break;
             }
-            String toast = getString(R.string.copy_to_sim_success, sum, success);
+            String toast = getString(R.string.copy_to_sim_success, success, sum);
             Toast.makeText(ComposeMessageActivity.this, toast,
                     Toast.LENGTH_SHORT).show();
         }
