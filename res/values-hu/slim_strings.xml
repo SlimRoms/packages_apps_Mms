@@ -96,6 +96,7 @@
   <string name="pref_wake_unlock_summary">Készülék felébresztése és feloldása üzenet érkezésekor (csak nem biztosított képernyőzár esetén)</string>
   <string name="pref_close_all_title">Összes bezárása</string>
   <string name="pref_close_all_summary">A bezárás gomb az összes üzenetet zárja be</string>
+  <string name="message_counter_separator">-ból</string>
   <string name="button_close">Bezárás</string>
   <string name="button_view">Megtekintés</string>
   <string name="button_templates">Sablonok</string>
@@ -115,9 +116,12 @@
   <string name="notification_multiple_title_privacy_mode">Új üzenetek</string>
   <string name="notification_multiple_text_privacy_mode"><xliff:g id="NUMBER">%1$s</xliff:g> olvasatlan üzenet</string>
   <string name="notification_ticker_privacy_mode">Új üzenet érkezett</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Felugró értesités</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">engedélyezd a beérkező üzeneteket felugró ablakban.</string>
   <string name="msg_sig_title">Aláírás</string>
   <string name="msg_sig_summary">Egyedi aláírás beállítása az üzenetekhez</string>
   <string name="msg_sig_enter_text">Írja be az aláírás szövegét</string>
+  <string name="mms_breath">Pulzáló SMS</string>
   <string name="mms_breath_summary">Egyedi effektet ad az értesítéseknek a statusbar-on</string>
   <string name="hide_avatar">Kapcsolat képének elrejtése</string>
   <string name="hide_avatar_summary">Kapcsolat képének elrejtése a párbeszéd-listán</string>
@@ -162,4 +166,5 @@
   <string name="add_to_blacklist_message">Üzenetek innen %s blokkolva lesznek</string>
   <string name="alert_dialog_yes">Igen</string>
   <string name="alert_dialog_no">Nem</string>
+  <string name="start_new_message_button">Új üzenet</string>
 </resources>

@@ -15,7 +15,24 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="menu_mark_all_read">Позначити все як прочитане</string>
+  <string name="cannot_find_contact">Не вдається прилучити обраний контакт.</string>
+  <string-array name="prefEntries_vibrateWhen">
+    <item>Завжди</item>
+    <item>Лише в беззвучному режимі</item>
+    <item>Ніколи</item>
+  </string-array>
+  <string name="pref_title_save_location">Папка збереження вкладень</string>
+  <string name="pref_title_save_location_summary">Вкажіть папку для зберігання вкладень</string>
+  <string name="attach_contact_info">Контактна інформація</string>
+  <string name="record_sound_error_alert">Не вдалося записати аудіо. SoundRecorder.apk відсутній!</string>
+  <string name="label_mms_push">Надіслати MMS</string>
+  <string name="desc_mms_push">Надіслати MMS з вихідних до мережі</string>
   <string name="pref_extra_settings">Додаткові налаштування</string>
+  <string name="pref_char_settings">Налаштування символів</string>
+  <string name="pref_title_enable_emojis">Підтримка Смайлів</string>
+  <string name="pref_summary_enable_emojis">Увімкнути підтримку смайлів unicode, набір з 471 красивих смайлів</string>
+  <string name="menu_insert_emoji">Вставити смайли</string>
   <string name="pref_title_sms_split_counter">Лічильник фрагментів</string>
   <string name="pref_summary_sms_split_counter">Додає лічильник до повідомлення, наприклад (1/2)</string>
   <string name="prefs_templates_settings">Шаблони SMS</string>
@@ -28,6 +45,9 @@
   <string name="template_insert_hint">Вставити сюди шаблон тексту</string>
   <string name="template_empty_text">Текстове поле не може бути пустим</string>
   <string name="template_explanation">Введіть текст шаблону і намалюйте жест, щоб зв’язати їх</string>
+  <string name="template_edit">Редагувати</string>
+  <string name="template_delete">Видалити</string>
+  <string name="template_ctx_menu_title">Дії</string>
   <string name="template_list_title">Шаблони</string>
   <string name="template_new_title">Новий шаблон</string>
   <string name="template_insert">Вставити шаблон</string>
@@ -36,14 +56,34 @@
   <string name="template_not_present_error_title">Помилка</string>
   <string name="template_select">Оберіть шаблон</string>
   <string name="template_confirm_dialog_title">Вилучити?</string>
+  <plurals name="template_confirm_delete_conversation">
+    <item quantity="one">Один шаблон буде видалено.</item>
+    <item quantity="few"><xliff:g id="number" example="15">%1$s</xliff:g> шаблони буде видалено.</item>
+    <item quantity="other"><xliff:g id="number" example="15">%1$s</xliff:g> шаблонів буде видалено.</item>
+  </plurals>
   <string name="gestures_already_present">Подібний жест пов’язаний з іншим шаблоном</string>
   <string name="select_template">Оберіть шаблони</string>
+  <string name="pref_templates_gestures_sensitivity_broadest">1 (найменш точно)</string>
+  <string name="pref_templates_gestures_sensitivity_strictest">12 (точні жести)</string>
+  <string name="pref_title_mms_notification_vibrate_settings">Налаштування вібро</string>
   <string name="pref_title_mms_notification_vibrate_pattern">Шаблон вібрації</string>
   <string name="pref_summary_mms_notification_vibrate_pattern">Змінити шаблон вібрацій</string>
+  <string name="pref_title_mms_notification_vibrate_normal">Звичайна</string>
+  <string name="pref_title_mms_notification_vibrate_medium">Cередня вібрація</string>
+  <string name="pref_title_mms_notification_vibrate_long">Довга вібрація</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_short">Кілька коротких</string>
+  <string name="pref_title_mms_notification_vibrate_multiple_long">Кілька довгих</string>
+  <string name="pref_title_mms_notification_vibrate_custom">Користувацький шаблон вібро</string>
+  <string name="pref_text_mms_notification_vibrate_custom">Формат вимк/увімк у мілісекундах: вимк, увімк, вимк, увімк, ...</string>
+  <string name="pref_mms_notification_vibrate_pattern_custom">Користувацька</string>
   <string name="pref_title_unicode_stripping">Замінювати юнікод</string>
   <string name="pref_unicode_stripping_leave_intact">Залишити символи без змін</string>
   <string name="pref_unicode_stripping_non_encodable">Замінювати символи які не кодуються</string>
   <string name="pref_unicode_stripping_all">Замінювати всі символи юнікоду</string>
+  <string name="pref_title_enable_quick_emojis">Кнопка виклику смайлів</string>
+  <string name="pref_summary_enable_quick_emojis">Відображати кнопку поруч із областю введення тексту для швидкого доступу до смайлі</string>
+  <string name="pref_title_enable_softbank_encoding">SoftBank для смайлів</string>
+  <string name="pref_summary_enable_softbank_encoding">Використовувати кодування SoftBank для смайлів</string>
   <string name="pref_title_mms_full_timestamp">Повні часові мітки</string>
   <string name="pref_summary_mms_full_timestamp">Показувати і дату і час в часових мітках</string>
   <string name="pref_title_mms_use_sent_timestamp">Початкові часові мітки</string>
@@ -53,6 +93,7 @@
   <string name="pref_keyboard_new_line">Показувати клавішу Enter</string>
   <string name="pref_keyboard_unknown">Невідомий тип. Будь ласка, повторіть вибір</string>
   <string name="pref_title_input_type">Тип клавіатури</string>
+  <string name="pref_summary_input_type">Виберіть клавіатуру для використання під час створення повідомлень</string>
   <string name="pref_quickmessage">Швидка відповідь</string>
   <string name="pref_quickmessage_title">Показати спливаюче вікно</string>
   <string name="pref_quickmessage_summary">Показувати спливаюче вікно для швидкої відповіді</string>
@@ -60,6 +101,7 @@
   <string name="pref_wake_unlock_summary">Будити і розблокувати пристрій при вхідному повідомленні (якщо немає блокування екрану)</string>
   <string name="pref_close_all_title">Закрити все</string>
   <string name="pref_close_all_summary">Кнопка Закрити закриває всі повідомлення</string>
+  <string name="message_counter_separator">із</string>
   <string name="button_close">Закрити</string>
   <string name="button_view">Вигляд</string>
   <string name="button_templates">Шаблони</string>
@@ -67,6 +109,11 @@
   <string name="toast_sending_message">Відправка повідомлення</string>
   <string name="qm_quick_reply">Відповісти</string>
   <string name="qm_mark_read">Читати</string>
+  <string name="direct_call_title">Прямий дзвінок</string>
+  <string name="direct_call_summary">Зразу набирати контакт, не використовуючи кнопку дзвінка</string>
+  <string name="pref_title_mms_message_font_size">Розмір шрифту повідомлення</string>
+  <string name="pref_summary_mms_message_font_size">Змінити розмір шрифту для перегляду повідомлень</string>
+  <string name="pref_dialogtitle_mms_message_font_size">Виберіть розмір шрифту</string>
   <string name="pref_title_notification_privacy_mode_enabled">Режим приватності</string>
   <string name="pref_summary_notification_privacy_mode_enabled">Приховувати відправника і повідомлення в рядку стану, а також відключити \'Швидку відповідь\'</string>
   <string name="notification_single_title_privacy_mode">Нове повідомлення</string>
@@ -74,13 +121,55 @@
   <string name="notification_multiple_title_privacy_mode">Нові повідомлення</string>
   <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> непрочитаних повідомлень</string>
   <string name="notification_ticker_privacy_mode">Отримано нове повідомлення</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Режим спливаючих сповіщень</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Відображати повідомлення, як спливаючі сповіщення.</string>
+  <string name="msg_sig_title">Підпис</string>
+  <string name="msg_sig_summary">Встановити власний підпис для повідомлення</string>
+  <string name="msg_sig_enter_text">Введіть текст підпису</string>
+  <string name="mms_breath">\"Дихаючі\" СМС</string>
+  <string name="mms_breath_summary">Сповіщення у рядку стану буде мати ефект \"дихання\"</string>
+  <string name="hide_avatar">Приховати Аватар</string>
+  <string name="hide_avatar_summary">Приховати Аватар на екрані списку розмов</string>
+  <string name="pref_multi_select">Мульти-вибір</string>
+  <string name="pref_multi_select_summary">Вибрати декілька контактів за допомогою прапорця</string>
+  <string name="add_recipients">Додати отримувачів</string>
   <string name="groups_header">Групи</string>
+  <string name="loading_recipients">Завантаження контактів і груп</string>
   <string name="no_recipients">Контактів не знайдено</string>
+  <string name="pref_text_area_size_title">Розмір області тексту</string>
+  <string name="pref_text_area_size_summary">Установіть область тексту до <xliff:g id="lines">%1$s</xliff:g> ліній</string>
+  <string name="pref_mms_ua_default_android">За замовчуванням Android</string>
+  <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+  <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+  <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
+  <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+  <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+  <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+  <string name="pref_mms_ua_custom_option">Користувацький\u2026</string>
+  <string name="pref_title_mms_user_agent">Агент користувача</string>
+  <string name="pref_summary_mms_user_agent">Імітувати іншу модель телефону для ММС</string>
+  <string name="pref_mms_user_agent_custom_set">Встановлений агент користувача:\n</string>
+  <string name="pref_mms_user_agent_default">типовий</string>
+  <string name="pref_mms_user_agent_custom">користувацький</string>
+  <string name="pref_title_sms_multi_part">Розділені SMS</string>
+  <string name="pref_title_sms_multi_part_size">Розмір розділеного SMS</string>
+  <string name="pref_summary_sms_multi_part_mms">Текстові повідомлення понад 160 символів буде надіслано як MMS</string>
+  <string name="pref_summary_sms_multi_part">Текстові повідомлення понад 160 символів буде надіслано розділеним SMS</string>
+  <string name="pref_summary_sms_multi_part_mms_size">Текстове повідомлення буде перетворено на MMS після <xliff:g id="seg">%1$s</xliff:g> сегментів</string>
+  <string name="pref_title_sms_split">Розділити SMS</string>
+  <string name="pref_summary_sms_split">Текстові повідомлення буде розділено на 160 символів</string>
   <string name="blacklist_title">Чорний список</string>
   <string name="blacklist_summary_disabled">Вимкнено</string>
   <string name="blacklist_summary">Вхідні повідомлення від номерів чорного списку блокуватимуться</string>
+  <string name="blacklist_notification">Повідомлення від %s заблоковано</string>
+  <string name="blacklist_notification_private_number">Повідомлення з приватного номера заблоковано</string>
+  <string name="blacklist_notification_list_private">Прихований номер</string>
+  <string name="blacklist_notification_unknown_number">Повідомлення з невідомого номера %s заблоковано</string>
+  <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> повідомлень було заблоковано</string>
+  <string name="unblock_number">Розблокувати</string>
   <string name="add_to_blacklist">Додати в чорний список</string>
   <string name="add_to_blacklist_message">Майбутні повідомлення від %s будуть блокуватися</string>
   <string name="alert_dialog_yes">Так</string>
   <string name="alert_dialog_no">Ні</string>
+  <string name="start_new_message_button">Нове повідомлення</string>
 </resources>

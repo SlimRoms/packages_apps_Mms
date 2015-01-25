@@ -120,4 +120,55 @@
   <string name="notification_multiple_title_privacy_mode">Nieuwe berichten</string>
   <string name="notification_multiple_text_privacy_mode"><xliff:g id="number" example="3">%1$s</xliff:g> ongelezen berichten</string>
   <string name="notification_ticker_privacy_mode">Nieuw bericht ontvangen</string>
+  <string name="pref_title_notification_heads_up_mode_enabled">Heads-up modus</string>
+  <string name="pref_summary_notification_heads_up_mode_enabled">Berichten weergeven als heads-up melding.</string>
+  <string name="msg_sig_title">Ondertekening</string>
+  <string name="msg_sig_summary">Een aangepaste ondertekening voor berichten instellen</string>
+  <string name="msg_sig_enter_text">Tekst voor ondertekening invoeren</string>
+  <string name="mms_breath">Pulserende SMS</string>
+  <string name="mms_breath_summary">Geeft meldingen in uw statusbalk een pulserend effect</string>
+  <string name="hide_avatar">Avatar verbergen</string>
+  <string name="hide_avatar_summary">Avatar verbergen in berichtenlijst scherm</string>
+  <string name="pref_multi_select">Makkelijk selecteren</string>
+  <string name="pref_multi_select_summary">Meerdere contacten selecteren door een checkbox</string>
+  <string name="add_recipients">Ontvangers toevoegen</string>
+  <string name="groups_header">Groepen</string>
+  <string name="loading_recipients">Contacten en groepen laden</string>
+  <string name="no_recipients">Geen mogelijke ontvangers</string>
+  <string name="pref_text_area_size_title">Tekstveld grootte</string>
+  <string name="pref_text_area_size_summary">Tekstveld instellen op <xliff:g id="lines">%1$s</xliff:g> regels</string>
+  <string name="pref_mms_ua_default_android">Standaard Android</string>
+  <string name="pref_mms_ua_nokia_n95">Nokia N95</string>
+  <string name="pref_mms_ua_iphone_3_0">iPhone (3.0)</string>
+  <string name="pref_mms_ua_blackberry_8800">BlackBerry 8800</string>
+  <string name="pref_mms_ua_sonyericsson_w800i">Sony Ericsson W800i</string>
+  <string name="pref_mms_ua_softbank_x01t">SoftBank X01T</string>
+  <string name="pref_mms_ua_softbank_myrmms">SoftBank MyrMMS</string>
+  <string name="pref_mms_ua_custom_option">Aangepast\u2026</string>
+  <string name="pref_title_mms_user_agent">Gebruikersagent</string>
+  <string name="pref_summary_mms_user_agent">Bij MMS de telefoon als een ander model uitgeven</string>
+  <string name="pref_mms_user_agent_custom_set">Gebruikersagent ingesteld op:\n</string>
+  <string name="pref_mms_user_agent_default">standaard</string>
+  <string name="pref_mms_user_agent_custom">aangepast</string>
+  <string name="pref_title_sms_multi_part">Meerdelige SMS</string>
+  <string name="pref_title_sms_multi_part_size">Meerdelige SMS grootte</string>
+  <string name="pref_summary_sms_multi_part_mms">Tekstberichten groter als 160 tekens worden verzonden als MMS</string>
+  <string name="pref_summary_sms_multi_part">Tekstberichten groter als 160 tekens worden verzonden als meervoudige SMS</string>
+  <string name="pref_summary_sms_multi_part_mms_size">Tekstbericht wordt geconverteerd naar een MMS na <xliff:g id="seg">%1$s</xliff:g> segmenten</string>
+  <string name="pref_title_sms_split">Gedeelde SMS</string>
+  <string name="pref_summary_sms_split">SMS-berichten worden verdeeld over berichten van 160 tekens</string>
+  <string name="blacklist_title">Zwarte lijst</string>
+  <string name="blacklist_summary_disabled">Uitgeschakeld</string>
+  <string name="blacklist_summary">Inkomende berichten van telefoonnummers op de zwarte lijst worden geblokkeerd</string>
+  <string name="blacklist_notification">Bericht van %s geblokkeerd</string>
+  <string name="blacklist_notification_private_number">Bericht van afgeschermd nummer geblokkeerd</string>
+  <string name="blacklist_notification_list_private">Afgeschermd</string>
+  <string name="blacklist_notification_unknown_number">Bericht van onbekend nummer %s geblokkeerd</string>
+  <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> berichten zijn geblokkeerd</string>
+  <string name="unblock_number">Blokkering opheffen</string>
+  <string name="add_to_blacklist">Toevoegen aan zwarte lijst</string>
+  <string name="add_to_blacklist_message">Toekomstige berichten van %s worden geblokkeerd</string>
+  <string name="alert_dialog_yes">Ja</string>
+  <string name="alert_dialog_no">Nee</string>
+  <string name="start_new_message_button">Nieuw bericht</string>
 </resources>
