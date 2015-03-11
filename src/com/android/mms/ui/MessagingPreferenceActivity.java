@@ -748,8 +748,8 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         if (prefEnabled) {
             new Thread (new Runnable() {
                 public void run() {
-                    long[] sub = SubscriptionManager.getSubId(phoneId);
-                    SmsManager sm = SmsManager.getSmsManagerForSubscriber(sub[0]);
+                    int[] sub = SubscriptionManager.getSubId(phoneId);
+                    SmsManager sm = SmsManager.getSmsManagerForSubscriptionId(sub[0]);
                     final String scAddress = sm.getSmscAddressFromIcc();
                     Log.d(TAG, "get SMSC from sub= " + phoneId + " scAddress= " + scAddress);
                     if (scAddress == null) return ;
@@ -865,8 +865,8 @@ public class MessagingPreferenceActivity extends PreferenceActivity
                             R.string.set_smsc_confirm_message)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
-                            long[] sub = SubscriptionManager.getSubId(phoneId);
-                            SmsManager sm = SmsManager.getSmsManagerForSubscriber(sub[0]);
+                            int[] sub = SubscriptionManager.getSubId(phoneId);
+                            SmsManager sm = SmsManager.getSmsManagerForSubscriptionId(sub[0]);
                             String scAddress = "\"" + displayedSmsc + "\"";
                             boolean ret = sm.setSmscAddressToIcc(scAddress);
                             Log.d(TAG, "set SMSC to phoneId= " + phoneId

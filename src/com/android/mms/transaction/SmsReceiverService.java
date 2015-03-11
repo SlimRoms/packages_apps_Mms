@@ -134,6 +134,13 @@ public class SmsReceiverService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        if (!MmsConfig.isSmsEnabled(getApplicationContext())) {
+            Log.d(TAG, "SmsReceiverService: is not the default sms app");
+            // NOTE: We MUST not call stopSelf() directly, since we need to
+            // make sure the wake lock acquired by AlertReceiver is released.
+            SmsReceiver.finishStartingService(SmsReceiverService.this, startId);
+            return Service.START_NOT_STICKY;
+        }
         // Temporarily removed for this duplicate message track down.
 
         int resultCode = intent != null ? intent.getIntExtra("result", 0) : 0;
@@ -727,7 +734,7 @@ public class SmsReceiverService extends Service {
      */
     private void displayClassZeroMessage(Context context, SmsMessage sms, String format) {
         long subId = sms.getSubId();
-        int phoneId = SubscriptionManager.getPhoneId(subId);
+        int phoneId = SubscriptionManager.getPhoneId((int)subId);
 
         // Using NEW_TASK here is necessary because we're calling
         // startActivity from outside an activity.
@@ -768,11 +775,11 @@ public class SmsReceiverService extends Service {
 
     private boolean saveMessageToIcc(SmsMessage sms) {
         boolean result = true;
-        long subId = sms.getSubId();
+        int subId = (int) sms.getSubId();
         int phoneId = SubscriptionManager.getPhoneId(subId);
         byte pdu[] = MessageUtils.getDeliveryPdu(null, sms.getOriginatingAddress(),
                 sms.getMessageBody(), sms.getTimestampMillis(), phoneId);
-        result = SmsManager.getSmsManagerForSubscriber(subId)
+        result = SmsManager.getSmsManagerForSubscriptionId(subId)
                 .copyMessageToIcc(null, pdu, SmsManager.STATUS_ON_ICC_READ);
         return result;
     }

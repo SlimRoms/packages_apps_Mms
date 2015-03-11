@@ -114,7 +114,8 @@ public class PushReceiver extends BroadcastReceiver {
             if (DEBUG) {
                 Log.d(TAG, "PushReceive: pushData= " + bytesToHexString(pushData));
             }
-            PduParser parser = new PduParser(pushData);
+            PduParser parser = new PduParser(
+                    pushData, PduParserUtil.shouldParseContentDisposition());
             GenericPdu pdu = parser.parse();
 
             if (null == pdu) {
