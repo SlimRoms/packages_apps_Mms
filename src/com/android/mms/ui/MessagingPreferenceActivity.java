@@ -59,6 +59,7 @@ import android.util.Log;
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.TelephonyIntents;
 
+import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.mms.MmsApp;
 import com.android.mms.MmsConfig;
 import com.android.mms.R;
@@ -100,6 +101,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     // Vibrate pattern
     public static final String NOTIFICATION_VIBRATE_PATTERN =
             "pref_key_mms_notification_vibrate_pattern";
+
+    // Blacklist
+    public static final String BLACKLIST                 = "pref_blacklist";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
@@ -171,6 +175,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private SwitchPreference mEnableQmCloseAllPref;
     private SwitchPreference mEnableQmDarkThemePref;
 
+    // Blacklist
+    private PreferenceScreen mBlacklist;
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -191,11 +198,14 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         }
 
         // Since the enabled notifications pref can be changed outside of this activity,
-        // we have to reload it whenever we resume.
+        // we have to reload it whenever we resume, including the blacklist summary
         setEnabledNotificationsPref();
         registerListeners();
         updateSmsEnabledState();
         updateSmscPref();
+
+        // Blacklist
+        updateBlacklistSummary();
     }
 
     private void updateSmsEnabledState() {
@@ -227,6 +237,16 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         super.onDestroy();
         mSmscPrefList.clear();
         mSmscPrefCate.removeAll();
+    }
+
+    private void updateBlacklistSummary() {
+        if (mBlacklist != null) {
+            if (BlacklistUtils.isBlacklistEnabled(this)) {
+                mBlacklist.setSummary(R.string.blacklist_summary);
+            } else {
+                mBlacklist.setSummary(R.string.blacklist_summary_disabled);
+            }
+        }
     }
 
     private void loadPrefs() {
@@ -278,6 +298,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mEnableQmLockscreenPref = (SwitchPreference) findPreference(QM_LOCKSCREEN_ENABLED);
         mEnableQmCloseAllPref = (SwitchPreference) findPreference(QM_CLOSE_ALL_ENABLED);
         mEnableQmDarkThemePref = (SwitchPreference) findPreference(QM_DARK_THEME_ENABLED);
+
+        // Blacklist screen - Needed for setting summary
+        mBlacklist = (PreferenceScreen) findPreference(BLACKLIST);
 
         setMessagePreferences();
     }
