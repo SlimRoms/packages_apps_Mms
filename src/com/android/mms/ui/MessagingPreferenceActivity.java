@@ -59,6 +59,7 @@ import android.util.Log;
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.TelephonyIntents;
 
+import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.mms.MmsApp;
 import com.android.mms.MmsConfig;
 import com.android.mms.R;
@@ -90,6 +91,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String RETRIEVAL_DURING_ROAMING = "pref_key_mms_retrieval_during_roaming";
     public static final String AUTO_DELETE              = "pref_key_auto_delete";
     public static final String GROUP_MMS_MODE           = "pref_key_mms_group_mms";
+
+    // Blacklist
+    public static final String BLACKLIST                 = "pref_blacklist";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
@@ -155,6 +159,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         }
     };
 
+    // Blacklist
+    private PreferenceScreen mBlacklist;
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -175,11 +182,14 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         }
 
         // Since the enabled notifications pref can be changed outside of this activity,
-        // we have to reload it whenever we resume.
+        // we have to reload it whenever we resume, including the blacklist summary
         setEnabledNotificationsPref();
         registerListeners();
         updateSmsEnabledState();
         updateSmscPref();
+
+        // Blacklist
+        updateBlacklistSummary();
     }
 
     private void updateSmsEnabledState() {
@@ -211,6 +221,16 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         super.onDestroy();
         mSmscPrefList.clear();
         mSmscPrefCate.removeAll();
+    }
+
+    private void updateBlacklistSummary() {
+        if (mBlacklist != null) {
+            if (BlacklistUtils.isBlacklistEnabled(this)) {
+                mBlacklist.setSummary(R.string.blacklist_summary);
+            } else {
+                mBlacklist.setSummary(R.string.blacklist_summary_disabled);
+            }
+        }
     }
 
     private void loadPrefs() {
@@ -256,6 +276,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             = (ListPreference) findPreference("pref_key_sms_validity_period_slot1");
         mSmsValidityCard2Pref
             = (ListPreference) findPreference("pref_key_sms_validity_period_slot2");
+
+        // Blacklist screen - Needed for setting summary
+        mBlacklist = (PreferenceScreen) findPreference(BLACKLIST);
 
         setMessagePreferences();
     }

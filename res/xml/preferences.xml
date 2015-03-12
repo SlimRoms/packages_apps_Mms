@@ -165,4 +165,17 @@
   <PreferenceCategory android:title="@string/pref_smsc_title"
                       android:key="pref_key_smsc" >
   </PreferenceCategory>
+    <!-- Extra Settings -->
+    <PreferenceCategory android:title="@string/pref_extra_settings">
+
+        <PreferenceScreen
+                android:key="pref_blacklist"
+                android:title="@string/blacklist_title"
+                android:persistent="false">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
 </PreferenceScreen>
