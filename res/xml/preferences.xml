@@ -41,6 +41,14 @@
             android:targetPackage="com.android.settings">
         </intent>
     </Preference>
+    <PreferenceScreen
+        android:key="pref_blacklist"
+        android:title="@string/blacklist_title"
+        android:persistent="false">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
+    </PreferenceScreen>
     <PreferenceCategory android:title="@string/pref_sms_storage_title"
                       android:key="pref_key_storage_settings">
 <!--
@@ -207,4 +215,5 @@
   <PreferenceCategory android:title="@string/pref_smsc_title"
                       android:key="pref_key_smsc" >
   </PreferenceCategory>
+
 </PreferenceScreen>
