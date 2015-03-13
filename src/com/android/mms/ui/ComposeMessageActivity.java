@@ -85,7 +85,7 @@ import android.provider.Settings;
 import android.provider.Telephony.Mms;
 import android.provider.Telephony.Sms;
 import android.telephony.PhoneNumberUtils;
-import android.telephony.SubInfoRecord;
+import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
@@ -793,10 +793,10 @@ public class ComposeMessageActivity extends Activity
             final int phoneId = i;
             smsBtns[i] = (Button) layout.findViewById(smsBtnIds[i]);
             smsBtns[i].setVisibility(View.VISIBLE);
-            List<SubInfoRecord> sir = SubscriptionManager.getSubInfoUsingSlotId(phoneId);
+            SubscriptionInfo sir = SubscriptionManager.from(this).getActiveSubscriptionInfoForSimSlotIndex(phoneId);
 
-            String displayName = ((sir != null) && (sir.size() > 0)) ?
-                    sir.get(0).displayName : "SIM " + (i + 1);
+            String displayName = (sir != null && sir.getDisplayName() != null) ?
+                    sir.getDisplayName().toString() : "SIM " + (i + 1);
 
             Log.e(TAG, "PhoneID : " + phoneId + " displayName " + displayName);
             smsBtns[i].setText(displayName);
@@ -816,7 +816,7 @@ public class ComposeMessageActivity extends Activity
             LaunchMsimDialog(bCheckEcmMode);
         } else {
             long subId = SubscriptionManager.getDefaultSmsSubId();
-            int phoneId = SubscriptionManager.getPhoneId(subId);
+            int phoneId = SubscriptionManager.getPhoneId((int)subId);
             mWorkingMessage.setWorkingMessageSub(phoneId);
             sendMessage(bCheckEcmMode);
         }
@@ -929,7 +929,7 @@ public class ComposeMessageActivity extends Activity
 
     private void checkForTooManyRecipients() {
         final int recipientLimit = MmsConfig.getRecipientLimit();
-        if (recipientLimit != Integer.MAX_VALUE) {
+        if (recipientLimit != Integer.MAX_VALUE && recipientLimit > 0) {
             final int recipientCount = recipientCount();
             boolean tooMany = recipientCount > recipientLimit;
 
@@ -2011,6 +2011,7 @@ public class ComposeMessageActivity extends Activity
         mRecipientsPicker.setOnClickListener(this);
 
         mRecipientsEditor.setAdapter(new ChipsRecipientAdapter(this));
+        mRecipientsEditor.setText(null);
         mRecipientsEditor.populate(recipients);
         mRecipientsEditor.setOnCreateContextMenuListener(mRecipientsMenuCreateListener);
         mRecipientsEditor.addTextChangedListener(mRecipientsWatcher);
@@ -4759,8 +4760,7 @@ public class ComposeMessageActivity extends Activity
 
         public CopyToSimThread(MessageItem msgItem) {
             this.msgItem = msgItem;
-            this.phoneId = SubscriptionManager.getPhoneId(SmsManager.getDefault()
-                                      .getDefaultSmsSubId());
+            this.phoneId = SubscriptionManager.getPhoneId(SubscriptionManager.getDefaultSmsSubId());
         }
 
         public CopyToSimThread(MessageItem msgItem, int phoneId) {
@@ -4778,8 +4778,8 @@ public class ComposeMessageActivity extends Activity
     }
 
     private boolean copyToSim(MessageItem msgItem) {
-        return copyToSim(msgItem, SubscriptionManager.getPhoneId(SmsManager
-                       .getDefault().getDefaultSmsSubId()));
+        return copyToSim(msgItem, SubscriptionManager.getPhoneId(SubscriptionManager
+                       .getDefaultSmsSubId()));
     }
 
     private boolean copyToSim(MessageItem msgItem, int phoneId) {
@@ -4788,8 +4788,8 @@ public class ComposeMessageActivity extends Activity
         String text = msgItem.mBody;
         long timestamp = msgItem.mDate != 0 ? msgItem.mDate : System.currentTimeMillis();
 
-        long[] sub = SubscriptionManager.getSubId(phoneId);
-        SmsManager sm = SmsManager.getSmsManagerForSubscriber(sub[0]);
+        int[] sub = SubscriptionManager.getSubId(phoneId);
+        SmsManager sm = SmsManager.getSmsManagerForSubscriptionId(sub[0]);
         ArrayList<String> messages = sm.divideMessage(text);
 
         boolean ret = true;

@@ -852,7 +852,7 @@ public class MessageUtils {
 
     public static String getLocalNumber(long subId) {
         sLocalNumber = MmsApp.getApplication().getTelephonyManager()
-            .getLine1NumberForSubscriber(subId);
+            .getLine1NumberForSubscriber((int)subId);
         return sLocalNumber;
     }
 
@@ -1444,7 +1444,7 @@ public class MessageUtils {
 
     private static boolean isCdmaPhone(long subscription) {
         boolean isCdma = false;
-        int activePhone =  TelephonyManager.getDefault().getCurrentPhoneType(subscription);
+        int activePhone =  TelephonyManager.getDefault().getCurrentPhoneType((int)subscription);
         if (TelephonyManager.PHONE_TYPE_CDMA == activePhone) {
             isCdma = true;
         }
@@ -1452,7 +1452,7 @@ public class MessageUtils {
     }
 
     private static boolean isNetworkRoaming(long subscription) {
-        return TelephonyManager.getDefault().isNetworkRoaming(subscription);
+        return TelephonyManager.getDefault().isNetworkRoaming((int)subscription);
     }
 
     public static boolean isWebUrl(String url) {
@@ -1517,7 +1517,7 @@ public class MessageUtils {
 
     private static boolean isCdmaPhone(int phoneId) {
         boolean isCdma = false;
-        long[] sub = SubscriptionManager.getSubId(phoneId);
+        int[] sub = SubscriptionManager.getSubId(phoneId);
         int activePhone = TelephonyManager.getDefault().getCurrentPhoneType(sub[0]);
         if (TelephonyManager.PHONE_TYPE_CDMA == activePhone) {
             isCdma = true;

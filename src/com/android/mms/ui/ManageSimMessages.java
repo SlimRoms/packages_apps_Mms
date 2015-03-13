@@ -437,7 +437,7 @@ public class ManageSimMessages extends Activity
         String body = cursor.getString(cursor.getColumnIndexOrThrow("body"));
         Long date = cursor.getLong(cursor.getColumnIndexOrThrow("date"));
         int phoneId = cursor.getInt(cursor.getColumnIndexOrThrow("phone_id"));
-        long[] subId = SubscriptionManager.getSubId(phoneId);
+        int[] subId = SubscriptionManager.getSubId(phoneId);
         try {
             if (isIncomingMessage(cursor)) {
                 Sms.Inbox.addMessage(subId[0], mContentResolver, address, body, null,
@@ -561,7 +561,8 @@ public class ManageSimMessages extends Activity
         capacityMessage.append(getString(R.string.sim_capacity));
         int iccCapacityAll = -1;
         if (TelephonyManager.getDefault().isMultiSimEnabled()) {
-            iccCapacityAll = SmsManager.getSmsManagerForSubscriber(mPhoneId)
+            int subId[] = SubscriptionManager.from(this).getSubId(mPhoneId);
+            iccCapacityAll = SmsManager.getSmsManagerForSubscriptionId(subId[0])
                     .getSmsCapacityOnIcc();
         } else {
             iccCapacityAll = SmsManager.getDefault().getSmsCapacityOnIcc();
