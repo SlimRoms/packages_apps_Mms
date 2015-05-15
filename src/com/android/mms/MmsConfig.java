@@ -119,8 +119,13 @@ public class MmsConfig {
         // Always put the mnc/mcc in the log so we can tell which mms_config.xml was loaded.
         Log.v(TAG, "mnc/mcc: " +
                 android.os.SystemProperties.get(TelephonyProperties.PROPERTY_ICC_OPERATOR_NUMERIC));
-
+        loadDeviceUaSettings(context);
         loadMmsSettings(context);
+    }
+
+    private static void loadDeviceUaSettings(Context context) {
+        // load the MMS User agent and UaProfUrl from TelephonyManager APIs
+        mUaProfUrl = "http://www.google.com/oha/rdf/ua-profile-kila.xml";
     }
 
     public static boolean isSmsEnabled(Context context) {
