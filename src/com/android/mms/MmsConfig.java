@@ -27,6 +27,7 @@ import android.content.SharedPreferences;
 import android.content.res.XmlResourceParser;
 import android.preference.PreferenceManager;
 import android.provider.Telephony;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -119,8 +120,16 @@ public class MmsConfig {
         // Always put the mnc/mcc in the log so we can tell which mms_config.xml was loaded.
         Log.v(TAG, "mnc/mcc: " +
                 android.os.SystemProperties.get(TelephonyProperties.PROPERTY_ICC_OPERATOR_NUMERIC));
-
+        loadDeviceUaSettings(context);
         loadMmsSettings(context);
+    }
+
+    private static void loadDeviceUaSettings(Context context) {
+        // load the MMS User agent and UaProfUrl from TelephonyManager APIs
+        final TelephonyManager tm =
+                (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        mUserAgent = tm.getMmsUserAgent();
+        mUaProfUrl = tm.getMmsUAProfUrl();
     }
 
     public static boolean isSmsEnabled(Context context) {
