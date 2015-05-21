@@ -32,7 +32,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.preference.CheckBoxPreference;
+import android.preference.SwitchPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -126,9 +126,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private Preference mManageSim1Pref;
     private Preference mManageSim2Pref;
     private Preference mClearHistoryPref;
-    private CheckBoxPreference mVibratePref;
-    private CheckBoxPreference mEnableNotificationsPref;
-    private CheckBoxPreference mMmsAutoRetrievialPref;
+    private SwitchPreference mVibratePref;
+    private SwitchPreference mEnableNotificationsPref;
+    private SwitchPreference mMmsAutoRetrievialPref;
     private RingtonePreference mRingtonePref;
     private ListPreference mSmsStorePref;
     private ListPreference mSmsStoreSim1Pref;
@@ -166,10 +166,10 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     };
 
     // QuickMessage
-    private CheckBoxPreference mEnableQuickMessagePref;
-    private CheckBoxPreference mEnableQmLockscreenPref;
-    private CheckBoxPreference mEnableQmCloseAllPref;
-    private CheckBoxPreference mEnableQmDarkThemePref;
+    private SwitchPreference mEnableQuickMessagePref;
+    private SwitchPreference mEnableQmLockscreenPref;
+    private SwitchPreference mEnableQmCloseAllPref;
+    private SwitchPreference mEnableQmDarkThemePref;
 
     @Override
     protected void onCreate(Bundle icicle) {
@@ -253,9 +253,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mMmsReadReportPref = findPreference("pref_key_mms_read_reports");
         mMmsLimitPref = findPreference("pref_key_mms_delete_limit");
         mClearHistoryPref = findPreference("pref_key_mms_clear_history");
-        mEnableNotificationsPref = (CheckBoxPreference) findPreference(NOTIFICATION_ENABLED);
-        mMmsAutoRetrievialPref = (CheckBoxPreference) findPreference(AUTO_RETRIEVAL);
-        mVibratePref = (CheckBoxPreference) findPreference(NOTIFICATION_VIBRATE);
+        mEnableNotificationsPref = (SwitchPreference) findPreference(NOTIFICATION_ENABLED);
+        mMmsAutoRetrievialPref = (SwitchPreference) findPreference(AUTO_RETRIEVAL);
+        mVibratePref = (SwitchPreference) findPreference(NOTIFICATION_VIBRATE);
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (mVibratePref != null && (vibrator == null || !vibrator.hasVibrator())) {
             mNotificationPrefCategory.removePreference(mVibratePref);
@@ -274,10 +274,10 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             = (ListPreference) findPreference("pref_key_sms_validity_period_slot2");
 
         // QuickMessage
-        mEnableQuickMessagePref = (CheckBoxPreference) findPreference(QUICKMESSAGE_ENABLED);
-        mEnableQmLockscreenPref = (CheckBoxPreference) findPreference(QM_LOCKSCREEN_ENABLED);
-        mEnableQmCloseAllPref = (CheckBoxPreference) findPreference(QM_CLOSE_ALL_ENABLED);
-        mEnableQmDarkThemePref = (CheckBoxPreference) findPreference(QM_DARK_THEME_ENABLED);
+        mEnableQuickMessagePref = (SwitchPreference) findPreference(QUICKMESSAGE_ENABLED);
+        mEnableQmLockscreenPref = (SwitchPreference) findPreference(QM_LOCKSCREEN_ENABLED);
+        mEnableQmCloseAllPref = (SwitchPreference) findPreference(QM_CLOSE_ALL_ENABLED);
+        mEnableQmDarkThemePref = (SwitchPreference) findPreference(QM_DARK_THEME_ENABLED);
 
         setMessagePreferences();
     }
