@@ -51,9 +51,9 @@ public class ConversationOptionsActivity extends Activity {
         private static final String KEY_NOTIFICATIONS_CATEGORY = "convopt_key_notifications_category";
         private static final String KEY_RESET_TO_DEFAULT = "convopt_key_reset_to_default";
 
-        private CheckBoxPreference mNotificationEnabled;
+        private SwitchPreference mNotificationEnabled;
         private RingtonePreference mNotificationRingtone;
-        private CheckBoxPreference mVibrateEnabled;
+        private SwitchPreference mVibrateEnabled;
         private ListPreference mVibratePattern;
         private Preference mResetToDefault;
         private PreferenceCategory mNotificationsCategory;
@@ -90,9 +90,9 @@ public class ConversationOptionsActivity extends Activity {
 
             mNotificationsCategory = (PreferenceCategory) findPreference(
                 KEY_NOTIFICATIONS_CATEGORY);
-            mNotificationEnabled = (CheckBoxPreference) findPreference(KEY_NOTIFICATION_ENABLED);
+            mNotificationEnabled = (SwitchPreference) findPreference(KEY_NOTIFICATION_ENABLED);
             mNotificationRingtone = (RingtonePreference) findPreference(KEY_NOTIFICATION_RINGTONE);
-            mVibrateEnabled = (CheckBoxPreference) findPreference(KEY_VIBRATE_ENABLED);
+            mVibrateEnabled = (SwitchPreference) findPreference(KEY_VIBRATE_ENABLED);
             mVibratePattern = (ListPreference) findPreference(KEY_VIBRATE_PATTERN);
             mResetToDefault = findPreference(KEY_RESET_TO_DEFAULT);
 
