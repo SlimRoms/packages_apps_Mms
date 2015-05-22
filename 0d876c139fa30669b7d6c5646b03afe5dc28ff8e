@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_b5574a26",
+        "filename": "AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2015-05-22T14:53:16Z",
+      "side": 1,
+      "message": "Whats this?",
+      "range": {
+        "startLine": 429,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 40
+      },
+      "revId": "0d876c139fa30669b7d6c5646b03afe5dc28ff8e",
+      "serverId": "f8201d64-d729-4630-b91d-5f8be02869f0",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_95544622",
+        "filename": "src/com/android/mms/data/Conversation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2015-05-22T14:53:16Z",
+      "side": 1,
+      "message": "pretty sure this is supposed to be spaces, not tabs.",
+      "range": {
+        "startLine": 415,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 17
+      },
+      "revId": "0d876c139fa30669b7d6c5646b03afe5dc28ff8e",
+      "serverId": "f8201d64-d729-4630-b91d-5f8be02869f0",
+      "unresolved": false
+    }
+  ]
+}
