@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_952b2694",
+        "filename": "src/com/android/mms/data/cm/CMConversationSettings.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2015-05-22T15:04:59Z",
+      "side": 1,
+      "message": "Lincensing, Also should we convert to slim/slimwhatever ?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "893a9554d6d9af232df47e3183f0b251aa22f23c",
+      "serverId": "f8201d64-d729-4630-b91d-5f8be02869f0",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_7518c284",
+        "filename": "src/com/android/mms/data/cm/CMMmsDatabaseHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2015-05-22T15:04:59Z",
+      "side": 1,
+      "message": "Lincensing and name should be slim I think",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "893a9554d6d9af232df47e3183f0b251aa22f23c",
+      "serverId": "f8201d64-d729-4630-b91d-5f8be02869f0",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa3479d7_551dbe72",
+        "filename": "src/com/android/mms/ui/ConversationOptionsActivity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2015-05-22T15:04:59Z",
+      "side": 1,
+      "message": "Lincensing",
+      "range": {
+        "startLine": 1,
+        "startChar": 24,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "893a9554d6d9af232df47e3183f0b251aa22f23c",
+      "serverId": "f8201d64-d729-4630-b91d-5f8be02869f0",
+      "unresolved": false
+    }
+  ]
+}
