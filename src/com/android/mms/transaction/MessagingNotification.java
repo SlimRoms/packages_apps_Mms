@@ -1142,6 +1142,10 @@ public class MessagingNotification {
 
             if (conversationSettings.getVibrateEnabled()) {
                 String pattern = conversationSettings.getVibratePattern();
+                if (pattern == "custom") {
+                    pattern = sp.getString(MessagingPreferenceActivity.
+                            NOTIFICATION_VIBRATE_PATTERN_CUSTOM, "0,1200");
+                }
 
                 if (!TextUtils.isEmpty(pattern)) {
                     noti.setVibrate(parseVibratePattern(pattern));
