@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a288981_a8a9277d",
+        "filename": "src/com/android/mms/ui/ComposeMessageActivity.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3072,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2015-06-12T22:22:23Z",
+      "side": 1,
+      "message": "use space not tabs, format",
+      "range": {
+        "startLine": 3072,
+        "startChar": 0,
+        "endLine": 3072,
+        "endChar": 17
+      },
+      "revId": "ced2e46b8142398f2e54a5aff0808aa41ce456b1",
+      "serverId": "f8201d64-d729-4630-b91d-5f8be02869f0",
+      "unresolved": false
+    }
+  ]
+}
