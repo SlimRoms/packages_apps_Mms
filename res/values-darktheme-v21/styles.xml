@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MmsTheme" parent="@android:style/Theme.Material">
+        <item name="android:actionBarStyle">@style/MmsActionBarStyle</item>
+        <item name="android:colorPrimary">#ff111111</item>
+        <item name="android:colorPrimaryDark">#ff000000</item>
+        <item name="android:colorAccent">#ffffffff</item>
+    </style>
+    <style name="MmsActionBarStyle" parent="@android:style/Widget.Material.ActionBar">
+        <item name="android:icon">@android:color/transparent</item>
+        <item name="android:background">@android:color/secondary_text_leanback_dark</item>
+    </style>
+</resources>
