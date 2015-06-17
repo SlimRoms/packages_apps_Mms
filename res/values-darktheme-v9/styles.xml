@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ListViewStyle" parent="@android:style/Widget.Material.ListView">
+        <item name="android:overScrollMode">always</item>
+    </style>
+</resources>
