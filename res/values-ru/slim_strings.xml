@@ -55,4 +55,17 @@
   <string name="menu_conversation_options">Свойства диалога</string>
   <string name="pref_title_reset_convopt_to_default">По умолчанию</string>
   <string name="pref_summary_reset_convopt_to_default">Восстановить настройки диалога на используемые для всех контактов</string>
+  <string name="blacklist_title">Черный список</string>
+  <string name="blacklist_summary_disabled">Отключено</string>
+  <string name="blacklist_summary">Входящие сообщения от абонентов из чёрного списка будут блокироваться</string>
+  <string name="blacklist_notification">Заблокировано сообщение от %s</string>
+  <string name="blacklist_notification_private_number">Заблокировано сообщение со скрытого номера</string>
+  <string name="blacklist_notification_list_private">Скрытый</string>
+  <string name="blacklist_notification_unknown_number">Заблокировано сообщение с неизвестного номера %s</string>
+  <string name="blacklist_notification_multiple">Заблокировано сообщений: <xliff:g id="count">%d</xliff:g></string>
+  <string name="unblock_number">Разблокировать</string>
+  <string name="add_to_blacklist">Добавить в черный список</string>
+  <string name="add_to_blacklist_message">Сообщения с номера %s будут блокироваться</string>
+  <string name="alert_dialog_yes">Да</string>
+  <string name="alert_dialog_no">Нет</string>
 </resources>
