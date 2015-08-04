@@ -55,4 +55,17 @@
   <string name="menu_conversation_options">Opcje rozmowy</string>
   <string name="pref_title_reset_convopt_to_default">Przywróć domyślne</string>
   <string name="pref_summary_reset_convopt_to_default">Resetuje ustawienia rozmowy do ustawień poziomu aplikacji</string>
+  <string name="blacklist_title">Czarna lista</string>
+  <string name="blacklist_summary_disabled">Zablokowane</string>
+  <string name="blacklist_summary">Wiadomości przychodzące od numerów znajdujących się na czarnej liście będą blokowane</string>
+  <string name="blacklist_notification">Zablokowano wiadomość od %s</string>
+  <string name="blacklist_notification_private_number">Zablokowano wiadomość z numeru zastrzeżonego</string>
+  <string name="blacklist_notification_list_private">Zastrzeżony</string>
+  <string name="blacklist_notification_unknown_number">Zablokowano wiadomość z nieznanego numeru %s</string>
+  <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> wiadomości zablokowanych</string>
+  <string name="unblock_number">Odblokuj</string>
+  <string name="add_to_blacklist">Dodaj do czarnej listy</string>
+  <string name="add_to_blacklist_message">Kolejne wiadomości od %s będą blokowane</string>
+  <string name="alert_dialog_yes">Tak</string>
+  <string name="alert_dialog_no">Nie</string>
 </resources>
