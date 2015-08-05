@@ -97,6 +97,8 @@ public class MessageStatusService extends IntentService {
             } else {
                 error("Can't find message for status update: " + messageUri);
             }
+        } catch(NullPointerException e){
+            return null;
         } finally {
             cursor.close();
         }
