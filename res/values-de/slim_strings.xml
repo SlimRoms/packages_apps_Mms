@@ -39,6 +39,7 @@
   <string name="menu_all_as_read">Alle als gelesen markieren</string>
   <string name="confirm_mark_read_dialog_title">Als gelesen markieren?</string>
   <string name="confirm_mark_read_conversation">Die Konversation wird als gelesen markiert.</string>
+  <string name="confirm_mark_read_all_conversations">Alle Konversationen werden als gelesen markiert.</string>
   <string name="pref_title_mms_notification_vibrate_pattern">Vibrationsmuster</string>
   <string name="pref_summary_mms_notification_vibrate_pattern">Vibrationsmuster ändern</string>
   <string name="pref_mms_notification_vibrate_normal">Normal</string>
