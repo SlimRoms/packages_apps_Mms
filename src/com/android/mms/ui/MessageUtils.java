@@ -109,7 +109,6 @@ import com.android.internal.telephony.cdma.sms.SmsEnvelope;
 import com.android.internal.telephony.cdma.sms.UserData;
 import com.android.internal.telephony.uicc.IccUtils;
 
-import com.android.contacts.common.widget.SelectPhoneAccountDialogFragment;
 import com.android.mms.LogTag;
 import com.android.mms.MmsApp;
 import com.android.mms.MmsConfig;
@@ -2786,30 +2785,5 @@ public class MessageUtils {
         bos.close();
 
         return new File(filePath);
-    }
-
-    public interface OnSimSelectedCallback {
-        void onSimSelected(int subId);
-    }
-
-    public static void showSimSelector(Activity activity, final OnSimSelectedCallback cb) {
-        final TelecomManager telecomMgr =
-                (TelecomManager) activity.getSystemService(Context.TELECOM_SERVICE);
-        final List<PhoneAccountHandle> handles = telecomMgr.getCallCapablePhoneAccounts();
-
-        final SelectPhoneAccountDialogFragment.SelectPhoneAccountListener listener =
-                new SelectPhoneAccountDialogFragment.SelectPhoneAccountListener() {
-            @Override
-            public void onPhoneAccountSelected(PhoneAccountHandle selectedAccountHandle,
-                    boolean setDefault) {
-                cb.onSimSelected(Integer.valueOf(selectedAccountHandle.getId()));
-            }
-            @Override
-            public void onDialogDismissed() {
-            }
-        };
-
-        SelectPhoneAccountDialogFragment.showAccountDialog(activity.getFragmentManager(),
-                R.string.select_phone_account_title, false /* canSetDefault */, handles, listener);
     }
 }

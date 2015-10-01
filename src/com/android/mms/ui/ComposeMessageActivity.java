@@ -410,6 +410,7 @@ public class ComposeMessageActivity extends Activity
                                             // If the value >= 0, then we jump to that line. If the
                                             // value is maxint, then we jump to the end.
     private long mLastMessageId;
+    private AlertDialog mMsimDialog;     // Used for MSIM subscription choose
 
     // Record the resend sms recipient when the sms send to more than one recipient
     private String mResendSmsRecipient;
@@ -895,21 +896,37 @@ public class ComposeMessageActivity extends Activity
         }
     }
 
+   private void processMsimSendMessage(int phoneId, final boolean bCheckEcmMode) {
+        if (mMsimDialog != null) {
+            mMsimDialog.dismiss();
+        }
+        mWorkingMessage.setWorkingMessageSub(phoneId);
+        sendMessage(bCheckEcmMode);
+    }
+
+    private void LaunchMsimDialog(final boolean bCheckEcmMode) {
+        ContactList recipients = isRecipientsEditorVisible() ?
+            mRecipientsEditor.constructContactsFromInput(false) : getRecipients();
+        mMsimDialog = new MsimDialog(this,
+                                     new MsimDialog.OnSimButtonClickListener() {
+                                         @Override
+                                         public void onSimButtonClick(int phoneId) {
+                                             processMsimSendMessage(phoneId,
+                                                                    bCheckEcmMode);
+                                         }
+                                     },
+                                     recipients);
+        mMsimDialog.show();
+    }
+
     private void sendMsimMessage(boolean bCheckEcmMode, int subscription) {
         mWorkingMessage.setWorkingMessageSub(subscription);
         sendMessage(bCheckEcmMode);
     }
 
-    private void sendMsimMessage(final boolean bCheckEcmMode) {
+    private void sendMsimMessage(boolean bCheckEcmMode) {
         if (SubscriptionManager.isSMSPromptEnabled()) {
-            MessageUtils.showSimSelector(this, new MessageUtils.OnSimSelectedCallback() {
-                @Override
-                public void onSimSelected(int subId) {
-                    int phoneId = SubscriptionManager.getPhoneId(subId);
-                    mWorkingMessage.setWorkingMessageSub(phoneId);
-                    sendMessage(bCheckEcmMode);
-                }
-            });
+            LaunchMsimDialog(bCheckEcmMode);
         } else {
             int subId = SubscriptionManager.getDefaultSmsSubId();
             int phoneId = SubscriptionManager.getPhoneId(subId);
