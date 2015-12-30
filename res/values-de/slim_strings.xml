@@ -77,7 +77,7 @@
   <string name="pref_mms_notification_vibrate_pattern_custom">Benutzerdefiniert</string>
   <string name="pref_title_unicode_stripping">Unicode entfernen</string>
   <string name="pref_unicode_stripping_leave_intact">Zeichen unberührt lassen</string>
-  <string name="pref_unicode_stripping_non_encodable">Nicht kodierbare Zeichen entfernen</string>
+  <string name="pref_unicode_stripping_non_encodable">Unkodierbare Zeichen entfernen</string>
   <string name="pref_unicode_stripping_all">Alle Unicode-Zeichen entfernen</string>
   <string name="pref_title_enable_quick_emojis">Emoticon-Schnellauswahl</string>
   <string name="pref_summary_enable_quick_emojis">Eine Schaltfläche neben dem Texteingabe-Bereich für Emoticons anzeigen</string>
@@ -93,7 +93,7 @@
   <string name="pref_keyboard_unknown">Unbekannt. Neue Auswahl treffen</string>
   <string name="pref_title_input_type">Eingabemethode wählen</string>
   <string name="pref_summary_input_type">Eingabemethode wählen, die bei Nachrichtenerstellung verwendet werden soll</string>
-  <string name="pref_quickmessage">Schnell antworten</string>
+  <string name="pref_quickmessage">Schnellnachricht und Antwort</string>
   <string name="pref_quickmessage_title">Pop-up anzeigen</string>
   <string name="pref_quickmessage_summary">Bei Eingang einer SMS ein Pop-up anzeigen, um schnell antworten zu können</string>
   <string name="pref_wake_unlock_title">Wecken und Entsperren</string>
@@ -128,7 +128,7 @@
   <string name="mms_breath">Pulsierende SMS</string>
   <string name="mms_breath_summary">Zeige pulsierendes Symbol in der Statusleiste</string>
   <string name="hide_avatar">Kontaktbild ausblenden</string>
-  <string name="hide_avatar_summary">Kontaktbilder in der Konservationsliste ausblenden</string>
+  <string name="hide_avatar_summary">Kontaktbilder in der Konversationsliste ausblenden</string>
   <string name="pref_multi_select">Einfache Selektion</string>
   <string name="pref_multi_select_summary">Wählen Sie mehrere Kontakte mit einer Checkbox aus</string>
   <string name="add_recipients">Empfänger hinzufügen</string>

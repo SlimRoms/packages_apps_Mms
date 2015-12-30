@@ -24,13 +24,13 @@
   </string-array>
   <string name="pref_title_save_location">Pasta para guardar anexos</string>
   <string name="pref_title_save_location_summary">Especifique a pasta para guardar anexos</string>
-  <string name="attach_contact_info">Informação de contato</string>
+  <string name="attach_contact_info">Informação de Contato</string>
   <string name="record_sound_error_alert">Não foi possível gravar o áudio.  SoundRecorder.apk não está presente!</string>
   <string name="label_mms_push">Envio MMS</string>
   <string name="desc_mms_push">Move o MMS da caixa de saída para a rede</string>
   <string name="pref_extra_settings">Configurações extras</string>
   <string name="pref_char_settings">Configurações de caracteres</string>
-  <string name="pref_title_enable_emojis">Suporte Emoji</string>
+  <string name="pref_title_enable_emojis">Suporte de Emoji</string>
   <string name="pref_summary_enable_emojis">Ativar o suporte para emoji , um conjunto de 471 emoticons simpáticos</string>
   <string name="menu_insert_emoji">Inserir emojis</string>
   <string name="pref_title_sms_split_counter">Contador de separação</string>
@@ -159,7 +159,7 @@
   <string name="pref_summary_sms_split">Mensagens de texto serão divididas em mensagens de 160 caracteres</string>
   <string name="blacklist_title">Lista de bloqueio</string>
   <string name="blacklist_summary_disabled">Desativado</string>
-  <string name="blacklist_summary">Mensagens recebidas de números de telefone na lista negra serão bloqueadas</string>
+  <string name="blacklist_summary">Mensagens recebidas de números de telefone na lista de bloqueio serão bloqueadas</string>
   <string name="blacklist_notification">Bloqueada uma mensagem de %s</string>
   <string name="blacklist_notification_private_number">Bloqueada uma mensagem de um número privado</string>
   <string name="blacklist_notification_list_private">Privado</string>
